@@ -55,25 +55,33 @@
 
 					</tbody>
 				</table>
-				<div class="select2-container populate placeholder select2-dropdown-open select2-container-active" id="s2id_s2_country">
+				<div
+					class="select2-container populate placeholder select2-dropdown-open select2-container-active"
+					id="s2id_s2_country">
 					<div style="float: left;">
-						<a href="javascript:void(0)" class="select2-choice col-lg-12" tabindex="-1">
-							<span class="select2-chosen " id="select2-chosen-4">--전체--</span>
+						<div class="row form-group">
+							<div class="col-sm-12">
+								<select id="el2">		
+									<option>전체</option>							
+									<option>환자이름</option>
+									<option>MeeGo</option>
+								</select>
+							</div>
+						</div>
 
-							<abbr class="select2-search-choice-close"></abbr>
-							<span class="select2-arrow" role="presentation">
-								<b role="presentation"></b>
-							</span>
-						</a>
-						<label for="s2id_autogen4" class="select2-offscreen"></label>
-							<input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true"
-							role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4" disabled="">
+						<abbr class="select2-search-choice-close"></abbr> <span
+							class="select2-arrow" role="presentation"> <b
+							role="presentation"></b>
+						</span> </a> <label for="s2id_autogen4" class="select2-offscreen"></label> <input
+							class="select2-focusser select2-offscreen" type="text"
+							aria-haspopup="true" role="button"
+							aria-labelledby="select2-chosen-4" id="s2id_autogen4" disabled="">
 					</div>
 					<div style="float: left;">
 						<input class="form-control input-lg col-lg-1" type="text">
 					</div>
 					<div style="float: left;">
-						<input class="btn btn-default" type="button" value="Input">
+						<input class="btn btn-primary" type="button" value="조회">
 					</div>
 				</div>
 			</div>
@@ -238,7 +246,7 @@
 		// 	LoadDataTablesScripts(AllTables);
 		// Add Drag-n-Drop feature
 		$("#datatable-1 a").attr("href", "#");
-		$("#datatable-1 a").bind("click", function(){
+		$("#datatable-1 a").bind("click", function() {
 			LoadAjaxContent("ajax/charts_detail.html");
 		});
 		// 이 부분 나중에 모듈화하면 편할듯
