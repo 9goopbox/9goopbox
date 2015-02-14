@@ -1,6 +1,19 @@
 # Server Projects
 [Ss]ervers/
 RemoteSystemsTempFiles/
+MainProject_Workspace/Project/build
+
+
+#################
+# Maven
+####################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
 
 #################
 ## Eclipse
