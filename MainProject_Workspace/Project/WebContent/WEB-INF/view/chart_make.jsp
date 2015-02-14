@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar">
@@ -72,18 +81,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-
-// Run timepicker
-function DemoTimePicker(){
-	$('#input_time').timepicker({setDate: new Date()});
-}
-$(document).ready(function() {
-	// Create Wysiwig editor for textare
-	TinyMCEStart('#wysiwig_full', 'extreme');
-	
-	// Add drag-n-drop feature to boxes
-	WinMove();
-});
-</script>
+</body>
+</html>
