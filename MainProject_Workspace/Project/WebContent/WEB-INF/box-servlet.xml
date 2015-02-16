@@ -29,13 +29,7 @@
 		<constructor-arg ref="factoryBean" />
 	</bean>
 	
-<!-- 뷰 Controller -->	
-	<bean name="/index.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="index"/>
-	</bean>
-	<bean name="/page_register_v1.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="join"/>
-	</bean>
+
 	
 <!-- ViewResolver -->
 	<!-- CommonsMultipartResolver 는 파일업로드를 처리하기 위한 Resolver -->

@@ -1,6 +1,6 @@
 package vo;
 
-public class articleVO {
+public class ArticleVO {
 	private int id, ref_id;
 	private String writer_id, cont, kind,state_change;
 	public int getId() {

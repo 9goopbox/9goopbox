@@ -1,6 +1,6 @@
 package vo;
 
-public class employeeVO {
+public class EmployeeVO {
 	private int pay, dept_id, pos_id;
 	private String id, password, name, address, position;
 	public int getPay() {

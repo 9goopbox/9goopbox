@@ -4,14 +4,14 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.employeeVO;
+import vo.EmployeeVO;
 
 @Repository
 public class joinDao {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	public void addEmployee(employeeVO vo) {
+	public void addEmployee(EmployeeVO vo) {
 		ss.insert("joinemp.join", vo);
 	}
 	

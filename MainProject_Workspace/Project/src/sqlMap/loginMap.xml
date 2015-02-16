@@ -4,20 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="login">
 
-	<select id="loginok" resultType="empvo" parameterType="employeeVO">
+	<select id="loginok" resultType="empvo" parameterType="empvo">
 		select count(*) cnt from patient where id=#{id} and pwd=#{pwd}
 	</select>
 
-	<select id="seldoctor" resultType="empvo" parameterType="employeeVO">
+	<select id="seldoctor" resultType="empvo" parameterType="empvo">
 		select count(*) cnt from doctor where id=#{id}
 	</select>
 	
-	<select id="selnurse" resultType="empvo" parameterType="employeeVO">
+	<select id="selnurse" resultType="empvo" parameterType="empvo">
 		select count(*) cnt from nurse where id=#{id}
 	</select>
 	
 	<!--
-	<select id="selstaff" resultType="empvo" parameterType="employeeVO">
+	<select id="selstaff" resultType="empvo" parameterType="empvo">
 		select count(*) cnt from general_employee where id=#{id}
 	</select>
 	 -->

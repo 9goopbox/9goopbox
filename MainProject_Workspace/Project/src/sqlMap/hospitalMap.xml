@@ -40,30 +40,30 @@
 		</if>
 	</select>
 
-	<select id="shoplist" resultType="svo" parameterType="pageVO">
-		select
-		num,gname,writer,price,upfile,to_char(edate,'yyyy-mm-dd') edate
-		from (
-		select rownum r_num, a.* from
-		(
-		select * from myshop order by num desc
-		)
-		a
-		) where r_num between #{begin} and #{end}
+<!-- 	<select id="shoplist" resultType="svo" parameterType="pageVO"> -->
+<!-- 		select -->
+<!-- 		num,gname,writer,price,upfile,to_char(edate,'yyyy-mm-dd') edate -->
+<!-- 		from ( -->
+<!-- 		select rownum r_num, a.* from -->
+<!-- 		( -->
+<!-- 		select * from myshop order by num desc -->
+<!-- 		) -->
+<!-- 		a -->
+<!-- 		) where r_num between #{begin} and #{end} -->
 
-	</select>
-
-
-	<select id="shopcnt" resultType="int">
-		select count(*) cnt from myshop
-	</select>
+<!-- 	</select> -->
 
 
+<!-- 	<select id="shopcnt" resultType="int"> -->
+<!-- 		select count(*) cnt from myshop -->
+<!-- 	</select> -->
 
-	<select id="shopview" parameterType="int" resultType="svo">
-		select *
-		from myshop where num = #{num}
-	</select>
+
+
+<!-- 	<select id="shopview" parameterType="int" resultType="svo"> -->
+<!-- 		select * -->
+<!-- 		from myshop where num = #{num} -->
+<!-- 	</select> -->
 
 
 </mapper>

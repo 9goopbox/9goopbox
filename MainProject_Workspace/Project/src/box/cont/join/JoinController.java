@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import vo.employeeVO;
+import vo.EmployeeVO;
 import box.dao.joinDao;
 
 @Controller
@@ -17,7 +17,7 @@ public class JoinController {
 	
 	//회원가입 요청
 	@RequestMapping(value="addEmployee.box", method=RequestMethod.POST)
-	public ModelAndView addEmployee(employeeVO vo,
+	public ModelAndView addEmployee(EmployeeVO vo,
 			@RequestParam String post1, @RequestParam String post2) {
 		System.out.println(post1+"-"+post2);
 		StringBuffer postv = new StringBuffer();

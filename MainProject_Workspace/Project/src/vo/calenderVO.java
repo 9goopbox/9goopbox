@@ -1,6 +1,6 @@
 package vo;
 
-public class calenderVO {
+public class CalenderVO {
 	private String writer_id, title, cont, start_date, end_date;
 	private int id;
 	public String getWriter_id() {

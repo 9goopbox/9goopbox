@@ -1,6 +1,6 @@
 package vo;
 
-public class chartVO {
+public class ChartVO {
 	private int id,dept_id,patient_id,treatment_id,cost;
 	private String doctor_id,sub,cont;
 	public int getId() {
