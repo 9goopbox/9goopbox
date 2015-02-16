@@ -12,9 +12,9 @@
 <context:component-scan base-package="box"/>
 
 <!-- DataSource : JNDI방식을 스프링에서 제공 : JndiObjectFactoryBean -->
-<!-- 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
-<!-- 		<property name="jndiName" value="java:comp/env/jdbc/myora"/> -->
-<!-- 	</bean> -->
+ 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+ 		<property name="jndiName" value="java:comp/env/jdbc/myora"/>
+ 	</bean>
 	
 <!-- MyBatis설정 (SqlSessionFactoryBean) : config.xml, mapper.xml 등을 로드한 SqlSessionFactory를 
 		관리해주는 빈을 생성한다. -->
@@ -32,6 +32,9 @@
 <!-- 뷰 Controller -->	
 	<bean name="/index.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="index"/>
+	</bean>
+	<bean name="/page_register_v1.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="join"/>
 	</bean>
 	
 <!-- ViewResolver -->
