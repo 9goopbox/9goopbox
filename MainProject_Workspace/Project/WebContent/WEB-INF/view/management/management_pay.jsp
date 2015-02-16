@@ -1,3 +1,5 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -61,7 +63,7 @@
 								id="datatable-1">
 
 								<thead>
-								<p class="lead">퇴직금</p>
+									<p class="lead">퇴직금</p>
 									<tr>
 										<th>사번</th>
 										<th>성명</th>
