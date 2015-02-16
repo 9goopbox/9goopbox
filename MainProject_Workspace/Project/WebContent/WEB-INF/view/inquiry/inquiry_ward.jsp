@@ -1,3 +1,5 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -5,7 +7,7 @@
 		<ol class="breadcrumb pull-left">
 			<li><a href="#">Dashboard</a></li>
 			<li><a href="#">차트</a></li>
-			<li><a href="#">외래환자 조회</a></li>
+			<li><a href="#">병동환자 조회</a></li>
 		</ol>
 	</div>
 </div>
@@ -14,7 +16,7 @@
 		<div class="box">
 			<div class="box-header">
 				<div class="box-name">
-					<i class="fa fa-user"></i> <span>외래환자 조회</span>
+					<i class="fa fa-user"></i> <span>병동환자 조회</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -34,7 +36,7 @@
 				<div style="float: left;">
 					<input class="form-control col-lg-1" type="text">
 				</div>
-				<div style="float: left;">
+				<div style="float: left;">					
 					<button type="submit" class="btn btn-primary btn-xs">조회</button>
 				</div>
 			</div>
@@ -47,7 +49,7 @@
 		<div class="box">
 			<div class="box-header">
 				<div class="box-name">
-					<i class="fa fa-user"></i> <span>외래환자 조회</span>
+					<i class="fa fa-user"></i> <span>병동환자 조회</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -166,3 +168,4 @@
 		WinMove();
 	});
 </script>
+    

@@ -60,12 +60,6 @@
 
 
 
-
-
-
-
-
-
 	<select id="shopview" parameterType="int" resultType="svo">
 		select *
 		from myshop where num = #{num}
