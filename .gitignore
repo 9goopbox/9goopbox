@@ -2,7 +2,7 @@
 [Ss]ervers/
 RemoteSystemsTempFiles/
 MainProject_Workspace/Project/build
-
+MainProject_Workspace/Project/target
 
 #################
 # Maven

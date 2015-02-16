@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myhospital">
+	<insert id="chartadd" parameterType="charvo">
+		insert into chart
+		values(myhospital_seq.nextVal,
+		#{id},#{dept_id},#{patient_id},#{doctor_id},#{treatment_id},
+		#{sub},#{cont},#{cost}
+		)
+		<!-- 파라미터로 환자 번호를 받아서 처리 -->
+	</insert>
+
+	<select id="chartSearch" resultType="charvo" parameterType="searchVO">
+		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
+		select id,dept_id,patient_id,doctor_id,treatment_id,sub,cont,cost
+		from chart
+		<if test="searchType != null">
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						patient_id like '%'|| #{searchValue} || '%'
+					</when>
+					<when test="searchType == 2">
+						doctor_id like '%'|| #{searchValue} || '%'
+					</when>
+					<!-- 응용 : 제시된 가격보다 비교연산을 해서 처리 할 수 있다. -->
+					<when test="searchType == 3">
+						treatment_id like '%'|| #{searchValue} || '%'
+					</when>
+					<when test="searchType == 4">
+						id like '%'|| #{searchValue} || '%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+			</where>
+		</if>
+	</select>
+
+	<select id="shoplist" resultType="svo" parameterType="pageVO">
+		select
+		num,gname,writer,price,upfile,to_char(edate,'yyyy-mm-dd') edate
+		from (
+		select rownum r_num, a.* from
+		(
+		select * from myshop order by num desc
+		)
+		a
+		) where r_num between #{begin} and #{end}
+
+	</select>
+
+
+	<select id="shopcnt" resultType="int">
+		select count(*) cnt from myshop
+	</select>
+
+
+
+
+
+
+
+
+
+	<select id="shopview" parameterType="int" resultType="svo">
+		select *
+		from myshop where num = #{num}
+	</select>
+
+
+</mapper>
+  

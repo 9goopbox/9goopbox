@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-	<typeAliases>
-		<typeAlias type="vo.articleVO" alias="artivo" />
-		<typeAlias type="vo.calenderVO" alias="calVO"/>
-		<typeAlias type="vo.employeeVO" alias="empVO"/>
-		<typeAlias type="vo.patientVO" alias="patVO"/>
-	</typeAliases>
-</configuration>

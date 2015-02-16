@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mapper namespace="login">
-
-	<select id="loginok" resultType="empvo" parameterType="emplyoeeVO">
-		select count(*) cnt from  patient where id=#{id} and pwd=#{pwd}
-	</select>
-
-</mapper>
