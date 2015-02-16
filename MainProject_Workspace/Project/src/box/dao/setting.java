@@ -11,6 +11,7 @@ public class setting {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
+	//password 변경
 	public void pwdUpdate(employeeVO vo) {
 		System.out.println("password : "+vo.getPassword());
 		ss.update("setting.pwdupdate", vo);

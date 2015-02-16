@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="vo.articleVO" alias="artvo" />
-		<typeAlias type="vo.calenderVO" alias="calvo"/>
-		<typeAlias type="vo.employeeVO" alias="empvo"/>
-		<typeAlias type="vo.patientVO" alias="patvo"/>
-		<typeAlias type="vo.chartVO" alias="charvo"/>
-		<typeAlias type="vo.SearchVO" alias="searchVO"/>
+		<typeAlias type="vo.articleVO" alias="artivo" />
+		<typeAlias type="vo.calenderVO" alias="calVO"/>
+		<typeAlias type="vo.employeeVO" alias="empVO"/>
+		<typeAlias type="vo.patientVO" alias="patVO"/>
 	</typeAliases>
-<!-- 	<mappers> -->
-<!-- 		<mapper resource=""/> -->
-<!-- 	</mappers> -->
 </configuration>
