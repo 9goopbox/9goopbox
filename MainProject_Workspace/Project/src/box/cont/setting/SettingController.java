@@ -17,6 +17,7 @@ public class SettingController {
 	@RequestMapping(value="/pwdupdate.box", method=RequestMethod.POST)
 	public ModelAndView pwdup(EmployeeVO vo) {
 		System.out.println("pwd : "+vo.getPassword());
+		
 		return null;
 	}
 }

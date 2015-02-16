@@ -12,7 +12,4 @@
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 	</typeAliases>
-<!-- 	<mappers> -->
-<!-- 		<mapper resource=""/> -->
-<!-- 	</mappers> -->
 </configuration>
