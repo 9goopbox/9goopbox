@@ -150,7 +150,7 @@
 			<ul class="nav main-menu">
 				<li>
 					<a href="ajax/dashboard.html" class="ajax-link">
-						<i class="fa fa-hospital-o"></i>
+						<i class="fa fa-dashboard"></i>
 						<span class="hidden-xs">Dashboard</span>
 					</a>
 				</li>
@@ -192,43 +192,10 @@
 						 <span class="hidden-xs">전자결재</span>
 					</a>
 				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-medkit"></i>
-						 <span class="hidden-xs">재고관리</span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/inventory_list.html">조회</a></li>
-						<li><a class="ajax-link" href="ajax/inventory_add.html">발주</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-users"></i>
-						 <span class="hidden-xs">인사 관리</span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/management_staff.html">직원 관리</a></li>
-						<li><a class="ajax-link" href="ajax/management_retire.html">퇴사 관리</a></li>
-						<li><a class="ajax-link" href="ajax/management_pay.html">급여 관리</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-cogs"></i>
-						 <span class="hidden-xs">시스템관리자</span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/join_approval.html">가입 승인</a></li>
-						<li><a class="ajax-link" href="ajax/staff_management.html">부서생성</a></li>
-						<li><a class="ajax-link" href="ajax/calendar.html">부서삭제</a></li>
-					</ul>
-				</li>
+				
 				<li>
 					 <a class="ajax-link" href="ajax/settings.html">
-						 <i class="fa fa-cog"></i>
+						 <i class="fa fa-cogs"></i>
 						 <span class="hidden-xs">설정</span>
 					</a>
 				</li>
