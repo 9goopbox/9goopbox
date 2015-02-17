@@ -4,7 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.EmployeeVOo;
+import vo.EmployeeVO;
 
 @Repository
 public class loginDao {
@@ -12,15 +12,15 @@ public class loginDao {
 	@Autowired
 	private SqlSessionTemplate ss;
 
-	public int login(EmployeeVOo vo) {
+	public int login(EmployeeVO vo) {
 		return ss.selectOne("login.loginok", vo);
 	}
 	
-	public int seldoctor(EmployeeVOo vo) {
+	public int seldoctor(EmployeeVO vo) {
 		return ss.selectOne("login.seldoctor", vo);
 	}
 	
-	public int selnurse(EmployeeVOo vo) {
+	public int selnurse(EmployeeVO vo) {
 		return ss.selectOne("login.selnurse", vo);
 	}
 	
