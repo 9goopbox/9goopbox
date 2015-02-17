@@ -29,29 +29,26 @@
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form" method="post" action="loginok.box" id="loginF">
+		<form role="form">
 			<fieldset>
-				<h2>Please Sign In</h2>
+				<h1>9goopBox</h1><br/>
+				<h3>활기찬 하루 되세요!^^</h3>
 				<hr class="colorgraph">
+								
 				<div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+                    <input type="email" name="id" id="id" class="form-control input-lg" placeholder="아이디">
 				</div>
 				<div class="form-group">
-                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
-				</div>
-				<span class="button-checkbox">
-					<button type="button" class="btn" data-color="info">Remember Me</button>
-                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-					<a href="" class="btn btn-link pull-right">Forgot Password?</a>
-				</span>
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="비밀번호">
+				</div>				
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-					<a href="user_page.html" class="btn btn-lg btn-success btn-block">Sign in</a>
+					<a href="user_page.html" class="btn btn-lg btn-success btn-block">로그인</a>
                         
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<a href="ajax/page_register_v1.html" class="btn btn-lg btn-primary btn-block">Register</a>
+						<a href="ajax/page_register_v1.html" class="btn btn-lg btn-primary btn-block">회원가입</a>
 					</div>
 				</div>
 			</fieldset>
@@ -161,3 +158,4 @@ $(function(){
 <script src="js/devoops.js"></script>
 </body>
 </html>
+
