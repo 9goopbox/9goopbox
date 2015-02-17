@@ -26,7 +26,7 @@
 						<img class="img-rounded"
 							src="http://i.forbesimg.com/media/lists/people/michael-bloomberg_50x50.jpg"
 							alt="" height="120px" width="95px">
-							</a>									
+							</a>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
@@ -44,13 +44,13 @@
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="address"
 								placeholder="주소">
-						</div>	
-							<div class="col-sm-8" style="float:right">						
+						</div>
+							<div class="col-sm-8" style="float:right">
 							<br/><button type="submit" class="btn btn-primary btn-label-left">
 								<span><i class="fa fa-rotate-left"></i></span> 수정
 							</button>
-						</div>					
-					</div>					
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -73,7 +73,7 @@
 								placeholder="비밀번호 입력">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="ui-spinner" class="col-sm-5 control-label">다시입력</label>
 						<div class="col-sm-5">

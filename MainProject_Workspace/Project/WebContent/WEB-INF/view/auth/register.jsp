@@ -95,7 +95,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="form-group">
@@ -238,7 +238,6 @@
 		87.5%, #62c2e4 87.5%, #62c2e4);
 }
 </style>
-
 	<script>
 		$(function() {
 			$('.button-checkbox')
@@ -354,7 +353,7 @@
 					});
 		});
 	</script>
-
+  
 <style>
 	.cursor_test {
 		cursor: pointer;
