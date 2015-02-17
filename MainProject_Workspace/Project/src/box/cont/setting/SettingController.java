@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import box.dao.employeeDao;
-import vo.EmployeeVO;
+import vo.EmployeeVOo;
 
 @Controller
 public class SettingController {
@@ -15,7 +15,7 @@ public class SettingController {
 	private employeeDao dao;
 	
 	@RequestMapping(value="/pwdupdate.box", method=RequestMethod.POST)
-	public ModelAndView pwdup(EmployeeVO vo) {
+	public ModelAndView pwdup(EmployeeVOo vo) {
 		System.out.println("pwd : "+vo.getPassword());
 		
 		return null;

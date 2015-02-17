@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import vo.EmployeeVO;
+import vo.EmployeeVOo;
 import box.dao.loginDao;
 
 @Controller
@@ -17,7 +17,7 @@ public class LoginController {
 	private loginDao dao;
 	
 	@RequestMapping(value="/loginok.box", method=RequestMethod.POST)
-	public ModelAndView loginok(EmployeeVO vo, HttpSession session) {
+	public ModelAndView loginok(EmployeeVOo vo, HttpSession session) {
 		int res = dao.login(vo);
 		ModelAndView mav = new ModelAndView();
 		if(res>0) {

@@ -1,6 +1,6 @@
 package vo;
 
-public class PatientVO {
+public class PatientVOo {
 	private int id, age;
 	private String name, sex, phone, doctor_id, familydis;
 	public int getId() {
