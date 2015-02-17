@@ -20,7 +20,6 @@ public class AuthChecker {
 			if (logConsole)
 				System.out.println("인증 정보 : " + mySession);
 		}
-
 	}
 
 }
