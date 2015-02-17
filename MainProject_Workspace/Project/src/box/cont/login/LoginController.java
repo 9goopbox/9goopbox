@@ -18,8 +18,15 @@ public class LoginController {
 	
 	@RequestMapping(value="/loginok.box", method=RequestMethod.POST)
 	public ModelAndView loginok(EmployeeVO vo, HttpSession session) {
-		int res = dao.login(vo);
+		
 		ModelAndView mav = new ModelAndView();
+		
+		// 임시
+		if (true) {
+			mav.setViewName("redirect:/user_page.box");
+			return mav;
+		}
+		int res = dao.login(vo);
 		if(res>0) {
 			int doc = dao.seldoctor(vo);
 			int nur = dao.selnurse(vo);
