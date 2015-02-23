@@ -161,7 +161,7 @@
 						<span class="hidden-xs">타임라인</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/timeline_newsfeed.html">뉴스피드</a></li>
+						<li><a class="ajax-link" href="../timeline/timeline_newsfeed.jsp">뉴스피드</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">

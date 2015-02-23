@@ -1,5 +1,10 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>    
+
+<tiles:insertDefinition name="chartsTemplate">
+	<tiles:putAttribute name="body">
+	
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar">
@@ -85,7 +90,8 @@
 		</div>
 	</div>
 </div>
-
+</tiles:putAttribute>
+</tiles:insertDefinition>
 <script type="text/javascript">
 
 // Run timepicker

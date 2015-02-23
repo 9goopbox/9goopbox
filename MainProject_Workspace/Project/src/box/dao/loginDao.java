@@ -4,10 +4,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.EmployeeVO;
+import box.vo.EmployeeVO;
 
 @Repository
-public class loginDao {
+public class LoginDao {
 
 	@Autowired
 	private SqlSessionTemplate ss;

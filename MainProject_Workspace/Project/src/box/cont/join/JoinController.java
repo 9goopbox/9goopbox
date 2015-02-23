@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import vo.EmployeeVO;
-import box.dao.joinDao;
+import box.dao.JoinDao;
+import box.vo.EmployeeVO;
 
 @Controller
 public class JoinController {
 	@Autowired
-	private joinDao dao;
+	private JoinDao dao;
 	
 	//회원가입 요청
 	@RequestMapping(value="addEmployee.box", method=RequestMethod.POST)

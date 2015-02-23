@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="vo.ArticleVO" alias="artvo" />
-		<typeAlias type="vo.CalenderVO" alias="calvo"/>
-		<typeAlias type="vo.EmployeeVO" alias="empvo"/>
-		<typeAlias type="vo.PatientVO" alias="patvo"/>
-		<typeAlias type="vo.ChartVO" alias="charvo"/>
-		<typeAlias type="vo.SearchVO" alias="searchvo"/>
-		<typeAlias type="vo.PageVO" alias="pagevo"/>
+		<typeAlias type="box.vo.ArticleVO" alias="artvo" />
+		<typeAlias type="box.vo.CalenderVO" alias="calvo"/>
+		<typeAlias type="box.vo.EmployeeVO" alias="empvo"/>
+		<typeAlias type="box.vo.PatientVO" alias="patvo"/>
+		<typeAlias type="box.vo.ChartVO" alias="charvo"/>
+		<typeAlias type="box.vo.SearchVO" alias="searchvo"/>
+		<typeAlias type="box.vo.PageVO" alias="pagevo"/>
 	</typeAliases>
 </configuration>

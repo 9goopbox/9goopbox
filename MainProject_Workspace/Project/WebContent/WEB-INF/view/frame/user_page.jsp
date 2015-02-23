@@ -135,7 +135,7 @@
 							<i class="fa fa-list-alt"></i> <span class="hidden-xs">전자차트</span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a class="ajax-link" href="ajax/charts_make.html">차트작성</a></li>
+							<li><a class="ajax-link" href="view/charts_make.html">차트작성</a></li>
 							<li><a class="ajax-link" href="ajax/charts_inquiry.html">차트조회</a></li>
 							<li><a class="ajax-link" href="ajax/inquiry_ward.html">병동환자조회</a></li>
 							<li><a class="ajax-link" href="ajax/inquiry_outpatient.html">외래환자조회</a></li>
@@ -144,7 +144,7 @@
 							<i class="fa fa-thumbs-up"></i> <span class="hidden-xs">타임라인</span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a class="ajax-link" href="ajax/timeline_newsfeed.html">뉴스피드</a></li>
+							<li><a class="ajax-link" href="../timeline/timeline_newsfeed.jsp">뉴스피드</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle">
 							<i class="fa fa-calendar"></i> <span class="hidden-xs">일정관리</span>
@@ -189,11 +189,12 @@
 							<li><a class="ajax-link" href="ajax/staff_management.html">부서생성</a></li>
 							<li><a class="ajax-link" href="ajax/calendar.html">부서삭제</a></li>
 						</ul></li>
-					<li><a class="ajax-link" href="ajax/settings.html"> <i
-							class="fa fa-cog"></i> <span class="hidden-xs">설정</span>
+					<li><a class="ajax-link" href="view/common/settings.jsp">
+						<i class="fa fa-cog"></i> <span class="hidden-xs">설정</span>
 					</a></li>
 				</ul>
 			</div>
+			
 			<!--Start Content-->
 			<div id="content" class="col-xs-12 col-sm-10">
 				<div id="about">

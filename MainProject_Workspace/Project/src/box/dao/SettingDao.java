@@ -7,16 +7,13 @@ import org.springframework.stereotype.Repository;
 import box.vo.EmployeeVO;
 
 @Repository
-public class JoinDao {
+public class SettingDao {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	public void addEmployee(EmployeeVO vo) {
-		ss.insert("joinemp.join", vo);
+	//password 변경
+	public void pwdUpdate(EmployeeVO vo) {
+		System.out.println("password : "+vo.getPassword());
+		ss.update("setting.pwdupdate", vo);
 	}
-	
-	public int idChk(String id) {
-		return ss.selectOne("joinemp.idChk", id);
-	}
-	
 }
