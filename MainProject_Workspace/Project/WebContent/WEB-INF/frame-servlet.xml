@@ -30,4 +30,9 @@
 		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="frame/staff_page" />
 	</bean>
+
+	<bean name="/dashboard.box"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="common/dashboard" />
+	</bean>
 </beans>
