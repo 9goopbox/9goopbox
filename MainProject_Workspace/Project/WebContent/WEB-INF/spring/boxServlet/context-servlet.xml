@@ -10,18 +10,9 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="box" />
 
-	<bean name="/test.box"
-		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="test"></property>
-	</bean>
-	
-	<bean name="/index.box"
-		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="index"></property>
-	</bean>
 	
 	<!-- mvc auto reference resource (css, image, javascript) -->
-	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="/resources/" mapping="/res/**" />
 
 
 	<bean
