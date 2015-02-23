@@ -10,4 +10,8 @@
 		<put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp"/>
 	</definition>
 	
+	<definition name="frameTemplate" template="/WEB-INF/template/frame/template.jsp">
+		<put-attribute name="sidebar-left" value="/WEB-INF/template/frame/sidebar-left.jsp"/>
+	</definition>
+	
 </tiles-definitions>
