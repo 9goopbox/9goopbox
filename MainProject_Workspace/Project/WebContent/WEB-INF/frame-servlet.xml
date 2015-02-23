@@ -16,19 +16,19 @@
 
 	<bean name="/user_page.box"
 		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="frame/user_page" />
+		<property name="viewName" value="redirect:/frame/user_page.html" />
 	</bean>
 	<bean name="/nurse_page.box"
 		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="frame/nurse_page" />
+		<property name="viewName" value="redirect:/frame/nurse_page" />
 	</bean>
 	<bean name="/doctor_page.box"
 		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="frame/doctor_page" />
+		<property name="viewName" value="redirect:/frame/doctor_page" />
 	</bean>
 	<bean name="/staff_page.box"
 		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="frame/staff_page" />
+		<property name="viewName" value="redirect:/frame/staff_page" />
 	</bean>
 
 	<bean name="/dashboard.box"
