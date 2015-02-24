@@ -9,11 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import vo.ChartDisplayVO;
 import box.dao.ChartDao;
+import box.util.PageVoFactory;
 
 @Controller
 public class ChartsInquiryController {
 	@Autowired
 	private ChartDao dao;
+	@Autowired
+	private PageVoFactory pageVoFactory;
 	
 	@RequestMapping(value="/charts_inquiry.box")
 	public ModelAndView charts_detail() {
