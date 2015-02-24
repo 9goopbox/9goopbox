@@ -5,7 +5,7 @@
 <mapper namespace="joinemp">
 
 	<insert id="join" parameterType="empvo">
-  		insert into employee values(employee_seq.nextVal,#{id},#{pwd},#{name},#{tel},#{post},#{addr1},#{addr2},sysdate)
+  		insert into employee values(employee_seq.nextVal,#{id},#{password},#{name},#{tel},#{post},#{addr1},#{addr2},sysdate)
   	</insert>
   	
   	<select id="idChk" resultType="int" parameterType="String">

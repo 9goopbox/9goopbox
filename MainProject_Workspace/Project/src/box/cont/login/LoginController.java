@@ -27,8 +27,8 @@ public class LoginController {
 //			return mav;
 //		}
 		
-//		int res = dao.login(vo);
-//		if(res>0) {
+		int res = dao.login(vo);
+		if(res>0) {
 		
 			int doc = dao.seldoctor(vo);
 			int nur = dao.selnurse(vo);
@@ -69,7 +69,13 @@ public class LoginController {
 				mav.addObject("err_msg", "로그인 실패");
 				mav.addObject("status", "LoginError");
 			}
-		
+		}else{
+			//error페이지
+			mav.setViewName("login_false");
+			//error페이지에 메시지 전달
+			mav.addObject("err_msg", "로그인 실패");
+			mav.addObject("status", "LoginError");
+		}
 		return mav;
 	}
 	
