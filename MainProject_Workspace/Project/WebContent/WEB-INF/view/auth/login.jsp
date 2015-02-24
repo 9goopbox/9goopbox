@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>토치박스</title>
+<title>9급박스</title>
 <meta name="description" content="description">
 <meta name="author" content="DevOOPS">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,7 +84,7 @@
 
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6">
-								<a href="ajax/page_register_v1.html"
+								<a href="./register.box"
 									class="btn btn-lg btn-primary btn-block">회원가입</a>
 							</div>
 						</div>

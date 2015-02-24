@@ -5,18 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import vo.EmployeeVO;
+import vo.RegisterVO;
 
 @Repository
 public class JoinDao {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
+	//회원가입 구현
 	public void addEmployee(EmployeeVO vo) {
-		ss.insert("joinemp.join", vo);
+		ss.insert("register.join", vo);
 	}
-	
-	public int idChk(String id) {
-		return ss.selectOne("joinemp.idChk", id);
-	}
-	
+		
+		
+	// 아이디 중복 확인
+		public int idChk(String id){
+			return ss.selectOne("register.idChk", id);
+		}	
 }

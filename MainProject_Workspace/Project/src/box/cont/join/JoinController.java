@@ -16,26 +16,28 @@ public class JoinController {
 	private JoinDao dao;
 	
 	//회원가입 요청
-	@RequestMapping(value="addEmployee.box", method=RequestMethod.POST)
+	@RequestMapping(value="/addEmployee.box", method=RequestMethod.POST)
 	public ModelAndView addEmployee(EmployeeVO vo,
 			@RequestParam String post1, @RequestParam String post2) {
 		System.out.println(post1+"-"+post2);
 		StringBuffer postv = new StringBuffer();
 		postv.append(post1).append("-").append(post2);
-		vo.setAddress(postv.toString());
+		vo.setAddr1(postv.toString());
 		
 		dao.addEmployee(vo);
-		ModelAndView mav = new ModelAndView("index.box");
+		ModelAndView mav = new ModelAndView("redirect:/index.box");
 		mav.addObject("name", vo.getName());
 		return mav;
 	}
 	
-	//아이디 중복 확인
-	@RequestMapping(value="/idcheck.box")
-	public ModelAndView idChk(String id) {
-		int res = dao.idChk(id);
-		ModelAndView mav = new ModelAndView("idchk");
-		mav.addObject("cnt", res);
-		return mav;
-	}
+	// 아이디 중복확인!
+		@RequestMapping(value="/idcheck.kosta")
+		public ModelAndView idChk(String id){
+			int res = dao.idChk(id);
+			ModelAndView mav = new ModelAndView("idchk");
+			mav.addObject("cnt", res);
+			return mav;
+		}
+		
+		
 }
