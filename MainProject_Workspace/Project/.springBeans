@@ -9,8 +9,18 @@
 	<configs>
 		<config>WebContent/WEB-INF/box-servlet.xml</config>
 		<config>WebContent/WEB-INF/frame-servlet.xml</config>
+		<config>WebContent/WEB-INF/charts-servlet.xml</config>
+		<config>WebContent/WEB-INF/inventory-servlet.xml</config>
+		<config>WebContent/WEB-INF/management-servlet.xml</config>
+		<config>WebContent/WEB-INF/timeline-servlet.xml</config>
+		<config>WebContent/WEB-INF/schedule-servlet.xml</config>
+		<config>WebContent/WEB-INF/admin-servlet.xml</config>
+		<config>WebContent/WEB-INF/auth-servlet.xml</config>
+		<config>WebContent/WEB-INF/e_approval-servlet.xml</config>
+		<config>WebContent/WEB-INF/inqury-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>WebContent/WEB-INF/common-servlet.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

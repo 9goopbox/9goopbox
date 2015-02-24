@@ -3,17 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!-- 뷰 Controller -->	
+<!-- Common 뷰 Controller -->	
 	<bean name="/settings.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="common/settings"/>
 	</bean>
 	<bean name="/dashboard.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="common/dashboard"/>
 	</bean>
-	
-	
-	<bean name="/charts_make.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="charts/charts_make"/>
-	</bean>
-	
+
 </beans>
