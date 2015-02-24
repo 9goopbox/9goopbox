@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import vo.ChartDisplayVO;
+import vo.PageVO;
 import box.dao.ChartDao;
 import box.util.PageVoFactory;
 
@@ -23,7 +24,11 @@ public class ChartsInquiryController {
 		ModelAndView mav = new ModelAndView("charts/charts_inquiry");
 		
 		List<ChartDisplayVO> list = dao.getList();
+		
+		PageVO pageInfo = pageVoFactory.makePageVO(null, list.size());
+		
 		mav.addObject("chartDisplayList", list);
+		mav.addObject("pageInfo", pageInfo);
 		
 		return mav;
 	}
