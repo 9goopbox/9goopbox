@@ -26,11 +26,7 @@
 
 <!--Start Dashboard 2-->
 <div class="row-fluid">
-
-
 	<div id="dashboard_tabs" class="col-xs-12 col-sm-12">
-	
-
 		<div class="box">
 			<div class="box-header">
 				<div class="box-name">
