@@ -102,13 +102,7 @@
 </div>
 
 <script type="text/javascript">
-	// Run Datables plugin and create 3 variants of settings
-	// function AllTables(){
-	// 	TestTable1();
-	// 	TestTable2();
-	// 	TestTable3();
-	// 	LoadSelect2Script(MakeSelect2);
-	// }
+
 	function MakeSelect2() {
 		// 	$('select').select2();
 		// 	$('.dataTables_filter').each(function(){
@@ -117,7 +111,17 @@
 	}
 	$(document).ready(function() {
 		// Load Datatables and run plugin on tables
-		// 	LoadDataTablesScripts(AllTables);
+		
+		$('#datatable-1').dataTable( {
+			"aaSorting": [[ 0, "asc" ]],
+			"sDom": "<'box-content'<'col-sm-6'f><'col-sm-6 text-right'l><'clearfix'>>rt<'box-content'<'col-sm-6'i><'col-sm-6 text-right'p><'clearfix'>>",
+			"sPaginationType": "bootstrap",
+			"oLanguage": {
+				"sSearch": "",
+				"sLengthMenu": '_MENU_'
+			}
+		});
+		
 		// Add Drag-n-Drop feature
 		$("#datatable-1 a").attr("href", "#");
 		$("#datatable-1 a").bind("click", function() {
