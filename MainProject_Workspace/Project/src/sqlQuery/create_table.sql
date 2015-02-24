@@ -156,23 +156,23 @@ ALTER TABLE items
 
 /* 일반직원 */
 CREATE TABLE general_employee (
-	ID VARCHAR2(20) NOT NULL /* 직원 ID */
+	id VARCHAR2(20) NOT NULL /* 직원 ID */
 );
 
 COMMENT ON TABLE general_employee IS '일반직원';
 
-COMMENT ON COLUMN general_employee.ID IS '직원 ID';
+COMMENT ON COLUMN general_employee.id IS '직원 ID';
 
 CREATE UNIQUE INDEX PK_general_employee
 	ON general_employee (
-		ID ASC
+		id ASC
 	);
 
 ALTER TABLE general_employee
 	ADD
 		CONSTRAINT PK_general_employee
 		PRIMARY KEY (
-			ID
+			id
 		);
 
 /* 직원 */
@@ -1003,7 +1003,7 @@ ALTER TABLE items
 			manager
 		)
 		REFERENCES general_employee (
-			ID
+			id
 		);
 
 ALTER TABLE items
@@ -1013,14 +1013,14 @@ ALTER TABLE items
 			submitter
 		)
 		REFERENCES general_employee (
-			ID
+			id
 		);
 
 ALTER TABLE general_employee
 	ADD
 		CONSTRAINT FK_employee_TO_general_empl
 		FOREIGN KEY (
-			ID
+			id
 		)
 		REFERENCES employee (
 			id
@@ -1364,6 +1364,6 @@ ALTER TABLE nurse
 		FOREIGN KEY (
 			id
 		)
-		REFERENCES d9goopbox.employee (
+		REFERENCES employee (
 			id
 		);
