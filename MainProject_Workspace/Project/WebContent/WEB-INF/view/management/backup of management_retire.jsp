@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -56,59 +56,67 @@
 
 					</tbody>
 				</table>
+				<div
+					class="select2-container populate placeholder select2-dropdown-open select2-container-active"
+					id="s2id_s2_country">
+					<div style="float: left;">
+						<a href="javascript:void(0)" class="select2-choice col-lg-12"
+							tabindex="-1"> <span class="select2-chosen "
+							id="select2-chosen-4">-- 퇴사관리 --</span> 
+							<abbr class="select2-search-choice-close"></abbr> 
+							<span class="select2-arrow" role="presentation"> 
+							<b role="presentation"></b>
+						</span></a> <label for="s2id_autogen4" class="select2-offscreen"></label> 
+						<input class="select2-focusser select2-offscreen" type="text"
+							aria-haspopup="true" role="button"
+							aria-labelledby="select2-chosen-4" id="s2id_autogen4" disabled="">
+					</div>
+					<div style="float: left;">
+						<input class="form-control input-lg col-lg-1" type="text">
+					</div>
+					<div style="float: left;">
+						<input class="btn btn-primary" type="button" value="조회">
+					</div>
 
-				<div class="form-group">
-					<select style="float: left;">
-						<option class="form-group">&nbsp;&nbsp;&nbsp;=이 름=</option>
-						<option class="form-group">&nbsp;&nbsp;&nbsp;=부 서=</option>
-						<option class="form-group">&nbsp;&nbsp;&nbsp;=직 급=</option>
-					</select>
-					<div style="float: left;">
-						<input class="form-control col-lg-1" type="text">
-					</div>
-					<div style="float: left;">
-						<button type="submit" class="btn btn-primary btn-xs">조회</button>
-					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="box-content no-padding">
-			<table
-				class="table table-bordered table-striped table-hover table-heading table-datatable"
-				id="datatable-1">
-				<thead>
-					<tr>
-						<th>직원 이름</th>
-						<th>나이</th>
-						<th>부서</th>
-						<th>직급</th>
-						<th>상세보기</th>
-						<th>퇴사일</th>
-						<th>다운로드</th>
+			<div class="box-content no-padding">
+				<table
+					class="table table-bordered table-striped table-hover table-heading table-datatable"
+					id="datatable-1">
+					<thead>
+						<tr>
+							<th>직원 이름</th>
+							<th>나이</th>
+							<th>부서</th>
+							<th>직급</th>
+							<th>상세보기</th>
+							<th>퇴사일</th>
+							<th>다운로드</th>
 
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Start: list_row -->
-					<tr>
-						<td>이훈</td>
-						<td>24</td>
-						<td>원무부</td>
-						<td>사원</td>
-						<td><a href="">상세보기</a></td>
-						<td>15-02-28</td>
-						<td><input type="button" class="col-lg-5" value="문서내려받기"></td>
-					</tr>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Start: list_row -->
+						<tr>
+							<td>이훈</td>
+							<td>24</td>
+							<td>원무부</td>
+							<td>사원</td>
+							<td><a href="">상세보기</a></td>
+							<td>15-02-28</td>
+							<td><input type="button" class="col-lg-5" value="문서내려받기"></td>
+						</tr>
 
 
-					<!-- End: list_row -->
-				</tbody>
+						<!-- End: list_row -->
+					</tbody>
 
-			</table>
+				</table>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 <script type="text/javascript">

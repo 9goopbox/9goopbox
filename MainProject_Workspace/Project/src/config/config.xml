@@ -11,5 +11,6 @@
 		<typeAlias type="vo.ChartVO" alias="charvo"/>
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
+		<typeAlias type="vo.DeptVO" alias="deptvo"/>
 	</typeAliases>
 </configuration>
