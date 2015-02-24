@@ -58,29 +58,29 @@ ALTER TABLE ward_patient
 
 /* 부서 */
 CREATE TABLE department (
-	dept_id INTEGER NOT NULL, /* 부서ID */
-	dept_up_id INTEGER, /* 상위부서ID */
-	dept_name VARCHAR2(30) NOT NULL /* 부서이름 */
+	id INTEGER NOT NULL, /* 부서ID */
+	name VARCHAR2(30) NOT NULL, /* 부서이름 */
+	dept_up_id INTEGER /* 상위부서ID */
 );
 
 COMMENT ON TABLE department IS '부서';
 
-COMMENT ON COLUMN department.dept_id IS '부서ID';
+COMMENT ON COLUMN department.id IS '부서ID';
+
+COMMENT ON COLUMN department.name IS '부서이름';
 
 COMMENT ON COLUMN department.dept_up_id IS '상위부서ID';
 
-COMMENT ON COLUMN department.dept_name IS '부서이름';
-
 CREATE UNIQUE INDEX PK_department
 	ON department (
-		dept_id ASC
+		id ASC
 	);
 
 ALTER TABLE department
 	ADD
 		CONSTRAINT PK_department
 		PRIMARY KEY (
-			dept_id
+			id
 		);
 
 /* 외래환자 */
@@ -281,6 +281,7 @@ CREATE TABLE chart (
 	doctor_id VARCHAR2(20) NOT NULL, /* 진료의사 */
 	treatment_id INTEGER NOT NULL, /* 진료 ID */
 	sub VARCHAR2(80) NOT NULL, /* 제목 */
+	disease VARCHAR2(200) NOT NULL, /* 질병이름/진단요약 */
 	cont CLOB NOT NULL, /* 진료기록 */
 	cost INTEGER NOT NULL, /* 비용 */
 	attach_id INTEGER /* 첨부 ID */
@@ -300,6 +301,8 @@ COMMENT ON COLUMN chart.treatment_id IS '진료 ID';
 
 COMMENT ON COLUMN chart.sub IS '제목';
 
+COMMENT ON COLUMN chart.disease IS '질병이름/진단요약';
+
 COMMENT ON COLUMN chart.cont IS '진료기록';
 
 COMMENT ON COLUMN chart.cost IS '비용';
@@ -317,6 +320,11 @@ ALTER TABLE chart
 		PRIMARY KEY (
 			id
 		);
+
+ALTER TABLE chart
+	ADD
+		CONSTRAINT CK_chart
+		CHECK (<지정 되지 않음>);
 
 /* 전자결재 */
 CREATE TABLE approval (
@@ -954,7 +962,7 @@ ALTER TABLE department
 			dept_up_id
 		)
 		REFERENCES department (
-			dept_id
+			id
 		);
 
 ALTER TABLE foreign_patient
@@ -1014,7 +1022,7 @@ ALTER TABLE employee
 			dept_id
 		)
 		REFERENCES department (
-			dept_id
+			id
 		);
 
 ALTER TABLE calender
@@ -1064,7 +1072,7 @@ ALTER TABLE chart
 			dept_id
 		)
 		REFERENCES department (
-			dept_id
+			id
 		);
 
 ALTER TABLE chart
@@ -1144,7 +1152,7 @@ ALTER TABLE position
 			dept_id
 		)
 		REFERENCES department (
-			dept_id
+			id
 		);
 
 ALTER TABLE article_tag
