@@ -915,6 +915,27 @@ ALTER TABLE attach_target
 			id
 		);
 
+/* 간호사 */
+CREATE TABLE nurse (
+	id VARCHAR2(20) NOT NULL /* 직원 ID */
+);
+
+COMMENT ON TABLE nurse IS '간호사';
+
+COMMENT ON COLUMN nurse.id IS '직원 ID';
+
+CREATE UNIQUE INDEX PK_nurse
+	ON nurse (
+		id ASC
+	);
+
+ALTER TABLE nurse
+	ADD
+		CONSTRAINT PK_nurse
+		PRIMARY KEY (
+			id
+		);
+
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT FK_employee_TO_doctor
@@ -1334,5 +1355,15 @@ ALTER TABLE upfile
 			attatch_id
 		)
 		REFERENCES attach_target (
+			id
+		);
+
+ALTER TABLE nurse
+	ADD
+		CONSTRAINT FK_employee_TO_nurse
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES d9goopbox.employee (
 			id
 		);
