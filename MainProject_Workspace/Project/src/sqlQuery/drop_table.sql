@@ -213,6 +213,14 @@ ALTER TABLE Patient
 		CONSTRAINT CK_Patient
 		CASCADE;
 
+ALTER TABLE employee
+	DROP
+		UNIQUE (
+			email
+		)
+		CASCADE
+		KEEP INDEX;
+
 ALTER TABLE doctor
 	DROP
 		PRIMARY KEY
@@ -380,6 +388,8 @@ ALTER TABLE attach_target
 		PRIMARY KEY
 		CASCADE
 		KEEP INDEX;
+
+DROP INDEX UIX_employee_email;
 
 DROP INDEX PK_doctor;
 

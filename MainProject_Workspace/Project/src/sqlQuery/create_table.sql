@@ -1,14 +1,11 @@
 /* 의사 */
 CREATE TABLE doctor (
-	id VARCHAR2(20) NOT NULL, /* 직원 ID */
-	prescription_id CLOB /* 처방 */
+	id VARCHAR2(20) NOT NULL /* 직원 ID */
 );
 
 COMMENT ON TABLE doctor IS '의사';
 
 COMMENT ON COLUMN doctor.id IS '직원 ID';
-
-COMMENT ON COLUMN doctor.prescription_id IS '처방';
 
 CREATE UNIQUE INDEX PK_doctor
 	ON doctor (
@@ -219,11 +216,23 @@ CREATE UNIQUE INDEX PK_employee
 		id ASC
 	);
 
+CREATE UNIQUE INDEX UIX_employee_email
+	ON employee (
+		email ASC
+	);
+
 ALTER TABLE employee
 	ADD
 		CONSTRAINT PK_employee
 		PRIMARY KEY (
 			id
+		);
+
+ALTER TABLE employee
+	ADD
+		CONSTRAINT UK_employee
+		UNIQUE (
+			email
 		);
 
 /* 일정 */
