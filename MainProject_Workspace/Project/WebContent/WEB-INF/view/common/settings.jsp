@@ -20,7 +20,7 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="box-content">
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" method="post" action="../profileUpdate.box" id="profup">
 					<div class="col-sm-4">
 						<a href="http://www.naver.com" target="new">
 						<img class="img-rounded"
@@ -30,19 +30,19 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="name"
+							<input type="text" class="form-control" id="name" name="name"
 								placeholder="이름">
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="tel"
+							<input type="text" class="form-control" id="tel" name="tel"
 								placeholder="전화번호">
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="email"
+							<input type="text" class="form-control" id="email" name="email"
 								placeholder="이메일">
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="address"
+							<input type="text" class="form-control" id="address" name="address"
 								placeholder="주소">
 						</div>
 							<div class="col-sm-8" style="float:right">
@@ -65,11 +65,11 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="box-content">
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" method="post" action="../pwdUpdate.box" id="password">
 					<div class="form-group">
 						<label class="col-sm-5 control-label">비밀번호 변경</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="date3_example"
+							<input type="password" class="form-control" id="password" name="password"
 								placeholder="비밀번호 입력">
 						</div>
 					</div>
@@ -77,10 +77,11 @@
 					<div class="form-group">
 						<label for="ui-spinner" class="col-sm-5 control-label">다시입력</label>
 						<div class="col-sm-5">
-							<input type="text" id="ui-spinner" class="form-control"
+							<input type="password" class="form-control"
 								placeholder="비밀번호 확인">
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<div class="col-sm-offset-4 col-sm-8">
 							<button type="submit" class="btn btn-primary btn-label-left">

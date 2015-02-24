@@ -84,7 +84,7 @@
 
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6">
-								<a href="ajax/page_register_v1.html"
+								<a href="./register.box"
 									class="btn btn-lg btn-primary btn-block">회원가입</a>
 							</div>
 						</div>
@@ -94,17 +94,8 @@
 		</div>
 
 	</div>
-
-
-
-
-
-
-
-
-
-
 	<!--End Container-->
+	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!--<script src="http://code.jquery.com/jquery.js"></script>-->
 	<script src="plugins/jquery/jquery.min.js"></script>
@@ -115,8 +106,6 @@
 	<script src="plugins/tinymce/tinymce.min.js"></script>
 	<script src="plugins/tinymce/jquery.tinymce.min.js"></script>
 	<!-- All functions for this theme + document.ready processing -->
-
-
 
 
 	<script>
