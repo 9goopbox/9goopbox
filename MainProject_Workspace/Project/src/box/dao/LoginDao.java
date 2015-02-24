@@ -24,7 +24,7 @@ public class LoginDao {
 		return ss.selectOne("login.selnurse", vo);
 	}
 	
-//	public int selstaff(EmployeeVO vo) {
-//		return ss.selectOne("login.selstaff", vo);
-//	}
+	public int selstaff(EmployeeVO vo) {
+		return ss.selectOne("login.selstaff", vo);
+	}
 }
