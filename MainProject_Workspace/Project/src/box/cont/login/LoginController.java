@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import vo.EmployeeVO;
-import box.dao.loginDao;
+import box.dao.LoginDao;
 
 @Controller
 public class LoginController {
 	@Autowired
-	private loginDao dao;
+	private LoginDao dao;
 	
 	@RequestMapping(value="/loginok.box", method=RequestMethod.POST)
 	public ModelAndView loginok(EmployeeVO vo, HttpSession session) {
