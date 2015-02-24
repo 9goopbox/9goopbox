@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import vo.EmployeeVO;
-import box.dao.joinDaoo;
+import box.dao.JoinDao;
 
 @Controller
 public class JoinController {
 	@Autowired
-	private joinDaoo dao;
+	private JoinDao dao;
 	
 	//회원가입 요청
 	@RequestMapping(value="addEmployee.box", method=RequestMethod.POST)

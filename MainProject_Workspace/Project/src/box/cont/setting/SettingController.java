@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import box.dao.employeeDaoo;
+import box.dao.EmployeeDao;
 import vo.EmployeeVO;
 
 @Controller
 public class SettingController {
 	@Autowired
-	private employeeDaoo dao;
+	private EmployeeDao dao;
 	
 	@RequestMapping(value="/pwdupdate.box", method=RequestMethod.POST)
 	public ModelAndView pwdup(EmployeeVO vo) {
