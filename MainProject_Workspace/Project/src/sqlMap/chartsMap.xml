@@ -3,5 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="charts">
-	
+<!-- chart all list without paging -->
+	<select id="list" resultType="chartdisplayvo">
+	select 
+	  patient.name as name,
+	  patient.age as age,
+	  chart.disease as disease,
+	  (select employee.name from employee where employee.id = chart.doctor_id and employee.id in (select id from doctor)) as doctor_name,
+	  (select name from department where chart.dept_id = department.id) dept_name,
+	  patient.sex as sex,
+	  patient.familydis as familydis,
+	  chart.id as id
+	from chart, (select id, name, age, sex, familydis from patient) patient
+	where chart.PATIENT_ID = patient.id
+	</select>
 </mapper>

@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -29,34 +30,6 @@
 
 			<!-- <input type="text" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip for name"> -->
 			<div class="img-responsive">
-				<table class="table">
-					<!-- <img src="img/EXID-HANI.jpg" width="300" weight="530" class="table-addr-img"/> -->
-					<thead>
-						<tr>
-							<th>환자이름</th>
-							<th>나이</th>
-							<th>병명</th>
-							<th>담당의</th>
-							<th>담당부서</th>
-							<th>성별</th>
-							<th>가족력</th>
-							<th>수정</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a href="">수정</a></td>
-						</tr>
-
-					</tbody>
-				</table>
 				<div
 					class="select2-container populate placeholder select2-dropdown-open select2-container-active"
 					id="s2id_s2_country">
@@ -106,123 +79,22 @@
 					</thead>
 					<tbody>
 						<!-- Start: list_row -->
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="#">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>감기</td>
-							<td>김복남</td>
-							<td>내과</td>
-							<td>남</td>
-							<td>없음</td>
-							<td><a class="ajax-link" href="ajax/charts_detail.html">상세보기</a></td>
-						</tr>
+						<c:forEach items="${chartDisplayList}" var="cdl">
+							<tr>
+								<td>${cdl.name}</td>
+								<td>${cdl.age }</td>
+								<td>${cdl.disease }</td>
+								<td>${cdl.doctor_name }</td>
+								<td>${cdl.dept_name }</td>
+								<td>${cdl.sex }</td>
+								<td>${cdl.familydis }</td>
+								<td><a class="ajax-link" href="charts_detail.box?id=${cdl.id}">상세보기</a></td>
+							</tr>
+						</c:forEach>
 
 						<!-- End: list_row -->
 					</tbody>
-					<!--
-					<tfoot>
-						<tr>
-							<th>환자이름</th>
-							<th>나이</th>
-							<th>병명</th>
-							<th>담당의</th>
-							<th>담당부서</th>
-							<th>성별</th>
-							<th>가족력</th>
-							<th>수정</th>
-						</tr>
-					</tfoot>
-					 -->
+					
 				</table>
 			</div>
 		</div>
