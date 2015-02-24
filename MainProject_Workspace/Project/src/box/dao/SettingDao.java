@@ -16,4 +16,10 @@ public class SettingDao {
 		System.out.println("password : "+vo.getPassword());
 		ss.update("setting.pwdupdate", vo);
 	}
+	
+	public void profileUpdate(EmployeeVO vo) {
+		System.out.println(vo.getName());
+		ss.update("setting.profileupdate", vo);
+	}
+	
 }
