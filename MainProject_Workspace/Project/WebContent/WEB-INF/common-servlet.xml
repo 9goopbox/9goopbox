@@ -10,4 +10,10 @@
 	<bean name="/dashboard.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="common/dashboard"/>
 	</bean>
+	
+	
+	<bean name="/charts_make.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="charts/charts_make"/>
+	</bean>
+	
 </beans>
