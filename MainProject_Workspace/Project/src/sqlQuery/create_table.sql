@@ -280,7 +280,7 @@ CREATE TABLE chart (
 	patient_id INTEGER NOT NULL, /* 환자ID */
 	doctor_id VARCHAR2(20) NOT NULL, /* 진료의사 */
 	treatment_id INTEGER NOT NULL, /* 진료 ID */
-	sub VARCHAR2(30) NOT NULL, /* 제목 */
+	sub VARCHAR2(80) NOT NULL, /* 제목 */
 	cont CLOB NOT NULL, /* 진료기록 */
 	cost INTEGER NOT NULL, /* 비용 */
 	attach_id INTEGER /* 첨부 ID */
@@ -759,6 +759,11 @@ ALTER TABLE treatment
 		PRIMARY KEY (
 			id
 		);
+
+ALTER TABLE treatment
+	ADD
+		CONSTRAINT CK_treatment
+		CHECK (kind in ('초진', '재진', '예약'));
 
 /* 병동 방 */
 CREATE TABLE ward (
