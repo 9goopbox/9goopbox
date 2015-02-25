@@ -48,6 +48,10 @@ public class ChartsInquiryController {
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("pageURL", "../charts_inquiry.box");
 		
+		// nullables
+		mav.addObject("searchType", svo.getSearchType());
+		mav.addObject("searchValue", svo.getSearchValue());
+		
 		return mav;
 	}
 }

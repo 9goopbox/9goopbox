@@ -34,14 +34,15 @@
 				<div class="col-xs-12 col-sm-2">
 					<select id="kind_select2" name="searchType">
 						<option></option>
-						<option value="1">환자이름</option>
-						<option value="2" ${searchType==1?'selected':''}">담당의 이름</option>
-						<option value="3">담당의 ID</option>
+						<option value="1" ${searchType==1?'selected="selected"':''}>환자이름</option>
+						<option value="2" ${searchType==2?'selected="selected"':''}>담당의 이름</option>
+						<option value="3" ${searchType==3?'selected="selected"':''}>담당의 ID</option>
+						<option value="4" ${searchType==4?'selected="selected"':''}>병명요약</option>
 					</select>
 				</div>
 				<div class="col-xs-12 col-sm-3">
 					<div class="input-group">
-						<input class="form-control input-lg" type="text" name="searchValue">
+						<input class="form-control input-lg" type="text" name="searchValue" value="${searchValue}">
 						<div class="input-group-btn">
 							<input class="btn btn-primary" type="submit" value="조회">
 						</div>
