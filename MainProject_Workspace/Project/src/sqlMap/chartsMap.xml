@@ -45,7 +45,7 @@
 	</select>
 	<select id="sizeSearch" resultType="int" parameterType="searchvo">
 		select count(*)
-		from chart, patient, doctor
+		from chart, patient, (select doctor.id as id, employee.name as name from doctor, employee where employee.id = doctor.id) doctor
 		<where>
 			chart.patient_id = patient.id and
 			chart.doctor_id = doctor.id
