@@ -6,8 +6,8 @@
 		</a>
 		<ol class="breadcrumb pull-left">
 			<li><a href="#">Dashboard</a></li>
-			<li><a href="#">Tables</a></li>
-			<li><a href="#">Data Tables</a></li>
+			<li><a href="#">인사관리</a></li>
+			<li><a href="#">퇴사관리</a></li>
 		</ol>
 	</div>
 </div>
