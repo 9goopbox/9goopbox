@@ -180,7 +180,7 @@ CREATE TABLE employee (
 	id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	password VARCHAR2(256) NOT NULL, /* 암호 */
 	name VARCHAR2(30) NOT NULL, /* 이름 */
-	address VARCHAR2(50) NOT NULL, /* 주소 */
+	address VARCHAR2(300) NOT NULL, /* 주소 */
 	position VARCHAR2(20), /* 직급 */
 	pay INTEGER NOT NULL, /* 급여 */
 	dept_id INTEGER, /* 부서ID */
