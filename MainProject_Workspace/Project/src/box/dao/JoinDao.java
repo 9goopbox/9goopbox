@@ -4,7 +4,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.EmployeeVO;
 import vo.RegisterVO;
 
 @Repository
@@ -13,7 +12,7 @@ public class JoinDao {
 	private SqlSessionTemplate ss;
 	
 	//회원가입 구현
-	public void addEmployee(EmployeeVO vo) {
+	public void addEmployee(RegisterVO vo) {
 		ss.insert("register.join", vo);
 	}
 		

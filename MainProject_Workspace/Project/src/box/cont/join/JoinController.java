@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import vo.EmployeeVO;
+import vo.RegisterVO;
 import box.dao.JoinDao;
 
 @Controller
@@ -17,13 +17,16 @@ public class JoinController {
 	
 	//회원가입 요청
 	@RequestMapping(value="/addEmployee.box", method=RequestMethod.POST)
-	public ModelAndView addEmployee(EmployeeVO vo,
-			@RequestParam String post1, @RequestParam String post2) {
+	public ModelAndView addEmployee(RegisterVO vo,
+			@RequestParam String post1, @RequestParam String post2, 
+			@RequestParam String addr1, @RequestParam String addr2) {
 		System.out.println(post1+"-"+post2);
-		StringBuffer postv = new StringBuffer();
-		postv.append(post1).append("-").append(post2);
-		vo.setAddr1(postv.toString());
+		StringBuffer addrv = new StringBuffer();
+		addrv.append(post1).append("-").append(post2);
+		addrv.append(addr1).append(" ").append(addr2);
+		vo.setAddress(addrv.toString());
 		
+		System.out.println(addrv);
 		dao.addEmployee(vo);
 		ModelAndView mav = new ModelAndView("redirect:/index.box");
 		mav.addObject("name", vo.getName());

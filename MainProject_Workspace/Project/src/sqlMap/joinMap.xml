@@ -5,8 +5,7 @@
 <mapper namespace="register">
 	
 	<insert id="join" parameterType="registervo">
-		insert into employee
-		values(mymember_seq.nextVal,#{id},#{password},#{dept_id},#{position},#{email},#{name},#{tel},#{post},#{addr1},#{addr2})		
+		insert into employee values(#{id},#{password},#{name},#{address},#{position},'0',null,null,#{tel},#{email})		
 	</insert>
 
 <select id="idChk"  parameterType="String" resultType="int">

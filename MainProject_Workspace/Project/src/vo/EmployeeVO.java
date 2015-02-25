@@ -1,8 +1,26 @@
 package vo;
 
 public class EmployeeVO {
-	private String id, password, name, position, email, tel, post, addr1, addr2;
-	private int dept_id;
+	private int pay, dept_id, pos_id;
+	private String id, password, name, address, position, tel, email;
+	public int getPay() {
+		return pay;
+	}
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
+	public int getDept_id() {
+		return dept_id;
+	}
+	public void setDept_id(int dept_id) {
+		this.dept_id = dept_id;
+	}
+	public int getPos_id() {
+		return pos_id;
+	}
+	public void setPos_id(int pos_id) {
+		this.pos_id = pos_id;
+	}
 	public String getId() {
 		return id;
 	}
@@ -21,17 +39,17 @@ public class EmployeeVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public String getPosition() {
 		return position;
 	}
 	public void setPosition(String position) {
 		this.position = position;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getTel() {
 		return tel;
@@ -39,29 +57,13 @@ public class EmployeeVO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getPost() {
-		return post;
+	public String getEmail() {
+		return email;
 	}
-	public void setPost(String post) {
-		this.post = post;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
-	public int getDept_id() {
-		return dept_id;
-	}
-	public void setDept_id(int dept_id) {
-		this.dept_id = dept_id;
-	}
+	
+	
 	
 }

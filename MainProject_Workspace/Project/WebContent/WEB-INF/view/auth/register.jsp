@@ -30,7 +30,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			
-				<form action="../addEmployee.box" role="form" method="post" id="addEmployee">
+				<form action="addEmployee.box" role="form" method="post" id="addEmployee">
 					<br />
 					<h1>9goopBox</h1>
 					<br />
@@ -58,13 +58,13 @@
 									class="form-control input-lg" placeholder="비밀번호" tabindex="2">
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<div class="form-group">
-								<input type="password" name="password_confirmation"
-									id="password_confirmation" class="form-control input-lg"
-									placeholder="비밀번호 확인" tabindex="3">
-							</div>
-						</div>
+<!-- 						<div class="col-xs-12 col-sm-6 col-md-6"> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<input type="password" name="repeat" -->
+<!-- 									id="repeat" class="form-control input-lg" -->
+<!-- 									placeholder="비밀번호 확인" tabindex="3"> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 					<div class="form-group">
 						<input type="text" name="name" id="name"
@@ -201,57 +201,5 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
-<!-- 	<script> -->
-// 	function goLoginPage() {
-
-// 		window.location.href = "goLoginPage.do";
-// 	}
-
-// 	function doRegister() {
-		
-// 		var form = $('#memberRegister');
-		
-// 		var eid = $('#E-mail').val();
-
-// 		if (eid == null || eid == '') {
-// 			alert('id nedds!');
-// 			return;
-// 		}
-
-// 		var cname = $('#Name').val();
-
-// 		if (cname == null || cname == '') {
-// 			alert('name needs!');
-// 			return;
-// 		}
-
-// 		var cp1 = $('#Password').val();
-// 		var cp2 = $('#Repeat').val();
-
-// 		if (cp1 != cp2) {
-// 			alert('password not match!');
-// 			return;
-// 		}
-
-// 		alert('Congratulation! you are our member now!');
-
-		
-// 		$('#memberRegister').submit();
-
-
-// 		form.method = "POST";
-// 		form.action = "memberRegister.do";
-// 		form.submit();
-
-
-// 	}
-<!-- </script> -->
-	
-	
-	
-	
 </body>
 </html>

@@ -1,16 +1,10 @@
 package vo;
 
 public class RegisterVO {
-	private String id, password, name, position, email, tel, post, addr1, addr2;
+	private String id, password, name, position, email, tel, address;
 	private int dept_id;
 
-	public String getPost() {
-		return post;
-	}
-
-	public void setPost(String post) {
-		this.post = post;
-	}
+	
 
 	public String getId() {
 		return id;
@@ -68,20 +62,14 @@ public class RegisterVO {
 		this.tel = tel;
 	}
 
-	public String getAddr1() {
-		return addr1;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getAddr2() {
-		return addr2;
-	}
 
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
 
 }
