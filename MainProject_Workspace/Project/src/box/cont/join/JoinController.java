@@ -1,5 +1,11 @@
 package box.cont.join;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +40,50 @@ public class JoinController {
 	}
 	
 	// 아이디 중복확인!
-		@RequestMapping(value="/idcheck.kosta")
-		public ModelAndView idChk(String id){
+		@RequestMapping(value="/idcheck.box")
+		public ModelAndView idChk(String id, HttpServletRequest request,
+				HttpServletResponse response) {
+			
+			System.out.println("id : "+id);
+			
 			int res = dao.idChk(id);
+			
+			
+			
+//			response.setCharacterEncoding("EUC-KR");
+//			PrintWriter writer = null;
+//			if(res>0) {
+//				try{
+//					writer = response.getWriter();
+//					writer.println("<script type='text/javascript'>");
+//					writer.println("alert('ID가 중복되었습니다.');");
+//					writer.println("history.back();");
+//					writer.println("</script>");
+//					writer.flush();
+//				} catch(IOException e) {
+//					e.printStackTrace();
+//				} finally {
+//					if(writer != null) {
+//						writer.close();
+//					}
+//				}
+//			}else{
+//				try{
+//					writer = response.getWriter();
+//					writer.println("<script type='text/javascript'>");
+//					writer.println("alert('사용가능한 ID입니다.');");
+//					writer.println("history.back();");
+//					writer.println("</script>");
+//					writer.flush();
+//				} catch(IOException e) {
+//					e.printStackTrace();
+//				} finally {
+//					if(writer != null) {
+//						writer.close();
+//					}
+//				}
+//			}
+			
 			ModelAndView mav = new ModelAndView("idchk");
 			mav.addObject("cnt", res);
 			return mav;
