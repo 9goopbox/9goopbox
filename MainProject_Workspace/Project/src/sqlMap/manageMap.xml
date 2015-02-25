@@ -15,23 +15,109 @@
 	<!-- <select id="seldept" resultType="int" parameterType="deptvo"> -->
 	<!-- select count(*) cnt from department where dept_name=#{dept_name} -->
 	<!-- </select> -->
-	<select id="selname" resultType="empvo" parameterType="empvo">
+<!-- 	<select id="selname" resultType="empvo" parameterType="empvo"> -->
+<!-- 		select name,dept_name,position,tel -->
+<!-- 		from employee natural join department -->
+<!-- 		where name LIKE '%'||#searchValue#||'%' -->
+<!-- 	</select> -->
+
+<!-- 	<select id="selposition" resultType="empvo" parameterType="empvo"> -->
+<!-- 		select name,dept_name,position,tel -->
+<!-- 		from employee natural join department -->
+<!-- 		where position LIKE '%'||#searchValue#||'%' -->
+<!-- 	</select> -->
+
+
+<!-- 	<select id="seldept" resultType="deptvo" parameterType="deptvo"> -->
+<!-- 		count(*) cnt from department where dept_name=#{dept_name} -->
+<!-- 		select name,dept_name,position,tel -->
+<!-- 		from employee natural join department -->
+<!-- 		where dept_name LIKE '%'||#searchValue#||'%' -->
+<!-- 	</select> -->
+<select id="getlistsearch" resultType="empvo" parameterType="searchVO">
+		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
 		select name,dept_name,position,tel
-		from employee natural join department
-		where name LIKE '%'||#searchValue#||'%'
+
+		from (
+		select dept_id r_num, a.* from
+		(
+		select * from employee natural join department
+
+		<if test="searchType != null">
+
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						name LIKE '%'||#searchValue#||'%'
+					</when>
+					<when test="searchType == 2">
+						position LIKE '%'||#searchValue#||'%'
+					</when>
+					<when test="searchType == 3">
+						dept_name LIKE '%'||#searchValue#||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+			</where>
+		</if>
+		
+		) a
+		) where r_num between #{begin} and #{end}
+
+
+
 	</select>
 
-	<select id="selposition" resultType="empvo" parameterType="empvo">
-		select name,dept_name,position,tel
+
+	<select id="somecnt" resultType="int" parameterType="searchVO">
+		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
+		select count(*) cnt
+
 		from employee natural join department
-		where position LIKE '%'||#searchValue#||'%'
+
+		<if test="searchType != null">
+
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						name LIKE '%'||#searchValue#||'%'
+					</when>
+					<when test="searchType == 2">
+						position LIKE '%'||#searchValue#||'%'
+					</when>
+					<when test="searchType == 3">
+						dept_name LIKE '%'||#searchValue#||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+			</where>
+		</if>
+	</select>
+	
+	<select id="list" resultType="empvo" parameterType="searchVO">
+		select
+		name,dept_name,position,tel
+		from (
+		select dept_id, a.* from
+		(
+		select * from employee natural join department 
+		)
+		a
+		) where dept_id between #{begin} and #{end}
+
 	</select>
 
 
-	<select id="seldept" resultType="deptvo" parameterType="deptvo">
-		count(*) cnt from department where dept_name=#{dept_name}
-		select name,dept_name,position,tel
-		from employee natural join department
-		where dept_name LIKE '%'||#searchValue#||'%'
+	<select id="cnt" resultType="int">
+		select count(*) cnt from employee natural join department
+	</select>
+	
+	<select id="iew" parameterType="int" resultType="empvo">
+		select *
+		from employee natural join department where dept_id = #{dept_id}
 	</select>
 </mapper>

@@ -1,11 +1,14 @@
 package box.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import vo.DeptVO;
 import vo.EmployeeVO;
+import vo.SearchVO;
 
 @Repository
 public class ManageDao {
@@ -29,7 +32,21 @@ public class ManageDao {
 		return ss.selectOne("login.seldept", vo2);
 	}
 	
-	public int selsome(EmployeeVO vo) {
-		return ss.selectOne("login.selsome", vo);
+	public List<EmployeeVO> getShopList2(SearchVO vo){
+		return ss.selectList("manage.list",vo);
+	}
+	public int getTotalCount() {
+		return ss.selectOne("manage.cnt");
+	}
+	public EmployeeVO getShopView(int num){
+		return ss.selectOne("manage.view", num);
+	}
+
+	public int getTotalSearchCount(SearchVO vo) {
+		return ss.selectOne("manage.somecnt", vo);
+	}
+
+	public List<EmployeeVO> getListSearch(SearchVO vo) {
+		return ss.selectOne("manage.getlistsearch", vo);
 	}
 }
