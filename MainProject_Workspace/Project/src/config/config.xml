@@ -9,6 +9,7 @@
 		<typeAlias type="vo.EmployeeVO" alias="empvo"/>
 		<typeAlias type="vo.PatientVO" alias="patvo"/>
 		<typeAlias type="vo.ChartVO" alias="charvo"/>
+		<typeAlias type="vo.ChartDisplayVO" alias="chartdisplayvo"/>
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 		<typeAlias type="vo.DeptVO" alias="deptvo"/>
