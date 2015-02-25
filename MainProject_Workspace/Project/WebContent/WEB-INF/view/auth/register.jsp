@@ -58,13 +58,13 @@
 									class="form-control input-lg" placeholder="비밀번호" tabindex="2">
 							</div>
 						</div>
-<!-- 						<div class="col-xs-12 col-sm-6 col-md-6"> -->
-<!-- 							<div class="form-group"> -->
-<!-- 								<input type="password" name="repeat" -->
-<!-- 									id="repeat" class="form-control input-lg" -->
-<!-- 									placeholder="비밀번호 확인" tabindex="3"> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group">
+								<input type="password" name="repeat"
+									id="repeat" class="form-control input-lg"
+									placeholder="비밀번호 확인" tabindex="3">
+							</div>
+						</div>
 					</div>
 					<div class="form-group">
 						<input type="text" name="name" id="name"

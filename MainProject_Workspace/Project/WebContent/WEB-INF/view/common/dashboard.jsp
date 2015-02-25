@@ -15,8 +15,8 @@
 
 <!--Start Dashboard 1-->
 <div id="dashboard-header" class="row">
-	<div class="col-xs-12 col-sm-4 col-md-5">
-		<h3>Hello, Jane</h3>
+	<div class="col-xs-12 ">
+		<h3>9급박스에 오신걸 환영합니다!!!</h3>
 	</div>
 	<div class="clearfix visible-xs"></div>
 	<div class="col-xs-12 col-sm-8 col-md-7 pull-right">
@@ -26,7 +26,8 @@
 
 <!--Start Dashboard 2-->
 <div class="row-fluid">
-	<div id="dashboard_tabs" class="col-xs-12 col-sm-12">
+	<div id="dashboard_tabs" class="col-xs-6">
+	<div class="frame">
 		<div class="box">
 			<div class="box-header">
 				<div class="box-name">
@@ -118,7 +119,9 @@
 				</form>
 			</div>
 		</div>
-
+		</div>
+		
+</div>
 
 
 	</div>
