@@ -2,25 +2,36 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="manage">
+<mapper namespace="manage">
+	<!-- <select id="selname" resultType="int" parameterType="empvo"> -->
+	<!-- select count(*) cnt from employee where name=#{name} -->
+	<!-- </select> -->
 
-<!-- 	<select id="loginok" resultType="int" parameterType="empvo"> -->
-<!-- 		select count(*) cnt from employee where id=#{id} and password=#{password}  -->
-<!-- 	</select> -->
+	<!-- <select id="selposition" resultType="int" parameterType="empvo"> -->
+	<!-- select count(*) cnt from employee where position=#{position} -->
+	<!-- </select> -->
 
-	<select id="selname" resultType="int" parameterType="empvo">
-		select count(*) cnt from employee where name=#{name}
-<!--  		select count(*) cnt from employee where dept_id=11  -->
+
+	<!-- <select id="seldept" resultType="int" parameterType="deptvo"> -->
+	<!-- select count(*) cnt from department where dept_name=#{dept_name} -->
+	<!-- </select> -->
+	<select id="selname" resultType="empvo" parameterType="empvo">
+		select name,dept_name,position,tel
+		from employee natural join department
+		where name LIKE '%'||#searchValue#||'%'
 	</select>
-	
-	<select id="selposition" resultType="int" parameterType="empvo">
-		select count(*) cnt from employee where position=#{position}
-<!-- 		select count(*) cnt from nurse where id=#{id} -->
+
+	<select id="selposition" resultType="empvo" parameterType="empvo">
+		select name,dept_name,position,tel
+		from employee natural join department
+		where position LIKE '%'||#searchValue#||'%'
 	</select>
-	
-	
-	<select id="seldept" resultType="int" parameterType="deptvo">
-		select count(*) cnt from department where dept_name=#{dept_name}
-<!-- 		 select count(*) cnt from employee where dept_id=33  -->
+
+
+	<select id="seldept" resultType="deptvo" parameterType="deptvo">
+		count(*) cnt from department where dept_name=#{dept_name}
+		select name,dept_name,position,tel
+		from employee natural join department
+		where dept_name LIKE '%'||#searchValue#||'%'
 	</select>
 </mapper>

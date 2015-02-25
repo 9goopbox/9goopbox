@@ -28,4 +28,8 @@ public class ManageDao {
 	public int seldept(DeptVO vo2) {
 		return ss.selectOne("login.seldept", vo2);
 	}
+	
+	public int selsome(EmployeeVO vo) {
+		return ss.selectOne("login.selsome", vo);
+	}
 }

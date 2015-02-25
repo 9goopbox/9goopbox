@@ -34,15 +34,18 @@ public class ManageStaffController {
 		int pos = dao.selposition(vo1);
 		int dept = dao.seldept(vo2);
 
-		if (name > 0) { // 이름검색
+		//if (searchValue=name) { // 이름검색
+		if (name>0) {
 			System.out.println("나는 이름을 검색 하였다");
 			session.setAttribute("userid", vo1.getName());
 			mav.addObject("cnt", name);
-		} else if (pos > 0) { // 직급검색
+		} if (pos>0) {
+		//else if (searchValue=pos) { // 직급검색
 			System.out.println("나는 직급을 검색 하였다");
 			session.setAttribute("posid", vo1.getPosition());
 			mav.addObject("cnt", pos);
-		} else if (dept > 0) {// 부서검색
+		} if (dept>0) {
+		//else if (searchValue=dept) {// 부서검색
 			System.out.println("나는 부서를 검색 하였다");
 			session.setAttribute("deptid", vo2.getDept_name());
 			mav.addObject("cnt", dept);
