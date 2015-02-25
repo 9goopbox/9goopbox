@@ -32,7 +32,10 @@
 					and doctor.name like '%'|| #{searchValue} || '%'
 				</when>
 				<when test="searchType == 3">
-					and doctor.id like '%'|| #{searchValue} || '%'
+					and doctor.id = #{searchValue}
+				</when>
+				<when test="searchType == 4">
+					and chart.disease like '%'|| #{searchValue} || '%'
 				</when>
 	    	</choose>
     	</if>
@@ -60,7 +63,10 @@
 					and doctor.name like '%'|| #{searchValue} || '%'
 				</when>
 				<when test="searchType == 3">
-					and doctor.id like '%'|| #{searchValue} || '%'
+					and doctor.id = #{searchValue}
+				</when>
+				<when test="searchType == 4">
+					and chart.disease like '%'|| #{searchValue} || '%'
 				</when>
 			</choose>
 		</where>
