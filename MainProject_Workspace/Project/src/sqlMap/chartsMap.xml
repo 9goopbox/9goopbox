@@ -13,19 +13,24 @@
 	      patient.name as name,
 	      patient.age as age,
 	      chart.disease as disease,
-	      (select employee.name from employee where employee.id = chart.doctor_id and employee.id in (select id from doctor)) as doctor_name,
+	      doctor.name as doctor_name,
 	      (select name from department where chart.dept_id = department.id) dept_name,
 	      patient.sex as sex,
 	      patient.familydis as familydis,
 	      chart.id as id
-	    from chart, (select id, name, age, sex, familydis from patient) patient
-	    where chart.PATIENT_ID = patient.id
+	    from chart, (select id, name, age, sex, familydis from patient) patient,
+	    (select doctor.id as id, employee.name as name from doctor, employee where employee.id = doctor.id) doctor
+	    where chart.PATIENT_ID = patient.id and
+	    chart.doctor_id = doctor.id
 	    <if test="searchType != null">
 	    <if test="searchType != ''">
 	    	<choose>
 	    		<when test="searchType == 1">
 	    			and patient.name like '%'|| #{searchValue} || '%'
 	    		</when>
+	    		<when test="searchType == 2">
+					and doctor.name like '%'|| #{searchValue} || '%'
+				</when>
 	    	</choose>
     	</if>
 	    </if>
@@ -40,12 +45,16 @@
 	</select>
 	<select id="sizeSearch" resultType="int" parameterType="searchvo">
 		select count(*)
-		from chart, patient
+		from chart, patient, doctor
 		<where>
-			chart.patient_id = patient.id
+			chart.patient_id = patient.id and
+			chart.doctor_id = doctor.id
 			<choose>
 				<when test="searchType == 1">
 					and patient.name like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 2">
+					and doctor.name like '%'|| #{searchValue} || '%'
 				</when>
 			</choose>
 		</where>
