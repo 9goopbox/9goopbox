@@ -88,14 +88,14 @@
 								<td>${cdl.dept_name }</td>
 								<td>${cdl.sex }</td>
 								<td>${cdl.familydis }</td>
-								<td><a class="ajax-link" href="charts_detail.box?id=${cdl.id}">상세보기</a></td>
+								<td><a class="ajax-link" href="../charts_detail.box?id=${cdl.id}">상세보기</a></td>
 							</tr>
 						</c:forEach>
 
 						<!-- End: list_row -->
 					</tbody>
-					
 				</table>
+				<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>
@@ -104,44 +104,19 @@
 <script type="text/javascript">
 
 	function MakeSelect2() {
-		// 	$('select').select2();
-		// 	$('.dataTables_filter').each(function(){
-		// 		$(this).find('label input[type=text]').attr('placeholder', 'Search');
-		// 	});
+			$('select').select2();
 	}
 	$(document).ready(function() {
-		// Load Datatables and run plugin on tables
-		
-		$('#datatable-1').dataTable( {
-			"aaSorting": [[ 0, "asc" ]],
-			"sDom": "<'box-content'<'col-sm-6'f><'col-sm-6 text-right'l><'clearfix'>>rt<'box-content'<'col-sm-6'i><'col-sm-6 text-right'p><'clearfix'>>",
-			"sPaginationType": "bootstrap",
-			"oLanguage": {
-				"sSearch": "",
-				"sLengthMenu": '_MENU_'
-			}
+		// 테이블 영역에 ajax 적용
+		$("#datatable-1 a.ajax-link").bind("click", function(e) {
+			e.preventDefault();
+			LoadAjaxContent($(e.target).attr("href"));
+		});
+		$("div.paging a").bind("click", function(e) {
+			e.preventDefault();
+			LoadAjaxContent($(e.target).attr("href"));
 		});
 		
-		// Add Drag-n-Drop feature
-		$("#datatable-1 a").attr("href", "#");
-		$("#datatable-1 a").bind("click", function() {
-			LoadAjaxContent("ajax/charts_detail.html");
-		});
-		// 이 부분 나중에 모듈화하면 편할듯
-		// $('#datatable-1 a').on('click', 'a', function (e) {
-		// 	if ($(this).hasClass('ajax-link')) {
-		// 		e.preventDefault();
-		// 		if ($(this).hasClass('add-full')) {
-		// 			$('#content').addClass('full-content');
-		// 		}
-		// 		else {
-		// 			$('#content').removeClass('full-content');
-		// 		}
-		// 		var url = $(this).attr('href');
-		// 		window.location.hash = url;
-		// 		LoadAjaxContent(url);
-		// 	}
-		// };
 		WinMove();
 	});
 </script>

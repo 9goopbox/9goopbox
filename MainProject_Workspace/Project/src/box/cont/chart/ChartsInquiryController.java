@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import vo.ChartDisplayVO;
 import vo.PageVO;
+import vo.SearchVO;
 import box.dao.ChartDao;
 import box.util.PageVoFactory;
 
@@ -20,15 +21,19 @@ public class ChartsInquiryController {
 	private PageVoFactory pageVoFactory;
 	
 	@RequestMapping(value="/charts_inquiry.box")
-	public ModelAndView charts_detail() {
+	public ModelAndView charts_detail(SearchVO svo, Integer page) {
 		ModelAndView mav = new ModelAndView("charts/charts_inquiry");
 		
-		List<ChartDisplayVO> list = dao.getList();
+		PageVO pageInfo = pageVoFactory.makePageVO(page, dao.getListSize());
 		
-		PageVO pageInfo = pageVoFactory.makePageVO(null, list.size());
+		svo.setBegin(String.valueOf(pageInfo.getStartRow()));
+		svo.setEnd(String.valueOf(pageInfo.getEndRow()));
+		
+		List<ChartDisplayVO> list = dao.getList(svo);
 		
 		mav.addObject("chartDisplayList", list);
 		mav.addObject("pageInfo", pageInfo);
+		mav.addObject("pageURL", "../charts_inquiry.box");
 		
 		return mav;
 	}
