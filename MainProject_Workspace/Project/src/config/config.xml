@@ -12,5 +12,6 @@
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 		<typeAlias type="vo.SettingEmpVO" alias="sempvo"/>
+		<typeAlias type="vo.EapprVO" alias="eapprvo"/>
 	</typeAliases>
 </configuration>

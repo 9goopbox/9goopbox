@@ -1,9 +1,14 @@
 package box.cont.setting;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +30,33 @@ public class SettingController {
 	private SettingDao dao;
 	
 	@RequestMapping(value="/pwdUpdate.box", method=RequestMethod.POST)
-	public ModelAndView pwdup(SettingEmpVO vo) {
+	public ModelAndView pwdup(SettingEmpVO vo,
+			HttpServletRequest request, HttpServletResponse response) {
 		
 		System.out.println("pwd : "+vo.getPassword());
 		System.out.println("pwdch : "+vo.getPasswordch());
 		System.out.println(vo.getPassword().equals(vo.getPasswordch()));
 		
-		if(!(vo.getPassword().equals(vo.getPasswordch()))) {
-			System.out.println("pwdch : "+ vo.getPasswordch());
-			
+		if (!(vo.getPassword().equals(vo.getPasswordch()))) {
+			System.out.println("pwdch : " + vo.getPasswordch());
+			PrintWriter writer = null;
+			response.setCharacterEncoding("EUC-KR");
+			response.setContentType("text/html;charset=EUC-KR");
+			try {
+				writer = response.getWriter();
+				writer.println("<script type='text/javascript'>");
+				writer.println("alert('비밀번호를 다시 확인해주세요.');");
+				writer.println("history.back();");
+				writer.println("</script>");
+				writer.flush();
+			} catch (IOException e) {
+				System.out.println("errrrrrrrrrrrrrrrr");
+				e.printStackTrace();
+			} finally {
+				if (writer != null)
+					writer.close();
+			}
 		}
-		
 		dao.pwdUpdate(vo);
 		ModelAndView mav = new ModelAndView("redirect:/settings.box");
 		

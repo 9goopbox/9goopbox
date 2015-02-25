@@ -14,20 +14,6 @@
 <div class="row">
 	<div class="col-xs-12">
 		<div class="box">
-			<!--
-			<div class="box-header">
-				<div class="box-name">
-					<i class="fa fa-usd"></i> <span>차트 상세 설명</span>
-				</div>
-				<div class="box-icons">
-					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-					</a> <a class="expand-link"> <i class="fa fa-expand"></i>
-					</a> <a class="close-link"> <i class="fa fa-times"></i>
-					</a>
-				</div>
-				<div class="no-move"></div>
-			</div>
-			 -->
 			<div>
 				<div style="float: left;">
 					<button type="button" class="btn btn-primary">전체</button>
@@ -47,6 +33,12 @@
 				</div>
 				<div style="float: left;">
 					<button type="button" class="btn btn-primary">결제</button>
+					&nbsp;
+				</div>
+				<div style="float: left;">
+					<a type="button" class="btn btn-primary" href="../view/electronic_form.box">
+						기안서작성
+					</a>
 					&nbsp;
 				</div>
 			</div>
