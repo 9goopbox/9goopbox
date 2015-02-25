@@ -3,6 +3,7 @@ package vo;
 public class EmployeeVO {
 	private int pay, dept_id, pos_id;
 	private String id, password, name, address, position, tel, email;
+
 	public int getPay() {
 		return pay;
 	}
@@ -63,7 +64,6 @@ public class EmployeeVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	
 	
 }

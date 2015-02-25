@@ -9,4 +9,8 @@
 		update employee set password=#{password}
 	</update>
 	
+<!-- 프로필 변경 -->
+	<update id="profileupdate" parameterType="empvo">
+		update employee set name=#{name}, tel=#{tel}, email=#{email}, address=#{address}
+	</update>
 </mapper>
