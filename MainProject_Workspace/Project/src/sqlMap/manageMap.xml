@@ -15,46 +15,49 @@
 	<!-- <select id="seldept" resultType="int" parameterType="deptvo"> -->
 	<!-- select count(*) cnt from department where dept_name=#{dept_name} -->
 	<!-- </select> -->
-<!-- 	<select id="selname" resultType="empvo" parameterType="empvo"> -->
-<!-- 		select name,dept_name,position,tel -->
-<!-- 		from employee natural join department -->
-<!-- 		where name LIKE '%'||#searchValue#||'%' -->
-<!-- 	</select> -->
+	<!-- <select id="selname" resultType="empvo" parameterType="empvo"> -->
+	<!-- select name,dept_name,position,tel -->
+	<!-- from employee natural join department -->
+	<!-- where name LIKE '%'||#searchValue#||'%' -->
+	<!-- </select> -->
 
-<!-- 	<select id="selposition" resultType="empvo" parameterType="empvo"> -->
-<!-- 		select name,dept_name,position,tel -->
-<!-- 		from employee natural join department -->
-<!-- 		where position LIKE '%'||#searchValue#||'%' -->
-<!-- 	</select> -->
+	<!-- <select id="selposition" resultType="empvo" parameterType="empvo"> -->
+	<!-- select name,dept_name,position,tel -->
+	<!-- from employee natural join department -->
+	<!-- where position LIKE '%'||#searchValue#||'%' -->
+	<!-- </select> -->
 
 
-<!-- 	<select id="seldept" resultType="deptvo" parameterType="deptvo"> -->
-<!-- 		count(*) cnt from department where dept_name=#{dept_name} -->
-<!-- 		select name,dept_name,position,tel -->
-<!-- 		from employee natural join department -->
-<!-- 		where dept_name LIKE '%'||#searchValue#||'%' -->
-<!-- 	</select> -->
-<select id="getlistsearch" resultType="empvo" parameterType="searchVO">
-		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
-		select name,dept_name,position,tel
-
-		from (
-		select dept_id r_num, a.* from
+	<!-- <select id="seldept" resultType="deptvo" parameterType="deptvo"> -->
+	<!-- count(*) cnt from department where dept_name=#{dept_name} -->
+	<!-- select name,dept_name,position,tel -->
+	<!-- from employee natural join department -->
+	<!-- where dept_name LIKE '%'||#searchValue#||'%' -->
+	<!-- </select> -->
+	<select id="getlistsearch" resultType="empvo" parameterType="searchVO">
+		select * from
 		(
-		select * from employee natural join department
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,
+		emp.position position, emp.tel tel, dept.name
+		dept_name
+		from employee
+		emp, (select name, id from department) dept
 
 		<if test="searchType != null">
 
 			<where>
+				emp.dept_id = dept.id
 				<choose>
 					<when test="searchType == 1">
-						name LIKE '%'||#searchValue#||'%'
+						and emp.name LIKE '%'||#searchValue#||'%'
 					</when>
 					<when test="searchType == 2">
-						position LIKE '%'||#searchValue#||'%'
+						and emp.position LIKE '%'||#searchValue#||'%'
 					</when>
 					<when test="searchType == 3">
-						dept_name LIKE '%'||#searchValue#||'%'
+						and dept.name LIKE '%'||#searchValue#||'%'
 					</when>
 					<otherwise>
 
@@ -62,9 +65,10 @@
 				</choose>
 			</where>
 		</if>
-		
+
 		) a
-		) where r_num between #{begin} and #{end}
+		)
+		where r_num between #{begin} and #{end}
 
 
 
@@ -73,22 +77,20 @@
 
 	<select id="somecnt" resultType="int" parameterType="searchVO">
 		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
-		select count(*) cnt
-
-		from employee natural join department
+		select count(*) cnt from employee em, department de  
 
 		<if test="searchType != null">
 
 			<where>
 				<choose>
 					<when test="searchType == 1">
-						name LIKE '%'||#searchValue#||'%'
+						em.DEPT_ID = de.ID and name LIKE '%'||#searchValue#||'%'
 					</when>
 					<when test="searchType == 2">
-						position LIKE '%'||#searchValue#||'%'
+						em.DEPT_ID = de.ID and position LIKE '%'||#searchValue#||'%'
 					</when>
 					<when test="searchType == 3">
-						dept_name LIKE '%'||#searchValue#||'%'
+						em.DEPT_ID = de.ID and dept_name LIKE '%'||#searchValue#||'%'
 					</when>
 					<otherwise>
 
@@ -97,27 +99,32 @@
 			</where>
 		</if>
 	</select>
-	
+
 	<select id="list" resultType="empvo" parameterType="searchVO">
+
 		select
 		name,dept_name,position,tel
 		from (
-		select dept_id, a.* from
+		select a.*, rownum as r_num from
 		(
-		select * from employee natural join department 
+		select emp.name name,
+		emp.position position, emp.tel tel, dept.name
+		dept_name
+		from employee
+		emp, (select name, id from department) dept
 		)
 		a
-		) where dept_id between #{begin} and #{end}
+		) where r_num between
+		#{begin} and #{end}
 
 	</select>
 
 
 	<select id="cnt" resultType="int">
-		select count(*) cnt from employee natural join department
+		 select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
 	</select>
-	
+
 	<select id="iew" parameterType="int" resultType="empvo">
-		select *
-		from employee natural join department where dept_id = #{dept_id}
+		select * from employee em, department de where em.DEPT_ID = de.ID and dept_id = #{dept_id}
 	</select>
 </mapper>

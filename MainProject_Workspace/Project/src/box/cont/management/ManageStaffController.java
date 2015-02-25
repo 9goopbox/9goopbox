@@ -29,15 +29,16 @@ private PageVoFactory pvof;
 	 */
 	// 메서드 오버로딩을 사용해서 검색값이 왔을 때 동작되는 메서드
 	@RequestMapping(value = "/management_staff.box")
-	public ModelAndView getListSearch(SearchVO vo, Integer page) {
-		System.out.println("SearchType :" + vo.getSearchType());
+	public ModelAndView getListSearch(Integer page) {
+		SearchVO vo = new SearchVO();
+		System.out.println("Test ----------------------------------------");
+		//System.out.println("SearchType :" + vo.getSearchType());
 		
 		// 페이지 정보를 만들때, 검색 결과의 갯수를 기준으로 만듦 
 		PageVO pageInfo = pvof.makePageVO(page, dao.getTotalSearchCount(vo));
 		
 		ModelAndView mav = new ModelAndView("manageList");
-		mav.setViewName("manageList")
-		;
+		mav.setViewName("manageList");
 		// 기존에 VO값에서 -  검색값이 있다면 포함된 값 - 페이지 범위값을 저장
 		vo.setBegin(String.valueOf(pageInfo.getStartRow()));
 		vo.setEnd(String.valueOf(pageInfo.getEndRow()));
@@ -45,6 +46,10 @@ private PageVoFactory pvof;
 		
 		
 		List<EmployeeVO> list = dao.getListSearch(vo);
+		
+		for(EmployeeVO e : list){
+			System.out.println("C : "+e.getName());
+		}
 		System.out.println("search 갯수 : " + list.size());
 		
 		mav.addObject("pageInfo", pageInfo);
@@ -60,10 +65,10 @@ private PageVoFactory pvof;
 	public ModelAndView getList(Integer page,SearchVO vo) {
 
 		
-		if (!vo.getSearchType().equals("") || vo.getSearchType() == null) {
-			return getListSearch(vo, page);
-		}
-		
+//		if (!vo.getSearchType().equals("") || vo.getSearchType() == null) {
+//			return getListSearch(vo, page);
+//		}
+//		
 		ModelAndView mav = new ModelAndView();
 		
 		// 검색시에도 사용하기 위해 일반화함! (메소드화)
