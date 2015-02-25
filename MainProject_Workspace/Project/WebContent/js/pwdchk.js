@@ -15,10 +15,10 @@ function pwdChk() {
 	xhr.open("get", "idcheck.box?id="+idv, true);
 	xhr.send(null);
 }
+
 function res() {
 	if (xhr.readyState == 4) { 
 		if (xhr.status == 200) {
-			
 			document.getElementById("target").innerHTML=xhr.responseText;
 			// none은 hidden, block은 show
 			document.getElementById("target").style.display="block";

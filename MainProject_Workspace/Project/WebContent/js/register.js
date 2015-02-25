@@ -105,34 +105,34 @@ function openDaumPostcode() {
 
 
 
-//
-//function Register() {
-//		
-//		var form = $('#addEmployee');		
-//		var eid = $('#id').val();
-//		if (eid == null || eid == '') {
-//			alert('아이디를 입력하세요!!');
-//			return;
-//		}
-//
-//		var cname = $('#name').val();
-//		if (cname == null || cname == '') {
-//			alert('이름을 입력하세요!!');
-//			return;
-//		}
-//
-//		var cp1 = $('#password').val();
-//		var cp2 = $('#repeat').val();
-//		
-//		if (cp1 != cp2) {
-//			alert('패스워드가 일치하지 않습니다!!');
-//			return;
-//		}
-//		
-//		alert('가입되었습니다! 축하합니다!!');	
-//		
-//		$('#addEmployee').submit();
-//		form.method = "POST";
-//		form.action = "addEmployee.box";
-//		form.submit();
-//	}
+
+function Register() {
+		
+		var form = $('#addEmployee');		
+		var eid = $('#id').val();
+		if (eid == null || eid == '') {
+			alert('아이디를 입력하세요!!');
+			return;
+		}
+
+		var cname = $('#name').val();
+		if (cname == null || cname == '') {
+			alert('이름을 입력하세요!!');
+			return;
+		}
+
+		var cp1 = $('#password').val();
+		var cp2 = $('#repeat').val();
+		
+		if (cp1 != cp2) {
+			alert('패스워드가 일치하지 않습니다!!');
+			return;
+		}
+		
+		alert('가입되었습니다! 축하합니다!!');	
+		
+		$('#addEmployee').submit();
+		form.method = "POST";
+		form.action = "addEmployee.box";
+		form.submit();
+	}

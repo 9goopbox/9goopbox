@@ -23,6 +23,7 @@
 				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
 				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
 		<![endif]-->
+<script src="./js/pwdchk.js"></script>		
 <script src="./js/register.js"></script>
 </head>
 <body>
@@ -41,15 +42,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<div class="form-group">
-								<input type="text" name="id" id="id"
+								<input type="text" name="id" id="id" onkeyup="pwdChk()"
 									class="form-control input-lg" placeholder="아이디" tabindex="1">
 							</div>
 						</div>
-						<div class="col-xs-4">
-							<a href="../ajax/idchk.jsp?cnt=${id}"
-								data-width="400" data-height="200"
-								class="btn btn-default btn-block btn-lg">중복확인</a>
-						</div>
+						<div id="target">사용 중 </div>
+<!-- 						<div class="col-xs-4"> -->
+<%-- 							<a href="../ajax/idchk.jsp?cnt=${id}" --%>
+<!-- 								data-width="400" data-height="200" -->
+<!-- 								class="btn btn-default btn-block btn-lg">중복확인</a> -->
+<!-- 						</div> -->
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">

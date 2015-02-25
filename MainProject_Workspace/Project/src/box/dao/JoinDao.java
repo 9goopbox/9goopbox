@@ -19,6 +19,7 @@ public class JoinDao {
 		
 	// 아이디 중복 확인
 		public int idChk(String id){
+			System.out.println("11111111");
 			return ss.selectOne("register.idChk", id);
 		}	
 }

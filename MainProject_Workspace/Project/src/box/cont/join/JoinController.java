@@ -34,11 +34,19 @@ public class JoinController {
 	}
 	
 	// 아이디 중복확인!
-		@RequestMapping(value="/idcheck.kosta")
+		@RequestMapping(value="/idcheck.box")
 		public ModelAndView idChk(String id){
+			
+			System.out.println("id : "+ id);
+			
 			int res = dao.idChk(id);
-			ModelAndView mav = new ModelAndView("idchk");
+			System.out.println("222222222");
+			System.out.println("res : "+res);
+			ModelAndView mav = new ModelAndView("auth/idchk");
+			System.out.println("333333333");
 			mav.addObject("cnt", res);
+			System.out.println("444444444");
+			
 			return mav;
 		}
 		
