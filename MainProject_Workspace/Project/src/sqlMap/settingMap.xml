@@ -5,12 +5,12 @@
 <mapper namespace="setting">
 
 <!-- 비밀번호 변경 -->
-	<update id="pwdupdate" parameterType="empvo">
+	<update id="pwdupdate" parameterType="sempvo">
 		update employee set password=#{password}
 	</update>
 	
 <!-- 프로필 변경 -->
-	<update id="profileupdate" parameterType="empvo">
+	<update id="profileupdate" parameterType="sempvo">
 		update employee set name=#{name}, tel=#{tel}, email=#{email}, address=#{address}
 	</update>
 </mapper>

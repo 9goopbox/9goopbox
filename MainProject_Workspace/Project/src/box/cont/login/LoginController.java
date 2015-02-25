@@ -1,4 +1,4 @@
-package box.cont.login;
+﻿package box.cont.login;
 
 import javax.servlet.http.HttpSession;
 
@@ -29,7 +29,7 @@ public class LoginController {
 		
 //		int res = dao.login(vo);
 //		if(res>0) {
-		
+//		
 //			int doc = dao.seldoctor(vo);
 //			int nur = dao.selnurse(vo);
 //			int stf = dao.selstaff(vo);
@@ -69,7 +69,13 @@ public class LoginController {
 //				mav.addObject("err_msg", "로그인 실패");
 //				mav.addObject("status", "LoginError");
 //			}
-		
+//		}else{
+//			//error페이지
+//			mav.setViewName("login_false");
+//			//error페이지에 메시지 전달
+//			mav.addObject("err_msg", "로그인 실패");
+//			mav.addObject("status", "LoginError");
+//		}
 		return mav;
 	}
 	

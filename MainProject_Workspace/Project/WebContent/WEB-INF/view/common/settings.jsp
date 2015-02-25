@@ -77,7 +77,7 @@
 					<div class="form-group">
 						<label for="ui-spinner" class="col-sm-5 control-label">다시입력</label>
 						<div class="col-sm-5">
-							<input type="password" class="form-control"
+							<input type="password" class="form-control" id="passwordch" name="passwordch"
 								placeholder="비밀번호 확인">
 						</div>
 					</div>
