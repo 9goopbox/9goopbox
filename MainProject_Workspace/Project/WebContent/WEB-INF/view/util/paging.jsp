@@ -19,11 +19,13 @@ ${(pageInfo.currentBlock-1)*pageInfo.pagesPerBlock }">
 			</c:choose>
 
 			<%--Page  페이지 구현 --%>
+			<div class="btn-group">
 			<c:choose>
+			
 				<c:when test="${pageInfo.currentBlock ne pageInfo.totalBlocks}">
 					<c:forEach begin="1" end="${pageInfo.pagesPerBlock}"
 						varStatus="num">
-						<a class="btn btn-default"
+						<a class="btn btn-default ${(pageInfo.currentPage == ((pageInfo.currentBlock- 1) * pageInfo.pagesPerBlock + num.count))?'btn-primary disabled':''}"
 							href="${pageURL}?page=${(pageInfo.currentBlock - 1) * pageInfo.pagesPerBlock + num.count }">
 							${(pageInfo.currentBlock- 1) * pageInfo.pagesPerBlock + num.count }</a>
 					</c:forEach>
@@ -32,13 +34,13 @@ ${(pageInfo.currentBlock-1)*pageInfo.pagesPerBlock }">
 					<c:forEach
 						begin="${(pageInfo.currentBlock-1)*pageInfo.pagesPerBlock + 1}"
 						end="${pageInfo.totalPages}" varStatus="num">
-						<a class="btn btn-default"
+						<a class="btn btn-default ${(pageInfo.currentPage == ((pageInfo.currentBlock- 1) * pageInfo.pagesPerBlock + num.count))?'btn-primary disabled':''}"
 							href="${pageURL}?page=${(pageInfo.currentBlock - 1) * pageInfo.pagesPerBlock + num.count }">
 							${(pageInfo.currentBlock - 1) * pageInfo.pagesPerBlock + num.count }</a>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
-
+			</div>
 
 			<%--Page 다음 페이지 구현 --%>
 			<c:choose>
@@ -67,27 +69,30 @@ ${(pageInfo.currentBlock-1)*pageInfo.pagesPerBlock }">
 			</c:choose>
 
 			<%--Page  페이지 구현 --%>
+			<div class="btn-group">
 			<c:choose>
 				<c:when test="${pageInfo.currentBlock ne pageInfo.totalBlocks}">
+				
 					<c:forEach begin="1" end="${pageInfo.pagesPerBlock}"
 						varStatus="num">
-						<a class="btn btn-default"
+						<a class="btn btn-default ${(pageInfo.currentPage == ((pageInfo.currentBlock- 1) * pageInfo.pagesPerBlock + num.count))?'btn-primary disabled':''}"
 							href="${pageURL}?searchType=${searchType}&searchValue=${searchValue}&page=
             ${(pageInfo.currentBlock - 1) * pageInfo.pagesPerBlock + num.count }">
 							${(pageInfo.currentBlock- 1) * pageInfo.pagesPerBlock + num.count }</a>
 					</c:forEach>
+					
 				</c:when>
 				<c:otherwise>
 					<c:forEach
 						begin="${(pageInfo.currentBlock-1)*pageInfo.pagesPerBlock + 1}"
 						end="${pageInfo.totalPages}" varStatus="num">
-						<a class="btn btn-default"
+						<a class="btn btn-default ${(pageInfo.currentPage == ((pageInfo.currentBlock- 1) * pageInfo.pagesPerBlock + num.count))?'btn-primary disabled':''}"
 							href="${pageURL}?searchType=${searchType}&searchValue=${searchValue}&page=${(pageInfo.currentBlock - 1) * pageInfo.pagesPerBlock + num.count }">
 							${(pageInfo.currentBlock - 1) * pageInfo.pagesPerBlock + num.count }</a>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
-
+			</div>
 
 			<%--Page 다음 페이지 구현 --%>
 			<c:choose>
