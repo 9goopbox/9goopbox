@@ -2,7 +2,15 @@ package vo;
 
 public class ChartVO {
 	private int id,dept_id,patient_id,treatment_id,cost;
-	private String doctor_id,sub,cont;
+	private String doctor_id,sub, cont, disease;
+	
+	
+	public String getDisease() {
+		return disease;
+	}
+	public void setDisease(String disease) {
+		this.disease = disease;
+	}
 	public int getId() {
 		return id;
 	}
@@ -51,6 +59,5 @@ public class ChartVO {
 	public void setCont(String cont) {
 		this.cont = cont;
 	}
-	
 	
 }

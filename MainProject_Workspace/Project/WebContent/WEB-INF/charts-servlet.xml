@@ -8,9 +8,9 @@
 		<property name="viewName" value="charts/charts_make"/>
 	</bean>
 	
-	<bean name="/charts_inquiry.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="charts/charts_inquiry"/>
-	</bean>
+<!-- 	<bean name="/charts_inquiry.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
+<!-- 		<property name="viewName" value="charts/charts_inquiry"/> -->
+<!-- 	</bean> -->
 	
 	<bean name="/charts_detail.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="charts/charts_detail"/>

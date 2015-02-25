@@ -1030,6 +1030,31 @@ function LoadAjaxContent(url){
 		async: false
 	});
 }
+
+//
+// 위드 파라미터.
+//
+function LoadAjaxContentByForm(form, method){
+$('.preloader').show();
+console.log(form);
+console.log($(form).serialize());
+$.ajax({
+	mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
+	url: $(form).attr("action"),
+	type: method,
+	data: $(form).serialize(),
+	success: function(data) {
+		$('#ajax-content').html(data);
+		$('.preloader').hide();
+	},
+	error: function (jqXHR, textStatus, errorThrown) {
+		alert(errorThrown);
+	},
+	dataType: "html",
+	async: false
+});
+return false;
+}
 //
 //  Function maked all .box selector is draggable, to disable for concrete element add class .no-drop
 //
