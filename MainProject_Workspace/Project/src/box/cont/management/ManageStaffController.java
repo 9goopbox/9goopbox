@@ -18,8 +18,8 @@ import box.util.PageVoFactory;
 public class ManageStaffController {
 	@Autowired
 	private ManageDao dao;
-@Autowired
-private PageVoFactory pvof;
+	@Autowired
+	private PageVoFactory pvof;
 	
 	/**
 	 * shoplist를 따라한 검색출력 컨트롤러
@@ -37,8 +37,7 @@ private PageVoFactory pvof;
 		// 페이지 정보를 만들때, 검색 결과의 갯수를 기준으로 만듦 
 		PageVO pageInfo = pvof.makePageVO(page, dao.getTotalSearchCount(vo));
 		
-		ModelAndView mav = new ModelAndView("manageList");
-		mav.setViewName("manageList");
+		ModelAndView mav = new ModelAndView("management/management_staff");
 		// 기존에 VO값에서 -  검색값이 있다면 포함된 값 - 페이지 범위값을 저장
 		vo.setBegin(String.valueOf(pageInfo.getStartRow()));
 		vo.setEnd(String.valueOf(pageInfo.getEndRow()));
@@ -61,7 +60,7 @@ private PageVoFactory pvof;
 		return mav;
 	}
 	
-	@RequestMapping(value = "/managelist.kosta")
+	@RequestMapping(value = "/managelist.box")
 	public ModelAndView getList(Integer page,SearchVO vo) {
 
 		
@@ -74,7 +73,7 @@ private PageVoFactory pvof;
 		// 검색시에도 사용하기 위해 일반화함! (메소드화)
 		PageVO pageInfo = pvof.makePageVO(page, dao.getTotalCount());
 		
-		mav.setViewName("shopList");
+		mav.setViewName("management_staff");
 		// 기존에 VO값에서 -  검색값이 있다면 포함된 값 - 페이지 범위값을 저장
 		vo.setBegin(String.valueOf(pageInfo.getStartRow()));
 		vo.setEnd(String.valueOf(pageInfo.getEndRow()));
