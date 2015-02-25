@@ -21,12 +21,13 @@
 	    from chart, (select id, name, age, sex, familydis from patient) patient
 	    where chart.PATIENT_ID = patient.id
 	    <if test="searchType != null">
-	    	and
+	    <if test="searchType != ''">
 	    	<choose>
 	    		<when test="searchType == 1">
-	    			patient.name like '%'|| #{searchValue} || '%'
+	    			and patient.name like '%'|| #{searchValue} || '%'
 	    		</when>
 	    	</choose>
+    	</if>
 	    </if>
 	    order by chart.id desc
 	  ) a
@@ -36,5 +37,17 @@
 	<select id="size" resultType="int">
 		select count(*)
 		from chart
+	</select>
+	<select id="sizeSearch" resultType="int" parameterType="searchvo">
+		select count(*)
+		from chart, patient
+		<where>
+			chart.patient_id = patient.id
+			<choose>
+				<when test="searchType == 1">
+					and patient.name like '%'|| #{searchValue} || '%'
+				</when>
+			</choose>
+		</where>
 	</select>
 </mapper>

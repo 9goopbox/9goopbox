@@ -21,4 +21,7 @@ public class ChartDao {
 	public int getListSize() {
 		return ss.selectOne("charts.size");
 	}
+	public int getListSizeSearch(SearchVO vo) {
+		return ss.selectOne("charts.sizeSearch", vo);
+	}
 }
