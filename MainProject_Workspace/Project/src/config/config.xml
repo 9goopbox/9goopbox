@@ -4,12 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<!-- DB 테이블의 VO -->
 		<typeAlias type="vo.ArticleVO" alias="artvo" />
 		<typeAlias type="vo.CalenderVO" alias="calvo"/>
 		<typeAlias type="vo.EmployeeVO" alias="empvo"/>
 		<typeAlias type="vo.PatientVO" alias="patvo"/>
 		<typeAlias type="vo.ChartVO" alias="charvo"/>
-		<typeAlias type="vo.ChartDisplayVO" alias="chartdisplayvo"/>
+		
+		<!-- 특정 뷰를 위한 VO -->
+		<typeAlias type="vo.view.ChartDisplayVO" alias="chartdisplayvo"/>
+		<typeAlias type="vo.view.ChartTreatmentVO" alias="charttreatmentvo"/>
+		
+		<!-- paging / searching -->
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 	</typeAliases>

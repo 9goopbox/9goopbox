@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.ChartDisplayVO;
 import vo.SearchVO;
+import vo.view.ChartDisplayVO;
 
 @Repository
 public class ChartDao {
