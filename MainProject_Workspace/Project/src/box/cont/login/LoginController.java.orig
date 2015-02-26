@@ -21,7 +21,11 @@ public class LoginController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+<<<<<<< HEAD
+		// 임시
+=======
 //		// 임시
+>>>>>>> origin/master
 //		if (true) {
 //			mav.setViewName("redirect:/user_page.box");
 //			return mav;

@@ -81,6 +81,7 @@
 								<td>${cdl.familydis }</td>
 								<td><a class="ajax-link"
 									href="../charts_detail.box?id=${cdl.id}">상세보기</a></td>
+									
 							</tr>
 						</c:forEach>
 
