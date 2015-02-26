@@ -77,10 +77,11 @@ public class ChartsMakeController {
 	
 	@RequestMapping(value="/charts_submit.box")
 	public ModelAndView charts_submit(ChartVO vo) {
-		ModelAndView mav = new ModelAndView("charts/charts_detail");
-		System.out.println(vo.getAttach_id());
+		ModelAndView mav = new ModelAndView("util/ajax_redirect.jsp");
+		System.out.println("../charts_detail.box?id=" + vo.getId());
+		
 		dao.addChart(vo);
-		mav.addObject(vo.getId());
+		mav.addObject("address", "../charts_detail.box?id=" + vo.getId());
 		return mav;
 	}
 }
