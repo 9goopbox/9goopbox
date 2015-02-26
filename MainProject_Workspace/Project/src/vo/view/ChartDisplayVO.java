@@ -1,4 +1,4 @@
-package vo;
+package vo.view;
 
 public class ChartDisplayVO {
 	private String name, disease, doctor_name, dept_name, sex, familydis;

@@ -1,13 +1,25 @@
 package vo;
 
 public class PatientVO {
-	private int id, age;
-	private String name, sex, phone, doctor_id, familydis;
+	private int id, age, height;
+	private String name, sex, phone, doctor_id, familydis, insured;
+	public String getInsured() {
+		return insured;
+	}
+	public void setInsured(String insured) {
+		this.insured = insured;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 	public int getAge() {
 		return age;

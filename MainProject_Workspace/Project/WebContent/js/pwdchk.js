@@ -12,7 +12,7 @@ function pwdChk() {
 	// 파라미터 등록 
 	var idv = document.getElementById("id").value;
 	xhr.onreadystatechange = res;
-	xhr.open("get", "idcheck.kosta?id="+idv, true);
+	xhr.open("get", "idcheck.box?id="+idv, true);
 	xhr.send(null);
 }
 function res() {
