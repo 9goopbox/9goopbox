@@ -91,6 +91,8 @@ $(function() {
 	});
 });
 
+
+//daum post
 function openDaumPostcode() {
 	new daum.Postcode({
 		oncomplete : function(data) {

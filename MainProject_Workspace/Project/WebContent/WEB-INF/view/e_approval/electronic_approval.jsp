@@ -10,8 +10,8 @@
 		</ol>
 	</div>
 </div>
-<div class="container">	    
-    <div class="row">    	
+<div class="container">
+    <div class="row">
         <div>
             <div class="panel with-nav-tabs panel-primary">
                 <div class="panel-heading">
@@ -19,7 +19,7 @@
                             <li class="active"><a href="#tab1primary" data-toggle="tab">기안서 작성</a></li>
                             <li><a href="#tab2primary" data-toggle="tab">결재중</a></li>
                             <li><a href="#tab3primary" data-toggle="tab">반려</a></li>
-                            <li><a href="#tab4primary" data-toggle="tab">결재</a></li>                            
+                            <li><a href="#tab4primary" data-toggle="tab">결재</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -47,18 +47,18 @@
 				<div class="col-md-6">
 					<input type="text" class="form-control" placeholder="결재명">
 					<br/>
-				</div>			
+				</div>
 				<div class="col-md-6">
 					<input type="text" class="form-control" placeholder="결재자 id">
 					<br/>
 				</div>
-			</div>			
+			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<input type="text" class="form-control" placeholder="결재종류">
 					<br/>
 				</div>
-			
+
 				<div class="col-md-6">
 					<input type="text" class="form-control" placeholder="">
 					<br/>
@@ -71,13 +71,19 @@
 				</div>
 				<div class="col-md-6">
 					<input type="text" class="form-control" placeholder="결재상태">
-					<br/>					
+					<br/>
 				</div>
-			</div>			
+			</div>
 			<h4>요청내용 & 첨부파일</h4>
 			<div class="form-group">
 				<div class="col-sm-20">
 					<textarea class="form-control" rows="5" id="wysiwig_full" ></textarea>
+				</div>
+				<div style="float: left;">
+					<a type="button" class="btn btn-primary" href="../view/electronic_form.box">
+						기안서작성
+					</a>
+					&nbsp;
 				</div>
 			</div>
 			<div style="float: right;">
@@ -87,7 +93,7 @@
 	</div>
 </div>
 </div>
-                       
+
                         <div class="tab-pane fade" id="tab2primary">
 
 <div class="box-content no-padding">
@@ -125,7 +131,7 @@
 		</tbody>
 		</table>
 		</div>
-		
+
 
 
 
@@ -225,7 +231,7 @@ function DemoTimePicker(){
 $(document).ready(function() {
 	// Create Wysiwig editor for textare
 	TinyMCEStart('#wysiwig_full', 'extreme');
-	
+
 	// Add drag-n-drop feature to boxes
 	WinMove();
 });
@@ -271,7 +277,7 @@ $(document).ready(function() {
     border-color: #3071a9;
 }
 .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
-    color: #fff;   
+    color: #fff;
 }
 .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
 .with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
@@ -283,4 +289,3 @@ $(document).ready(function() {
     background-color: #4a9fe9;
 }
 </style>
-

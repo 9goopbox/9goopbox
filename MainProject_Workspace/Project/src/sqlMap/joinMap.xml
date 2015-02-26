@@ -9,8 +9,7 @@
 	</insert>
 
 <select id="idChk"  parameterType="String" resultType="int">
-  	select count(*) cnt from employee
-  		where id=#{id}
+  	select count(*) cnt from employee where id=#{id}
   </select>
 
 

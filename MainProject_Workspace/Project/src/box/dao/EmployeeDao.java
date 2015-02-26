@@ -16,6 +16,4 @@ public class EmployeeDao {
 		return ss.selectOne("login.loginok", vo);
 	}
 	
-	
-	
 }

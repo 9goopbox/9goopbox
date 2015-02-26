@@ -30,7 +30,7 @@
 
 			<!-- <input type="text" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip for name"> -->
 			<div class="row">
-				<form method="post" action="../charts_inquiry.box" onsubmit="LoadAjaxContentByForm(this,'GET') ">
+				<form method="post" action="../charts_inquiry.box" onsubmit="LoadAjaxContentByForm(this,'GET'); return false;">
 				<div class="col-xs-12 col-sm-2">
 					<select id="kind_select2" name="searchType">
 						<option></option>
@@ -38,6 +38,7 @@
 						<option value="2" ${searchType==2?'selected="selected"':''}>담당의 이름</option>
 						<option value="3" ${searchType==3?'selected="selected"':''}>담당의 ID</option>
 						<option value="4" ${searchType==4?'selected="selected"':''}>병명요약</option>
+						<option value="5" ${searchType==5?'selected="selected"':''}>진료 ID</option>
 					</select>
 				</div>
 				<div class="col-xs-12 col-sm-3">
@@ -80,6 +81,7 @@
 								<td>${cdl.familydis }</td>
 								<td><a class="ajax-link"
 									href="../charts_detail.box?id=${cdl.id}">상세보기</a></td>
+									
 							</tr>
 						</c:forEach>
 

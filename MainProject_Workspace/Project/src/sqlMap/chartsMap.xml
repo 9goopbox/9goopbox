@@ -37,6 +37,9 @@
 				<when test="searchType == 4">
 					and chart.disease like '%'|| #{searchValue} || '%'
 				</when>
+				<when test="searchType == 5">
+					and chart.treatment_id = #{searchValue}
+				</when>
 	    	</choose>
     	</if>
 	    </if>
@@ -67,6 +70,9 @@
 				</when>
 				<when test="searchType == 4">
 					and chart.disease like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 5">
+					and chart.treatment_id = #{searchValue}
 				</when>
 			</choose>
 		</where>

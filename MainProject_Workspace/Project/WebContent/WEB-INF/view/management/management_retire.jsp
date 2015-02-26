@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -30,113 +31,145 @@
 			<!-- 			<input type="text" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip for name"> -->
 			<div class="img-responsive">
 
-				<table class="table">
-					<!-- 				<img src="img/EXID-HANI.jpg" width="300" weight="530" class="table-addr-img"/> -->
-					<thead>
-						<tr>
-							<th>직원 이름</th>
-							<th>나이</th>
-							<th>부서</th>
-							<th>직급</th>
-							<th>상세보기</th>
-							<th>퇴사일</th>
-							<th>다운로드</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>원무부</td>
-							<td>사원</td>
-							<td><a href="">상세보기</a></td>
-							<td>15-02-28</td>
-							<td><input type="button" class="col-lg-5" value="문서내려받기"></td>
-						</tr>
+<!-- 				<table class="table"> -->
+<!-- 									<img src="img/EXID-HANI.jpg" width="300" weight="530" class="table-addr-img"/> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th>직원 이름</th> -->
+<!-- 							<th>나이</th> -->
+<!-- 							<th>부서</th> -->
+<!-- 							<th>직급</th> -->
+<!-- 							<th>상세보기</th> -->
+<!-- 							<th>퇴사일</th> -->
+<!-- 							<th>다운로드</th> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody> -->
+<!-- 						<tr> -->
+<!-- 							<td>이훈</td> -->
+<!-- 							<td>24</td> -->
+<!-- 							<td>원무부</td> -->
+<!-- 							<td>사원</td> -->
+<!-- 							<td><a href="">상세보기</a></td> -->
+<!-- 							<td>15-02-28</td> -->
+<!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
+<!-- 						</tr> -->
 
-					</tbody>
-				</table>
-				<div
-					class="select2-container populate placeholder select2-dropdown-open select2-container-active"
-					id="s2id_s2_country">
-					<div style="float: left;">
-						<a href="javascript:void(0)" class="select2-choice col-lg-12"
-							tabindex="-1"> <span class="select2-chosen "
-							id="select2-chosen-4">-- 퇴사관리 --</span> 
-							<abbr class="select2-search-choice-close"></abbr> 
-							<span class="select2-arrow" role="presentation"> 
-							<b role="presentation"></b>
-						</span></a> <label for="s2id_autogen4" class="select2-offscreen"></label> 
-						<input class="select2-focusser select2-offscreen" type="text"
-							aria-haspopup="true" role="button"
-							aria-labelledby="select2-chosen-4" id="s2id_autogen4" disabled="">
-					</div>
-					<div style="float: left;">
-						<input class="form-control input-lg col-lg-1" type="text">
-					</div>
-					<div style="float: left;">
-						<input class="btn btn-primary" type="button" value="조회">
-					</div>
+<!-- 					</tbody> -->
+<!-- 				</table> -->
 
+				<div class="form-group">
+					<form method="post" action="../management_staff.box"
+					onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
+					<select style="float: left;" id="kind_select2" name="searchType">
+						<option></option>
+						<option value="1" ${searchType==1?'selected="selected"':''}>=이
+							름=</option>
+						<option value="2" ${searchType==2?'selected="selected"':''}>=부
+							서=</option>
+						<option value="3" ${searchType==3?'selected="selected"':''}>=직
+							급=</option>
+					</select>
+					<div style="float: left;">
+						<input class="form-control col-lg-1" type="text"
+						name="searchValue" value="${searchValue}">
+					</div>
+					<div style="float: left;">
+						<button type="submit" class="btn btn-primary btn-xs">조회</button>
+					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="box-content no-padding">
-				<table
-					class="table table-bordered table-striped table-hover table-heading table-datatable"
-					id="datatable-1">
-					<thead>
-						<tr>
-							<th>직원 이름</th>
-							<th>나이</th>
-							<th>부서</th>
-							<th>직급</th>
-							<th>상세보기</th>
-							<th>퇴사일</th>
-							<th>다운로드</th>
+		<div class="box-content no-padding">
+			<table
+				class="table table-bordered table-striped table-hover table-heading table-datatable"
+				id="datatable-1">
+				<thead>
+					<tr>
+						<th>직원 이름</th>
+						<th>번호</th>
+						<th>부서</th>
+						<th>직급</th>
+						<th>상세보기</th>
+						<th>퇴사일</th>
+						<th>다운로드</th>
 
-						</tr>
-					</thead>
-					<tbody>
+					</tr>
+				</thead>
+<!-- 				<tbody> -->
+<!-- 					Start: list_row -->
+<!-- 					<tr> -->
+<!-- 						<td>이훈</td> -->
+<!-- 						<td>24</td> -->
+<!-- 						<td>원무부</td> -->
+<!-- 						<td>사원</td> -->
+<!-- 						<td><a href="">상세보기</a></td> -->
+<!-- 						<td>15-02-28</td> -->
+<!-- 						<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
+<!-- 					</tr> -->
+
+
+<!-- 					End: list_row -->
+<!-- 				</tbody> -->
+				<tbody>
 						<!-- Start: list_row -->
-						<tr>
-							<td>이훈</td>
-							<td>24</td>
-							<td>원무부</td>
-							<td>사원</td>
-							<td><a href="">상세보기</a></td>
-							<td>15-02-28</td>
-							<td><input type="button" class="col-lg-5" value="문서내려받기"></td>
-						</tr>
-
-
+						<c:forEach items="${manageRetireDisplayList}" var="mrdl">
+							<tr>
+								<td>${mrdl.name}</td>
+								<td>${mrdl.tel }</td>
+								<td>${mrdl.dept_name }</td>
+								<td>${mrdl.position }</td>
+								<td><a class="ajax-link"
+									href="../management_staff_detail.box?id=${mrdl.name}">상세보기</a></td>
+								<td>${mrdl.bye}</td>
+								<td><input type="button" class="col-lg-5" value="문서내려받기"></td>
+							</tr>
+						</c:forEach>
 						<!-- End: list_row -->
 					</tbody>
-
 				</table>
+<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
 			</div>
-		</div>
 	</div>
 </div>
-
+</div>
 <script type="text/javascript">
-	// Run Datables plugin and create 3 variants of settings
-	// function AllTables(){
-	// 	TestTable1();
-	// 	TestTable2();
-	// 	TestTable3();
-	// 	LoadSelect2Script(MakeSelect2);
-	// }
 	function MakeSelect2() {
-		// 	$('select').select2();
-		// 	$('.dataTables_filter').each(function(){
-		// 		$(this).find('label input[type=text]').attr('placeholder', 'Search');
-		// 	});
+		$('#kind_select2').select2();
 	}
 	$(document).ready(function() {
-		// Load Datatables and run plugin on tables
-		// 	LoadDataTablesScripts(AllTables);
-		// Add Drag-n-Drop feature
+		// ajax-link 적용
+		$("a.ajax-link").bind("click", function(e) {
+			e.preventDefault();
+			LoadAjaxContent($(e.target).attr("href"));
+		});
+		$("div.paging a").bind("click", function(e) {
+			e.preventDefault();
+			LoadAjaxContent($(e.target).attr("href"));
+		});
+		LoadSelect2Script(MakeSelect2);
 		WinMove();
 	});
 </script>
+<!-- <!-- <script type="text/javascript"> --> -->
+<!-- // 	// Run Datables plugin and create 3 variants of settings -->
+<!-- // 	// function AllTables(){ -->
+<!-- // 	// 	TestTable1(); -->
+<!-- // 	// 	TestTable2(); -->
+<!-- // 	// 	TestTable3(); -->
+<!-- // 	// 	LoadSelect2Script(MakeSelect2); -->
+<!-- // 	// } -->
+<!-- // 	function MakeSelect2() { -->
+<!-- // 		// 	$('select').select2(); -->
+<!-- // 		// 	$('.dataTables_filter').each(function(){ -->
+<!-- // 		// 		$(this).find('label input[type=text]').attr('placeholder', 'Search'); -->
+<!-- // 		// 	}); -->
+<!-- // 	} -->
+<!-- // 	$(document).ready(function() { -->
+<!-- // 		// Load Datatables and run plugin on tables -->
+<!-- // 		// 	LoadDataTablesScripts(AllTables); -->
+<!-- // 		// Add Drag-n-Drop feature -->
+<!-- // 		WinMove(); -->
+<!-- // 	}); -->
+<!-- <!-- </script> --> -->
