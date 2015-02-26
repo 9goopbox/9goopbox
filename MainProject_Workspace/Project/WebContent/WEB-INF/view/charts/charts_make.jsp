@@ -51,9 +51,12 @@
 			</div>
 			<h3>진료기록</h3>
 			<div class="form-group">
-				<div class="col-sm-20">
-					<textarea class="form-control" rows="5" id="wysiwig_full"></textarea>
+				<form method="post" action="../charts_submit.box" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
+				<div class="col-sm-12">
+					<input type="hidden" name="id" />
+					<textarea class="form-control" rows="5" id="wysiwig_full" name="cont"></textarea>
 				</div>
+				</form>
 			</div>
 			<div style="float: right;">
 				<button type="button" class="btn btn-primary">등록</button>
