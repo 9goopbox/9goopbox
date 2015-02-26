@@ -29,7 +29,7 @@
 			</div>
 			<div class="form-group">
 				<form method="post" action="../management_staff.box"
-					onsubmit="LoadAjaxContentByForm(this,'GET') ">
+					onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
 					<select style="float: left;" id="kind_select2" name="searchType">
 						<option></option>
 						<option value="1" ${searchType==1?'selected="selected"':''}>=이
@@ -82,42 +82,7 @@
 							<th>다운로드</th>
 						</tr>
 					</thead>
-					<!-- 					<tbody> -->
-					<!-- 						Start: list_row -->
-					<!-- 						하나하나 다 입력한거임? 우리는 DB로!! -->
-					<!-- 						<tr> -->
-					<!-- 							<td><img class="img-rounded" -->
-					<!-- 								src="http://i.forbesimg.com/media/lists/people/carlos-slim-helu_50x50.jpg" -->
-					<!-- 								alt="">민경훈</td> -->
-					<!-- 							<td>1953.0216</td> -->
-					<!-- 							<td>총무부</td> -->
-					<!-- 							<td>과장</td> -->
-					<!-- 							<th><a href="#">상세보기</a></th> -->
-					<!-- 							<th><a href="#">파일다운로드</a></th> -->
-					<!-- 						</tr> -->
-					<!-- 						<tr> -->
-					<!-- 							<td><img class="img-rounded" -->
-					<!-- 								src="http://i.forbesimg.com/media/lists/people/bill-gates_50x50.jpg" -->
-					<!-- 								alt="">조은의</td> -->
-					<!-- 							<td>1948.05.05</td> -->
-					<!-- 							<td>의사부</td> -->
-					<!-- 							<td>원장</td> -->
-					<!-- 							<th><a href="#">상세보기</a></th> -->
-					<!-- 							<th><a href="#">파일다운로드</a></th> -->
-					<!-- 						</tr> -->
-					<!-- 						<tr> -->
-					<!-- 							<td><img class="img-rounded" -->
-					<!-- 								src="http://i.forbesimg.com/media/lists/people/amancio-ortega_50x50.jpg" -->
-					<!-- 								alt="">장조은</td> -->
-					<!-- 							<td>1968.06.30</td> -->
-					<!-- 							<td>간호부</td> -->
-					<!-- 							<td>간호사</td> -->
-					<!-- 							<th><a href="#">상세보기</a></th> -->
-					<!-- 							<th><a href="#">파일다운로드</a></th> -->
-					<!-- 						</tr> -->
-
-					<!-- End: list_row -->
-					<!-- 					</tbody> -->
+					
 					<tbody>
 						<!-- Start: list_row -->
 						<c:forEach items="${manageDisplayList}" var="mdl">

@@ -7,9 +7,9 @@
 		<property name="viewName" value="management/management_pay"/>
 	</bean>
 	
-	<bean name="/management_retire.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="management/management_retire"/>
-	</bean>
+<!-- 	<bean name="/management_retire.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
+<!-- 		<property name="viewName" value="management/management_retire"/> -->
+<!-- 	</bean> -->
 	
 <!-- 	<bean name="/management_staff.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
 <!-- 		<property name="viewName" value="management/management_staff"/> -->

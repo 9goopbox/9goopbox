@@ -35,20 +35,22 @@
 	<!-- where name LIKE '%'||#{searchValue}||'%' -->
 	<!-- </select> -->
 	<select id="getlistsearch" resultType="empvo" parameterType="searchVO">
-		select * from
-		(
+		
+		select
+		*
+		from (
 		select a.*, rownum as r_num from
 		(
-		select emp.name ename,
+		select emp.name name,
 		emp.position position, emp.tel tel, dept.name
-		dname
+		dept_name
 		from employee
 		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
 
 		<if test="searchType != null">
 
-			<where>
-				emp.dept_id = dept.id
+			
 				<choose>
 					<when test="searchType == 1">
 						and emp.name LIKE '%'||#{searchValue}||'%'
@@ -63,7 +65,46 @@
 
 					</otherwise>
 				</choose>
-			</where>
+		</if>
+
+		) a
+		)
+		where r_num between #{begin} and #{end}
+
+
+
+	</select>
+	<select id="getretirelistsearch" resultType="empvo" parameterType="searchVO">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,
+		emp.position position, emp.tel tel, emp.bye bye, dept.name
+		dept_name
+		from employee
+		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
+
+		<if test="searchType != null">
+
+			
+				<choose>
+					<when test="searchType == 1">
+						and emp.name LIKE '%'||#{searchValue}||'%'
+					</when>
+					<when test="searchType == 2">
+						and emp.position LIKE '%'||#{searchValue}||'%'
+					</when>
+					<when test="searchType == 3">
+						and dept.name LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
 		</if>
 
 		) a
@@ -74,58 +115,57 @@
 
 	</select>
 
-
-	<select id="somecnt" resultType="int" parameterType="searchVO">
-		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
-		select count(*) cnt from employee em, department de  
-		where em.DEPT_ID = de.ID
-		<if test="searchType != null">
-	
-				<choose>
-					<when test="searchType == 1">
-						and em.name LIKE '%'||#{searchValue}||'%'
-					</when>
-					<when test="searchType == 2">
-						and em.position LIKE '%'||#{searchValue}||'%'
-					</when>
-					<when test="searchType == 3">
-						and de.name LIKE '%'||#{searchValue}||'%'
-					</when>
-					<otherwise>
-
-					</otherwise>
-				</choose>
-			
-		</if>
-	
-	</select>
-
-	<select id="list" resultType="empvo" parameterType="searchVO">
+	<select id="list" resultType="empvo" parameterType="empvo">
 
 		select
 		name,dept_name,position,tel
 		from (
-      select a.*, rownum as r_num from
-      (
-        select emp.name name,
-        emp.position position, emp.tel tel, dept.name
-        dept_name
-        from employee
-        emp, (select name, id from department) dept
-        where emp.dept_id = dept.id 
-      )
-      a
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,
+		emp.position position, emp.tel tel, dept.name
+		dept_name
+		from employee
+		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
+		)
+		a
 		) where r_num between
 		#{begin} and #{end}
 
 	</select>
 
 
+	<select id="somecnt" resultType="int" parameterType="searchVO">
+		<!-- 작성자1, 상품명2, 가격3 , 내용 등등 -->
+		select count(*) cnt from employee em, department de
+		where em.DEPT_ID = de.ID
+		<if test="searchType != null">
+
+			<choose>
+				<when test="searchType == 1">
+					and em.name LIKE '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 2">
+					and em.position LIKE '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 3">
+					and de.name LIKE '%'||#{searchValue}||'%'
+				</when>
+				<otherwise>
+
+				</otherwise>
+			</choose>
+
+		</if>
+
+	</select>
 	<select id="cnt" resultType="int">
-		 select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
+		select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
 	</select>
 
-	<select id="iew" parameterType="int" resultType="empvo">
-		select * from employee em, department de where em.DEPT_ID = de.ID and dept_id = #{dept_id}
-	</select>
+	<!-- <select id="iew" parameterType="int" resultType="empvo"> -->
+	<!-- select * from employee em, department de where em.DEPT_ID = de.ID and 
+		dept_id = #{dept_id} -->
+	<!-- </select> -->
 </mapper>

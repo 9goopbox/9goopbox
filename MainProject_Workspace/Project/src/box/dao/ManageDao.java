@@ -48,4 +48,8 @@ public class ManageDao {
 	public List<EmployeeVO> getListSearch(SearchVO vo) {
 		return ss.selectList("manage.getlistsearch", vo);
 	}
+	public List<EmployeeVO> getRetireListSearch(SearchVO vo) {
+		return ss.selectList("manage.getretirelistsearch", vo);
+	}
+	
 }
