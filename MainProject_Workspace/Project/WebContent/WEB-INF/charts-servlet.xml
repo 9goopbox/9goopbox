@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
 <!-- Charts 뷰 Controller -->
-	<bean name="/charts_make.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="charts/charts_make"/>
-	</bean>
+<!-- 	<bean name="/charts_make.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
+<!-- 		<property name="viewName" value="charts/charts_make"/> -->
+<!-- 	</bean> -->
 	
 <!-- 	<bean name="/charts_inquiry.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
 <!-- 		<property name="viewName" value="charts/charts_inquiry"/> -->

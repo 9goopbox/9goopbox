@@ -30,7 +30,7 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="row">
-				<form method="post" action="../charts_treatment_search.box" onsubmit="LoadAjaxContentByForm(this,'GET') ">
+				<form method="post" action="../charts_make_treatment_search.box" onsubmit="LoadAjaxContentByForm(this,'GET') ">
 					<div class="col-xs-12 col-sm-12">
 					차트를 만들 진료를 선택하세요.
 					</div>
@@ -52,7 +52,6 @@
 					</div>
 				</form>
 			</div>
-			
 			<div class="box-content no-padding">
 				<table
 					class="table table-bordered table-striped table-hover table-heading table-datatable"
@@ -73,12 +72,12 @@
 							<tr>
 								<td>${ctl.treatment_id}</td>
 								<td>${ctl.patient_id }</td>
-								<td>${cdl.patient_name }</td>
-								<td>${cdl.patient_gender }</td>
-								<td>조회</td>
-								<td>선택</td>
+								<td>${ctl.patient_name }</td>
+								<td>${ctl.patient_sex }</td>
 								<td><a class="ajax-link"
-									href="../charts_detail.box?id=${cdl.id}">상세보기</a></td>
+									href="../charts_inquiry.box?searchType=5&searchValue=${ctl.treatment_id}">조회</a></td>
+								<td><a class="ajax-link"
+									href="../charts_make.box?id=${ctl.treatment_id}">선택</a></td>
 							</tr>
 						</c:forEach>
 
