@@ -2,8 +2,14 @@ package vo;
 
 public class EmployeeVO {
 	private int pay, dept_id, pos_id;
-	private String id, password, name, address, position, tel, email;
+	private String id, password, name, address, position, tel, email,dept_name;
 	
+	public String getDept_name() {
+		return dept_name;
+	}
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
 	public int getPay() {
 		return pay;
 	}
