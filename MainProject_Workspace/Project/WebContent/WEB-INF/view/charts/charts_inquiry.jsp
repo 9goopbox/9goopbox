@@ -30,7 +30,7 @@
 
 			<!-- <input type="text" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip for name"> -->
 			<div class="row">
-				<form method="post" action="../charts_inquiry.box" onsubmit="LoadAjaxContentByForm(this,'GET') ">
+				<form method="post" action="../charts_inquiry.box" onsubmit="LoadAjaxContentByForm(this,'GET'); return false;">
 				<div class="col-xs-12 col-sm-2">
 					<select id="kind_select2" name="searchType">
 						<option></option>
