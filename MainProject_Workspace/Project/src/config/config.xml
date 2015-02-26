@@ -14,5 +14,6 @@
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 		<typeAlias type="vo.SettingEmpVO" alias="sempvo"/>
 		<typeAlias type="vo.EapprVO" alias="eapprvo"/>
+		<typeAlias type="vo.RegisterVO" alias="registervo"/>
 	</typeAliases>
 </configuration>
