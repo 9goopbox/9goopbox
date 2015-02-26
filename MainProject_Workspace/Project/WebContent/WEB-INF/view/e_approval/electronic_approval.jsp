@@ -5,14 +5,14 @@
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
-			<li><a href="index.html">TorchBox</a></li>
+			<li><a href="index.html">9GoopBox</a></li>
 			<li><a href="#">전자결재</a></li>
 		</ol>
 	</div>
 </div>
-<div>    
+<div class="container">	    
     <div class="row">    	
-        <div class="col-md-12">
+        <div>
             <div class="panel with-nav-tabs panel-primary">
                 <div class="panel-heading">
                         <ul class="nav nav-tabs">
