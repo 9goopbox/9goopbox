@@ -49,37 +49,6 @@
 					<dd>${session.doctor_id}</dd>
 				</dl>
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="성별"> <br />
-				</div>
-
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="전화번호">
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="주소"> <br />
-				</div>
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="피보험자">
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<input type="text" class="form-control" placeholder="신장"> <br />
-				</div>
-				<div class="col-md-4">
-					<input type="text" class="form-control" placeholder="체중"> <br />
-				</div>
-				<div class="col-md-4">
-					<input type="text" class="form-control" placeholder="가족력">
-					<br />
-				</div>
-			</div>
 			<h3>진료기록</h3>
 			<div class="form-group">
 				<div class="col-sm-20">
@@ -94,12 +63,6 @@
 </div>
 
 <script type="text/javascript">
-	// Run timepicker
-	function DemoTimePicker() {
-		$('#input_time').timepicker({
-			setDate : new Date()
-		});
-	}
 	$(document).ready(function() {
 		// Create Wysiwig editor for textare
 		TinyMCEStart('#wysiwig_full', 'extreme');
