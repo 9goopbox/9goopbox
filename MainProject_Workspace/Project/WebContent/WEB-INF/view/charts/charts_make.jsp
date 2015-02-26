@@ -53,7 +53,7 @@
 			<div class="form-group">
 				<form method="post" action="../charts_submit.box" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
 				<div class="col-sm-12">
-					<input type="hidden" name="dept_id" value="${dept_id}" />
+					<input type="hidden" name="dept_id" ${dept_id == null ? "" : "value = '" + dept_id + "'" } />
 					<input type="hidden" name="patient_id" value="${patientvo.id}" />
 					<input type="hidden" name="doctor_id" value="${sessionScope.userid}" />
 					<input type="hidden" name="treatment_id" value="${treatment_id}" />
