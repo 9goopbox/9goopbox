@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import vo.ChartVO;
 import vo.PageVO;
 import vo.PatientVO;
 import vo.SearchVO;
@@ -71,6 +72,15 @@ public class ChartsMakeController {
 		PatientVO pvo = dao.getPatientByTreatmentId(id);
 		mav.addObject("treatment_id", id);
 		mav.addObject("patientvo", pvo);
+		return mav;
+	}
+	
+	@RequestMapping(value="/charts_submit.box")
+	public ModelAndView charts_submit(ChartVO vo) {
+		ModelAndView mav = new ModelAndView("charts/charts_detail");
+		
+		dao.addChart(vo);
+		mav.addObject(vo.getId());
 		return mav;
 	}
 }

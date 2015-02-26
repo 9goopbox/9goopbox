@@ -14,10 +14,10 @@
 
 <div class="row">
 	<div class="col-xs-12">
-		<div class="box">
+		<div class="box" style="overflow:hidden;">
 			<div class="box-header">
 				<div class="box-name">
-					<i class="fa fa-pencil"></i> <span>차트 작성</span>
+					<i class="fa fa-pencil"></i><span>차트 작성</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -46,21 +46,29 @@
 					<dt>주치의 ID</dt>
 					<dd>${patientvo.doctor_id}</dd>
 					<dt>진단의 ID</dt>
-					<dd>${session.doctor_id}</dd>
+					<dd>${sessionScope.userid}</dd>
 				</dl>
 			</div>
 			<h3>진료기록</h3>
 			<div class="form-group">
 				<form method="post" action="../charts_submit.box" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
 				<div class="col-sm-12">
-					<input type="hidden" name="id" />
+					<input type="hidden" name="dept_id" value="${dept_id}" />
+					<input type="hidden" name="patient_id" value="${patientvo.id}" />
+					<input type="hidden" name="doctor_id" value="${sessionScope.userid}" />
+					<input type="hidden" name="treatment_id" value="${treatment_id}" />
+					<input class="form-control" type="text" name="sub" placeholder="제목을 입력하세요" />
+					<input class="form-control" type="text" name="disease" placeholder="진단 요약을 입력하세요" />
+					<input class="form-control" type="value" name="cost" placeholder="진료비를 입력하세요" />
 					<textarea class="form-control" rows="5" id="wysiwig_full" name="cont"></textarea>
+					<input type="hidden" name="attach_id"/>
+				</div>
+				<div style="float: right;">
+					<button type="submit" class="btn btn-primary">등록</button>
 				</div>
 				</form>
 			</div>
-			<div style="float: right;">
-				<button type="button" class="btn btn-primary">등록</button>
-			</div>
+			
 		</div>
 	</div>
 </div>
@@ -68,7 +76,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		// Create Wysiwig editor for textare
-		TinyMCEStart('#wysiwig_full', 'extreme');
+		setTimeout(TinyMCEStart('#wysiwig_full', 'extreme'), 10);
 
 		// Add drag-n-drop feature to boxes
 		WinMove();

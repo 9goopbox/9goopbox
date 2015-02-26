@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import vo.ChartVO;
 import vo.PatientVO;
 import vo.SearchVO;
 import vo.view.ChartDisplayVO;
@@ -29,4 +30,9 @@ public class ChartMakeDao {
 	public PatientVO getPatientByTreatmentId(int id) {
 		return ss.selectOne("chartsMake.patientByTreatmentId", id);
 	};
+	
+	public void addChart(ChartVO vo) {
+		ss.insert("chartsMake.addChart", vo);
+		return;
+	}
 }

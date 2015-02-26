@@ -64,4 +64,19 @@
 	where 
 		treatment.patient_id = patient.id
 	</select>
+	
+	<insert id="addChart" parameterType="chartvo">
+		insert into chart values(
+		  chart_sequence.nextVal,
+		  #{dept_id},
+		  #{patient_id},
+		  #{doctor_id},
+		  #{treatment_id},
+		  #{sub},
+		  #{disease},
+		  #{cont},
+		  #{cost},
+		  #{attach_id}
+		)
+	</insert>
 </mapper>
