@@ -7,6 +7,9 @@
 	<select id="loginok" resultType="int" parameterType="empvo">
 		select count(*) cnt from employee where id=#{id} and password=#{password} 
 	</select>
+	<select id="login" resultType="string" parameterType="empvo">
+		select id from employee where id=#{id}
+	</select>
 
 	<select id="seldoctor" resultType="int" parameterType="empvo">
 		select count(*) cnt from doctor where id=#{id}

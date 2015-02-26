@@ -38,6 +38,9 @@ public class ManageDao {
 	public int getTotalCount() {
 		return ss.selectOne("manage.cnt");
 	}
+	public int getTotalCount2() {
+		return ss.selectOne("manage.cnt2");
+	}
 //	public EmployeeVO getShopView(int num){
 //		return ss.selectOne("manage.view", num);
 //	}
@@ -51,5 +54,18 @@ public class ManageDao {
 	public List<EmployeeVO> getRetireListSearch(SearchVO vo) {
 		return ss.selectList("manage.getretirelistsearch", vo);
 	}
+	public List<EmployeeVO> getPayListSearch(SearchVO vo) {
+//	public EmployeeVO getPayListSearch(SearchVO vo) {
+		System.out.println("SearchVO type (dao) : " + vo.getSearchType());
+		System.out.println("SearchVO beg (dao) : " + vo.getBegin());
+		System.out.println("SearchVO ed (dao) : " + vo.getEnd());
+		List<EmployeeVO> list = ss.selectList("manage.getpaylistsearch", vo);
+//		EmployeeVO resvo = ss.selectOne("manage.getpaylistsearch", vo);
+//		System.out.println("resvo ok");
+//		System.out.println("resvo : " + resvo.getId());
+//		System.out.println("EVO size (dao) : " + resvo.size());
+		return list;
+	}
+	
 	
 }

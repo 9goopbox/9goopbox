@@ -114,6 +114,38 @@
 
 
 	</select>
+	<select id="getpaylistsearch" resultType="empvo" parameterType="searchvo">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.id id,emp.name name,
+		emp.position position, emp.tel tel, emp.bye bye,emp.come come, dept.name
+		dept_name ,  pay.payday payday, pay.sort sort , pay.fix fix
+		from employee
+		emp, (select name, id from department) dept, payment pay
+		where emp.dept_id = dept.id and emp.id = pay.id
+
+		<if test="searchType != null">
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+
+		) 
+		a
+		)
+		where r_num between #{begin} and #{end}
+
+
+	</select>
 
 	<select id="list" resultType="empvo" parameterType="empvo">
 
@@ -162,6 +194,21 @@
 	</select>
 	<select id="cnt" resultType="int">
 		select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
+	</select>
+	
+	<select id="cnt2" resultType="int">
+		select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
+		<if test="searchType != null">
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+		
 	</select>
 
 	<!-- <select id="iew" parameterType="int" resultType="empvo"> -->

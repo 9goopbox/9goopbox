@@ -50,7 +50,7 @@ public class ManageRetireController {
 		
 		mav.addObject("manageRetireDisplayList", list);
 		mav.addObject("pageInfo", pageInfo);
-		mav.addObject("pageURL", "../management_staff.box");
+		mav.addObject("pageURL", "../management_retire.box");
 		
 		// nullables
 		mav.addObject("searchType", svo.getSearchType());

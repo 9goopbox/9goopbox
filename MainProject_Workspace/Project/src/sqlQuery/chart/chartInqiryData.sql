@@ -1,15 +1,14 @@
-delete from chart;
-delete from treatment;
-delete from doctor;
-delete from employee;
-delete from patient;
-delete from department;
+Delete From Chart;
+Delete From Treatment;
+Delete From Doctor;
+Delete From Employee;
+Delete From Patient;
+Delete From Department;
 
 delete from department;
-insert into department values(1, '1번부서', null);
-insert into department values(2, '2번부서', null);
-insert into department values(3, '3번부서', null);    
-insert into department values(4, '4번부서', null);
+insert into department values(1, '의사부', null);
+insert into department values(2, '간호부', null);
+insert into department values(3, '총무부', null);
 select * from department;
 
 delete from patient;
@@ -20,8 +19,10 @@ insert into patient values(4006, '유청휼', 20, '그외', null, null, null, nu
 select * from patient;
 
 delete from employee;
-insert into employee values('bestdoc', 'SHA256HASHLONG!', '조은의', '돌 굴러가는 지역', null, 2560000,null,null,null,'bestdoc@bestdoc.com');
-insert into employee values('gooddoc', 'SHA256HASHLONG!', '장조은', '돌 굴러가는 지역 2', null, 5120000,null,null,null,'gooddoc@bestdoc.com');
+insert into employee values('bestdoc', 'SHA256HASHLONG!', '조은의', '돌 굴러가는 지역', '원장', 2560000,1,null,'010-1111-1111','bestdoc@bestdoc.com','12-02-22','15-02-22');
+insert into employee values('gooddoc', 'SHA256HASHLONG!', '오소리', '돌 굴러가는 지역4', '레지던트', 2560000,1,null,'010-2222-2222','gooddoc2@bestdoc.com','12-05-30','14-05-30');
+insert into employee values('goodnur', 'SHA256HASHLONG!', '장조은', '돌 굴러가는 지역 2', '간호사', 5120000,2,null,'010-3333-3333','gooddoc@bestdoc.com','14-12-24','15-12-24');
+insert into employee values('xx', 'xx', '민경훈', '돌 굴러가는 지역 3', '과장', 5120000,3,null,'010-4444-4444','xx@bestdoc.com','13-01-11','15-01-11');
 select * from employee;
 
 delete from doctor;

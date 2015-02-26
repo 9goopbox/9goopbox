@@ -307,7 +307,8 @@ CREATE TABLE employee (
 	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
 	email VARCHAR2(40) NOT NULL, /* 이메일 */
-	bye CHAR(15) /* 퇴사일 */
+	come DATE, /* 입사일 */
+	bye DATE /* 퇴사일 */
 )
 	STORAGE (
 		BUFFER_POOL DEFAULT
@@ -340,6 +341,8 @@ COMMENT ON COLUMN employee.pos_id IS '직급ID';
 COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
+
+COMMENT ON COLUMN employee.come IS '입사일';
 
 COMMENT ON COLUMN employee.bye IS '퇴사일';
 
@@ -1542,6 +1545,56 @@ ALTER TABLE nurse
 		ENABLE
 		VALIDATE;
 
+/* 지급 */
+CREATE TABLE payment (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	payday DATE, /* 지급일 */
+	sort VARCHAR2(20) NOT NULL, /* 구분 */
+	fix VARCHAR2(20) NOT NULL /* 확정여부 */
+)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	LOGGING
+	NOCOMPRESS
+	NOCACHE
+	NOPARALLEL
+	NOROWDEPENDENCIES
+	DISABLE ROW MOVEMENT;
+
+COMMENT ON TABLE payment IS '지급';
+
+COMMENT ON COLUMN payment.id IS '직원 ID';
+
+COMMENT ON COLUMN payment.payday IS '지급일';
+
+COMMENT ON COLUMN payment.sort IS '구분';
+
+COMMENT ON COLUMN payment.fix IS '확정여부';
+
+CREATE UNIQUE INDEX PK_payment
+	ON payment (
+		id ASC
+	)
+	STORAGE (
+		BUFFER_POOL DEFAULT
+	)
+	NOLOGGING
+	NOCOMPRESS
+	NOSORT
+	NOPARALLEL;
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT PK_payment
+		PRIMARY KEY (
+			id
+		)
+		NOT DEFERRABLE
+		INITIALLY IMMEDIATE
+		ENABLE
+		VALIDATE;
+
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT FK_employee_TO_doctor
@@ -2135,6 +2188,20 @@ ALTER TABLE upfile
 ALTER TABLE nurse
 	ADD
 		CONSTRAINT FK_employee_TO_nurse
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		)
+		NOT DEFERRABLE
+		INITIALLY IMMEDIATE
+		ENABLE
+		VALIDATE;
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT FK_employee_TO_payment
 		FOREIGN KEY (
 			id
 		)

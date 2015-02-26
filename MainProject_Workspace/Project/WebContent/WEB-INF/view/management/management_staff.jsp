@@ -28,7 +28,7 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="form-group">
-				<form method="post" action="../management_staff.box"
+				<form method="post" action="../management_pay.box"
 					onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
 					<select style="float: left;" id="kind_select2" name="searchType">
 						<option></option>

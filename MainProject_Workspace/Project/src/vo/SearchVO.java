@@ -1,11 +1,29 @@
 package vo;
 
+
+
 public class SearchVO {
-	
-	private String searchType,searchValue, begin, end;
+	private EmployeeVO vo;
+	private String searchType,searchValue, begin, end ,searchPayType,searchPayValue;
 
 	public String getSearchType() {
 		return searchType;
+	}
+
+	public String getSearchPayType() {
+		return searchPayType;
+	}
+
+	public void setSearchPayType(String searchPayType) {
+		this.searchPayType = searchPayType;
+	}
+
+	public String getSearchPayValue() {
+		return searchPayValue;
+	}
+
+	public void setSearchPayValue(String searchPayValue) {
+		this.searchPayValue = searchPayValue;
 	}
 
 	public void setSearchType(String searchType) {

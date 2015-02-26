@@ -213,6 +213,11 @@ ALTER TABLE nurse
 		CONSTRAINT FK_employee_TO_nurse
 		CASCADE;
 
+ALTER TABLE payment
+	DROP
+		CONSTRAINT FK_employee_TO_payment
+		CASCADE;
+
 ALTER TABLE chart
 	DROP
 		CONSTRAINT CK_chart
@@ -410,6 +415,12 @@ ALTER TABLE nurse
 		CASCADE
 		KEEP INDEX;
 
+ALTER TABLE payment
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
 DROP INDEX UIX_employee_email;
 
 DROP INDEX PK_doctor;
@@ -469,6 +480,8 @@ DROP INDEX PK_upfile;
 DROP INDEX PK_attach_target;
 
 DROP INDEX PK_nurse;
+
+DROP INDEX PK_payment;
 
 /* 의사 */
 DROP TABLE doctor 
@@ -584,4 +597,8 @@ DROP TABLE attach_target
 
 /* 간호사 */
 DROP TABLE nurse 
+	CASCADE CONSTRAINTS;
+
+/* 지급 */
+DROP TABLE payment 
 	CASCADE CONSTRAINTS;

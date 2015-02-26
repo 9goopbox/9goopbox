@@ -2,8 +2,32 @@ package vo;
 
 public class EmployeeVO {
 	private int pay, dept_id, pos_id;
-	private String id, password, name, address, position, tel, email,dept_name,bye;
+	private String id, password, name, address, position, tel, email,dept_name,bye,come,payday,sort,fix;
 	
+	public String getCome() {
+		return come;
+	}
+	public String getPayday() {
+		return payday;
+	}
+	public void setPayday(String payday) {
+		this.payday = payday;
+	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	public String getFix() {
+		return fix;
+	}
+	public void setFix(String fix) {
+		this.fix = fix;
+	}
+	public void setCome(String come) {
+		this.come = come;
+	}
 	public String getBye() {
 		return bye;
 	}
