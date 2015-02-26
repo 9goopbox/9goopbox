@@ -84,7 +84,7 @@ public class JoinController {
 //				}
 //			}
 			
-			ModelAndView mav = new ModelAndView("idchk");
+			ModelAndView mav = new ModelAndView("auth/idchk");
 			mav.addObject("cnt", res);
 			return mav;
 		}
