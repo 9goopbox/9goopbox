@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<div class="container">	
+<div class="container">
 	<div class="row">
 		<div>
 			<div class="panel with-nav-tabs panel-primary">
@@ -44,30 +44,37 @@
 											</div>
 											<div class="no-move"></div>
 										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<input type="text" class="form-control" placeholder="환자이름">
-												<br />
-											</div>
-											<div class="col-md-12">
-												<input type="text" class="form-control" placeholder="나이">
-												<br />
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<input type="text" class="form-control" placeholder="성별">
-												<br />
-											</div>
 
-											<div class="col-md-12">
-												<input type="text" class="form-control" placeholder="수납비용">
-												<br />
+										<form class="form-horizontal" method="post"
+											action="../recRegi.box" id="recF">
+											<div class="row">
+												<div class="col-md-12">
+													<input type="text" class="form-control" id="name" name="name"
+														placeholder="환자이름"> <br />
+												</div>
+												<div class="col-md-12">
+													<input type="text" class="form-control" id="age" name="age"
+														placeholder="나이"> <br />
+												</div>
+
+												<div class="col-md-12">
+													<input type="text" class="form-control" id="sex" name="sex"
+														placeholder="성별"> <br />
+												</div>
+
+												<div class="col-md-12">
+													<input type="text" class="form-control" id="cost_get"
+														name="cost_get" placeholder="수납비용"> <br />
+												</div>
+												<div class="col-md-12">
+													<input type="text" class="form-control" id="med_trtmt"
+														name="med_trtmt" placeholder="진료과"> <br />
+												</div>
 											</div>
-										</div>
-										<div style="float: right;">
-											<button type="button" class="btn btn-primary">등록</button>
-										</div>
+											<div style="float: right;">
+												<button type="submit" class="btn btn-primary">등록</button>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -77,7 +84,7 @@
 						</div>
 						<div class="tab-pane fade" id="tab2primary">
 							<div class="row">
-								<div>									
+								<div>
 									<div class="well">
 										<div class="box">
 											<div class="box-header">
@@ -97,12 +104,12 @@
 													onsubmit="LoadAjaxContentByForm(this,'GET') ">
 													<div class="col-xs-12 col-sm-2">
 														<select id="kind_select2" name="searchType">
-<!-- 수정해야함!!!!!!!! 															-->
+															<!-- 수정해야함!!!!!!!! 															-->
 															<option value="1"
 																${searchType==1?'selected="selected"':''}>환자이름</option>
 															<option value="2"
 																${searchType==2?'selected="selected"':''}>진료부</option>
-														</select>		
+														</select>
 													</div>
 													<div class="col-xs-12 col-sm-4">
 														<div class="input-group">
@@ -131,13 +138,13 @@
 														</tr>
 													</thead>
 													<tbody>
-<!-- 														Start: list_row -->
+														<!-- 														Start: list_row -->
 
 														<tr>
 															<td><input type="checkbox" name="check1" value="Y" /></td>
 															<td>이훈</td>
 															<td>정형외과</td>
-															<td>8,000원</td>															
+															<td>8,000원</td>
 														</tr>
 														<tr>
 															<td><input type="checkbox" name="check1" value="Y" /></td>
@@ -154,86 +161,87 @@
 
 
 
-<!-- 														이 부분이 들어가야함!! -->
-<!-- 														<tr> -->
-<%-- 															<td>${cdl.name}</td> --%>
-<%-- 															<td>${cdl.age }</td> --%>
-<%-- 															<td>${cdl.disease }</td> --%>
-<%-- 															<td>${cdl.doctor_name }</td> --%>
-<%-- 															<td>${cdl.dept_name }</td> --%>
-<%-- 															<td>${cdl.sex }</td> --%>
-<%-- 															<td>${cdl.familydis }</td> --%>
-<!-- 															<td><a class="ajax-link" -->
-<%-- 																href="../charts_detail.box?id=${cdl.id}">상세보기</a></td> --%>
-<!-- 														</tr> -->
+														<!-- 														이 부분이 들어가야함!! -->
+														<!-- 														<tr> -->
+														<%-- 															<td>${cdl.name}</td> --%>
+														<%-- 															<td>${cdl.age }</td> --%>
+														<%-- 															<td>${cdl.disease }</td> --%>
+														<%-- 															<td>${cdl.doctor_name }</td> --%>
+														<%-- 															<td>${cdl.dept_name }</td> --%>
+														<%-- 															<td>${cdl.sex }</td> --%>
+														<%-- 															<td>${cdl.familydis }</td> --%>
+														<!-- 															<td><a class="ajax-link" -->
+														<%-- 																href="../charts_detail.box?id=${cdl.id}">상세보기</a></td> --%>
+														<!-- 														</tr> -->
 
 
 
 
 
 
-<!-- 														End: list_row -->
-													</tbody>													
+														<!-- 														End: list_row -->
+													</tbody>
 												</table>
-													<p style="float: right;">
-														<input type="submit" name="accept" class="btn btn-primary" value="접수" /> 
-													</p>
+												<p style="float: right;">
+													<input type="submit" name="accept" class="btn btn-primary"
+														value="접수" />
+												</p>
 												<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
 											</div>
 										</div>
 									</div>
 								</div>
-								
-								
-								
+
+
+
 								<div class="row">
-								<div class="col-xs-12">
-									<div class="box">
-								<div class="well">
-										<div class="box-header">
-											<div class="box-name">
-												<i class="fa fa-pencil"></i> <span>재진환자</span>
+									<div class="col-xs-12">
+										<div class="box">
+											<div class="well">
+												<div class="box-header">
+													<div class="box-name">
+														<i class="fa fa-pencil"></i> <span>재진환자</span>
+													</div>
+													<div class="box-icons">
+														<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+														</a> <a class="expand-link"> <i class="fa fa-expand"></i>
+														</a> <a class="close-link"> <i class="fa fa-times"></i>
+														</a>
+													</div>
+													<div class="no-move"></div>
+												</div>
+
+												<div>
+													<input type="text" class="form-control" placeholder="환자이름">
+													<br />
+												</div>
+												<div>
+													<input type="text" class="form-control" placeholder="진료부">
+													<br />
+												</div>
+												<div>
+													<input type="text" class="form-control" placeholder="수납비용">
+												</div>
+												<div style="float: right;">
+													<button type="button" class="btn btn-primary">등록</button>
+												</div>
 											</div>
-											<div class="box-icons">
-												<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-												</a> <a class="expand-link"> <i class="fa fa-expand"></i>
-												</a> <a class="close-link"> <i class="fa fa-times"></i>
-												</a>
-											</div>
-											<div class="no-move"></div>
 										</div>
-										
-											<div>
-												<input type="text" class="form-control" placeholder="환자이름">
-												<br />
-											</div>
-											<div >
-												<input type="text" class="form-control" placeholder="진료부">
-												<br />
-											</div>											
-											<div>
-												<input type="text" class="form-control" placeholder="수납비용">
-											</div>										
-										<div style="float: right;">
-											<button type="button" class="btn btn-primary">등록</button>
-										</div>
+
 									</div>
 								</div>
-								
+
+
+
 							</div>
-							</div>
-							
-							
-							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 
-	<style>
+		<style>
 .panel.with-nav-tabs .panel-heading {
 	padding: 5px 5px 0 5px;
 }
