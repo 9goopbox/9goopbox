@@ -8,7 +8,7 @@
 		<ol class="breadcrumb pull-left">
 			<li><a href="index.html">TorchBox</a></li>
 			<li><a href="#">일정관리</a></li>
-			<li><a href="#">전체일정</a></li>
+			<li><a href="#">업무일정</a></li>
 		</ol>
 	</div>
 </div>

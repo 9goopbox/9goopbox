@@ -17,10 +17,9 @@
                 <div class="panel-heading">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab1primary" data-toggle="tab">기안서 작성</a></li>
-                            <li><a href="#tab2primary" data-toggle="tab">기안중</a></li>
-                            <li><a href="#tab3primary" data-toggle="tab">작성중</a></li>
-                            <li><a href="#tab4primary" data-toggle="tab">반려</a></li>
-                            <li><a href="#tab5primary" data-toggle="tab">결제</a></li>
+                            <li><a href="#tab2primary" data-toggle="tab">결재중</a></li>
+                            <li><a href="#tab3primary" data-toggle="tab">반려</a></li>
+                            <li><a href="#tab4primary" data-toggle="tab">결재</a></li>                            
                                 </ul>
                             </li>
                         </ul>
@@ -61,7 +60,7 @@
 				</div>
 			
 				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="첨부파일">
+					<input type="text" class="form-control" placeholder="">
 					<br/>
 				</div>
 			</div>
@@ -88,46 +87,8 @@
 	</div>
 </div>
 </div>
+                       
                         <div class="tab-pane fade" id="tab2primary">
-
-         
-<div class="box-content no-padding">
-	<table
-		class="table table-bordered table-striped table-hover table-heading table-datatable"
-		id="datatable-1">
-		<thead>
-			<tr>
-				<th>기안일자</th>
-				<th>제목</th>
-				<th>구분</th>
-				<th>기안자</th>
-				<th>결제자</th>
-				<th>진행상태</th>
-				<th>결제</th>
-				<th>기안서복사</th>
-				<th>조회</th>
-			</tr>
-		</thead>
-		<tbody>
-		<!-- Start: list_row -->
-			<tr>
-				<td>기안중</td>
-				<td>기안중</td>
-				<td>기안중</td>
-				<td>기안중</td>
-				<td>기안중</td>
-				<td><strong>진행중</strong></td>
-				<td><a href="">보기</a></td>
-				<td><a href="">복사</a></td>
-				<td></td>
-			</tr>
-
-			<!-- End: list_row -->
-		</tbody>
-		</table>
-		</div>
-		</div>
-                        <div class="tab-pane fade" id="tab3primary">
 
 <div class="box-content no-padding">
 	<table
@@ -169,7 +130,7 @@
 
 
 </div>
-                        <div class="tab-pane fade" id="tab4primary">
+                        <div class="tab-pane fade" id="tab3primary">
 
 <div class="box-content no-padding">
 	<table
@@ -208,7 +169,7 @@
 		</div>
 
 </div>
-                        <div class="tab-pane fade" id="tab5primary">
+                        <div class="tab-pane fade" id="tab4primary">
 
  <div class="box-content no-padding">
 	<table
