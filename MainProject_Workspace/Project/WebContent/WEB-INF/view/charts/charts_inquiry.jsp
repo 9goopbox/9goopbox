@@ -38,6 +38,7 @@
 						<option value="2" ${searchType==2?'selected="selected"':''}>담당의 이름</option>
 						<option value="3" ${searchType==3?'selected="selected"':''}>담당의 ID</option>
 						<option value="4" ${searchType==4?'selected="selected"':''}>병명요약</option>
+						<option value="5" ${searchType==5?'selected="selected"':''}>진료 ID</option>
 					</select>
 				</div>
 				<div class="col-xs-12 col-sm-3">

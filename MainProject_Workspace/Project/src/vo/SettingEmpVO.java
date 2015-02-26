@@ -1,46 +1,11 @@
 package vo;
 
-public class EmployeeVO {
-	private int pay, dept_id, pos_id;
-	private String id, password, name, address, position, tel, email,dept_name,bye,come,payday,sort,fix;
-	
-	public String getCome() {
-		return come;
-	}
-	public String getPayday() {
-		return payday;
-	}
-	public void setPayday(String payday) {
-		this.payday = payday;
-	}
-	public String getSort() {
-		return sort;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-	public String getFix() {
-		return fix;
-	}
-	public void setFix(String fix) {
-		this.fix = fix;
-	}
-	public void setCome(String come) {
-		this.come = come;
-	}
-	public String getBye() {
-		return bye;
-	}
-	public void setBye(String bye) {
-		this.bye = bye;
-	}
-	public String getDept_name() {
-		return dept_name;
-	}
-	public void setDept_name(String dept_name) {
-		this.dept_name = dept_name;
-	}
+import org.springframework.web.multipart.MultipartFile;
 
+public class SettingEmpVO {
+	private int pay, dept_id, pos_id;
+	private String id, password, passwordch, name, address, position, tel, email, up_profile_img;
+	private MultipartFile uprofile_img;
 	public int getPay() {
 		return pay;
 	}
@@ -70,6 +35,12 @@ public class EmployeeVO {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getPasswordch() {
+		return passwordch;
+	}
+	public void setPasswordch(String passwordch) {
+		this.passwordch = passwordch;
 	}
 	public String getName() {
 		return name;
@@ -101,6 +72,19 @@ public class EmployeeVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getUp_profile_img() {
+		return up_profile_img;
+	}
+	public void setUp_profile_img(String up_profile_img) {
+		this.up_profile_img = up_profile_img;
+	}
+	public MultipartFile getUprofile_img() {
+		return uprofile_img;
+	}
+	public void setUprofile_img(MultipartFile uprofile_img) {
+		this.uprofile_img = uprofile_img;
+	}
+	
 	
 	
 }

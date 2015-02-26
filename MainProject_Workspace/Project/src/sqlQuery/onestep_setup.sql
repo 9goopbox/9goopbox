@@ -1,7 +1,3 @@
--- 직급시퀀스
-drop sequence position_sequence;
-
-
 -- 의사시퀀스
 drop sequence doctor_sequence;
 -- 병동환자시퀀스
@@ -204,6 +200,8 @@ increment by 1;
 create sequence nurse_sequence
 start with 1
 increment by 1;
+
+
 
 ALTER TABLE doctor
 	DROP
@@ -792,6 +790,8 @@ DROP TABLE attach_target
 /* 간호사 */
 DROP TABLE nurse 
 	CASCADE CONSTRAINTS;
+	
+	
 	
 /* 의사 */
 CREATE TABLE doctor (
@@ -1536,7 +1536,8 @@ CREATE TABLE treatment (
 	patient_id INTEGER NOT NULL, /* 환자 ID */
 	cost_get INTEGER NOT NULL, /* 수납비용 */
 	step VARCHAR2(20), /* 진료단계 */
-	kind VARCHAR2(20) NOT NULL /* 진료종류 */
+	kind VARCHAR2(20) NOT NULL, /* 진료종류 */
+	medi_trtmt VARCHAR2(30) NOT NULL /* 진료과 */
 );
 
 COMMENT ON TABLE treatment IS '진료, 수납, 등록';
@@ -1550,6 +1551,8 @@ COMMENT ON COLUMN treatment.cost_get IS '수납비용';
 COMMENT ON COLUMN treatment.step IS '환자가 방문 -> 수납 -> 진료 ->';
 
 COMMENT ON COLUMN treatment.kind IS '초진, 재진, 예약';
+
+COMMENT ON COLUMN treatment.medi_trtmt IS '진료과';
 
 CREATE UNIQUE INDEX PK_treatment
 	ON treatment (

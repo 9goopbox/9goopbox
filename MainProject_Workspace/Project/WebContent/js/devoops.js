@@ -1020,8 +1020,22 @@ function LoadAjaxContent(url){
 		url: url,
 		type: 'GET',
 		success: function(data) {
-			$('#ajax-content').html(data);
-			$('.preloader').hide();
+			
+			try {
+				var response=jQuery.parseJSON(data);
+				if(typeof response == 'object')
+				{
+				  if (response.address != null) {
+					LoadAjaxContent(response.address);
+				  } else {
+					  alert("Error : 리다이렉트 Response가 주소(address)를 가지고 있지 않습니다!");
+				  }
+				}
+			} catch (e) {
+				window.location.hash = url;
+				$('#ajax-content').html(data);
+				$('.preloader').hide();
+			}
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
@@ -1044,8 +1058,22 @@ $.ajax({
 	type: method,
 	data: $(form).serialize(),
 	success: function(data) {
-		$('#ajax-content').html(data);
-		$('.preloader').hide();
+		
+		try {
+			var response=jQuery.parseJSON(data);
+			if(typeof response == 'object')
+			{
+			  if (response.address != null) {
+				LoadAjaxContent(response.address);
+			  } else {
+				  alert("Error : 리다이렉트 Response가 주소(address)를 가지고 있지 않습니다!");
+			  }
+			}
+		} catch (e) {
+			window.location.hash = url;
+			$('#ajax-content').html(data);
+			$('.preloader').hide();
+		}
 	},
 	error: function (jqXHR, textStatus, errorThrown) {
 		alert(errorThrown);

@@ -6,4 +6,9 @@
 	<bean name="/electronic_approval.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="e_approval/electronic_approval"/>
 	</bean>
+	
+	<bean name="/electronic_form.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="e_approval/electronic_form"/>
+	</bean>
+	
 </beans>

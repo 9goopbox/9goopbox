@@ -1,16 +1,7 @@
 /* 의사 */
 CREATE TABLE doctor (
 	id VARCHAR2(20) NOT NULL /* 직원 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE doctor IS '의사';
 
@@ -19,25 +10,14 @@ COMMENT ON COLUMN doctor.id IS '직원 ID';
 CREATE UNIQUE INDEX PK_doctor
 	ON doctor (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT PK_doctor
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 병동환자 */
 CREATE TABLE ward_patient (
@@ -46,16 +26,7 @@ CREATE TABLE ward_patient (
 	room_id INTEGER NOT NULL, /* 방 번호 */
 	date_enter DATE NOT NULL, /* 입실일 */
 	date_exit DATE /* 퇴실일 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE ward_patient IS '병동환자';
 
@@ -74,14 +45,7 @@ CREATE UNIQUE INDEX PK_ward_patient
 		patient_id ASC,
 		building_id ASC,
 		room_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE ward_patient
 	ADD
@@ -90,27 +54,14 @@ ALTER TABLE ward_patient
 			patient_id,
 			building_id,
 			room_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 부서 */
 CREATE TABLE department (
 	id INTEGER NOT NULL, /* 부서ID */
 	name VARCHAR2(30) NOT NULL, /* 부서이름 */
 	dept_up_id INTEGER /* 상위부서ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE department IS '부서';
 
@@ -123,40 +74,20 @@ COMMENT ON COLUMN department.dept_up_id IS '상위부서ID';
 CREATE UNIQUE INDEX PK_department
 	ON department (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE department
 	ADD
 		CONSTRAINT PK_department
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 외래환자 */
 CREATE TABLE foreign_patient (
 	id INTEGER NOT NULL, /* 환자 ID */
 	COL DATE /* 예약 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE foreign_patient IS '외래환자';
 
@@ -167,25 +98,14 @@ COMMENT ON COLUMN foreign_patient.COL IS '예약';
 CREATE UNIQUE INDEX PK_foreign_patient
 	ON foreign_patient (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE foreign_patient
 	ADD
 		CONSTRAINT PK_foreign_patient
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 비품 */
 CREATE TABLE items (
@@ -198,16 +118,7 @@ CREATE TABLE items (
 	buyDate DATE NOT NULL, /* 구입일 */
 	buyPrice INTEGER NOT NULL, /* 구입가격 */
 	memo VARCHAR2(100) /* 비고 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE items IS '비품';
 
@@ -233,14 +144,7 @@ CREATE UNIQUE INDEX PK_items
 	ON items (
 		id ASC,
 		manager ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE items
 	ADD
@@ -248,25 +152,12 @@ ALTER TABLE items
 		PRIMARY KEY (
 			id,
 			manager
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 일반직원 */
 CREATE TABLE general_employee (
 	id VARCHAR2(20) NOT NULL /* 직원 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE general_employee IS '일반직원';
 
@@ -275,25 +166,14 @@ COMMENT ON COLUMN general_employee.id IS '직원 ID';
 CREATE UNIQUE INDEX PK_general_employee
 	ON general_employee (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE general_employee
 	ADD
 		CONSTRAINT PK_general_employee
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 직원 */
 CREATE TABLE employee (
@@ -306,6 +186,7 @@ CREATE TABLE employee (
 	dept_id INTEGER, /* 부서ID */
 	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
+<<<<<<< HEAD
 	email VARCHAR2(40) NOT NULL, /* 이메일 */
 	come DATE, /* 입사일 */
 	bye DATE /* 퇴사일 */
@@ -319,6 +200,10 @@ CREATE TABLE employee (
 	NOPARALLEL
 	NOROWDEPENDENCIES
 	DISABLE ROW MOVEMENT;
+=======
+	email VARCHAR2(40) NOT NULL /* 이메일 */
+);
+>>>>>>> origin/master
 
 COMMENT ON TABLE employee IS '직원';
 
@@ -342,55 +227,36 @@ COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
 
+<<<<<<< HEAD
 COMMENT ON COLUMN employee.come IS '입사일';
 
 COMMENT ON COLUMN employee.bye IS '퇴사일';
 
+=======
+>>>>>>> origin/master
 CREATE UNIQUE INDEX PK_employee
 	ON employee (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 CREATE UNIQUE INDEX UIX_employee_email
 	ON employee (
 		email ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE employee
 	ADD
 		CONSTRAINT PK_employee
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE employee
 	ADD
 		CONSTRAINT UK_employee
 		UNIQUE (
 			email
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 일정 */
 CREATE TABLE calender (
@@ -400,16 +266,7 @@ CREATE TABLE calender (
 	end_date DATE, /* 마침일 */
 	title VARCHAR2(60), /* 제목 */
 	cont CLOB /* 내용 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE calender IS '일정';
 
@@ -429,14 +286,7 @@ CREATE UNIQUE INDEX PK_calender
 	ON calender (
 		id ASC,
 		writer_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE calender
 	ADD
@@ -444,11 +294,7 @@ ALTER TABLE calender
 		PRIMARY KEY (
 			id,
 			writer_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 차트 (진료기록?) */
 CREATE TABLE chart (
@@ -462,16 +308,7 @@ CREATE TABLE chart (
 	cont CLOB NOT NULL, /* 진료기록 */
 	cost INTEGER NOT NULL, /* 비용 */
 	attach_id INTEGER /* 첨부 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE chart IS '차트 (진료기록?)';
 
@@ -498,34 +335,19 @@ COMMENT ON COLUMN chart.attach_id IS '첨부 ID';
 CREATE UNIQUE INDEX PK_chart
 	ON chart (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE chart
 	ADD
 		CONSTRAINT PK_chart
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE chart
 	ADD
 		CONSTRAINT CK_chart
-		CHECK (<지정 되지 않음>)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		CHECK (<지정 되지 않음>);
 
 /* 전자결재 */
 CREATE TABLE approval (
@@ -535,16 +357,7 @@ CREATE TABLE approval (
 	state VARCHAR2(15), /* 결재상태 */
 	cont CLOB, /* 요청내용 */
 	attach_id INTEGER /* 첨부 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE approval IS '전자결재';
 
@@ -563,25 +376,14 @@ COMMENT ON COLUMN approval.attach_id IS '첨부 ID';
 CREATE UNIQUE INDEX PK_approval
 	ON approval (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE approval
 	ADD
 		CONSTRAINT PK_approval
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 환자 */
 CREATE TABLE Patient (
@@ -594,16 +396,7 @@ CREATE TABLE Patient (
 	insured  VARCHAR2(20), /* 피보험자 */
 	familydis CLOB, /* 가족력 */
 	doctor_id VARCHAR2(20) /* 주치의 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE Patient IS '환자';
 
@@ -628,34 +421,19 @@ COMMENT ON COLUMN Patient.doctor_id IS '주치의 ID';
 CREATE UNIQUE INDEX PK_Patient
 	ON Patient (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE Patient
 	ADD
 		CONSTRAINT PK_Patient
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE Patient
 	ADD
 		CONSTRAINT CK_Patient
-		CHECK (sex in ('남자', '여자', '그외'))
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		CHECK (sex in ('남자', '여자', '그외'));
 
 /* 게시글 */
 CREATE TABLE article (
@@ -666,16 +444,7 @@ CREATE TABLE article (
 	ref_id INTEGER, /* 답글대상 */
 	head_id INTEGER, /* 글타래 머릿글 번호 */
 	attach_id INTEGER /* 첨부 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE article IS '게시글';
 
@@ -696,41 +465,21 @@ COMMENT ON COLUMN article.attach_id IS '첨부 ID';
 CREATE UNIQUE INDEX PK_article
 	ON article (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE article
 	ADD
 		CONSTRAINT PK_article
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 직급 */
 CREATE TABLE position (
 	dept_id INTEGER NOT NULL, /* 부서ID */
 	pos_id INTEGER NOT NULL, /* 직급ID */
 	pos_name VARCHAR2(20) NOT NULL /* 직급이름 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE position IS '직급';
 
@@ -743,25 +492,14 @@ COMMENT ON COLUMN position.pos_name IS '직급이름';
 CREATE UNIQUE INDEX PK_position
 	ON position (
 		pos_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE position
 	ADD
 		CONSTRAINT PK_position
 		PRIMARY KEY (
 			pos_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 글 태그 */
 CREATE TABLE article_tag (
@@ -769,16 +507,7 @@ CREATE TABLE article_tag (
 	tag_id INTEGER NOT NULL, /* 태그ID */
 	id2 VARCHAR2(20) NOT NULL, /* 직원 ID */
 	user_id VARCHAR2(20) NOT NULL /* 사용자 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE article_tag IS '글 태그';
 
@@ -795,14 +524,7 @@ CREATE UNIQUE INDEX PK_article_tag
 		id ASC,
 		tag_id ASC,
 		id2 ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE article_tag
 	ADD
@@ -811,27 +533,14 @@ ALTER TABLE article_tag
 			id,
 			tag_id,
 			id2
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 태그 */
 CREATE TABLE tag (
 	tag_id INTEGER NOT NULL, /* 태그ID */
 	id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	tag_name VARCHAR2(30) /* 태그이름 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE tag IS '태그';
 
@@ -845,14 +554,7 @@ CREATE UNIQUE INDEX PK_tag
 	ON tag (
 		tag_id ASC,
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE tag
 	ADD
@@ -860,26 +562,13 @@ ALTER TABLE tag
 		PRIMARY KEY (
 			tag_id,
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 질! 병! */
 CREATE TABLE disease (
 	id INTEGER NOT NULL, /* 질병 ID */
 	name VARCHAR2(140) /* 질병이름 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE disease IS '질! 병!';
 
@@ -890,40 +579,20 @@ COMMENT ON COLUMN disease.name IS '질병이름';
 CREATE UNIQUE INDEX PK_disease
 	ON disease (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE disease
 	ADD
 		CONSTRAINT PK_disease
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 건물 (병동, 진료실 등이 있는 건물 자체) */
 CREATE TABLE building (
 	id VARCHAR2(15) NOT NULL, /* 건물 ID */
 	name VARCHAR2(30) NOT NULL /* 건물이름 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE building IS '건물 (병동, 진료실 등이 있는 건물 자체)';
 
@@ -934,41 +603,21 @@ COMMENT ON COLUMN building.name IS '건물이름';
 CREATE UNIQUE INDEX PK_building
 	ON building (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE building
 	ADD
 		CONSTRAINT PK_building
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 질병기록 */
 CREATE TABLE disease_record (
 	disease_id INTEGER NOT NULL, /* 질병 ID */
 	chart_id INTEGER NOT NULL, /* 차트 ID */
 	symptom CLOB /* 증상 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE disease_record IS '질병기록';
 
@@ -982,14 +631,7 @@ CREATE UNIQUE INDEX PK_disease_record
 	ON disease_record (
 		disease_id ASC,
 		chart_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE disease_record
 	ADD
@@ -997,27 +639,14 @@ ALTER TABLE disease_record
 		PRIMARY KEY (
 			disease_id,
 			chart_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 글 상태 변화 알림 */
 CREATE TABLE noty_article (
 	employee_id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	article_id INTEGER NOT NULL, /* 글번호 */
 	kind VARCHAR2(10) /* 종류 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE noty_article IS '글 상태 변화 알림';
 
@@ -1031,14 +660,7 @@ CREATE UNIQUE INDEX PK_noty_article
 	ON noty_article (
 		employee_id ASC,
 		article_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE noty_article
 	ADD
@@ -1046,27 +668,14 @@ ALTER TABLE noty_article
 		PRIMARY KEY (
 			employee_id,
 			article_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 처방 */
 CREATE TABLE prescription (
 	chart_id INTEGER NOT NULL, /* 차트 ID */
 	medicine_name VARCHAR2(50) NOT NULL, /* 약 이름 */
 	medicine_quantity INTEGER /* 투약량 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE prescription IS '처방';
 
@@ -1079,41 +688,21 @@ COMMENT ON COLUMN prescription.medicine_quantity IS '투약량';
 CREATE UNIQUE INDEX PK_prescription
 	ON prescription (
 		chart_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE prescription
 	ADD
 		CONSTRAINT PK_prescription
 		PRIMARY KEY (
 			chart_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 병동 외의 방 */
 CREATE TABLE office (
 	building_id VARCHAR2(15) NOT NULL, /* 건물 ID */
 	id INTEGER NOT NULL, /* 방 ID */
 	name VARCHAR2(50) /* 병동이름 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE office IS '병동 외의 방';
 
@@ -1127,14 +716,7 @@ CREATE UNIQUE INDEX PK_office
 	ON office (
 		building_id ASC,
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE office
 	ADD
@@ -1142,11 +724,7 @@ ALTER TABLE office
 		PRIMARY KEY (
 			building_id,
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 결재자 */
 CREATE TABLE approver (
@@ -1154,16 +732,7 @@ CREATE TABLE approver (
 	apprs_id VARCHAR2(20) NOT NULL, /* 결재자 ID */
 	appr_step INTEGER NOT NULL, /* 결재단계 */
 	appr_state VARCHAR2(20) /* 결재상태 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE approver IS '결재자';
 
@@ -1179,14 +748,7 @@ CREATE UNIQUE INDEX PK_approver
 	ON approver (
 		appr_id ASC,
 		apprs_id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE approver
 	ADD
@@ -1194,11 +756,7 @@ ALTER TABLE approver
 		PRIMARY KEY (
 			appr_id,
 			apprs_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 진료, 수납, 등록 */
 CREATE TABLE treatment (
@@ -1206,17 +764,9 @@ CREATE TABLE treatment (
 	patient_id INTEGER NOT NULL, /* 환자 ID */
 	cost_get INTEGER NOT NULL, /* 수납비용 */
 	step VARCHAR2(20), /* 진료단계 */
-	kind VARCHAR2(20) NOT NULL /* 진료종류 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+	kind VARCHAR2(20) NOT NULL, /* 진료종류 */
+	medi_trtmt VARCHAR2(30) NOT NULL /* 진료과 */
+);
 
 COMMENT ON TABLE treatment IS '진료, 수납, 등록';
 
@@ -1230,52 +780,30 @@ COMMENT ON COLUMN treatment.step IS '환자가 방문 -> 수납 -> 진료 ->';
 
 COMMENT ON COLUMN treatment.kind IS '초진, 재진, 예약';
 
+COMMENT ON COLUMN treatment.medi_trtmt IS '진료과';
+
 CREATE UNIQUE INDEX PK_treatment
 	ON treatment (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE treatment
 	ADD
 		CONSTRAINT PK_treatment
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE treatment
 	ADD
 		CONSTRAINT CK_treatment
-		CHECK (kind in ('초진', '재진', '예약'))
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		CHECK (kind in ('초진', '재진', '예약'));
 
 /* 병동 방 */
 CREATE TABLE ward (
 	building_id VARCHAR2(15) NOT NULL, /* 병동 id */
 	id INTEGER NOT NULL /* 방 번호 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE ward IS '병동 방';
 
@@ -1286,41 +814,21 @@ COMMENT ON COLUMN ward.id IS '방 번호';
 CREATE UNIQUE INDEX PK_ward
 	ON ward (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE ward
 	ADD
 		CONSTRAINT PK_ward
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 근태 */
 CREATE TABLE punch (
 	employee_id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	in_date DATE NOT NULL, /* 출근시간 */
 	out_date DATE /* 퇴근시간 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE punch IS '근태';
 
@@ -1334,14 +842,7 @@ CREATE UNIQUE INDEX PK_punch
 	ON punch (
 		employee_id ASC,
 		in_date ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE punch
 	ADD
@@ -1349,11 +850,7 @@ ALTER TABLE punch
 		PRIMARY KEY (
 			employee_id,
 			in_date
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 직원로그 */
 CREATE TABLE log (
@@ -1362,16 +859,7 @@ CREATE TABLE log (
 	kind VARCHAR2(30) NOT NULL, /* 종류 */
 	logdate DATE NOT NULL, /* 로그일시 */
 	cont CLOB NOT NULL /* 내용 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE log IS '직원로그';
 
@@ -1389,14 +877,7 @@ CREATE UNIQUE INDEX PK_log
 	ON log (
 		employee_id ASC,
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE log
 	ADD
@@ -1404,11 +885,7 @@ ALTER TABLE log
 		PRIMARY KEY (
 			employee_id,
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 파일 */
 CREATE TABLE upfile (
@@ -1417,16 +894,7 @@ CREATE TABLE upfile (
 	owner_id VARCHAR2(20) NOT NULL, /* 소유자ID */
 	ext VARCHAR2(10), /* 확장자 */
 	attatch_id INTEGER /* 첨부 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE upfile IS '파일';
 
@@ -1443,39 +911,19 @@ COMMENT ON COLUMN upfile.attatch_id IS '첨부 ID';
 CREATE UNIQUE INDEX PK_upfile
 	ON upfile (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE upfile
 	ADD
 		CONSTRAINT PK_upfile
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 파일첨부대상 */
 CREATE TABLE attach_target (
 	id INTEGER NOT NULL /* 첨부 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE attach_target IS '파일첨부대상';
 
@@ -1484,39 +932,19 @@ COMMENT ON COLUMN attach_target.id IS '게시물 첨부가 가능한 글의 첨�
 CREATE UNIQUE INDEX PK_attach_target
 	ON attach_target (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE attach_target
 	ADD
 		CONSTRAINT PK_attach_target
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 간호사 */
 CREATE TABLE nurse (
 	id VARCHAR2(20) NOT NULL /* 직원 ID */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE nurse IS '간호사';
 
@@ -1525,25 +953,14 @@ COMMENT ON COLUMN nurse.id IS '직원 ID';
 CREATE UNIQUE INDEX PK_nurse
 	ON nurse (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE nurse
 	ADD
 		CONSTRAINT PK_nurse
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 /* 지급 */
 CREATE TABLE payment (
@@ -1603,11 +1020,7 @@ ALTER TABLE doctor
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE ward_patient
 	ADD
@@ -1617,11 +1030,7 @@ ALTER TABLE ward_patient
 		)
 		REFERENCES Patient (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE ward_patient
 	ADD
@@ -1631,11 +1040,7 @@ ALTER TABLE ward_patient
 		)
 		REFERENCES building (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE ward_patient
 	ADD
@@ -1645,11 +1050,7 @@ ALTER TABLE ward_patient
 		)
 		REFERENCES ward (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE department
 	ADD
@@ -1659,11 +1060,7 @@ ALTER TABLE department
 		)
 		REFERENCES department (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE foreign_patient
 	ADD
@@ -1673,11 +1070,7 @@ ALTER TABLE foreign_patient
 		)
 		REFERENCES Patient (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE items
 	ADD
@@ -1687,11 +1080,7 @@ ALTER TABLE items
 		)
 		REFERENCES general_employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE items
 	ADD
@@ -1701,11 +1090,7 @@ ALTER TABLE items
 		)
 		REFERENCES general_employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE general_employee
 	ADD
@@ -1715,11 +1100,7 @@ ALTER TABLE general_employee
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE employee
 	ADD
@@ -1729,11 +1110,7 @@ ALTER TABLE employee
 		)
 		REFERENCES position (
 			pos_id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE employee
 	ADD
@@ -1743,11 +1120,7 @@ ALTER TABLE employee
 		)
 		REFERENCES department (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE calender
 	ADD
@@ -1757,11 +1130,7 @@ ALTER TABLE calender
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE chart
 	ADD
@@ -1771,11 +1140,7 @@ ALTER TABLE chart
 		)
 		REFERENCES Patient (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE chart
 	ADD
@@ -1785,11 +1150,7 @@ ALTER TABLE chart
 		)
 		REFERENCES doctor (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE chart
 	ADD
@@ -1799,11 +1160,7 @@ ALTER TABLE chart
 		)
 		REFERENCES treatment (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE chart
 	ADD
@@ -1813,11 +1170,7 @@ ALTER TABLE chart
 		)
 		REFERENCES department (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE chart
 	ADD
@@ -1827,11 +1180,7 @@ ALTER TABLE chart
 		)
 		REFERENCES attach_target (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE approval
 	ADD
@@ -1841,11 +1190,7 @@ ALTER TABLE approval
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE approval
 	ADD
@@ -1855,11 +1200,7 @@ ALTER TABLE approval
 		)
 		REFERENCES attach_target (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE Patient
 	ADD
@@ -1869,11 +1210,7 @@ ALTER TABLE Patient
 		)
 		REFERENCES doctor (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE article
 	ADD
@@ -1883,11 +1220,7 @@ ALTER TABLE article
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE article
 	ADD
@@ -1897,11 +1230,7 @@ ALTER TABLE article
 		)
 		REFERENCES article (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE article
 	ADD
@@ -1911,11 +1240,7 @@ ALTER TABLE article
 		)
 		REFERENCES attach_target (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE position
 	ADD
@@ -1925,11 +1250,7 @@ ALTER TABLE position
 		)
 		REFERENCES department (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE article_tag
 	ADD
@@ -1939,11 +1260,7 @@ ALTER TABLE article_tag
 		)
 		REFERENCES article (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE article_tag
 	ADD
@@ -1953,11 +1270,7 @@ ALTER TABLE article_tag
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE article_tag
 	ADD
@@ -1969,11 +1282,7 @@ ALTER TABLE article_tag
 		REFERENCES tag (
 			tag_id,
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE tag
 	ADD
@@ -1983,11 +1292,7 @@ ALTER TABLE tag
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE disease_record
 	ADD
@@ -1997,11 +1302,7 @@ ALTER TABLE disease_record
 		)
 		REFERENCES disease (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE disease_record
 	ADD
@@ -2011,11 +1312,7 @@ ALTER TABLE disease_record
 		)
 		REFERENCES chart (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE noty_article
 	ADD
@@ -2025,11 +1322,7 @@ ALTER TABLE noty_article
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE noty_article
 	ADD
@@ -2039,11 +1332,7 @@ ALTER TABLE noty_article
 		)
 		REFERENCES article (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE prescription
 	ADD
@@ -2053,11 +1342,7 @@ ALTER TABLE prescription
 		)
 		REFERENCES chart (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE office
 	ADD
@@ -2067,11 +1352,7 @@ ALTER TABLE office
 		)
 		REFERENCES building (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE approver
 	ADD
@@ -2081,11 +1362,7 @@ ALTER TABLE approver
 		)
 		REFERENCES approval (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE approver
 	ADD
@@ -2095,11 +1372,7 @@ ALTER TABLE approver
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE treatment
 	ADD
@@ -2109,11 +1382,7 @@ ALTER TABLE treatment
 		)
 		REFERENCES Patient (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE ward
 	ADD
@@ -2123,11 +1392,7 @@ ALTER TABLE ward
 		)
 		REFERENCES building (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE punch
 	ADD
@@ -2137,11 +1402,7 @@ ALTER TABLE punch
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE log
 	ADD
@@ -2151,11 +1412,7 @@ ALTER TABLE log
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE upfile
 	ADD
@@ -2165,11 +1422,7 @@ ALTER TABLE upfile
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE upfile
 	ADD
@@ -2179,11 +1432,7 @@ ALTER TABLE upfile
 		)
 		REFERENCES attach_target (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE nurse
 	ADD
@@ -2193,6 +1442,7 @@ ALTER TABLE nurse
 		)
 		REFERENCES employee (
 			id
+<<<<<<< HEAD
 		)
 		NOT DEFERRABLE
 		INITIALLY IMMEDIATE
@@ -2212,3 +1462,6 @@ ALTER TABLE payment
 		INITIALLY IMMEDIATE
 		ENABLE
 		VALIDATE;
+=======
+		);
+>>>>>>> origin/master
