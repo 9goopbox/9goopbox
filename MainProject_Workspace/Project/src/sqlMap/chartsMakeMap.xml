@@ -64,19 +64,19 @@
 	where 
 		treatment.patient_id = patient.id
 	</select>
-	
+	<!-- http://krespo.net/163 -->
 	<insert id="addChart" parameterType="chartvo">
 		insert into chart values(
 		  chart_sequence.nextVal,
-		  #{dept_id},
+		  #{dept_id, jdbcType=INTEGER},
 		  #{patient_id},
 		  #{doctor_id},
 		  #{treatment_id},
 		  #{sub},
 		  #{disease},
-		  #{cont},
+		  #{cont, jdbcType=CLOB},
 		  #{cost},
-		  #{attach_id}
+		  #{attach_id, jdbcType=INTEGER}
 		)
 	</insert>
 </mapper>

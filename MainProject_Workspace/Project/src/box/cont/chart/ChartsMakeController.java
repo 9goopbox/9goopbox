@@ -78,7 +78,7 @@ public class ChartsMakeController {
 	@RequestMapping(value="/charts_submit.box")
 	public ModelAndView charts_submit(ChartVO vo) {
 		ModelAndView mav = new ModelAndView("charts/charts_detail");
-		
+		System.out.println(vo.getAttach_id());
 		dao.addChart(vo);
 		mav.addObject(vo.getId());
 		return mav;
