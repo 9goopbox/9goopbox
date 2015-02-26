@@ -1,7 +1,3 @@
--- 직급시퀀스
-drop sequence position_sequence;
-
-
 -- 의사시퀀스
 drop sequence doctor_sequence;
 -- 병동환자시퀀스
