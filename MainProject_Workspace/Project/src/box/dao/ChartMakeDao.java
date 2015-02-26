@@ -6,15 +6,17 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import vo.PatientVO;
 import vo.SearchVO;
 import vo.view.ChartDisplayVO;
+import vo.view.ChartTreatmentVO;
 
 @Repository
 public class ChartMakeDao {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	public List<ChartDisplayVO> getList(SearchVO vo) {
+	public List<ChartTreatmentVO> getList(SearchVO vo) {
 		return ss.selectList("chartsMake.list", vo);
 	}
 	
@@ -24,4 +26,7 @@ public class ChartMakeDao {
 	public int getListSizeSearch(SearchVO vo) {
 		return ss.selectOne("chartsMake.sizeSearch", vo);
 	}
+	public PatientVO getPatientByTreatmentId(int id) {
+		return ss.selectOne("chartsMake.patientByTreatmentId", id);
+	};
 }

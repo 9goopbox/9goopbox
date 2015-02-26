@@ -57,4 +57,11 @@
 			</choose>
 		</where>
 	</select>
+	
+	<select id="patientByTreatmentId" parameterType="int" resultType="patvo">
+	select patient.*
+	from (select * from treatment where id = #{id}) treatment, patient
+	where 
+		treatment.patient_id = patient.id
+	</select>
 </mapper>

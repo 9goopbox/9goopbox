@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import vo.PageVO;
+import vo.PatientVO;
 import vo.SearchVO;
+import vo.TreatmentVO;
 import vo.view.ChartDisplayVO;
+import vo.view.ChartTreatmentVO;
 import box.dao.ChartDao;
 import box.dao.ChartMakeDao;
 import box.util.PageVoFactory;
@@ -44,7 +47,7 @@ public class ChartsMakeController {
 		System.out.println("searchValue : " + svo.getSearchValue());
 		System.out.println("searchType : " + svo.getSearchType());
 
-		List<ChartDisplayVO> list = dao.getList(svo);
+		List<ChartTreatmentVO> list = dao.getList(svo);
 
 		mav.addObject("chartTreatmentList", list);
 		mav.addObject("pageInfo", pageInfo);
@@ -64,9 +67,10 @@ public class ChartsMakeController {
 			ModelAndView mav =  charts_make_treatment_search(new SearchVO(), null);
 			return mav;
 		}
-
 		ModelAndView mav = new ModelAndView("charts/charts_make");
-		mav.addObject("id", id);
+		PatientVO pvo = dao.getPatientByTreatmentId(id);
+		mav.addObject("treatment_id", id);
+		mav.addObject("patientvo", pvo);
 		return mav;
 	}
 }
