@@ -6,7 +6,7 @@
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
-			<li><a href="#">TorchBox</a></li>
+			<li><a href="#">9GoopBox</a></li>
 			<li><a href="#">전자차트</a></li>
 			<li><a href="#">차트조회</a></li>
 		</ol>
