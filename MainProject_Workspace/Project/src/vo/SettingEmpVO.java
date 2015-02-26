@@ -1,9 +1,11 @@
 package vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class SettingEmpVO {
 	private int pay, dept_id, pos_id;
-	private String id, password, passwordch, name, address, position, tel, email;
-	
+	private String id, password, passwordch, name, address, position, tel, email, up_profile_img;
+	private MultipartFile uprofile_img;
 	public int getPay() {
 		return pay;
 	}
@@ -33,6 +35,12 @@ public class SettingEmpVO {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getPasswordch() {
+		return passwordch;
+	}
+	public void setPasswordch(String passwordch) {
+		this.passwordch = passwordch;
 	}
 	public String getName() {
 		return name;
@@ -64,12 +72,19 @@ public class SettingEmpVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPasswordch() {
-		return passwordch;
+	public String getUp_profile_img() {
+		return up_profile_img;
 	}
-	public void setPasswordch(String passwordch) {
-		this.passwordch = passwordch;
+	public void setUp_profile_img(String up_profile_img) {
+		this.up_profile_img = up_profile_img;
 	}
+	public MultipartFile getUprofile_img() {
+		return uprofile_img;
+	}
+	public void setUprofile_img(MultipartFile uprofile_img) {
+		this.uprofile_img = uprofile_img;
+	}
+	
 	
 	
 }

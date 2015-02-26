@@ -23,4 +23,9 @@ public class SettingDao {
 		ss.update("setting.profileupdate", vo);
 	}
 	
+	public void imgUp(SettingEmpVO vo) {
+		System.out.println(vo.getUp_profile_img());
+		ss.update("setting.imgup", vo);
+	}
+	
 }
