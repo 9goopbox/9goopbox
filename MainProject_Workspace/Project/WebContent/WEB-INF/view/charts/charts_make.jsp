@@ -29,8 +29,31 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="row">
+				<form method="post" action="../charts_treatment_search.box" onsubmit="LoadAjaxContentByForm(this,'GET') ">
+					<div class="col-xs-12 col-sm-12">
+					진료를 검색하세요.
+					</div>
+					<div class="col-xs-12 col-sm-2">
+						<select id="kind_select2" name="searchType">
+							<option></option>
+							<option value="1" ${searchType==1?'selected="selected"':''}>환자이름</option>
+							<option value="2" ${searchType==2?'selected="selected"':''}>환자번호</option>
+							<option value="3" ${searchType==3?'selected="selected"':''}>진료번호</option>
+						</select>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<div class="input-group">
+							<input class="form-control input-lg" type="text" name="searchValue" value="${searchValue}">
+							<div class="input-group-btn">
+								<input class="btn btn-primary" type="submit" value="검색">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row">
 				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="이름">
+					<input id="patient_name" value="" placeholder="환자 이름" disabled="disabled">
 					<br/>
 				</div>			
 				<div class="col-md-6">
