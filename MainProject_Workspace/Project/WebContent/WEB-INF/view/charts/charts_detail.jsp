@@ -1,9 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
-		<a href="#" class="show-sidebar">
-			<i class="fa fa-bars"></i>
+		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
 			<li><a href="user_page.html">TorchBox</a></li>
@@ -29,15 +28,12 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="row">
-				<div class="col-lg-3">
-					<input type="text" class="form-control" placeholder="이름">
-				</div>
-				<div class="col-lg-3">
-					<input type="text" class="form-control" placeholder="나이">
-				</div>
-				<div class="col-lg-3">
-					<input type="text" class="form-control" placeholder="성별">
-				</div>
+				<div class="col-xs-12"><h3 class="page-header">환자</h3></div>
+				<div class="col-xs-12 col-sm-6 col-lg-3">이름 : ${pvo.name}</div>
+				<div class="col-xs-12 col-sm-6 col-lg-3">나이 : ${pvo.age}</div>
+				<div class="col-xs-12 col-sm-6 col-lg-3">성별 : ${pvo.sex}</div>
+				<div class="col-xs-12 col-sm-6 col-lg-3">가족력 : ${pvo.familydis}</div>
+				<div class="col-xs-12 col-sm-6 col-lg-3">가족력 : ${pvo.familydis}</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-5">
