@@ -40,13 +40,13 @@
 					</h3>
 					<hr class="colorgraph">
 					<div class="row">
-						<div class="col-xs-10">
+						<div class="col-xs-8">
 							<div class="form-group">
 								<input type="text" name="id" id="id" onkeyup="pwdChk()"
 									class="form-control input-lg" placeholder="아이디" tabindex="1">
 							</div>
 						</div>
-						<div id="target">아이디 입력 </div>
+						<div id="target">사용 중 </div>
 <!-- 						<div class="col-xs-4"> -->
 <%-- 							<a href="../ajax/idchk.jsp?cnt=${id}" --%>
 <!-- 								data-width="400" data-height="200" -->
