@@ -103,15 +103,16 @@
 	<select id="list" resultType="empvo" parameterType="searchVO">
 
 		select
-		ename,dname,position,tel
+		name,dept_name,position,tel
 		from (
       select a.*, rownum as r_num from
       (
-        select emp.name ename,
+        select emp.name name,
         emp.position position, emp.tel tel, dept.name
-        dname
+        dept_name
         from employee
         emp, (select name, id from department) dept
+        where emp.dept_id = dept.id 
       )
       a
 		) where r_num between

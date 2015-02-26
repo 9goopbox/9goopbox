@@ -126,11 +126,11 @@
 								<td>${mdl.tel }</td>
 								<td>${mdl.dept_name }</td>
 								<td>${mdl.position }</td>
-								<td><a class="ajax-link" href="#">상세보기</a></td>
+								<td><a class="ajax-link"
+									href="../management_staff_detail.box?id=${mdl.name}">상세보기</a></td>
 								<th><a href="#">파일다운로드</a></th>
 							</tr>
 						</c:forEach>
-
 						<!-- End: list_row -->
 					</tbody>
 				</table>
