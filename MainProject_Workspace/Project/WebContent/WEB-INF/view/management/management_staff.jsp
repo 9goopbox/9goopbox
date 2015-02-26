@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -27,17 +28,26 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="form-group">
-				<select style="float: left;">
-					<option class="form-group">&nbsp;&nbsp;&nbsp;=이 름=</option>
-					<option class="form-group">&nbsp;&nbsp;&nbsp;=부 서=</option>
-					<option class="form-group">&nbsp;&nbsp;&nbsp;=직 급=</option>
-				</select>
-				<div style="float: left;">
-					<input class="form-control col-lg-1" type="text">
-				</div>
-				<div style="float: left;">
-					<button type="submit" class="btn btn-primary btn-xs">조회</button>
-				</div>
+				<form method="post" action="../management_staff.box"
+					onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
+					<select style="float: left;" id="kind_select2" name="searchType">
+						<option></option>
+						<option value="1" ${searchType==1?'selected="selected"':''}>=이
+							름=</option>
+						<option value="2" ${searchType==2?'selected="selected"':''}>=부
+							서=</option>
+						<option value="3" ${searchType==3?'selected="selected"':''}>=직
+							급=</option>
+					</select>
+
+					<div style="float: left;">
+						<input class="form-control col-lg-1" type="text"
+							name="searchValue" value="${searchValue}">
+					</div>
+					<div style="float: left;">
+						<!-- 					<button type="submit" class="btn btn-primary btn-xs">조회</button> -->
+						<input class="btn btn-primary" type="submit" value="조회">
+					</div>
 			</div>
 			<br />
 		</div>
@@ -65,75 +75,71 @@
 					<thead>
 						<tr>
 							<th>직원이름</th>
-							<th>생년월일</th>
+							<th>전화번호</th>
 							<th>부서</th>
 							<th>직급</th>
 							<th>상세보기</th>
 							<th>다운로드</th>
 						</tr>
 					</thead>
+					
 					<tbody>
 						<!-- Start: list_row -->
-						<!-- 하나하나 다 입력한거임? 우리는 DB로!! -->
-						<tr>
-							<td><img class="img-rounded"
-								src="http://i.forbesimg.com/media/lists/people/carlos-slim-helu_50x50.jpg"
-								alt="">민경훈</td>
-							<td>1953.0216</td>
-							<td>총무부</td>
-							<td>과장</td>
-							<th><a href="#">상세보기</a></th>
-							<th><a href="#">파일다운로드</a></th>
-						</tr>
-						<tr>
-							<td><img class="img-rounded"
-								src="http://i.forbesimg.com/media/lists/people/bill-gates_50x50.jpg"
-								alt="">윤도현</td>
-							<td>1948.05.05</td>
-							<td>의사부</td>
-							<td>원장</td>
-							<th><a href="#">상세보기</a></th>
-							<th><a href="#">파일다운로드</a></th>
-						</tr>
-						<tr>
-							<td><img class="img-rounded"
-								src="http://i.forbesimg.com/media/lists/people/amancio-ortega_50x50.jpg"
-								alt="">김현철</td>
-							<td>1968.06.30</td>
-							<td>간호부</td>
-							<td>간호사</td>
-							<th><a href="#">상세보기</a></th>
-							<th><a href="#">파일다운로드</a></th>
-						</tr>
-
+						<c:forEach items="${manageDisplayList}" var="mdl">
+							<tr>
+								<td>${mdl.name}</td>
+								<td>${mdl.tel }</td>
+								<td>${mdl.dept_name }</td>
+								<td>${mdl.position }</td>
+								<td><a class="ajax-link"
+									href="../management_staff_detail.box?id=${mdl.name}">상세보기</a></td>
+								<th><a href="#">파일다운로드</a></th>
+							</tr>
+						</c:forEach>
 						<!-- End: list_row -->
 					</tbody>
-
 				</table>
-
+<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
-	// Run Datables plugin and create 3 variants of settings
-	// function AllTables(){
-	// 	TestTable1();
-	// 	TestTable2();
-	// 	TestTable3();
-	// 	LoadSelect2Script(MakeSelect2);
-	// }
 	function MakeSelect2() {
-		// 	$('select').select2();
-		// 	$('.dataTables_filter').each(function(){
-		// 		$(this).find('label input[type=text]').attr('placeholder', 'Search');
-		// 	});
+		$('#kind_select2').select2();
 	}
 	$(document).ready(function() {
-		// Load Datatables and run plugin on tables
-		// 	LoadDataTablesScripts(AllTables);
-		// Add Drag-n-Drop feature
+		// ajax-link 적용
+		$("a.ajax-link").bind("click", function(e) {
+			e.preventDefault();
+			LoadAjaxContent($(e.target).attr("href"));
+		});
+		$("div.paging a").bind("click", function(e) {
+			e.preventDefault();
+			LoadAjaxContent($(e.target).attr("href"));
+		});
+		LoadSelect2Script(MakeSelect2);
 		WinMove();
 	});
 </script>
+<!-- <script type="text/javascript"> -->
+<!-- // 	// Run Datables plugin and create 3 variants of settings -->
+<!-- // 	// function AllTables(){ -->
+<!-- // 	// 	TestTable1(); -->
+<!-- // 	// 	TestTable2(); -->
+<!-- // 	// 	TestTable3(); -->
+<!-- // 	// 	LoadSelect2Script(MakeSelect2); -->
+<!-- // 	// } -->
+<!-- // 	function MakeSelect2() { -->
+<!-- // 		// 	$('select').select2(); -->
+<!-- // 		// 	$('.dataTables_filter').each(function(){ -->
+<!-- // 		// 		$(this).find('label input[type=text]').attr('placeholder', 'Search'); -->
+<!-- // 		// 	}); -->
+<!-- // 	} -->
+<!-- // 	$(document).ready(function() { -->
+<!-- // 		// Load Datatables and run plugin on tables -->
+<!-- // 		// 	LoadDataTablesScripts(AllTables); -->
+<!-- // 		// Add Drag-n-Drop feature -->
+<!-- // 		WinMove(); -->
+<!-- // 	}); -->
+<!-- </script> -->

@@ -15,5 +15,6 @@
 		<typeAlias type="vo.SettingEmpVO" alias="sempvo"/>
 		<typeAlias type="vo.EapprVO" alias="eapprvo"/>
 		<typeAlias type="vo.RegisterVO" alias="registervo"/>
+		<typeAlias type="vo.DeptVO" alias="deptvo"/>
 	</typeAliases>
 </configuration>
