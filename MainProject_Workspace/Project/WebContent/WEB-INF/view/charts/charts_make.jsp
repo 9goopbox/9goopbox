@@ -6,7 +6,7 @@
 			<i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
-			<li><a href="index.html">TorchBox</a></li>
+			<li><a href="index.html">9GoopBox</a></li>
 			<li><a href="#">전자차트</a></li>
 			<li><a href="#">차트작성</a></li>
 		</ol>
