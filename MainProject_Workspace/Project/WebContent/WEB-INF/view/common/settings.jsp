@@ -19,7 +19,7 @@
 				</div>
 				<div class="no-move"></div>
 			</div>
-			<div class="box-content">							
+			<div class="box-content">
 				<form class="form-horizontal" role="form" method="post"
 					action="../imgup.box" enctype="multipart/form-data" id="imgF">
 					<div class="form-group">
@@ -51,6 +51,7 @@
 
 				<div class="no-move"></div>
 			</div>
+
 			<div class="box-content">
 				<form class="form-horizontal" role="form" method="post"
 					action="../profileUpdate.box" id="profup">
@@ -158,5 +159,3 @@
 		});
 	});
 </script>
-
-
