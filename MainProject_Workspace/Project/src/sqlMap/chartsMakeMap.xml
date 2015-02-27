@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chartsMake">
+<!-- chart all list without paging -->
+	<select id="list" parameterType="searchvo" resultType="charttreatmentvo">
+	select * from 
+	(
+	  select a.*, rownum as r_num from
+	  (
+		select treatment.id as treatment_id, 
+		  patient.id as patient_id, 
+		  patient.name as patient_name,
+		  patient.sex as patient_sex
+		from treatment, patient
+		where treatment.patient_id = patient.id
+	    <if test="searchType != null">
+	    <if test="searchType != ''">
+	    	<choose>
+	    		<when test="searchType == 1">
+	    			and patient.name like '%'|| #{searchValue} || '%'
+	    		</when>
+	    		<when test="searchType == 2">
+					and patient.id = #{searchValue}
+				</when>
+				<when test="searchType == 3">
+					and treatment.id = #{searchValue}
+				</when>
+	    	</choose>
+    	</if>
+	    </if>
+	    order by treatment.id desc
+	  ) a
+	)
+	where r_num between #{begin} and #{end}
+	</select>
+	<select id="size" resultType="int">
+		select count(*)
+		from treatment
+	</select>
+	<select id="sizeSearch" resultType="int" parameterType="searchvo">
+		select count(*)
+		from treatment, patient
+		<where>
+			treatment.patient_id = patient.id
+			<choose>
+	    		<when test="searchType == 1">
+	    			and patient.name like '%'|| #{searchValue} || '%'
+	    		</when>
+	    		<when test="searchType == 2">
+					and patient.id = #{searchValue}
+				</when>
+				<when test="searchType == 3">
+					and treatment.id = #{searchValue}
+				</when>
+			</choose>
+		</where>
+	</select>
+	
+	<select id="patientByTreatmentId" parameterType="int" resultType="patvo">
+	select patient.*
+	from (select * from treatment where id = #{id}) treatment, patient
+	where 
+		treatment.patient_id = patient.id
+	</select>
+	<!-- http://krespo.net/163 -->
+	<insert id="addChart" parameterType="chartvo">
+		insert into chart values(
+		  chart_sequence.nextVal,
+		  #{dept_id, jdbcType=INTEGER},
+		  #{patient_id},
+		  #{doctor_id},
+		  #{treatment_id},
+		  #{sub},
+		  #{disease},
+		  #{cont, jdbcType=CLOB},
+		  #{cost},
+		  #{attach_id, jdbcType=INTEGER}
+		)
+	</insert>
+</mapper>

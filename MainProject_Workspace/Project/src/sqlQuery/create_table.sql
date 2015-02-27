@@ -156,23 +156,23 @@ ALTER TABLE items
 
 /* 일반직원 */
 CREATE TABLE general_employee (
-	ID VARCHAR2(20) NOT NULL /* 직원 ID */
+	id VARCHAR2(20) NOT NULL /* 직원 ID */
 );
 
 COMMENT ON TABLE general_employee IS '일반직원';
 
-COMMENT ON COLUMN general_employee.ID IS '직원 ID';
+COMMENT ON COLUMN general_employee.id IS '직원 ID';
 
 CREATE UNIQUE INDEX PK_general_employee
 	ON general_employee (
-		ID ASC
+		id ASC
 	);
 
 ALTER TABLE general_employee
 	ADD
 		CONSTRAINT PK_general_employee
 		PRIMARY KEY (
-			ID
+			id
 		);
 
 /* 직원 */
@@ -180,7 +180,7 @@ CREATE TABLE employee (
 	id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	password VARCHAR2(256) NOT NULL, /* 암호 */
 	name VARCHAR2(30) NOT NULL, /* 이름 */
-	address VARCHAR2(50) NOT NULL, /* 주소 */
+	address VARCHAR2(300) NOT NULL, /* 주소 */
 	position VARCHAR2(20), /* 직급 */
 	pay INTEGER NOT NULL, /* 급여 */
 	dept_id INTEGER, /* 부서ID */
@@ -741,7 +741,8 @@ CREATE TABLE treatment (
 	patient_id INTEGER NOT NULL, /* 환자 ID */
 	cost_get INTEGER NOT NULL, /* 수납비용 */
 	step VARCHAR2(20), /* 진료단계 */
-	kind VARCHAR2(20) NOT NULL /* 진료종류 */
+	kind VARCHAR2(20) NOT NULL, /* 진료종류 */
+	medi_trtmt VARCHAR2(30) NOT NULL /* 진료과 */
 );
 
 COMMENT ON TABLE treatment IS '진료, 수납, 등록';
@@ -755,6 +756,8 @@ COMMENT ON COLUMN treatment.cost_get IS '수납비용';
 COMMENT ON COLUMN treatment.step IS '환자가 방문 -> 수납 -> 진료 ->';
 
 COMMENT ON COLUMN treatment.kind IS '초진, 재진, 예약';
+
+COMMENT ON COLUMN treatment.medi_trtmt IS '진료과';
 
 CREATE UNIQUE INDEX PK_treatment
 	ON treatment (
@@ -915,6 +918,27 @@ ALTER TABLE attach_target
 			id
 		);
 
+/* 간호사 */
+CREATE TABLE nurse (
+	id VARCHAR2(20) NOT NULL /* 직원 ID */
+);
+
+COMMENT ON TABLE nurse IS '간호사';
+
+COMMENT ON COLUMN nurse.id IS '직원 ID';
+
+CREATE UNIQUE INDEX PK_nurse
+	ON nurse (
+		id ASC
+	);
+
+ALTER TABLE nurse
+	ADD
+		CONSTRAINT PK_nurse
+		PRIMARY KEY (
+			id
+		);
+
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT FK_employee_TO_doctor
@@ -982,7 +1006,7 @@ ALTER TABLE items
 			manager
 		)
 		REFERENCES general_employee (
-			ID
+			id
 		);
 
 ALTER TABLE items
@@ -992,14 +1016,14 @@ ALTER TABLE items
 			submitter
 		)
 		REFERENCES general_employee (
-			ID
+			id
 		);
 
 ALTER TABLE general_employee
 	ADD
 		CONSTRAINT FK_employee_TO_general_empl
 		FOREIGN KEY (
-			ID
+			id
 		)
 		REFERENCES employee (
 			id
@@ -1334,5 +1358,15 @@ ALTER TABLE upfile
 			attatch_id
 		)
 		REFERENCES attach_target (
+			id
+		);
+
+ALTER TABLE nurse
+	ADD
+		CONSTRAINT FK_employee_TO_nurse
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
 			id
 		);

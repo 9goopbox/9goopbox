@@ -1,18 +1,33 @@
 package vo;
 
 public class ChartVO {
-	private int id,dept_id,patient_id,treatment_id,cost;
-	private String doctor_id,sub,cont;
+	private int id,patient_id,treatment_id,cost;
+	private Integer attach_id, dept_id;
+	private String doctor_id,sub, cont, disease;
+	
+	
+	public Integer getAttach_id() {
+		return attach_id;
+	}
+	public void setAttach_id(Integer attach_id) {
+		this.attach_id = attach_id;
+	}
+	public String getDisease() {
+		return disease;
+	}
+	public void setDisease(String disease) {
+		this.disease = disease;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getDept_id() {
+	public Integer getDept_id() {
 		return dept_id;
 	}
-	public void setDept_id(int dept_id) {
+	public void setDept_id(Integer dept_id) {
 		this.dept_id = dept_id;
 	}
 	public int getPatient_id() {
@@ -51,6 +66,5 @@ public class ChartVO {
 	public void setCont(String cont) {
 		this.cont = cont;
 	}
-	
 	
 }

@@ -1,18 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<!-- DB 테이블의 VO -->
 		<typeAlias type="vo.ArticleVO" alias="artvo" />
 		<typeAlias type="vo.CalenderVO" alias="calvo"/>
 		<typeAlias type="vo.EmployeeVO" alias="empvo"/>
 		<typeAlias type="vo.PatientVO" alias="patvo"/>
-		<typeAlias type="vo.ChartVO" alias="charvo"/>
+		<typeAlias type="vo.ChartVO" alias="chartvo"/>
+		
+		<!-- 특정 뷰를 위한 VO -->
+		<typeAlias type="vo.view.ChartDisplayVO" alias="chartdisplayvo"/>
+		<typeAlias type="vo.view.ChartTreatmentVO" alias="charttreatmentvo"/>
+		
+		<!-- paging / searching -->
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 		<typeAlias type="vo.SettingEmpVO" alias="sempvo"/>
 		<typeAlias type="vo.EapprVO" alias="eapprvo"/>
 		<typeAlias type="vo.InvenVO" alias="invenvo"/>
+		<typeAlias type="vo.RegisterVO" alias="registervo"/>
+		<typeAlias type="vo.DeptVO" alias="deptvo"/>
 	</typeAliases>
 </configuration>

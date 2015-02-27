@@ -2,14 +2,15 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="joinemp">
+<mapper namespace="register">
+	
+	<insert id="join" parameterType="registervo">
+		insert into employee values(#{id},#{password},#{name},#{address},#{position},'0',null,null,#{tel},#{email})		
+	</insert>
 
-	<insert id="join" parameterType="empvo">
-  		insert into employee values(employee_seq.nextVal,#{id},#{pwd},#{name},#{tel},#{post},#{addr1},#{addr2},sysdate)
-  	</insert>
-  	
-  	<select id="idChk" resultType="int" parameterType="String">
-  		select count(*) cnt from employee where id=#{id}
-  	</select>
-  	
+<select id="idChk"  parameterType="String" resultType="int">
+  	select count(*) cnt from employee where id=#{id}
+  </select>
+
+
 </mapper>

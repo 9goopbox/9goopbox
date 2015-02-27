@@ -37,7 +37,7 @@ drop sequence disease_record_sequence;
 -- 글 상태 변화 알림시퀀스
 drop sequence noty_article_sequence;
 -- 처방시퀀스
-drop sequence TABLE3_sequence;
+drop sequence prescription_sequence;
 -- 병동 외의 방시퀀스
 drop sequence office_sequence;
 -- 결재자시퀀스
@@ -51,9 +51,11 @@ drop sequence punch_sequence;
 -- 직원로그시퀀스
 drop sequence log_sequence;
 -- 파일시퀀스
-drop sequence file_sequence;
+drop sequence upfile_sequence;
 -- 파일첨부대상시퀀스
 drop sequence attach_target_sequence;
+-- 간호사시퀀스
+drop sequence nurse_sequence;
 -- 의사시퀀스
 create sequence doctor_sequence
 start with 1
@@ -150,7 +152,7 @@ start with 1
 increment by 1;
 
 -- 처방시퀀스
-create sequence TABLE3_sequence
+create sequence prescription_sequence
 start with 1
 increment by 1;
 
@@ -185,12 +187,17 @@ start with 1
 increment by 1;
 
 -- 파일시퀀스
-create sequence file_sequence
+create sequence upfile_sequence
 start with 1
 increment by 1;
 
 -- 파일첨부대상시퀀스
 create sequence attach_target_sequence
+start with 1
+increment by 1;
+
+-- 간호사시퀀스
+create sequence nurse_sequence
 start with 1
 increment by 1;
 
