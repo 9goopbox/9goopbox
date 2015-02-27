@@ -21,10 +21,10 @@ public class ShowTimelineController {
 	private TimelineDao tdao;
 	
 	@RequestMapping(value="/timeline_article_post.box")
-	public ModelAndView showTimeline(TimelineVO tvo) {
+	public ModelAndView showTimeline(TimelineVO tvo, HttpSession session) {
 		ModelAndView mav = new ModelAndView("timeline/timeline_article_post");
 		System.out.println(tvo.getCont());
-		tvo.setWriter_id();
+		tvo.setWriter_id((String)session.getAttribute("userid"));
 		tdao.addTimeline(tvo);
 		
 		List<TimelineVO> tvolist = tdao.renewTime(tvo);
