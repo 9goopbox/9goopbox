@@ -1,3 +1,60 @@
+ALTER TABLE payment
+	DROP
+		CONSTRAINT FK_employee_TO_payment
+		CASCADE;
+
+ALTER TABLE payment
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
+DROP INDEX PK_payment;
+
+/* 지급 */
+DROP TABLE payment 
+	CASCADE CONSTRAINTS;
+
+/* 지급 */
+CREATE TABLE payment (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	payday DATE, /* 지급일 */
+	sort VARCHAR2(20) NOT NULL, /* 구분 */
+	fix VARCHAR2(20) NOT NULL /* 확정여부 */
+);
+
+COMMENT ON TABLE payment IS '지급';
+
+COMMENT ON COLUMN payment.id IS '직원 ID';
+
+COMMENT ON COLUMN payment.payday IS '지급일';
+
+COMMENT ON COLUMN payment.sort IS '구분';
+
+COMMENT ON COLUMN payment.fix IS '확정여부';
+
+CREATE UNIQUE INDEX PK_payment
+	ON payment (
+		id ASC
+	);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT PK_payment
+		PRIMARY KEY (
+			id
+		);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT FK_employee_TO_payment
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		);
+
 -- �ǻ������
 drop sequence doctor_sequence;
 -- ����ȯ�ڽ�����

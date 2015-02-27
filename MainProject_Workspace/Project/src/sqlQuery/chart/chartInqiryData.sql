@@ -67,4 +67,10 @@ insert into general_employee values('goodnur');
 insert into general_employee values('xx');
 insert into general_employee values('이름씨');
 select * from general_employee;
+
+insert into payment values('bestdoc', '2015-02-14', '월급', '지급');
+insert into payment values('gooddoc', '2015-02-13', '보너스', '지급');
+insert into payment values('xx', '2015-01-20', '야근수당', '미지급');
+insert into payment values('goodnur', '2015-02-23', '보너스', '미지급');
+insert into payment values('이름씨', '2015-02-28', '월급', '미지급');
 commit;
