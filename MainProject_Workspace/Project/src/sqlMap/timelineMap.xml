@@ -19,3 +19,4 @@
 		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
 		where emp.id = art.writer_id and art.updated=#{id}
 	</select>
+</mapper>
