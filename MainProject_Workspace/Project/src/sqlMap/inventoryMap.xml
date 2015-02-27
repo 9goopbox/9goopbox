@@ -54,7 +54,7 @@
 		select a.*, rownum as r_num from
 		(
 		select id, category,
-		name, amount, buyDate, buyPrice, manager, memo
+		name, amount, buyDate, buyPrice, manager, memo, (select emp.name from employee emp, general_employee gemp where emp.id=gemp.id) mananame
 		from items
 
 		<if test="searchType != null">

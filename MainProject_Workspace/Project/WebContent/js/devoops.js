@@ -1056,8 +1056,6 @@ $('.preloader').show();
 $.ajax({
 	mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
 	url: $(form).attr("action"),
-
-	type: ((method==null)?$(form).attr("method"):method),
 	type: new FormData(form),
 	data: $(form).serialize(),
 	success: function(data) {

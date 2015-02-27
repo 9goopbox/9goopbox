@@ -4,8 +4,15 @@ import java.util.Date;
 
 public class InvenVO {
 	private int id, amount, buyPrice;
-	private String manager, name, category, memo;
+	private String manager, name, category, memo, mananame;
 	private Date buyDate;
+	
+	public String getMananame() {
+		return mananame;
+	}
+	public void setMananame(String mananame) {
+		this.mananame = mananame;
+	}
 	
 	public int getId() {
 		return id;

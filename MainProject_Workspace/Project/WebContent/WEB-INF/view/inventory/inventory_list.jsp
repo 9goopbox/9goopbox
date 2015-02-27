@@ -106,7 +106,7 @@
 							<td>${listv.buyDate }</td>
 <!-- 							<td>본관/105호(내과진찰실)</td> -->
 							<td>${listv.buyPrice }</td>
-							<td>${listv.manager }</td>
+							<td>${listv.mananame }</td>
 							<td>${listv.memo }</td>
 							<td></td>
 <!-- 							<td><a href="#">비교</a></td> -->
