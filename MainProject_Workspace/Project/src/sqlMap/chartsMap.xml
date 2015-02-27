@@ -77,4 +77,10 @@
 			</choose>
 		</where>
 	</select>
+	
+	<select id="byid" resultType="chartvo" parameterType="int">
+		select *
+		from chart
+		where chart.id = #{id}
+	</select>
 </mapper>
