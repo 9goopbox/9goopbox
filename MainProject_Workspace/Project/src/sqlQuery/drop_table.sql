@@ -208,6 +208,16 @@ ALTER TABLE payment
 		CONSTRAINT FK_employee_TO_payment
 		CASCADE;
 
+ALTER TABLE look
+	DROP
+		CONSTRAINT FK_employee_TO_look
+		CASCADE;
+
+ALTER TABLE look
+	DROP
+		CONSTRAINT FK_employee_TO_look2
+		CASCADE;
+
 ALTER TABLE chart
 	DROP
 		CONSTRAINT CK_chart
@@ -405,6 +415,12 @@ ALTER TABLE payment
 		CASCADE
 		KEEP INDEX;
 
+ALTER TABLE look
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
 DROP INDEX UIX_employee_email;
 
 DROP INDEX PK_doctor;
@@ -464,6 +480,8 @@ DROP INDEX PK_attach_target;
 DROP INDEX PK_nurse;
 
 DROP INDEX PK_payment;
+
+DROP INDEX PK_look;
 
 /* 의사 */
 DROP TABLE doctor 
@@ -579,4 +597,8 @@ DROP TABLE nurse
 
 /* 지급 */
 DROP TABLE payment 
+	CASCADE CONSTRAINTS;
+
+/* 지켜보기 */
+DROP TABLE look 
 	CASCADE CONSTRAINTS;

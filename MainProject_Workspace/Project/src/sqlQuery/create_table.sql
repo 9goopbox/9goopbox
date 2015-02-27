@@ -339,7 +339,8 @@ CREATE TABLE approval (
 	kind VARCHAR2(20) NOT NULL, /* 결재종류 */
 	state VARCHAR2(15), /* 결재상태 */
 	cont CLOB, /* 요청내용 */
-	attach_id INTEGER /* 첨부 ID */
+	attach_id INTEGER, /* 첨부 ID */
+	title VARCHAR2(100) NOT NULL /* 결제제목 */
 );
 
 COMMENT ON TABLE approval IS '전자결재';
@@ -355,6 +356,8 @@ COMMENT ON COLUMN approval.state IS '결재상태';
 COMMENT ON COLUMN approval.cont IS '요청내용';
 
 COMMENT ON COLUMN approval.attach_id IS '첨부 ID';
+
+COMMENT ON COLUMN approval.title IS '결제제목';
 
 CREATE UNIQUE INDEX PK_approval
 	ON approval (
@@ -462,65 +465,65 @@ ALTER TABLE article
 
 /* 글 태그 */
 CREATE TABLE article_tag (
-	id INTEGER NOT NULL, /* 글번호 */
-	tag_id INTEGER NOT NULL, /* 태그ID */
-	id2 VARCHAR2(20) NOT NULL, /* 직원 ID */
+	article_id INTEGER NOT NULL, /* 글번호 */
+	id INTEGER NOT NULL, /* 태그ID */
+	emp_id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	user_id VARCHAR2(20) NOT NULL /* 사용자 ID */
 );
 
 COMMENT ON TABLE article_tag IS '글 태그';
 
-COMMENT ON COLUMN article_tag.id IS '글번호';
+COMMENT ON COLUMN article_tag.article_id IS '글번호';
 
-COMMENT ON COLUMN article_tag.tag_id IS '태그ID';
+COMMENT ON COLUMN article_tag.id IS '태그ID';
 
-COMMENT ON COLUMN article_tag.id2 IS '직원 ID';
+COMMENT ON COLUMN article_tag.emp_id IS '직원 ID';
 
 COMMENT ON COLUMN article_tag.user_id IS '사용자 ID';
 
 CREATE UNIQUE INDEX PK_article_tag
 	ON article_tag (
+		article_id ASC,
 		id ASC,
-		tag_id ASC,
-		id2 ASC
+		emp_id ASC
 	);
 
 ALTER TABLE article_tag
 	ADD
 		CONSTRAINT PK_article_tag
 		PRIMARY KEY (
+			article_id,
 			id,
-			tag_id,
-			id2
+			emp_id
 		);
 
 /* 태그 */
 CREATE TABLE tag (
-	tag_id INTEGER NOT NULL, /* 태그ID */
-	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	id INTEGER NOT NULL, /* 태그ID */
+	emp_id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	tag_name VARCHAR2(30) /* 태그이름 */
 );
 
 COMMENT ON TABLE tag IS '태그';
 
-COMMENT ON COLUMN tag.tag_id IS '태그ID';
+COMMENT ON COLUMN tag.id IS '태그ID';
 
-COMMENT ON COLUMN tag.id IS '직원 ID';
+COMMENT ON COLUMN tag.emp_id IS '직원 ID';
 
 COMMENT ON COLUMN tag.tag_name IS '태그이름';
 
 CREATE UNIQUE INDEX PK_tag
 	ON tag (
-		tag_id ASC,
-		id ASC
+		id ASC,
+		emp_id ASC
 	);
 
 ALTER TABLE tag
 	ADD
 		CONSTRAINT PK_tag
 		PRIMARY KEY (
-			tag_id,
-			id
+			id,
+			emp_id
 		);
 
 /* 질! 병! */
@@ -951,6 +954,32 @@ ALTER TABLE payment
 			id
 		);
 
+/* 지켜보기 */
+CREATE TABLE look (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	look_id VARCHAR2(20) NOT NULL /* 지켜보는 직원 ID */
+);
+
+COMMENT ON TABLE look IS '지켜보기';
+
+COMMENT ON COLUMN look.id IS '직원 ID';
+
+COMMENT ON COLUMN look.look_id IS '지켜보는 직원 ID';
+
+CREATE UNIQUE INDEX PK_look
+	ON look (
+		id ASC,
+		look_id ASC
+	);
+
+ALTER TABLE look
+	ADD
+		CONSTRAINT PK_look
+		PRIMARY KEY (
+			id,
+			look_id
+		);
+
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT FK_employee_TO_doctor
@@ -1175,7 +1204,7 @@ ALTER TABLE article_tag
 	ADD
 		CONSTRAINT FK_article_TO_article_tag
 		FOREIGN KEY (
-			id
+			article_id
 		)
 		REFERENCES article (
 			id
@@ -1195,19 +1224,19 @@ ALTER TABLE article_tag
 	ADD
 		CONSTRAINT FK_tag_TO_article_tag
 		FOREIGN KEY (
-			tag_id,
-			id2
+			id,
+			emp_id
 		)
 		REFERENCES tag (
-			tag_id,
-			id
+			id,
+			emp_id
 		);
 
 ALTER TABLE tag
 	ADD
 		CONSTRAINT FK_employee_TO_tag
 		FOREIGN KEY (
-			id
+			emp_id
 		)
 		REFERENCES employee (
 			id
@@ -1368,6 +1397,26 @@ ALTER TABLE payment
 		CONSTRAINT FK_employee_TO_payment
 		FOREIGN KEY (
 			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+ALTER TABLE look
+	ADD
+		CONSTRAINT FK_employee_TO_look
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+ALTER TABLE look
+	ADD
+		CONSTRAINT FK_employee_TO_look2
+		FOREIGN KEY (
+			look_id
 		)
 		REFERENCES employee (
 			id

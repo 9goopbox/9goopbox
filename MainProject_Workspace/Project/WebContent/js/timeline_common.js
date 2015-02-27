@@ -6,10 +6,10 @@ $(function () {
 	// interval request : refresh...
 	var myfn = function () {
 		//console.log("interval function");
-		var date = null;
+		var date = new Date().getTime().toString();
 		return function () {
 			data = $.ajax("../timeline_article_json.box", {
-				"date" : date
+				"data" : {"date" : date}
 			});
 			
 //			data = {
@@ -186,8 +186,10 @@ function post(event) {
   if ((content.trim().length !== 0) && (content.trim().length <= 140)
   ) {
 	  // ajax call
-	  $.ajax("../timeline_article_psot.box", {
-			"cont" : content.trim()
+	  $.ajax("../timeline_article_post.box", {
+			data: {
+				"cont" : content.trim()
+			}
 	  });
   } else {
     alert("길이가 부적합합니다.");
