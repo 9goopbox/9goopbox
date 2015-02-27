@@ -12,27 +12,28 @@ $(function () {
 				"date" : date
 			});
 			
-			data = {
-					"articles" :
-						[ {
-							"user": {
-								"id":"123",
-								"name" : "writter",
-								"profile_img" : ""
-							},
-							"article": {
-								"id" : "123",
-								"cont" : "내용",
-								"date" : "Sat Feb 28 2015 02:48:40 GMT+0900",
-								"kind" : "종류",
-								"ref_id" : "",
-								"head_id" : "article.head_id",
-								"attach_id" : ""
-							}
-						  }
-					    ],
-					    "count" : 1
-					};
+//			data = {
+//					"articles" :
+//						[ {
+//							"user": {
+//								"id":"123",
+//								"name" : "writter",
+//								"profile_img" : ""
+//							},
+//							"article": {
+//								"id" : "123",
+//								"cont" : "내용",
+//								"date" : "Sat Feb 28 2015 02:48:40 GMT+0900",
+//								"kind" : "종류",
+//								"ref_id" : "",
+//								"head_id" : "article.head_id",
+//								"attach_id" : ""
+//							}
+//						  }
+//					    ],
+//					    "count" : 1
+//					};
+			
 			date = new Date();
 			//console.log("date : " + date);
 			if (data.articles != null)
