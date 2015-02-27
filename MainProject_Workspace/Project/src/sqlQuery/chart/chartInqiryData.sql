@@ -28,7 +28,7 @@ select * from patient;
 delete from employee;
 insert into employee values('bestdoc', 'best', '조은의', '돌 굴러가는 지역', null, 2560000,null,null,null,'bestdoc@bestdoc.com');
 insert into employee values('gooddoc', 'good', '장조은', '돌 굴러가는 지역 2', null, 5120000,null,null,null,'gooddoc@bestdoc.com');
-insert into employee values('이름씨', '1234', '바보', '서울', '의사', '2323', null, null, null, 'dfdf@dfdf.com');
+insert into employee values('kinddoc', 'kind', '김친절', '돌 굴러가는 지역 3', '간호사', 2000000, null, null, null, 'kinddoc@bestdoc.com');
 select * from employee;
 
 delete from doctor;
@@ -52,7 +52,7 @@ insert into chart values(33333, null, 2008, 'gooddoc', 22, '약간 긴 진료제
 select * from chart;
 
 delete from patient;
-insert into patient values(1,'병희', 23, '남자', '2123421', 175, null, null, null);
+insert into patient values(1,'김길동', 23, '남자', '2123421', 175, null, null, null);
 select * from patient;
 
 commit;
