@@ -1025,6 +1025,9 @@ function LoadAjaxContent(url){
 				var response=jQuery.parseJSON(data);
 				if(typeof response == 'object')
 				{
+					if (response.alertValue != null) {
+						alert(response.alertValue);
+					}
 				  if (response.address != null) {
 					LoadAjaxContent(response.address);
 				  } else {
@@ -1063,6 +1066,9 @@ $.ajax({
 			var response=jQuery.parseJSON(data);
 			if(typeof response == 'object')
 			{
+				if (response.alertValue != null) {
+					alert(response.alertValue);
+				}
 			  if (response.address != null) {
 				LoadAjaxContent(response.address);
 			  } else {
