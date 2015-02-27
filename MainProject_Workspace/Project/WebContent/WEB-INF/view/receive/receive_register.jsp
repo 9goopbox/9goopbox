@@ -102,7 +102,7 @@
 													onsubmit="LoadAjaxContentByForm(this,'GET') ">
 													<div class="col-xs-12 col-sm-2">
 														<select id="kind_select2" name="searchType">
-															<!-- 수정해야함!!!!!!!! 															-->
+<!-- 수정해야함!!!!!!!! 															-->
 															<option value="1"
 																${searchType==1?'selected="selected"':''}>환자이름</option>
 															<option value="2"
@@ -221,7 +221,7 @@
 													<input type="text" class="form-control" placeholder="수납비용">
 												</div>
 												<div style="float: right;">
-													<button type="button" class="btn btn-primary">등록</button>
+													<button type="submit" class="btn btn-primary">등록</button>
 												</div>
 											</div>
 										</div>
