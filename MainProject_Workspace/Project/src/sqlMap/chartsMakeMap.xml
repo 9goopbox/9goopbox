@@ -65,7 +65,8 @@
 		treatment.patient_id = patient.id
 	</select>
 	<!-- http://krespo.net/163 -->
-	<insert id="addChart" parameterType="chartvo">
+	<!-- http://hellogk.tistory.com/104 -->
+	<insert id="addChart" parameterType="chartvo" >
 		insert into chart values(
 		  chart_sequence.nextVal,
 		  #{dept_id, jdbcType=INTEGER},
@@ -78,5 +79,20 @@
 		  #{cost},
 		  #{attach_id, jdbcType=INTEGER}
 		)
+	    <selectKey keyProperty="id" resultType="int" order="AFTER">
+	        SELECT chart_sequence.currval FROM dual
+	    </selectKey>
+	</insert>
+	
+	<insert id="updateChart" parameterType="chartvo">
+		update chart
+		set
+		  sub = #{sub},
+		  disease = #{disease},
+		  cont = #{cont, jdbcType=CLOB},
+		  cost = #{cost},
+		  attach_id = #{attach_id, jdbcType=INTEGER}
+		where
+			id = #{id}
 	</insert>
 </mapper>

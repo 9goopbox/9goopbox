@@ -1025,6 +1025,9 @@ function LoadAjaxContent(url){
 				var response=jQuery.parseJSON(data);
 				if(typeof response == 'object')
 				{
+					if (response.alertValue != null && response.alertValue != "") {
+						alert(response.alertValue);
+					}
 				  if (response.address != null) {
 					LoadAjaxContent(response.address);
 				  } else {
@@ -1055,7 +1058,7 @@ console.log($(form).serialize());
 $.ajax({
 	mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
 	url: $(form).attr("action"),
-	type: method,
+	type: ((method==null)?$(form).attr("method"):method),
 	data: $(form).serialize(),
 	success: function(data) {
 		
@@ -1063,6 +1066,9 @@ $.ajax({
 			var response=jQuery.parseJSON(data);
 			if(typeof response == 'object')
 			{
+				if (response.alertValue != null && response.alertValue != "") {
+					alert(response.alertValue);
+				}
 			  if (response.address != null) {
 				LoadAjaxContent(response.address);
 			  } else {

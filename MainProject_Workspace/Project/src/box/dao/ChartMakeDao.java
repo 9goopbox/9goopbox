@@ -35,4 +35,10 @@ public class ChartMakeDao {
 		ss.insert("chartsMake.addChart", vo);
 		return;
 	}
+
+	public void updateChart(ChartVO vo) {
+		// TODO Auto-generated method stub
+		ss.update("chartsMake.updateChart", vo);
+		return;
+	}
 }

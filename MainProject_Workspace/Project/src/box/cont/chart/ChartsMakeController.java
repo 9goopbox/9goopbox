@@ -77,11 +77,24 @@ public class ChartsMakeController {
 	
 	@RequestMapping(value="/charts_submit.box")
 	public ModelAndView charts_submit(ChartVO vo) {
-		ModelAndView mav = new ModelAndView("util/ajax_redirect.jsp");
+		ModelAndView mav = new ModelAndView("util/ajax_redirect");
+		dao.addChart(vo);
+		
 		System.out.println("../charts_detail.box?id=" + vo.getId());
 		
-		dao.addChart(vo);
+		
 		mav.addObject("address", "../charts_detail.box?id=" + vo.getId());
+		return mav;
+	}
+	
+	@RequestMapping(value="/charts_edit_submit.box")
+	public ModelAndView charts_edit_submit(ChartVO vo) {
+		ModelAndView mav = new ModelAndView("util/ajax_redirect");
+		System.out.println("../charts_detail.box?id=" + vo.getId());
+		
+		dao.updateChart(vo);
+		mav.addObject("address", "../charts_detail.box?id=" + vo.getId());
+		//mav.addObject("alertValue","수정되었습니다.");
 		return mav;
 	}
 }

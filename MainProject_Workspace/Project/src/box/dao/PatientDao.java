@@ -4,19 +4,16 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.EmployeeVO;
+import vo.PatientVO;
 
 @Repository
-public class EmployeeDao {
+public class PatientDao {
 
 	@Autowired
 	private SqlSessionTemplate ss;
-
-	public int login(EmployeeVO vo) {
-		return ss.selectOne("login.loginok", vo);
-	}
 	
-	public EmployeeVO getEmployeeById(String id) {
-		return ss.selectOne("emp.byid", id);
+	public PatientVO getPatientById(int id) {
+		return ss.selectOne("pat.byid", id);
 	}
+
 }
