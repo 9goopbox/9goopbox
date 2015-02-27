@@ -97,7 +97,7 @@
 					<tbody>
 
 						<!-- Start: list_row -->
-						<c:forEach var="listv" items="${list }">
+						<c:forEach var="listv" items="${listv }">
 						<tr>
 							<td>${listv.id }</td>
 							<td>${listv.category }</td>

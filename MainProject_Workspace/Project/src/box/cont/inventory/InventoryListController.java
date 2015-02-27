@@ -45,9 +45,9 @@ public class InventoryListController {
 		System.out.println("searchType : " + svo.getSearchType());
 		
 		List<InvenVO> list = dao.getListSearch(svo);
-				
-		mav.addObject("searchType", svo.getSearchType());
-		mav.addObject("manageDisplayList", list);
+		
+//		mav.addObject("searchType", svo.getSearchType());
+		mav.addObject("listv", list);
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("pageURL", "../inventory_list.box");
 		
