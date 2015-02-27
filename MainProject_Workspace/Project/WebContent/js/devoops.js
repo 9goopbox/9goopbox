@@ -1050,12 +1050,10 @@ function LoadAjaxContent(url){
 //
 function LoadAjaxContentByForm(form, method){
 $('.preloader').show();
-console.log(form);
-console.log($(form).serialize());
 $.ajax({
 	mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
 	url: $(form).attr("action"),
-	type: method,
+	type: new FormData(form),
 	data: $(form).serialize(),
 	success: function(data) {
 		
