@@ -27,11 +27,6 @@ public class ShowTimelineController {
 		tvo.setWriter_id((String)session.getAttribute("userid"));
 		tdao.addTimeline(tvo);
 		
-		List<TimelineVO> tvolist = tdao.renewTime(tvo);
-		
-		mav.addObject("tvolist", tvolist);
-		System.out.println("../timeline_article_post?id=" + tvo.getArt_id());
-		mav.addObject("../timeline_article_post?id=" + tvo.getArt_id());
 		
 		return mav;
 	}
