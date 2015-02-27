@@ -1,8 +1,9 @@
 package vo;
 
 public class EmployeeVO {
-	private int pay, dept_id, pos_id;
+	private int pay;
 	private String id, password, name, address, position, tel, email,dept_name,bye;
+	private Integer dept_id, pos_id;
 	
 	public String getBye() {
 		return bye;
@@ -23,16 +24,16 @@ public class EmployeeVO {
 	public void setPay(int pay) {
 		this.pay = pay;
 	}
-	public int getDept_id() {
+	public Integer getDept_id() {
 		return dept_id;
 	}
-	public void setDept_id(int dept_id) {
+	public void setDept_id(Integer dept_id) {
 		this.dept_id = dept_id;
 	}
-	public int getPos_id() {
+	public Integer getPos_id() {
 		return pos_id;
 	}
-	public void setPos_id(int pos_id) {
+	public void setPos_id(Integer pos_id) {
 		this.pos_id = pos_id;
 	}
 	public String getId() {
