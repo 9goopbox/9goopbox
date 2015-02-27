@@ -21,7 +21,7 @@ $(function () {
 //								"profile_img" : ""
 //							},
 //							"article": {
-//								"id" : "123",
+//								"id" : "12113",
 //								"cont" : "내용",
 //								"date" : "Sat Feb 28 2015 02:48:40 GMT+0900",
 //								"kind" : "종류",
@@ -34,8 +34,8 @@ $(function () {
 //					    "count" : 1
 //					};
 			
-			date = new Date();
-			//console.log("date : " + date);
+			date = new Date().getTime();
+			console.log("date : " + date);
 			if (data.articles != null)
 			data.articles.forEach(function (d) {
 				//console.log(d);
@@ -109,7 +109,7 @@ function tlLimit(parent_obj, count) {
  *  "count" : 보내준 글 갯수 
  * }
  */
-(select cont,date,kind,ref_id,head_id,attach_id from department)
+//(select cont,date,kind,ref_id,head_id,attach_id from department)
 /**
  * 
  * @param artDat
@@ -186,7 +186,9 @@ function post(event) {
   if ((content.trim().length !== 0) && (content.trim().length <= 140)
   ) {
 	  // ajax call
-
+	  $.ajax("../timeline_article_psot.box", {
+			"cont" : content.trim()
+	  });
   } else {
     alert("길이가 부적합합니다.");
   }
