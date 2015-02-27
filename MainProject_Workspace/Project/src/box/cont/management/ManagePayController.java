@@ -70,13 +70,13 @@ public class ManagePayController {
 		
 		PageVO pageInfo = null;
 		if (svo.getSearchType() == null || 
-				svo.getSearchPayValue() == null ||
+				svo.getSearchValue() == null ||
 				svo.getSearchType().equals("") ||
-				svo.getSearchPayValue().equals("")) {
+				svo.getSearchValue().equals("")) {
 			System.out.println("no searchType or no keyword");
 			pageInfo = pageVoFactory.makePageVO(page, dao.getTotalCount2());
 		} else {
-			System.out.println("keyword : " + svo.getSearchPayValue());
+			System.out.println("keyword : " + svo.getSearchValue());
 			pageInfo = pageVoFactory.makePageVO(page, dao.getTotalSearchCount(svo));
 		}
 		svo.setBegin(String.valueOf(pageInfo.getStartRow()));
@@ -85,8 +85,12 @@ public class ManagePayController {
 		System.out.println("begin : " + svo.getBegin());
 		System.out.println("end : " + svo.getEnd());
 		System.out.println("searchPayValue : " +  evo.getId());
-		System.out.println("searchPayType : " + 1);
 		
+		
+		svo.setSearchType("1");
+		svo.setSearchValue(evo.getId());
+		System.out.println("searchPayType : " + svo.getSearchType());
+		System.out.println("searchPayValue : " + svo.getSearchValue());
 		List<EmployeeVO> list = dao.getPayListSearch(svo);
 //		EmployeeVO vo = dao.getPayListSearch(svo);
 		System.out.println("list size : " + list.size());

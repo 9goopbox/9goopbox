@@ -4,27 +4,27 @@ package vo;
 
 public class SearchVO {
 	private EmployeeVO vo;
-	private String searchType,searchValue, begin, end ,searchPayType,searchPayValue;
+	private String searchType,searchValue, begin, end ;
 
 	public String getSearchType() {
 		return searchType;
 	}
 
-	public String getSearchPayType() {
-		return searchPayType;
-	}
-
-	public void setSearchPayType(String searchPayType) {
-		this.searchPayType = searchPayType;
-	}
-
-	public String getSearchPayValue() {
-		return searchPayValue;
-	}
-
-	public void setSearchPayValue(String searchPayValue) {
-		this.searchPayValue = searchPayValue;
-	}
+//	public String getSearchPayType() {
+//		return searchPayType;
+//	}
+//
+//	public void setSearchPayType(String searchPayType) {
+//		this.searchPayType = searchPayType;
+//	}
+//
+//	public String getSearchPayValue() {
+//		return searchPayValue;
+//	}
+//
+//	public void setSearchPayValue(String searchPayValue) {
+//		this.searchPayValue = searchPayValue;
+//	}
 
 	public void setSearchType(String searchType) {
 		this.searchType = searchType;

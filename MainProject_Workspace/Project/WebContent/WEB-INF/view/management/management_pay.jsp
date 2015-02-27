@@ -28,27 +28,27 @@
 				<div class="no-move"></div>
 			</div>
 			<!-- 			//////////////////////////////////////////////////////////////////////////////// -->
-<!-- 			<div class="form-group"> -->
-<!-- 				<form method="post" action="../management_pay.box" -->
-<!-- 					onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;"> -->
-<!-- 				</form> -->
-<!-- 					<select style="float: left;" id="kind_select2" name="searchType"> -->
-<!-- 						<option></option> -->
-<%-- 						<option value="1" ${searchType==1?'selected="selected"':''}>=이 --%>
-<!-- 							름=</option> -->
-<!-- 					</select> -->
+			<!-- 			<div class="form-group"> -->
+			<!-- 				<form method="post" action="../management_pay.box" -->
+			<!-- 					onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;"> -->
+			<!-- 				</form> -->
+			<!-- 					<select style="float: left;" id="kind_select2" name="searchType"> -->
+			<!-- 						<option></option> -->
+			<%-- 						<option value="1" ${searchType==1?'selected="selected"':''}>=이 --%>
+			<!-- 							름=</option> -->
+			<!-- 					</select> -->
 
-<!-- 					<div style="float: left;"> -->
-<!-- 						<input class="form-control col-lg-1" type="text" -->
-<%-- 							name="searchValue" value="${searchValue}"> --%>
-<!-- 					</div> -->
-<!-- 					<div style="float: left;"> -->
-<!-- 											<button type="submit" class="btn btn-primary btn-xs">조회</button> -->
-<!-- 						<input class="btn btn-primary" type="submit" value="조회"> -->
+			<!-- 					<div style="float: left;"> -->
+			<!-- 						<input class="form-control col-lg-1" type="text" -->
+			<%-- 							name="searchValue" value="${searchValue}"> --%>
+			<!-- 					</div> -->
+			<!-- 					<div style="float: left;"> -->
+			<!-- 											<button type="submit" class="btn btn-primary btn-xs">조회</button> -->
+			<!-- 						<input class="btn btn-primary" type="submit" value="조회"> -->
 
-<!-- 					</div> -->
-<!-- 				</form> -->
-<!-- 			</div> -->
+			<!-- 					</div> -->
+			<!-- 				</form> -->
+			<!-- 			</div> -->
 			<!-- 			//////////////////////////////////////////////////////////////////////////////// -->
 			<div class="box-content no-padding">
 				<h3>급여</h3>
@@ -85,7 +85,6 @@
 						id="datatable-1">
 
 						<thead>
-
 							<tr>
 								<th>아이디</th>
 								<th>성명</th>
@@ -95,27 +94,21 @@
 								<th>퇴사일</th>
 							</tr>
 						</thead>
-
 						<tbody>
 							<!-- Start: list_row -->
-							
-							<c:forEach items="${managePayDisplayList}" var="mpdl">
-								<tr>
-									<td>${mpdl.id}</td>
-									<td>${mpdl.name }</td>
-									<td>${mpdl.dept_name }</td>
-									<td>${mpdl.position }</td>
-									<td>${mpdl.come}</td>
-									<td>${mpdl.bye}</td>
-<%-- <td>${vo.id}</td> --%>
-<%-- 									<td>${vo.name }</td> --%>
-<%-- 									<td>${vo.dept_name }</td> --%>
-<%-- 									<td>${vo.position }</td> --%>
-<%-- 									<td>${vo.come}</td> --%>
-<%-- 									<td>${vo.bye}</td> --%>
-								</tr>
-							</c:forEach>
-							
+
+														<c:forEach items="${managePayDisplayList}" var="mpdl">
+							<tr>
+																	<td>${mpdl.id}</td>
+																	<td>${mpdl.name }</td>
+																	<td>${mpdl.dept_name }</td>
+																	<td>${mpdl.position }</td>
+																	<td>${mpdl.come}</td>
+																	<td>${mpdl.bye}</td>
+								
+							</tr>
+														</c:forEach>
+
 							<!-- End: list_row -->
 						</tbody>
 					</table>
@@ -142,6 +135,6 @@
 		LoadSelect2Script(MakeSelect2);
 		WinMove();
 		console.log('${managePayDisplayList.size()}');
-		console.log('total rows : ${pageInfo.totalRows}');	
+		console.log('total rows : ${pageInfo.totalRows}');
 	});
 </script>
