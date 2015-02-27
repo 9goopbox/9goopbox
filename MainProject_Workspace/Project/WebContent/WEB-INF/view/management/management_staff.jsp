@@ -34,10 +34,10 @@
 						<option></option>
 						<option value="1" ${searchType==1?'selected="selected"':''}>=이
 							름=</option>
-						<option value="2" ${searchType==2?'selected="selected"':''}>=부
-							서=</option>
-						<option value="3" ${searchType==3?'selected="selected"':''}>=직
+						<option value="2" ${searchType==2?'selected="selected"':''}>=직
 							급=</option>
+						<option value="3" ${searchType==3?'selected="selected"':''}>=부
+							서=</option>
 					</select>
 
 					<div style="float: left;">

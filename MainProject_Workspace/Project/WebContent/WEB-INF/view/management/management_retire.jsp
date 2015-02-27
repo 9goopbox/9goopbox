@@ -65,10 +65,10 @@
 							<option></option>
 							<option value="1" ${searchType==1?'selected="selected"':''}>=이
 								름=</option>
-							<option value="2" ${searchType==2?'selected="selected"':''}>=부
-								서=</option>
-							<option value="3" ${searchType==3?'selected="selected"':''}>=직
+							<option value="2" ${searchType==2?'selected="selected"':''}>=직
 								급=</option>
+							<option value="3" ${searchType==3?'selected="selected"':''}>=부
+								서=</option>
 						</select>
 						<div style="float: left;">
 							<input class="form-control col-lg-1" type="text"
@@ -154,7 +154,6 @@
 	});
 </script>
 <!-- <!-- <script type="text/javascript"> -->
--->
 <!-- // 	// Run Datables plugin and create 3 variants of settings -->
 <!-- // 	// function AllTables(){ -->
 <!-- // 	// 	TestTable1(); -->
@@ -175,4 +174,4 @@
 <!-- // 		WinMove(); -->
 <!-- // 	}); -->
 <!-- <!-- </script> -->
--->
+
