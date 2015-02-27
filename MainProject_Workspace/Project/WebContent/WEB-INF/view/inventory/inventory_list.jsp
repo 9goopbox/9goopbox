@@ -1,10 +1,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
+			<li><a href="#">9GoopBox</a></li>
 			<li><a href="#">비품관리</a></li>
 			<li><a href="#">조회</a></li>
 		</ol>
@@ -28,6 +29,9 @@
 				</div>
 				<div class="no-move"></div>
 			</div>
+			
+			<form method="post" action="invenSearch.box">
+			
 			<div class="box-content">
 				<div class="row">
 					<!-- table : search -->
@@ -44,11 +48,11 @@
 							<option></option>
 							<!-- http://stackoverflow.com/a/21616069 -->
 							<option>분류</option>
-							<option>일련번호</option>
+							<option>비품번호</option>
 							<option>이름</option>
 							<option>수량 (이상)</option>
 							<option>수량 (이하)</option>
-							<option>비품위치</option>
+<!-- 							<option>비품위치</option> -->
 							<option>구입가격 (이상)</option>
 							<option>구입가격 (이하)</option>
 							<option>비고</option>
@@ -57,17 +61,18 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="input-group input-group-sm">
-							<input type="text" class="form-control"> <span
-								class="input-group-btn">
-								<button class="btn btn-default btn-xs" type="button">
-									<i class="fa fa-search"></i>
-								</button>
-							</span>
+							<input type="text" class="form-control" name="searchValue" id="searchValue">
+								<span class="input-group-btn">
+									<button class="btn btn-default btn-xs" type="submit">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
 						</div>
 						<!-- /input-group -->
 					</div>
 					<!-- /.col-lg-6 -->
 				</div>
+
 				<!-- table : search end -->
 				<table
 					class="table table-bordered table-striped table-hover table-heading table-datatable"
@@ -76,19 +81,20 @@
 						<tr>
 							<th>No.</th>
 							<th>분류</th>
-							<th>일련번호</th>
+							<th>비품번호</th>
 							<th>이름</th>
 							<th>수량</th>
-							<th>비품위치</th>
+<!-- 							<th>비품위치</th> -->
 							<th>구입년월</th>
 							<th>구입가격</th>
-							<th>비고</th>
 							<th>담당관리자</th>
-							<th>비교</th>
+							<th>비고</th>
+<!-- 							<th>비교</th> -->
 							<th>수정</th>
 						</tr>
 					</thead>
 					<tbody>
+
 						<!-- Start: list_row -->
 						<tr>
 							<td>1</td>
@@ -96,35 +102,37 @@
 							<td>112-534</td>
 							<td>소독고무장갑</td>
 							<td>176</td>
-							<td>본관/105호(내과진찰실)</td>
+<!-- 							<td>본관/105호(내과진찰실)</td> -->
 							<td>2015.01.25</td>
 							<td>122200</td>
-							<td></td>
+							
 							<td>김민철</td>
-							<td><a href="#">비교</a></td>
+							<td></td>
+<!-- 							<td><a href="#">비교</a></td> -->
 							<td><a href="#">수정</a></td>
 						</tr>
 						<!-- End: list_row -->
 					</tbody>
-					<tfoot>
-						<tr>
-							<th>No.</th>
-							<th>분류</th>
-							<th>일련번호</th>
-							<th>이름</th>
-							<th>수량</th>
-							<th>비품위치</th>
-							<th>구입년월</th>
-							<th>구입가격</th>
-							<th>비고</th>
-							<th>담당관리자</th>
-							<th>비교</th>
-							<th>수정</th>
-						</tr>
-					</tfoot>
+<!-- 					<tfoot> -->
+<!-- 						<tr> -->
+<!-- 							<th>No.</th> -->
+<!-- 							<th>분류</th> -->
+<!-- 							<th>비품번호</th> -->
+<!-- 							<th>이름</th> -->
+<!-- 							<th>수량</th> -->
+<!-- 							<th>비품위치</th> -->
+<!-- 							<th>구입년월</th> -->
+<!-- 							<th>구입가격</th> -->
+<!-- 							<th>비고</th> -->
+<!-- 							<th>담당관리자</th> -->
+<!-- 							<th>비교</th> -->
+<!-- 							<th>수정</th> -->
+<!-- 						</tr> -->
+<!-- 					</tfoot> -->
 				</table>
 			</div>
 		</div>
+		</form>
 		<!-- box end -->
 	</div>
 	<!-- padding xs 12 end -->
