@@ -1028,6 +1028,9 @@ function LoadAjaxContent(url){
 					if (response.alertValue != null && response.alertValue != "") {
 						alert(response.alertValue);
 					}
+					if (response.changeURL != null && response.changeURL != "") {
+						window.location = response.address;
+					} else
 				  if (response.address != null) {
 					LoadAjaxContent(response.address);
 				  } else {
@@ -1069,6 +1072,9 @@ $.ajax({
 				if (response.alertValue != null && response.alertValue != "") {
 					alert(response.alertValue);
 				}
+				if (response.changeURL != null && response.changeURL != "") {
+					window.location = response.address;
+				} else
 			  if (response.address != null) {
 				LoadAjaxContent(response.address);
 			  } else {

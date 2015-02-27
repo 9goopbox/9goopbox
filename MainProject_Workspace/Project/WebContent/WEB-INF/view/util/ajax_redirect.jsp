@@ -3,4 +3,5 @@
 {
 	"address" : "${address}",
 	"alertValue" : "${alertValue}"
+	"changeURL" : "${changeURL}"
 }

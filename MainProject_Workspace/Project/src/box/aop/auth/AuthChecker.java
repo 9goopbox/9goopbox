@@ -23,7 +23,9 @@ public class AuthChecker {
 		if ((mySession == null) || (mySession == "")) {
 			if (logConsole)
 				System.out.println("인증 정보가 없습니다.");
-			return new ModelAndView("redirect:../index.box");
+			ModelAndView mav = new ModelAndView("util/ajax_redirect");
+			mav.addObject("address", "../index.box");
+			return mav; 
 		} else {
 			if (logConsole)
 				System.out.println("인증 정보 : " + mySession);
