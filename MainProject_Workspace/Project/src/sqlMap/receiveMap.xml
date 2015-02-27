@@ -4,12 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="receive">
 	
-	<insert id="patiok" parameterType="recvo" useGeneratedKeys="true" keyProperty="id">
-		insert into patient values(Patient_sequence.nextVal, #{name}, #{age}, #{sex}, null, null, null, null, null)    
+	<insert id="patiok" parameterType="recvo">
+<!-- 	 useGeneratedKeys="true" keyProperty="patient_id"> -->
+		<selectKey keyProperty="patient_id" resultType="recvo">
+			select Patient_sequence.nextVal as patient_id from dual
+		</selectKey>
+		insert into patient values(Patient_sequence.nextVAL, #{name}, #{age}, #{sex}, null, null, null, null, null)    
 	</insert>
 	
 	<insert id="recok" parameterType="recvo">
-		insert into treatment values(treatment_sequence.nextVal ,#{patinet_id}, 0, null, '초진', #{med_trtmt})
+		insert into treatment values(treatment_sequence.nextVal ,#{patient_id}, 0, null, '초진', #{med_trtmt})
 	</insert>
-	
 </mapper>

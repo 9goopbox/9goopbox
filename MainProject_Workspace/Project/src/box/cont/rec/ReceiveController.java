@@ -22,12 +22,17 @@ public class ReceiveController {
 		System.out.println("patient id3 :" + vo.getPatient_id());
 		
 		dao.addPatient(vo);
-		System.out.println("patient id4 : "+ vo.getPatient_id());
-		System.out.println("patient insert ok5");
-		dao.addReceive(vo);
-		System.out.println("receive insert ok6");
+		System.out.println("patient id5 : "+ vo.getPatient_id());
+		System.out.println("patient insert ok6");
 		
-		ModelAndView mav = new ModelAndView("redirect:/receive_register.box");
+		int pid=vo.getPatient_id();
+		vo.setPatient_id(pid-1);
+		System.out.println("pid-1 7: " + vo.getPatient_id());
+		
+		dao.addReceive(vo);
+		System.out.println("receive insert ok11");
+		
+		ModelAndView mav = new ModelAndView("/receive_register.box");
 		return mav;
 	}
 }

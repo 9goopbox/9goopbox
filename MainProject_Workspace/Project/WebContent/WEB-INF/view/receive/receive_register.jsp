@@ -22,8 +22,6 @@
 						<li class="active"><a href="#tab1primary" data-toggle="tab">초진</a></li>
 						<li><a href="#tab2primary" data-toggle="tab">재진</a></li>
 					</ul>
-					</li>
-					</ul>
 				</div>
 				<div class="panel-body">
 					<div class="tab-content">
@@ -49,8 +47,8 @@
 											action="../recRegi.box" id="recF">
 											<div class="row">
 												<div class="col-md-12">
-													<input type="text" class="form-control" id="name" name="name"
-														placeholder="환자이름"> <br />
+													<input type="text" class="form-control" id="name"
+														name="name" placeholder="환자이름"> <br />
 												</div>
 												<div class="col-md-12">
 													<input type="text" class="form-control" id="age" name="age"
@@ -230,18 +228,17 @@
 
 									</div>
 								</div>
-
-
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
 
-		<style>
+<style>
 .panel.with-nav-tabs .panel-heading {
 	padding: 5px 5px 0 5px;
 }
