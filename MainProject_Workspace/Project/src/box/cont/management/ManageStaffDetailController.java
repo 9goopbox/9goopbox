@@ -1,8 +1,5 @@
 package box.cont.management;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,65 +7,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import vo.EmployeeVO;
-import vo.PageVO;
-import vo.SearchVO;
-import box.dao.LoginDao;
 import box.dao.ManageDao;
 import box.util.PageVoFactory;
 
 @Controller
 public class ManageStaffDetailController {
 	@Autowired
-	private ManageDao dao;
-	@Autowired
-	private LoginDao dao2;
+	private ManageDao mdao;
 	@Autowired
 	private PageVoFactory pageVoFactory;
 	
 	@RequestMapping(value="/management_staff_detail.box")
-	public ModelAndView managementPay(SearchVO svo, Integer page, HttpSession session) {
+	public ModelAndView getManagementStaffDetail(String id) {
 		ModelAndView mav = new ModelAndView("management/management_staff_detail");
 		
-		EmployeeVO evo = new EmployeeVO();
-//		${sessionScope.userid}
-		String idInSession = (String) session.getAttribute("userid");
-		evo.setId(idInSession);
+		EmployeeVO evo = mdao.getIdByEmp(id);
 		
-		PageVO pageInfo = null;
-		if (svo.getSearchType() == null || 
-				svo.getSearchValue() == null ||
-				svo.getSearchType().equals("") ||
-				svo.getSearchValue().equals("")) {
-			System.out.println("no searchType or no keyword");
-			pageInfo = pageVoFactory.makePageVO(page, dao.getTotalCount2());
-		} else {
-			System.out.println("keyword : " + svo.getSearchValue());
-			pageInfo = pageVoFactory.makePageVO(page, dao.getTotalSearchCount(svo));
-		}
-		svo.setBegin(String.valueOf(pageInfo.getStartRow()));
-		svo.setEnd(String.valueOf(pageInfo.getEndRow()));
-		
-		System.out.println("begin : " + svo.getBegin());
-		System.out.println("end : " + svo.getEnd());
-		System.out.println("searchPayValue : " +  evo.getId());
-		
-		
-		svo.setSearchType("1");
-		svo.setSearchValue(evo.getId());
-		System.out.println("searchPayType : " + svo.getSearchType());
-		System.out.println("searchPayValue : " + svo.getSearchValue());
-		
-		List<EmployeeVO> list = dao.getList2Search(svo);
-		System.out.println("list size : " + list.size());
-		
-		mav.addObject("manageDisplayList2", list);
-		mav.addObject("pageInfo", pageInfo);
-		mav.addObject("pageURL", "../management_staff.box");
-		
-		// nullables
-		mav.addObject("searchType", 1);
-		mav.addObject("searchValue",  evo.getId());
-		
+		mav.addObject("manageStaffDetail", evo);
+		//1.파라미터로 받은 id를 employee 테이블에 있는 id와 비교한다
+//		if(mdao.getIdByEmp(vo)==id){
+//			List<EmployeeVO> list = mdao.getPayListSearch(vo);
+//			mav.addObject("managePayDisplayList", list);
+//			mav.addObject("searchType", 아이디);
+//			mav.addObject("searchValue", 해당 아이디);
+//		}
+		//2.해당 칼럼 리스트를 보내준다
+		//List<EmployeeVO> list = dao.getPayListSearch(svo);
+		//3.
+		//mav.addObject("managePayDisplayList", list);
+		//mav.addObject("searchType", 아이디);
+		//mav.addObject("searchValue", 해당 아이디);
 		return mav;
 	}
 }

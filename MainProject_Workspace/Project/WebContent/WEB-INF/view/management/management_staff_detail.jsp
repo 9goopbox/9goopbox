@@ -88,20 +88,19 @@
 					</thead>
 						<tbody>
 						<!-- Start: list_row -->
-						<c:forEach items="${manageDisplayList2}" var="mdl">
+						
 							<tr>
-								<td>${mdl.id}</td>
-								<td>${mdl.name}</td>
-								<td>${mdl.tel }</td>
-								<td>${mdl.dept_name }</td>
-								<td>${mdl.position }</td>
-								<td>${mdl.address }</td>
-								<td>${mdl.email }</td>
+								<td>${manageStaffDetail.id}</td>
+								<td>${manageStaffDetail.name}</td>
+								<td>${manageStaffDetail.tel }</td>
+								<td>${manageStaffDetail.dept_name }</td>
+								<td>${manageStaffDetail.position }</td>
+								<td>${manageStaffDetail.address }</td>
+								<td>${manageStaffDetail.email }</td>
 <!-- 								<td><a class="ajax-link" -->
 <%-- 									href="../management_staff.box?id=${mdl.id}">돌아가기</a></td> --%>
 								<!-- 								<th><a href="#">파일다운로드</a></th> -->
 							</tr>
-						</c:forEach>
 						<!-- End: list_row -->
 					</tbody>
 				</table>

@@ -15,7 +15,6 @@ import box.util.PageVoFactory;
 
 @Controller
 public class ManageStaffController {
-
 	@Autowired
 	private ManageDao dao;
 	@Autowired

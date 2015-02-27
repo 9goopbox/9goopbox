@@ -122,7 +122,7 @@
 							<td>${mrdl.dept_name }</td>
 							<td>${mrdl.position }</td>
 							<td><a class="ajax-link"
-								href="../management_retire_detail.box?id=${mrdl.name}">상세보기</a></td>
+								href="../management_retire_detail.box?id=${mrdl.id}">상세보기</a></td>
 							<td>${mrdl.bye}</td>
 <!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
 						</tr>

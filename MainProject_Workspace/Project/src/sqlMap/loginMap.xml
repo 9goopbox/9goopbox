@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="selnurse" resultType="int" parameterType="empvo">
-		select count(*) cnt from employee where dept_id=22 and id=#{id}
+		select count(*) cnt from employee where dept_id=2 and id=#{id}
 <!-- 		select count(*) cnt from nurse where id=#{id} -->
 	</select>
 	

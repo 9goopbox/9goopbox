@@ -3,7 +3,6 @@ package vo;
 
 
 public class SearchVO {
-	private EmployeeVO vo;
 	private String searchType,searchValue, begin, end ;
 
 	public String getSearchType() {

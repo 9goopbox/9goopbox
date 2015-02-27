@@ -42,6 +42,8 @@ public class ManageDao {
 		return ss.selectOne("manage.cnt2");
 	}
 	
+	
+	
 //	public EmployeeVO getShopView(int num){
 //		return ss.selectOne("manage.view", num);
 //	}
@@ -77,6 +79,10 @@ public class ManageDao {
 //		System.out.println("resvo : " + resvo.getId());
 //		System.out.println("EVO size (dao) : " + resvo.size());
 		return list;
+	}
+	public EmployeeVO getIdByEmp(String id){
+		System.out.println("찍어보자 EmployeeVO 아이디:"+id);
+		return ss.selectOne("manage.getid", id);
 	}
 	
 	

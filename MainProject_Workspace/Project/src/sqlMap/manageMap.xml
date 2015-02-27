@@ -41,7 +41,7 @@
 		from (
 		select a.*, rownum as r_num from
 		(
-		select emp.name name,
+		select emp.name name, emp.id id,
 		emp.position position, emp.tel tel, dept.name
 		dept_name
 		from employee
@@ -140,7 +140,7 @@
 		from (
 		select a.*, rownum as r_num from
 		(
-		select emp.name name,
+		select emp.name name,emp.id id,
 		emp.position position, emp.tel tel, emp.bye bye, dept.name
 		dept_name
 		from employee
@@ -208,6 +208,18 @@
 
 
 	</select>
+	
+	<select id="getid" resultType="empvo" parameterType="String">
+	
+			
+   			 select
+				*
+			from employee emp, (select name dept_name, id from department) dept
+   			 where emp.dept_id = dept.id and emp.id= #{id}
+
+
+	</select>
+	
 	<select id="getpaylistsearch" resultType="empvo" parameterType="searchvo">
 		
 		select
@@ -304,6 +316,7 @@
 		</if>
 		
 	</select>
+
 
 	<!-- <select id="iew" parameterType="int" resultType="empvo"> -->
 	<!-- select * from employee em, department de where em.DEPT_ID = de.ID and 

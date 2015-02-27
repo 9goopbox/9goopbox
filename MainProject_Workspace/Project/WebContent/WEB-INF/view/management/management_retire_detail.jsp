@@ -49,20 +49,18 @@
 				</thead>
 						<tbody>
 					<!-- Start: list_row -->
-					<c:forEach items="${manageRetireDisplay2List}" var="mrdl">
 						<tr>
-							<td>${mrdl.id}</td>
-							<td>${mrdl.name}</td>
-							<td>${mrdl.tel }</td>
-							<td>${mrdl.dept_name }</td>
-							<td>${mrdl.position }</td>
-							<td>${mrdl.come}</td>
-							<td>${mrdl.bye}</td>
-							<td>${mrdl.address }</td>
-							<td>${mrdl.email }</td>
+							<td>${manageRetireDetailList.id}</td>
+							<td>${manageRetireDetailList.name}</td>
+							<td>${manageRetireDetailList.tel }</td>
+							<td>${manageRetireDetailList.dept_name }</td>
+							<td>${manageRetireDetailList.position }</td>
+							<td>${manageRetireDetailList.come}</td>
+							<td>${manageRetireDetailList.bye}</td>
+							<td>${manageRetireDetailList.address }</td>
+							<td>${manageRetireDetailList.email }</td>
 <!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
 						</tr>
-					</c:forEach>
 					<!-- End: list_row -->
 				</tbody>
 			</table>

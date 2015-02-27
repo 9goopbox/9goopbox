@@ -4,12 +4,14 @@ public class EmployeeVO {
 	private int pay, dept_id, pos_id;
 	private String id, password, name, address, position, tel, email,dept_name,bye,come,payday,sort,fix;
 	
+	
 	public String getCome() {
 		return come;
 	}
 	public String getPayday() {
 		return payday;
 	}
+	
 	public void setPayday(String payday) {
 		this.payday = payday;
 	}
