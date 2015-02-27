@@ -3,19 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="time">
-	<select id="getid" resultType="empvo" parameterType="String">
+	<select id="getid" resultType="timelinevo" parameterType="String">
 		select
 		*
-		from (select id,password from employee) emp, (select
+		from (select id,password from employee) emp, (select id art_id,
 		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
 		where emp.id = art.writer_id and emp.id=#{id}
 	</select>
 
 
-	<select id="getdate" resultType="empvo" parameterType="String">
+	<select id="getdate" resultType="timelinevo" parameterType="String">
 		select
 		*
-		from (select id,password from employee) emp, (select
+		from (select id,password from employee) emp, (select id art_id,
 		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
 		where emp.id = art.writer_id and art.updated=#{id}
 	</select>

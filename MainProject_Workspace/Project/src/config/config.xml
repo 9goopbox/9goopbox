@@ -14,7 +14,7 @@
 		<!-- 특정 뷰를 위한 VO -->
 		<typeAlias type="vo.view.ChartDisplayVO" alias="chartdisplayvo"/>
 		<typeAlias type="vo.view.ChartTreatmentVO" alias="charttreatmentvo"/>
-		
+		<typeAlias type="vo.view.TimelineVO" alias="timelinevo"/>
 		<!-- paging / searching -->
 		<typeAlias type="vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="vo.PageVO" alias="pagevo"/>

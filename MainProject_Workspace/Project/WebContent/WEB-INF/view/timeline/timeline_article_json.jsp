@@ -10,6 +10,7 @@
   			"name" : "emplyoee.name (조인으로 찾은 직원 이름값)",
   		},
   		"article": {
+  			"id"   :"article.id"
   			"cont" : "article.cont",
  			"date" : "article.updated",
   			"kind" : "article.kind",
