@@ -30,7 +30,7 @@
 				<div class="no-move"></div>
 			</div>
 			<div class="row">
-				<form method="post" action="../charts_make_treatment_search.box" onsubmit="LoadAjaxContentByForm(this,'GET') ">
+				<form method="post" action="../charts_make_treatment_search.box" onsubmit="LoadAjaxContentByForm(this,'GET'); return false;">
 					<div class="col-xs-12 col-sm-12">
 					차트를 만들 진료를 선택하세요.
 					</div>

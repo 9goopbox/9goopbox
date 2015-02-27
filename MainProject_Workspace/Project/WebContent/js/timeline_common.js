@@ -8,40 +8,23 @@ $(function () {
 		//console.log("interval function");
 		var date = new Date().getTime().toString();
 		return function () {
-			data = $.ajax("../timeline_article_json.box", {
-				"data" : {"date" : date}
+			
+			$.ajax( {
+				url : "../timeline_article_json.box",
+				data : {"date" : date},
+				success : function (data) {
+					date = new Date().getTime();
+					//console.log("date : " + date);
+					data = $.parseJSON(data);
+					if (data.articles != null)
+					data.articles.forEach(function (d) {
+						//console.log(d);
+						tlInsert($("#timeline"),makeArticle(d), d.article.id);
+						tlLimit($("#timeline"));
+					});	
+				}
 			});
-			
-//			data = {
-//					"articles" :
-//						[ {
-//							"user": {
-//								"id":"123",
-//								"name" : "writter",
-//								"profile_img" : ""
-//							},
-//							"article": {
-//								"id" : "12113",
-//								"cont" : "내용",
-//								"date" : "Sat Feb 28 2015 02:48:40 GMT+0900",
-//								"kind" : "종류",
-//								"ref_id" : "",
-//								"head_id" : "article.head_id",
-//								"attach_id" : ""
-//							}
-//						  }
-//					    ],
-//					    "count" : 1
-//					};
-			
-			date = new Date().getTime();
-			console.log("date : " + date);
-			if (data.articles != null)
-			data.articles.forEach(function (d) {
-				//console.log(d);
-				tlInsert($("#timeline"),makeArticle(d), d.article.id);
-				tlLimit($("#timeline"));
-			});	
+
 		}
 	};
 	setInterval(myfn(), 1000);
