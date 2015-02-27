@@ -58,5 +58,13 @@ delete from article;
 insert into article values(1, 'bestdoc', '이번에 들어온 애들 실력이 최고인듯', '잡담', 1, null, null,'15-02-26');
 insert into article values(2, 'gooddoc', '나는 모르겠다', '잡담', 1, 1,null,'15-02-28');
 
-select * from chart;
+select * from article;
+
+delete from general_employee;
+insert into general_employee values('bestdoc');
+insert into general_employee values('gooddoc');
+insert into general_employee values('goodnur');
+insert into general_employee values('xx');
+insert into general_employee values('이름씨');
+select * from general_employee;
 commit;

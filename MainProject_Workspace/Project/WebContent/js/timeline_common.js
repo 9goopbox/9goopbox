@@ -186,11 +186,11 @@ function post(event) {
   if ((content.trim().length !== 0) && (content.trim().length <= 140)
   ) {
 	  // ajax call
-	  $.ajax("../timeline_article_psot.box", {
+	  $.ajax("../timeline_article_post.box", {
 			"cont" : content.trim()
 	  });
   } else {
-    alert("길이가 부적합합니다.");
+    alert("길이가 부적합니다.");
   }
 
   contentArea.value = "";

@@ -22,4 +22,10 @@ public class TimelineDao {
 //			// TODO Auto-generated method stub
 //			return ss.selectOne("time.getid", id);
 //		}
+		
+		public void addTimeline(TimelineVO vo) {
+			ss.insert("time.timelineadd", vo);
+			return ;
+			
+		}
 }

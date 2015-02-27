@@ -23,7 +23,7 @@ public class SendTimelineController {
 	private TimelineDao mdao;
 	
 	@RequestMapping(value="/timeline_article_json.box")
-	public ModelAndView getManagementStaffDetail(long date,HttpSession session) {
+	public ModelAndView getTimeline(long date,HttpSession session) {
 		
 		
 		
