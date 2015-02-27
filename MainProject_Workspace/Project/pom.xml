@@ -85,8 +85,19 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>1.8.5</version>
 		</dependency>
+		<!-- http://kimddochi.tistory.com/m/post/90 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.5</version>
 
-	
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+
 	</dependencies>
 	<artifactId>9GoopBox</artifactId>
 </project>

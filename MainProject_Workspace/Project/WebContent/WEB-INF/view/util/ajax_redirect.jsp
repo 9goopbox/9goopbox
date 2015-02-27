@@ -2,5 +2,6 @@
     pageEncoding="UTF-8"%>
 {
 	"address" : "${address}",
-	"alertValue" : "${alertValue}"
+	"alertValue" : "${alertValue}",
+	"changeURL" : "${changeURL}"
 }
