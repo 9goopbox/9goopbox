@@ -1,5 +1,7 @@
 package box.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,14 +13,13 @@ import vo.view.TimelineVO;
 public class TimelineDao {
 		@Autowired
 		private SqlSessionTemplate ss;
-		public TimelineVO renewTime(String updated) {
-			return ss.selectOne("time.getid", updated);
+		public List<TimelineVO> renewTime(TimelineVO vo) {
+			return ss.selectList("time.getid", vo);
 			
 		}
-		
-
-		public TimelineVO updateTimelineById(String id) {
-			// TODO Auto-generated method stub
-			return ss.selectOne("time.getid", id);
-		}
+//		
+//		public TimelineVO updateTimelineById(String id) {
+//			// TODO Auto-generated method stub
+//			return ss.selectOne("time.getid", id);
+//		}
 }

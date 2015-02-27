@@ -1,11 +1,16 @@
 package box.cont.timeline;
 
+import java.sql.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+
 
 
 import vo.view.TimelineVO;
@@ -18,19 +23,20 @@ public class SendTimelineController {
 	private TimelineDao mdao;
 	
 	@RequestMapping(value="/timeline_article_json.box")
-	public ModelAndView getManagementStaffDetail(String date,HttpSession session) {
-		TimelineVO evo = new TimelineVO();
+	public ModelAndView getManagementStaffDetail(long date,HttpSession session) {
+		
+		
+		
+		TimelineVO tvo = new TimelineVO();
+		tvo.setUpdated(new Date(date));
 		String idInSession = (String) session.getAttribute("userid");
-		evo.setId(idInSession);
+		tvo.setId(idInSession);
+		
+		List<TimelineVO> tvolist = mdao.renewTime(tvo);
 		
 		ModelAndView mav = new ModelAndView("timeline/timeline_article_json");
-		
-		evo = mdao.renewTime(date);
-		
-
-		evo = mdao.updateTimelineById(evo.getId());
-//		System.out.println("호이!컨트롤러"+evo.getId());
-		mav.addObject("sendTimelineList", evo);
+	
+		mav.addObject("tvolist", tvolist);
 		
 		return mav;
 	}

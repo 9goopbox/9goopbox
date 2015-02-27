@@ -4,22 +4,23 @@
 
 {
  	"articles" :
+  	<c:forEach items="${tvolist}" var="tvo" varStatus="tvoidx">
   	[ {
   		"user": {
-  			"id":"article.writer_id",
-  			"name" : "emplyoee.name (조인으로 찾은 직원 이름값)",
+  			"id":"${tvo.id }",
+  			"name" : "${tvo.name }",
   		},
   		"article": {
-  			"id"   :"article.id"
-  			"cont" : "article.cont",
- 			"date" : "article.updated",
-  			"kind" : "article.kind",
-  			"ref_id" : "article.ref_id",
- 			"head_id" : "article.head_id",
-  			"attach_id" : "article.attach_id"
-  		},
-  		"tag" : ["tag1", "tag2", "tag3"]
-  	  }, (이렇게 생긴 객체가 여러개)
+  			"id"   :"${tvo.art_id }"
+  			"cont" : "${tvo.cont }",
+ 			"date" : "${tvo.updated }",
+  			"kind" : "${tvo.kind }",
+  			"ref_id" : "${tvo.ref_id }",
+ 			"head_id" : "${tvo.head_id }",
+  			"attach_id" : "${tvo.attach_id }",
+  		}
+  	  } <c:if test="${tvoidx.index < tvolist.size()-1 }">,</c:if>
+	</c:forEach>
    ],
-   "count" : 보내준 글 갯수 
+   "count" : ${tvolist.size()} 
   }

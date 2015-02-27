@@ -1,8 +1,25 @@
 package vo.view;
 
+import java.sql.Date;
+
 public class TimelineVO {
 	private int ref_id,head_id,attach_id;
-	private String id, password,writer_id,cont,kind,updated;
+	private String id, name,writer_id,cont,kind,art_id;
+	
+	public String getArt_id() {
+		return art_id;
+	}
+	public void setArt_id(String art_id) {
+		this.art_id = art_id;
+	}
+	public Date getUpdated() {
+		return updated;
+	}
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
+	private Date updated;
+	
 	public int getRef_id() {
 		return ref_id;
 	}
@@ -27,11 +44,11 @@ public class TimelineVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPassword() {
-		return password;
+	public String getName() {
+		return name;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getWriter_id() {
 		return writer_id;
@@ -51,12 +68,7 @@ public class TimelineVO {
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	public String getUpdated() {
-		return updated;
-	}
-	public void setUpdated(String updated) {
-		this.updated = updated;
-	}
+	
 	
 	
 	
