@@ -184,26 +184,12 @@ CREATE TABLE employee (
 	position VARCHAR2(20), /* 직급 */
 	pay INTEGER NOT NULL, /* 급여 */
 	dept_id INTEGER, /* 부서ID */
-	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
-<<<<<<< HEAD
 	email VARCHAR2(40) NOT NULL, /* 이메일 */
 	come DATE, /* 입사일 */
-	bye DATE /* 퇴사일 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
-=======
-	email VARCHAR2(40) NOT NULL /* 이메일 */
+	bye DATE, /* 퇴사일 */
+	PROFILE_IMG VARCHAR2(256) /* 프로필사진 */
 );
->>>>>>> origin/master
 
 COMMENT ON TABLE employee IS '직원';
 
@@ -221,19 +207,16 @@ COMMENT ON COLUMN employee.pay IS '급여';
 
 COMMENT ON COLUMN employee.dept_id IS '부서ID';
 
-COMMENT ON COLUMN employee.pos_id IS '직급ID';
-
 COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
 
-<<<<<<< HEAD
 COMMENT ON COLUMN employee.come IS '입사일';
 
 COMMENT ON COLUMN employee.bye IS '퇴사일';
 
-=======
->>>>>>> origin/master
+COMMENT ON COLUMN employee.PROFILE_IMG IS '프로필사진';
+
 CREATE UNIQUE INDEX PK_employee
 	ON employee (
 		id ASC
@@ -472,33 +455,6 @@ ALTER TABLE article
 		CONSTRAINT PK_article
 		PRIMARY KEY (
 			id
-		);
-
-/* 직급 */
-CREATE TABLE position (
-	dept_id INTEGER NOT NULL, /* 부서ID */
-	pos_id INTEGER NOT NULL, /* 직급ID */
-	pos_name VARCHAR2(20) NOT NULL /* 직급이름 */
-);
-
-COMMENT ON TABLE position IS '직급';
-
-COMMENT ON COLUMN position.dept_id IS '부서ID';
-
-COMMENT ON COLUMN position.pos_id IS '직급ID';
-
-COMMENT ON COLUMN position.pos_name IS '직급이름';
-
-CREATE UNIQUE INDEX PK_position
-	ON position (
-		pos_id ASC
-	);
-
-ALTER TABLE position
-	ADD
-		CONSTRAINT PK_position
-		PRIMARY KEY (
-			pos_id
 		);
 
 /* 글 태그 */
@@ -968,16 +924,7 @@ CREATE TABLE payment (
 	payday DATE, /* 지급일 */
 	sort VARCHAR2(20) NOT NULL, /* 구분 */
 	fix VARCHAR2(20) NOT NULL /* 확정여부 */
-)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	LOGGING
-	NOCOMPRESS
-	NOCACHE
-	NOPARALLEL
-	NOROWDEPENDENCIES
-	DISABLE ROW MOVEMENT;
+);
 
 COMMENT ON TABLE payment IS '지급';
 
@@ -992,25 +939,14 @@ COMMENT ON COLUMN payment.fix IS '확정여부';
 CREATE UNIQUE INDEX PK_payment
 	ON payment (
 		id ASC
-	)
-	STORAGE (
-		BUFFER_POOL DEFAULT
-	)
-	NOLOGGING
-	NOCOMPRESS
-	NOSORT
-	NOPARALLEL;
+	);
 
 ALTER TABLE payment
 	ADD
 		CONSTRAINT PK_payment
 		PRIMARY KEY (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE doctor
 	ADD
@@ -1100,16 +1036,6 @@ ALTER TABLE general_employee
 		)
 		REFERENCES employee (
 			id
-		);
-
-ALTER TABLE employee
-	ADD
-		CONSTRAINT FK_position_TO_employee
-		FOREIGN KEY (
-			pos_id
-		)
-		REFERENCES position (
-			pos_id
 		);
 
 ALTER TABLE employee
@@ -1239,16 +1165,6 @@ ALTER TABLE article
 			attach_id
 		)
 		REFERENCES attach_target (
-			id
-		);
-
-ALTER TABLE position
-	ADD
-		CONSTRAINT FK_department_TO_position
-		FOREIGN KEY (
-			dept_id
-		)
-		REFERENCES department (
 			id
 		);
 
@@ -1442,12 +1358,7 @@ ALTER TABLE nurse
 		)
 		REFERENCES employee (
 			id
-<<<<<<< HEAD
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
+		);
 
 ALTER TABLE payment
 	ADD
@@ -1457,11 +1368,4 @@ ALTER TABLE payment
 		)
 		REFERENCES employee (
 			id
-		)
-		NOT DEFERRABLE
-		INITIALLY IMMEDIATE
-		ENABLE
-		VALIDATE;
-=======
 		);
->>>>>>> origin/master

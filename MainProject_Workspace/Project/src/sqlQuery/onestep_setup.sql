@@ -54,6 +54,8 @@ drop sequence upfile_sequence;
 drop sequence attach_target_sequence;
 -- ��ȣ�������
 drop sequence nurse_sequence;
+-- ���޽�����
+drop sequence payment_sequence;
 -- �ǻ������
 create sequence doctor_sequence
 start with 1
@@ -194,7 +196,10 @@ create sequence nurse_sequence
 start with 1
 increment by 1;
 
-------------------------------------
+-- ���޽�����
+create sequence payment_sequence
+start with 1
+increment by 1;
 
 ALTER TABLE doctor
 	DROP
@@ -401,6 +406,11 @@ ALTER TABLE nurse
 		CONSTRAINT FK_employee_TO_nurse
 		CASCADE;
 
+ALTER TABLE payment
+	DROP
+		CONSTRAINT FK_employee_TO_payment
+		CASCADE;
+
 ALTER TABLE chart
 	DROP
 		CONSTRAINT CK_chart
@@ -592,6 +602,12 @@ ALTER TABLE nurse
 		CASCADE
 		KEEP INDEX;
 
+ALTER TABLE payment
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
 DROP INDEX UIX_employee_email;
 
 DROP INDEX PK_doctor;
@@ -649,6 +665,8 @@ DROP INDEX PK_upfile;
 DROP INDEX PK_attach_target;
 
 DROP INDEX PK_nurse;
+
+DROP INDEX PK_payment;
 
 /* 의사 */
 DROP TABLE doctor 
@@ -761,10 +779,12 @@ DROP TABLE attach_target
 /* 간호사 */
 DROP TABLE nurse 
 	CASCADE CONSTRAINTS;
+
+/* 지급 */
+DROP TABLE payment 
+	CASCADE CONSTRAINTS;
 	
-	--------------------------------
-	
-	/* 의사 */
+/* 의사 */
 CREATE TABLE doctor (
 	id VARCHAR2(20) NOT NULL /* 직원 ID */
 );
@@ -952,7 +972,8 @@ CREATE TABLE employee (
 	dept_id INTEGER, /* 부서ID */
 	tel CHAR(13), /* 전화번호 */
 	email VARCHAR2(40) NOT NULL, /* 이메일 */
-	bye CHAR(15), /* 퇴사일 */
+	come DATE, /* 입사일 */
+	bye DATE, /* 퇴사일 */
 	PROFILE_IMG VARCHAR2(256) /* 프로필사진 */
 );
 
@@ -975,6 +996,8 @@ COMMENT ON COLUMN employee.dept_id IS '부서ID';
 COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
+
+COMMENT ON COLUMN employee.come IS '입사일';
 
 COMMENT ON COLUMN employee.bye IS '퇴사일';
 
@@ -1681,6 +1704,36 @@ ALTER TABLE nurse
 			id
 		);
 
+/* 지급 */
+CREATE TABLE payment (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	payday DATE, /* 지급일 */
+	sort VARCHAR2(20) NOT NULL, /* 구분 */
+	fix VARCHAR2(20) NOT NULL /* 확정여부 */
+);
+
+COMMENT ON TABLE payment IS '지급';
+
+COMMENT ON COLUMN payment.id IS '직원 ID';
+
+COMMENT ON COLUMN payment.payday IS '지급일';
+
+COMMENT ON COLUMN payment.sort IS '구분';
+
+COMMENT ON COLUMN payment.fix IS '확정여부';
+
+CREATE UNIQUE INDEX PK_payment
+	ON payment (
+		id ASC
+	);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT PK_payment
+		PRIMARY KEY (
+			id
+		);
+
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT FK_employee_TO_doctor
@@ -2086,6 +2139,16 @@ ALTER TABLE upfile
 ALTER TABLE nurse
 	ADD
 		CONSTRAINT FK_employee_TO_nurse
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT FK_employee_TO_payment
 		FOREIGN KEY (
 			id
 		)

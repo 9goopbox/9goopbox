@@ -54,6 +54,8 @@ drop sequence upfile_sequence;
 drop sequence attach_target_sequence;
 -- ��ȣ�������
 drop sequence nurse_sequence;
+-- ���޽�����
+drop sequence payment_sequence;
 -- �ǻ������
 create sequence doctor_sequence
 start with 1
@@ -191,6 +193,11 @@ increment by 1;
 
 -- ��ȣ�������
 create sequence nurse_sequence
+start with 1
+increment by 1;
+
+-- ���޽�����
+create sequence payment_sequence
 start with 1
 increment by 1;
 
