@@ -29,15 +29,15 @@
 			<div class="clearfix"></div>
 		</div>
 		<div id="external-events">
-			<h4 class="page-header" id="events-templates-header">Draggable Events</h4>
-			<div class="external-event">Work time</div>
-			<div class="external-event">Conference</div>
-			<div class="external-event">Meeting</div>
-			<div class="external-event">Restaurant</div>
-			<div class="external-event">Launch</div>
+			<h4 class="page-header" id="events-templates-header">일정을 드래그하여 옮기세요</h4>
+			<div class="external-event">수술</div>
+			<div class="external-event">회의</div>
+			<div class="external-event">강연</div>
+			<div class="external-event">회식</div>
+			
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" id="drop-remove"> remove after drop
+					<input type="checkbox" id="drop-remove"> 일정등록 후 제거
 					<i class="fa fa-square-o small"></i>
 				</label>
 			</div>

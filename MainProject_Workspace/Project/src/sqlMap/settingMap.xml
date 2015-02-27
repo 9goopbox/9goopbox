@@ -7,6 +7,8 @@
 <!-- 비밀번호 변경 -->
 	<update id="pwdupdate" parameterType="sempvo">
 		update employee set password=#{password}
+<!-- 		where절추가 -->
+<!-- 		where id=#{id} -->
 	</update>
 	
 <!-- 프로필 변경 -->
@@ -16,5 +18,10 @@
 	
 	<update id="imgup" parameterType="sempvo">
 		update employee set profile_img=#{up_profile_img}
+<!-- 	where절 추가해주세요  -->
+<!-- 	where id=#{id} -->
 	</update>
+	
+	
+	
 </mapper>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="invent">
+
+	<select id="cnt" resultType="int">
+		select count(*) cnt from items
+	</select>
+
+	<select id="invensearch" resultType="int" parameterType="searchVO">
+		select count(*) cnt from items
+		<if test="searchType != null">
+			<choose>
+				<when test="searchType == 1">
+					where id like '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 2">
+					where name like '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 3">
+					where amount <![CDATA[>=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 4">
+					where amount <![CDATA[<=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 5">
+					where buyPrice <![CDATA[>=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 6">
+					where buyPrice <![CDATA[<=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 7">
+					where memo like '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 8">
+					where (select name from employee emp,
+					general_employee gemp where emp.id=gemp.id) like
+					'%'||#{searchValue}||'%'
+				</when>
+			</choose>
+		</if>
+	</select>
+
+	<select id="getlistsearch" resultType="invenvo" parameterType="searchVO">
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select id, category,
+		name, amount, buyDate, buyPrice, manager, memo
+		from items
+
+		<if test="searchType != null">
+			<choose>
+				<when test="searchType == 1">
+					where id like '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 2">
+					where name like '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 3">
+					where amount <![CDATA[>=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 4">
+					where amount <![CDATA[<=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 5">
+					where buyPrice <![CDATA[>=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 6">
+					where buyPrice <![CDATA[<=]]>
+					#{searchValue}
+				</when>
+				<when test="searchType == 7">
+					where memo like '%'||#{searchValue}||'%'
+				</when>
+				<when test="searchType == 8">
+					where (select name from employee emp,
+					general_employee gemp where emp.id=gemp.id) like
+					'%'||#{searchValue}||'%'
+				</when>
+				<otherwise>
+
+				</otherwise>
+			</choose>
+		</if>
+		) a
+		)
+		where r_num between #{begin} and #{end}
+	</select>
+
+
+</mapper>

@@ -14,10 +14,11 @@ public class SettingDao {
 	
 	//password 변경
 	public void pwdUpdate(SettingEmpVO vo) {
-		System.out.println("password : "+vo.getPassword());
+		System.out.println("password : "+ vo.getPassword());
 		ss.update("setting.pwdupdate", vo);
 	}
 	
+	//프로필 변경
 	public void profileUpdate(SettingEmpVO vo) {
 		System.out.println(vo.getName());
 		ss.update("setting.profileupdate", vo);
@@ -27,5 +28,6 @@ public class SettingDao {
 		System.out.println(vo.getUp_profile_img());
 		ss.update("setting.imgup", vo);
 	}
+	
 	
 }

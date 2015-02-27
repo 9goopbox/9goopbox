@@ -20,6 +20,7 @@
 		<typeAlias type="vo.PageVO" alias="pagevo"/>
 		<typeAlias type="vo.SettingEmpVO" alias="sempvo"/>
 		<typeAlias type="vo.EapprVO" alias="eapprvo"/>
+		<typeAlias type="vo.InvenVO" alias="invenvo"/>
 		<typeAlias type="vo.RegisterVO" alias="registervo"/>
 		<typeAlias type="vo.RecVO" alias="recvo"/>
 		<typeAlias type="vo.DeptVO" alias="deptvo"/>

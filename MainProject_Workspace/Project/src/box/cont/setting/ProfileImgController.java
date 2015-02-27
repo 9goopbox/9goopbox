@@ -17,7 +17,7 @@ import vo.SettingEmpVO;
 import box.dao.SettingDao;
 
 @Controller
-public class ProfileImg {
+public class ProfileImgController {
 	
 	@Autowired
 	private SettingDao dao;
