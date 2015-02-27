@@ -45,11 +45,6 @@ ALTER TABLE general_employee
 
 ALTER TABLE employee
 	DROP
-		CONSTRAINT FK_position_TO_employee
-		CASCADE;
-
-ALTER TABLE employee
-	DROP
 		CONSTRAINT FK_department_TO_employee
 		CASCADE;
 
@@ -111,11 +106,6 @@ ALTER TABLE article
 ALTER TABLE article
 	DROP
 		CONSTRAINT FK_attach_target_TO_article
-		CASCADE;
-
-ALTER TABLE position
-	DROP
-		CONSTRAINT FK_department_TO_position
 		CASCADE;
 
 ALTER TABLE article_tag
@@ -308,12 +298,6 @@ ALTER TABLE article
 		CASCADE
 		KEEP INDEX;
 
-ALTER TABLE position
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
 ALTER TABLE article_tag
 	DROP
 		PRIMARY KEY
@@ -436,8 +420,6 @@ DROP INDEX PK_Patient;
 
 DROP INDEX PK_article;
 
-DROP INDEX PK_position;
-
 DROP INDEX PK_article_tag;
 
 DROP INDEX PK_tag;
@@ -516,10 +498,6 @@ DROP TABLE Patient
 
 /* 게시글 */
 DROP TABLE article 
-	CASCADE CONSTRAINTS;
-
-/* 직급 */
-DROP TABLE position 
 	CASCADE CONSTRAINTS;
 
 /* 글 태그 */
