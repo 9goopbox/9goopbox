@@ -146,3 +146,57 @@ function makeArticle(data) {
 	
 	return atcl;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var left_count = 0;
+
+function post(event) {
+  var contentArea = document.querySelector("#postContent");
+  var content = contentArea.value;
+
+  if (event !== undefined)
+    event.preventDefault();
+
+  // 트윗 가능한 조건이면 트윗
+  if ((content.trim().length !== 0) && (content.trim().length <= 140)
+  ) {
+	  // ajax call
+
+  } else {
+    alert("길이가 부적합합니다.");
+  }
+
+  contentArea.value = "";
+};
+
+
+function onTestChange(event) {
+  if ((event.keyCode == 13) && event.ctrlKey) {
+    post();
+  }
+}
