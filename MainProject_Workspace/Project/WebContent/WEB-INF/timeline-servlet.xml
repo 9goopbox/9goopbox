@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
 	<bean name="/timeline_newsfeed.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="timeline/timeline_newfeed"/>
+		<property name="viewName" value="timeline/timeline_newsfeed"/>
 	</bean>
 	
 </beans>

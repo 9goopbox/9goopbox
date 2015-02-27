@@ -16,36 +16,23 @@
 	<div class="col-xs-12 page-feed">
 		<div class="box">
 			<div class="avatar">
-				<img src="img/avatar.jpg" alt="Jane" />
+				<img src="img/avatar.jpg" alt="profile_pic" />
 			</div>
 			<div class="page-feed-content">
-				<small class="time">회원이름, 12 분 전</small>
-				<p>내용 입력 부분</p>
+				
+				<span><b>조은의</b> <small>@gooddoc</small> <small class="time">12분 전</small></span>
+				<p>자고로 의사라 함은, 환자들의 마음을 치유하는데도 어느정도 관심이 있어야 하는법이에요.</p>
 				<div class="likebox">
 					<ul class="nav navbar-nav">
-						<li><i class="fa fa-thumbs-up"></i> 좋아요 갯수</li>
-						<li><i class="fa fa-thumbs-down"></i> 비추는 있어야하나</li>
+						<li><a href="#"><i class="fa fa-reply"></i></a></li>
+						<li><a href="#"><i class="fa fa-share-alt"></i><span class="count">30</span></a></li>
+						<li><a href="#"><i class="fa fa-tags"></i></a></li>
+<!-- 						<li><a href="#"><i class="fa fa-download"></i><span class="count">30</span></a></li> -->
+						<li><a href="#"><i class="fa fa-external-link"></i></a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-
-		<div class="box">
-			<div class="avatar">
-				<img src="img/avatar.jpg" alt="Jane" />
-			</div>
-			<div class="page-feed-content">
-				<small class="time">Jane Devops, 12 min ago</small>
-				<p>여기는 새로만들었는데 글 하나 올릴 때마다 생성해야하나</p>
-				<div class="likebox">
-					<ul class="nav navbar-nav">
-						<li><i class="fa fa-thumbs-up"></i> 138</li>
-						<li><i class="fa fa-thumbs-down"></i> 47</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
 	</div>
 </div>
 <div class="row">
