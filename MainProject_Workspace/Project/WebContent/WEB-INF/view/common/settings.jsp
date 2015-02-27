@@ -21,7 +21,7 @@
 			</div>
 			<div class="box-content">							
 				<form class="form-horizontal" role="form" method="post"
-					action="../imgup.box" enctype="multipart/form-data" id="imgF">
+					action="../imgup.box" enctype="multipart/form-data" id="imgF" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
 					<div class="form-group">
 					<div class="col-sm-4">
 						<img class="img-rounded" src="../img/noimage.png" id="target"
@@ -53,7 +53,7 @@
 			</div>
 			<div class="box-content">
 				<form class="form-horizontal" role="form" method="post"
-					action="../profileUpdate.box" id="profup">
+					action="../profileUpdate.box" id="profup" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
 					<div class="form-group">
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="name" name="name"
@@ -98,7 +98,7 @@
 			</div>
 			<div class="box-content">
 				<form class="form-horizontal" role="form" method="post"
-					action="../pwdUpdate.box" id="password">
+					action="../pwdUpdate.box" id="password" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
 					<div class="form-group">
 						<label class="col-sm-5 control-label">비밀번호 변경</label>
 						<div class="col-sm-5">
