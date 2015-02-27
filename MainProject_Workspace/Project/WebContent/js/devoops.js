@@ -1076,7 +1076,6 @@ $.ajax({
 			  }
 			}
 		} catch (e) {
-			window.location.hash = url;
 			$('#ajax-content').html(data);
 			$('.preloader').hide();
 		}
