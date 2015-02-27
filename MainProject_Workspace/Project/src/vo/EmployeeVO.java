@@ -2,7 +2,7 @@ package vo;
 
 public class EmployeeVO {
 	private int pay;
-	private String id, password, name, address, position, tel, email,dept_name,bye;
+	private String id, password, name, address, position, tel, email,dept_name,bye,com,payday,sort,fix,come;
 	private Integer dept_id, pos_id;
 
 	
