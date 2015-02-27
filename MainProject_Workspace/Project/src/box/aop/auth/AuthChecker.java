@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthChecker {
 	private static final boolean logConsole = true;
 
-	@Around("execution(* box.cont.*.*(..))")
-	private ModelAndView userSessionCheck(ProceedingJoinPoint pjp) throws Throwable {
+	@Around("execution(* box.cont.*.*.*(..))")
+	public ModelAndView userSessionCheck(ProceedingJoinPoint pjp) throws Throwable {
 		HttpSession session = session();
 		String mySession = (String) session.getAttribute("userid");
 		System.out.println("session : " + mySession);
