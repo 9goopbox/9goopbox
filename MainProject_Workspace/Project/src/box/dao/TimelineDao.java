@@ -13,8 +13,6 @@ import vo.view.TimelineVO;
 public class TimelineDao {
 		@Autowired
 		private SqlSessionTemplate ss;
-		
-		
 		public List<TimelineVO> renewTime(TimelineVO vo) {
 			return ss.selectList("time.getid", vo);
 			
@@ -28,6 +26,5 @@ public class TimelineDao {
 		public void addTimeline(TimelineVO vo) {
 			ss.insert("time.timelineadd", vo);
 			return ;
-			
 		}
 }
