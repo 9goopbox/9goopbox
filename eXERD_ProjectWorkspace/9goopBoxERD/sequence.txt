@@ -22,8 +22,6 @@ drop sequence approval_sequence;
 drop sequence Patient_sequence;
 -- 게시글시퀀스
 drop sequence article_sequence;
--- 직급시퀀스
-drop sequence position_sequence;
 -- 글 태그시퀀스
 drop sequence article_tag_sequence;
 -- 태그시퀀스
@@ -113,11 +111,6 @@ increment by 1;
 
 -- 게시글시퀀스
 create sequence article_sequence
-start with 1
-increment by 1;
-
--- 직급시퀀스
-create sequence position_sequence
 start with 1
 increment by 1;
 
