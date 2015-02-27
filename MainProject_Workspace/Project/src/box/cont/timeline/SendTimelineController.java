@@ -34,6 +34,10 @@ public class SendTimelineController {
 		
 		List<TimelineVO> tvolist = tdao.renewTime(tvo);
 		
+		for(TimelineVO v : tvolist) {
+			v.setCont(v.getCont().replace("\n", " "));
+		}
+		
 		ModelAndView mav = new ModelAndView("timeline/timeline_article_json");
 	
 		mav.addObject("tvolist", tvolist);

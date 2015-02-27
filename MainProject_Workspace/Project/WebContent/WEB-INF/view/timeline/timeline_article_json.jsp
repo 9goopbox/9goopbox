@@ -13,7 +13,7 @@
   		},
   		"article": {
   			"id"   :"${tvo.art_id }",
-  			"cont" : "${tvo.cont }",
+  			"cont" : "${tvo.cont}",
  			"date" : "${tvo.updated }",
   			"kind" : "${tvo.kind }",
   			"ref_id" : "${tvo.ref_id }",
