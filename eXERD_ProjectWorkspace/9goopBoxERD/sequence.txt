@@ -56,6 +56,8 @@ drop sequence attach_target_sequence;
 drop sequence nurse_sequence;
 -- 지급시퀀스
 drop sequence payment_sequence;
+-- 지켜보기시퀀스
+drop sequence look_sequence;
 -- 의사시퀀스
 create sequence doctor_sequence
 start with 1
@@ -198,6 +200,11 @@ increment by 1;
 
 -- 지급시퀀스
 create sequence payment_sequence
+start with 1
+increment by 1;
+
+-- 지켜보기시퀀스
+create sequence look_sequence
 start with 1
 increment by 1;
 

@@ -6,10 +6,10 @@ $(function () {
 	// interval request : refresh...
 	var myfn = function () {
 		//console.log("interval function");
-		var date = null;
+		var date = new Date().getTime().toString();
 		return function () {
 			data = $.ajax("../timeline_article_json.box", {
-				"date" : date
+				"data" : {"date" : date}
 			});
 			
 //			data = {
@@ -187,7 +187,11 @@ function post(event) {
   ) {
 	  // ajax call
 	  $.ajax("../timeline_article_post.box", {
-			"cont" : content.trim()
+
+			data: {
+				"cont" : content.trim()
+			}
+
 	  });
   } else {
     alert("길이가 부적합니다.");
