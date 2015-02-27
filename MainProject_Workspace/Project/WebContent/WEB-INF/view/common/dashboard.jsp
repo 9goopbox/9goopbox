@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="box-content">
-					<form class="form-horizontal" role="form">
+					<form class="form-horizontal" role="form" onsubmit="LoadAjaxContentByForm(this,'GET'); return false;">
 						<img class="img-rounded"
 							src="http://i.forbesimg.com/media/lists/people/michael-bloomberg_50x50.jpg"
 							alt=""> 여기다 넣으시면 됩니다.

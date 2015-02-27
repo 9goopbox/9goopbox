@@ -1503,7 +1503,8 @@ CREATE TABLE approver (
 	appr_id INTEGER NOT NULL, /* 결재ID */
 	apprs_id VARCHAR2(20) NOT NULL, /* 결재자 ID */
 	appr_step INTEGER NOT NULL, /* 결재단계 */
-	appr_state VARCHAR2(20) /* 결재상태 */
+	appr_state VARCHAR2(20), /* 결재상태 */
+  appr_title VARCHAR2(100) NOT NULL /* 결재제목*/
 );
 
 COMMENT ON TABLE approver IS '결재자';

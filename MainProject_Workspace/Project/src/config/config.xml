@@ -10,6 +10,7 @@
 		<typeAlias type="vo.EmployeeVO" alias="empvo"/>
 		<typeAlias type="vo.PatientVO" alias="patvo"/>
 		<typeAlias type="vo.ChartVO" alias="chartvo"/>
+		<typeAlias type="vo.ElectVO" alias="electvo"/>
 		
 		<!-- 특정 뷰를 위한 VO -->
 		<typeAlias type="vo.view.ChartDisplayVO" alias="chartdisplayvo"/>
