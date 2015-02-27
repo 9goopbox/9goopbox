@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
@@ -30,7 +31,7 @@
 				<div class="no-move"></div>
 			</div>
 			
-			<form method="post" action="invenSearch.box">
+			<form method="get" action="../invenSearch.box" onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
 			
 			<div class="box-content">
 				<div class="row">
@@ -44,26 +45,27 @@
 							placeholder="종료일"></input>
 					</div>
 					<div class="col-xs-12 col-sm-4">
-						<select id="s2_searchKind" class="input-sm populate placeholder">
+					
+						<select id="searchType" name="searchType" class="input-sm populate placeholder">
 							<option></option>
 							<!-- http://stackoverflow.com/a/21616069 -->
-							<option>분류</option>
-							<option>비품번호</option>
-							<option>이름</option>
-							<option>수량 (이상)</option>
-							<option>수량 (이하)</option>
+							
+							<option value="1" ${searchType==1?'selected="selected"':''}>비품번호</option>
+							<option value="2" ${searchType==2?'selected="selected"':''}>이름</option>
+							<option value="3" ${searchType==3?'selected="selected"':''}>수량 (이상)</option>
+							<option value="4" ${searchType==4?'selected="selected"':''}>수량 (이하)</option>
 <!-- 							<option>비품위치</option> -->
-							<option>구입가격 (이상)</option>
-							<option>구입가격 (이하)</option>
-							<option>비고</option>
-							<option>담당관리자</option>
+							<option value="5" ${searchType==5?'selected="selected"':''}>구입가격 (이상)</option>
+							<option value="6" ${searchType==6?'selected="selected"':''}>구입가격 (이하)</option>
+							<option value="7" ${searchType==7?'selected="selected"':''}>비고</option>
+							<option value="8" ${searchType==8?'selected="selected"':''}>담당관리자</option>
 						</select>
 					</div>
 					<div class="col-sm-4">
 						<div class="input-group input-group-sm">
 							<input type="text" class="form-control" name="searchValue" id="searchValue">
 								<span class="input-group-btn">
-									<button class="btn btn-default btn-xs" type="submit">
+									<button class="btn btn-default btn-xs" type="submit" >
 										<i class="fa fa-search"></i>
 									</button>
 								</span>
@@ -79,38 +81,38 @@
 					id="datatable-1">
 					<thead>
 						<tr>
-							<th>No.</th>
-							<th>분류</th>
 							<th>비품번호</th>
+							<th>분류</th>
 							<th>이름</th>
 							<th>수량</th>
+							<th>구입일</th>
 <!-- 							<th>비품위치</th> -->
-							<th>구입년월</th>
 							<th>구입가격</th>
 							<th>담당관리자</th>
 							<th>비고</th>
 <!-- 							<th>비교</th> -->
-							<th>수정</th>
+<!-- 							<th>수정</th> -->
 						</tr>
 					</thead>
 					<tbody>
 
 						<!-- Start: list_row -->
+						<c:forEach var="listv" items="${list }">
 						<tr>
-							<td>1</td>
-							<td>의료>위생소모품</td>
-							<td>112-534</td>
-							<td>소독고무장갑</td>
-							<td>176</td>
+							<td>${listv.id }</td>
+							<td>${listv.category }</td>
+							<td>${listv.name }</td>
+							<td>${listv.amount }</td>
+							<td>${listv.buyDate }</td>
 <!-- 							<td>본관/105호(내과진찰실)</td> -->
-							<td>2015.01.25</td>
-							<td>122200</td>
-							
-							<td>김민철</td>
+							<td>${listv.buyPrice }</td>
+							<td>${listv.manager }</td>
+							<td>${listv.memo }</td>
 							<td></td>
 <!-- 							<td><a href="#">비교</a></td> -->
-							<td><a href="#">수정</a></td>
+<!-- 							<td><a href="#">수정</a></td> -->
 						</tr>
+						</c:forEach>
 						<!-- End: list_row -->
 					</tbody>
 <!-- 					<tfoot> -->
