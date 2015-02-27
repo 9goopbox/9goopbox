@@ -14,4 +14,8 @@
 <!-- 	<bean name="/management_staff.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
 <!-- 		<property name="viewName" value="management/management_staff"/> -->
 <!-- 	</bean> -->
+
+<!-- 	<bean name="/management_staff_detail.box" class="org.springframework.web.servlet.mvc.ParameterizableViewController"> -->
+<!-- 		<property name="viewName" value="management/management_staff_detail"/> -->
+<!-- 	</bean> -->
 </beans>

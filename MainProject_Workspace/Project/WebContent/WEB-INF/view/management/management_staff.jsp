@@ -48,6 +48,7 @@
 						<!-- 					<button type="submit" class="btn btn-primary btn-xs">조회</button> -->
 						<input class="btn btn-primary" type="submit" value="조회">
 					</div>
+				</form>
 			</div>
 			<br />
 		</div>
@@ -79,10 +80,10 @@
 							<th>부서</th>
 							<th>직급</th>
 							<th>상세보기</th>
-							<th>다운로드</th>
+							<!-- 							<th>다운로드</th> -->
 						</tr>
 					</thead>
-					
+
 					<tbody>
 						<!-- Start: list_row -->
 						<c:forEach items="${manageDisplayList}" var="mdl">
@@ -92,14 +93,14 @@
 								<td>${mdl.dept_name }</td>
 								<td>${mdl.position }</td>
 								<td><a class="ajax-link"
-									href="../management_staff_detail.box?id=${mdl.name}">상세보기</a></td>
-								<th><a href="#">파일다운로드</a></th>
+									href="../management_staff_detail.box?id=${mdl.id}">상세보기</a></td>
+								<!-- 								<th><a href="#">파일다운로드</a></th> -->
 							</tr>
 						</c:forEach>
 						<!-- End: list_row -->
 					</tbody>
 				</table>
-<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
+				<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>

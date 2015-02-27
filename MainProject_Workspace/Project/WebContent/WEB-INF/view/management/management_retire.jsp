@@ -94,7 +94,7 @@
 						<th>직급</th>
 						<th>상세보기</th>
 						<th>퇴사일</th>
-						<th>다운로드</th>
+<!-- 						<th>다운로드</th> -->
 
 					</tr>
 				</thead>
@@ -122,9 +122,9 @@
 							<td>${mrdl.dept_name }</td>
 							<td>${mrdl.position }</td>
 							<td><a class="ajax-link"
-								href="../management_staff_detail.box?id=${mrdl.name}">상세보기</a></td>
+								href="../management_retire_detail.box?id=${mrdl.name}">상세보기</a></td>
 							<td>${mrdl.bye}</td>
-							<td><input type="button" class="col-lg-5" value="문서내려받기"></td>
+<!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
 						</tr>
 					</c:forEach>
 					<!-- End: list_row -->

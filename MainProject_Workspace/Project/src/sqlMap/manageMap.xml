@@ -61,6 +61,7 @@
 					<when test="searchType == 3">
 						and dept.name LIKE '%'||#{searchValue}||'%'
 					</when>
+					
 					<otherwise>
 
 					</otherwise>
@@ -73,6 +74,64 @@
 
 
 
+	</select>
+<!-- 	<select id="getlist2search" resultType="empvo" parameterType="searchVO"> -->
+		
+<!-- 		select -->
+<!-- 		* -->
+<!-- 		from ( -->
+<!-- 		select a.*, rownum as r_num from -->
+<!-- 		( -->
+<!-- 		select emp.name name, -->
+<!-- 		emp.position position, emp.tel tel, dept.name -->
+<!-- 		dept_name -->
+<!-- 		from employee -->
+<!-- 		emp, (select name, id from department) dept -->
+<!-- 		where emp.dept_id = dept.id -->
+
+<!-- 		<if test="searchType != null"> -->
+<!-- 				<choose> -->
+<!-- 					<when test="searchType == 1"> -->
+<!-- 						and emp.id LIKE '%'||#{searchValue}||'%' -->
+<!-- 					</when> -->
+<!-- 					<otherwise> -->
+
+<!-- 					</otherwise> -->
+<!-- 				</choose> -->
+<!-- 		</if> -->
+
+<!-- 		) a -->
+<!-- 		) -->
+<!-- 		where r_num between #{begin} and #{end} -->
+<!-- 	</select> -->
+<select id="getlist2search" resultType="empvo" parameterType="searchVO">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,emp.id id,
+		emp.position position, emp.tel tel, emp.address address,emp.email email,
+		 dept.name dept_name
+		from employee
+		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
+
+		<if test="searchType != null">
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+
+		) a
+		)
+		where r_num between #{begin} and #{end}
 	</select>
 	<select id="getretirelistsearch" resultType="empvo" parameterType="searchVO">
 		
@@ -100,6 +159,41 @@
 					</when>
 					<when test="searchType == 3">
 						and dept.name LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+
+		) a
+		)
+		where r_num between #{begin} and #{end}
+
+
+
+	</select>
+	<select id="getretirelist2search" resultType="empvo" parameterType="searchVO">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,emp.id id,
+	    emp.address address,emp.email email,
+		emp.position position, emp.tel tel,emp.bye come, emp.bye bye, dept.name
+		dept_name
+		from employee
+		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
+
+		<if test="searchType != null">
+
+			
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
 					</when>
 					<otherwise>
 

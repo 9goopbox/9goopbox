@@ -41,6 +41,7 @@ public class ManageDao {
 	public int getTotalCount2() {
 		return ss.selectOne("manage.cnt2");
 	}
+	
 //	public EmployeeVO getShopView(int num){
 //		return ss.selectOne("manage.view", num);
 //	}
@@ -49,10 +50,21 @@ public class ManageDao {
 		return ss.selectOne("manage.somecnt", vo);
 	}
 	public List<EmployeeVO> getListSearch(SearchVO vo) {
-		return ss.selectList("manage.getlistsearch", vo);
+		List<EmployeeVO> list = ss.selectList("manage.getlistsearch", vo);
+		return list;
+	}
+	public List<EmployeeVO> getList2Search(SearchVO vo) {
+		System.out.println("SearchVO type (dao) : " + vo.getSearchType());
+		System.out.println("SearchVO beg (dao) : " + vo.getBegin());
+		System.out.println("SearchVO ed (dao) : " + vo.getEnd());
+		List<EmployeeVO> list = ss.selectList("manage.getlist2search", vo);
+		return list;
 	}
 	public List<EmployeeVO> getRetireListSearch(SearchVO vo) {
 		return ss.selectList("manage.getretirelistsearch", vo);
+	}
+	public List<EmployeeVO> getRetireList2Search(SearchVO vo) {
+		return ss.selectList("manage.getretirelist2search", vo);
 	}
 	public List<EmployeeVO> getPayListSearch(SearchVO vo) {
 //	public EmployeeVO getPayListSearch(SearchVO vo) {
