@@ -20,7 +20,7 @@ import box.dao.TimelineDao;
 @Controller
 public class SendTimelineController {
 	@Autowired
-	private TimelineDao mdao;
+	private TimelineDao tdao;
 	
 	@RequestMapping(value="/timeline_article_json.box")
 	public ModelAndView getTimeline(long date,HttpSession session) {
@@ -32,7 +32,7 @@ public class SendTimelineController {
 		String idInSession = (String) session.getAttribute("userid");
 		tvo.setId(idInSession);
 		
-		List<TimelineVO> tvolist = mdao.renewTime(tvo);
+		List<TimelineVO> tvolist = tdao.renewTime(tvo);
 		
 		ModelAndView mav = new ModelAndView("timeline/timeline_article_json");
 	

@@ -6,7 +6,7 @@
 	<select id="getid" resultType="timelinevo" parameterType="timelinevo">
 		select
 		*
-		from (select id,name from employee) emp, (select id art_id,
+		from (select id,name,PROFILE_IMG from employee) emp, (select id art_id,
 		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
 		where emp.id = art.writer_id and emp.id=#{id} and art.updated >= #{updated}
 	</select>

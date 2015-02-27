@@ -27,11 +27,11 @@ insert into patient values(1,'병희', 23, '남자', '2123421', 175, null, null,
 select * from patient;
 
 delete from employee;
-insert into employee values('bestdoc', 'best!', '조은의', '돌 굴러가는 지역', '원장', 2560000,1,'010-1111-1111','bestdoc@bestdoc.com','12-02-22','15-02-22', null);
-insert into employee values('gooddoc', 'good!', '오소리', '돌 굴러가는 지역4', '레지던트', 2560000,1,'010-2222-2222','gooddoc2@bestdoc.com','12-05-30','14-05-30', null);
-insert into employee values('goodnur', 'nur!', '장조은', '돌 굴러가는 지역 2', '간호사', 5120000,2,'010-3333-3333','gooddoc@bestdoc.com','14-12-24','15-12-24', null);
-insert into employee values('xx', 'xx', '민경훈', '돌 굴러가는 지역 3', '과장', 5120000,3,'010-4444-4444','xx@bestdoc.com','13-01-11','15-01-11', null);
-insert into employee values('이름씨', '1234', '바보', '서울', '의사', '2323', null, null, 'dfdf@dfdf.com','13-01-11','15-01-11', null);
+insert into employee values('bestdoc', 'SHA256HASHLONG!', '조은의', '돌 굴러가는 지역', '원장', 2560000,1,'010-1111-1111','bestdoc@bestdoc.com','12-02-22','15-02-22', '1.jpg');
+insert into employee values('gooddoc', 'SHA256HASHLONG!', '오소리', '돌 굴러가는 지역4', '레지던트', 2560000,1,'010-2222-2222','gooddoc2@bestdoc.com','12-05-30','14-05-30', '2.jpg');
+insert into employee values('goodnur', 'SHA256HASHLONG!', '장조은', '돌 굴러가는 지역 2', '간호사', 5120000,2,'010-3333-3333','gooddoc@bestdoc.com','14-12-24','15-12-24', '3.jpg');
+insert into employee values('xx', 'xx', '민경훈', '돌 굴러가는 지역 3', '과장', 5120000,3,'010-4444-4444','xx@bestdoc.com','13-01-11','15-01-11', '4.jpg');
+insert into employee values('이름씨', '1234', '바보', '서울', '의사', '2323', null, null, 'dfdf@dfdf.com','13-01-11','15-01-11','5.jpg');
 select * from employee;
 
 delete from doctor;

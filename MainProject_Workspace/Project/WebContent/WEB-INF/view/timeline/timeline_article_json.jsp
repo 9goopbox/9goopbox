@@ -9,6 +9,7 @@
   		"user": {
   			"id":"${tvo.id }",
   			"name" : "${tvo.name }",
+  			"name" : "${tvo.PROFILE_IMG }"
   		},
   		"article": {
   			"id"   :"${tvo.art_id }"
