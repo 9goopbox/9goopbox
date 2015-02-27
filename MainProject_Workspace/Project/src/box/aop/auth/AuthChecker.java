@@ -25,6 +25,7 @@ public class AuthChecker {
 				System.out.println("인증 정보가 없습니다.");
 			ModelAndView mav = new ModelAndView("util/ajax_redirect");
 			mav.addObject("address", "../index.box");
+			mav.addObject("changeURL", "true");
 			return mav; 
 		} else {
 			if (logConsole)
