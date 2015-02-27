@@ -22,8 +22,8 @@
 	<insert id="timelineadd" parameterType="timelinevo">
 		insert into article
 	values(article_sequence.nextVal,
-	#{art_id},#{writer_id},#{cont},#{kind},
-	#{ref_id},#{head_id},#{attach_id}
+	#{writer_id},#{cont},#{kind},
+	#{ref_id},#{head_id},#{attach_id}, sysdate
 	)
 		<!-- 파라미터로 환자 번호를 받아서 처리 -->
 	</insert>

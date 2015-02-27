@@ -58,6 +58,7 @@ delete from article;
 insert into article values(1, 'bestdoc', '이번에 들어온 애들 실력이 최고인듯', '잡담', 1, null, null,'15-02-26');
 insert into article values(2, 'gooddoc', '나는 모르겠다', '잡담', 1, 1,null,'15-02-28');
 
+
 select * from article;
 
 delete from general_employee;
@@ -73,4 +74,7 @@ insert into payment values('gooddoc', '2015-02-13', '보너스', '지급');
 insert into payment values('xx', '2015-01-20', '야근수당', '미지급');
 insert into payment values('goodnur', '2015-02-23', '보너스', '미지급');
 insert into payment values('이름씨', '2015-02-28', '월급', '미지급');
+
+select * from chart;
+
 commit;
