@@ -1,209 +1,200 @@
--- 직급시퀀스
-drop sequence position_sequence;
-
-
--- 의사시퀀스
+-- �ǻ������
 drop sequence doctor_sequence;
--- 병동환자시퀀스
+-- ����ȯ�ڽ�����
 drop sequence ward_patient_sequence;
--- 부서시퀀스
+-- �μ�������
 drop sequence department_sequence;
--- 외래환자시퀀스
+-- �ܷ�ȯ�ڽ�����
 drop sequence foreign_patient_sequence;
--- 비품시퀀스
+-- ��ǰ������
 drop sequence items_sequence;
--- 일반직원시퀀스
+-- �Ϲ����������
 drop sequence general_employee_sequence;
--- 직원시퀀스
+-- ���������
 drop sequence employee_sequence;
--- 일정시퀀스
+-- ����������
 drop sequence calender_sequence;
--- 차트 (진료기록?)시퀀스
+-- ��Ʈ (�����?)������
 drop sequence chart_sequence;
--- 전자결재시퀀스
+-- ���ڰ��������
 drop sequence approval_sequence;
--- 환자시퀀스
+-- ȯ�ڽ�����
 drop sequence Patient_sequence;
--- 게시글시퀀스
+-- �Խñ۽�����
 drop sequence article_sequence;
--- 직급시퀀스
-drop sequence position_sequence;
--- 글 태그시퀀스
+-- �� �±׽�����
 drop sequence article_tag_sequence;
--- 태그시퀀스
+-- �±׽�����
 drop sequence tag_sequence;
--- 질! 병!시퀀스
+-- ��! ��!������
 drop sequence disease_sequence;
--- 건물 (병동, 진료실 등이 있는 건물 자체)시퀀스
+-- �ǹ� (����, ���� ���� �ִ� �ǹ� ��ü)������
 drop sequence building_sequence;
--- 질병기록시퀀스
+-- ���Ͻ�����
 drop sequence disease_record_sequence;
--- 글 상태 변화 알림시퀀스
+-- �� ���� ��ȭ �˸�������
 drop sequence noty_article_sequence;
--- 처방시퀀스
+-- ó�������
 drop sequence prescription_sequence;
--- 병동 외의 방시퀀스
+-- ���� ���� �������
 drop sequence office_sequence;
--- 결재자시퀀스
+-- �����ڽ�����
 drop sequence approver_sequence;
--- 진료, 수납, 등록시퀀스
+-- ���, ����, ��Ͻ�����
 drop sequence treatment_sequence;
--- 병동 방시퀀스
+-- ���� �������
 drop sequence ward_sequence;
--- 근태시퀀스
+-- ���½�����
 drop sequence punch_sequence;
--- 직원로그시퀀스
+-- ����α׽�����
 drop sequence log_sequence;
--- 파일시퀀스
+-- ���Ͻ�����
 drop sequence upfile_sequence;
--- 파일첨부대상시퀀스
+-- ����÷�δ�������
 drop sequence attach_target_sequence;
--- 간호사시퀀스
+-- ��ȣ�������
 drop sequence nurse_sequence;
--- 의사시퀀스
+-- �ǻ������
 create sequence doctor_sequence
 start with 1
 increment by 1;
 
--- 병동환자시퀀스
+-- ����ȯ�ڽ�����
 create sequence ward_patient_sequence
 start with 1
 increment by 1;
 
--- 부서시퀀스
+-- �μ�������
 create sequence department_sequence
 start with 1
 increment by 1;
 
--- 외래환자시퀀스
+-- �ܷ�ȯ�ڽ�����
 create sequence foreign_patient_sequence
 start with 1
 increment by 1;
 
--- 비품시퀀스
+-- ��ǰ������
 create sequence items_sequence
 start with 1
 increment by 1;
 
--- 일반직원시퀀스
+-- �Ϲ����������
 create sequence general_employee_sequence
 start with 1
 increment by 1;
 
--- 직원시퀀스
+-- ���������
 create sequence employee_sequence
 start with 1
 increment by 1;
 
--- 일정시퀀스
+-- ����������
 create sequence calender_sequence
 start with 1
 increment by 1;
 
--- 차트 (진료기록?)시퀀스
+-- ��Ʈ (�����?)������
 create sequence chart_sequence
 start with 1
 increment by 1;
 
--- 전자결재시퀀스
+-- ���ڰ��������
 create sequence approval_sequence
 start with 1
 increment by 1;
 
--- 환자시퀀스
+-- ȯ�ڽ�����
 create sequence Patient_sequence
 start with 1
 increment by 1;
 
--- 게시글시퀀스
+-- �Խñ۽�����
 create sequence article_sequence
 start with 1
 increment by 1;
 
--- 직급시퀀스
-create sequence position_sequence
-start with 1
-increment by 1;
-
--- 글 태그시퀀스
+-- �� �±׽�����
 create sequence article_tag_sequence
 start with 1
 increment by 1;
 
--- 태그시퀀스
+-- �±׽�����
 create sequence tag_sequence
 start with 1
 increment by 1;
 
--- 질! 병!시퀀스
+-- ��! ��!������
 create sequence disease_sequence
 start with 1
 increment by 1;
 
--- 건물 (병동, 진료실 등이 있는 건물 자체)시퀀스
+-- �ǹ� (����, ���� ���� �ִ� �ǹ� ��ü)������
 create sequence building_sequence
 start with 1
 increment by 1;
 
--- 질병기록시퀀스
+-- ���Ͻ�����
 create sequence disease_record_sequence
 start with 1
 increment by 1;
 
--- 글 상태 변화 알림시퀀스
+-- �� ���� ��ȭ �˸�������
 create sequence noty_article_sequence
 start with 1
 increment by 1;
 
--- 처방시퀀스
+-- ó�������
 create sequence prescription_sequence
 start with 1
 increment by 1;
 
--- 병동 외의 방시퀀스
+-- ���� ���� �������
 create sequence office_sequence
 start with 1
 increment by 1;
 
--- 결재자시퀀스
+-- �����ڽ�����
 create sequence approver_sequence
 start with 1
 increment by 1;
 
--- 진료, 수납, 등록시퀀스
+-- ���, ����, ��Ͻ�����
 create sequence treatment_sequence
 start with 1
 increment by 1;
 
--- 병동 방시퀀스
+-- ���� �������
 create sequence ward_sequence
 start with 1
 increment by 1;
 
--- 근태시퀀스
+-- ���½�����
 create sequence punch_sequence
 start with 1
 increment by 1;
 
--- 직원로그시퀀스
+-- ����α׽�����
 create sequence log_sequence
 start with 1
 increment by 1;
 
--- 파일시퀀스
+-- ���Ͻ�����
 create sequence upfile_sequence
 start with 1
 increment by 1;
 
--- 파일첨부대상시퀀스
+-- ����÷�δ�������
 create sequence attach_target_sequence
 start with 1
 increment by 1;
 
--- 간호사시퀀스
+-- ��ȣ�������
 create sequence nurse_sequence
 start with 1
 increment by 1;
+
+------------------------------------
 
 ALTER TABLE doctor
 	DROP
@@ -248,11 +239,6 @@ ALTER TABLE items
 ALTER TABLE general_employee
 	DROP
 		CONSTRAINT FK_employee_TO_general_empl
-		CASCADE;
-
-ALTER TABLE employee
-	DROP
-		CONSTRAINT FK_position_TO_employee
 		CASCADE;
 
 ALTER TABLE employee
@@ -318,11 +304,6 @@ ALTER TABLE article
 ALTER TABLE article
 	DROP
 		CONSTRAINT FK_attach_target_TO_article
-		CASCADE;
-
-ALTER TABLE position
-	DROP
-		CONSTRAINT FK_department_TO_position
 		CASCADE;
 
 ALTER TABLE article_tag
@@ -515,12 +496,6 @@ ALTER TABLE article
 		CASCADE
 		KEEP INDEX;
 
-ALTER TABLE position
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
 ALTER TABLE article_tag
 	DROP
 		PRIMARY KEY
@@ -643,8 +618,6 @@ DROP INDEX PK_Patient;
 
 DROP INDEX PK_article;
 
-DROP INDEX PK_position;
-
 DROP INDEX PK_article_tag;
 
 DROP INDEX PK_tag;
@@ -725,10 +698,6 @@ DROP TABLE Patient
 DROP TABLE article 
 	CASCADE CONSTRAINTS;
 
-/* 직급 */
-DROP TABLE position 
-	CASCADE CONSTRAINTS;
-
 /* 글 태그 */
 DROP TABLE article_tag 
 	CASCADE CONSTRAINTS;
@@ -793,7 +762,9 @@ DROP TABLE attach_target
 DROP TABLE nurse 
 	CASCADE CONSTRAINTS;
 	
-/* 의사 */
+	--------------------------------
+	
+	/* 의사 */
 CREATE TABLE doctor (
 	id VARCHAR2(20) NOT NULL /* 직원 ID */
 );
@@ -979,9 +950,10 @@ CREATE TABLE employee (
 	position VARCHAR2(20), /* 직급 */
 	pay INTEGER NOT NULL, /* 급여 */
 	dept_id INTEGER, /* 부서ID */
-	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
-	email VARCHAR2(40) NOT NULL /* 이메일 */
+	email VARCHAR2(40) NOT NULL, /* 이메일 */
+	bye CHAR(15), /* 퇴사일 */
+	PROFILE_IMG VARCHAR2(256) /* 프로필사진 */
 );
 
 COMMENT ON TABLE employee IS '직원';
@@ -1000,11 +972,13 @@ COMMENT ON COLUMN employee.pay IS '급여';
 
 COMMENT ON COLUMN employee.dept_id IS '부서ID';
 
-COMMENT ON COLUMN employee.pos_id IS '직급ID';
-
 COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
+
+COMMENT ON COLUMN employee.bye IS '퇴사일';
+
+COMMENT ON COLUMN employee.PROFILE_IMG IS '프로필사진';
 
 CREATE UNIQUE INDEX PK_employee
 	ON employee (
@@ -1244,33 +1218,6 @@ ALTER TABLE article
 		CONSTRAINT PK_article
 		PRIMARY KEY (
 			id
-		);
-
-/* 직급 */
-CREATE TABLE position (
-	dept_id INTEGER NOT NULL, /* 부서ID */
-	pos_id INTEGER NOT NULL, /* 직급ID */
-	pos_name VARCHAR2(20) NOT NULL /* 직급이름 */
-);
-
-COMMENT ON TABLE position IS '직급';
-
-COMMENT ON COLUMN position.dept_id IS '부서ID';
-
-COMMENT ON COLUMN position.pos_id IS '직급ID';
-
-COMMENT ON COLUMN position.pos_name IS '직급이름';
-
-CREATE UNIQUE INDEX PK_position
-	ON position (
-		pos_id ASC
-	);
-
-ALTER TABLE position
-	ADD
-		CONSTRAINT PK_position
-		PRIMARY KEY (
-			pos_id
 		);
 
 /* 글 태그 */
@@ -1536,7 +1483,8 @@ CREATE TABLE treatment (
 	patient_id INTEGER NOT NULL, /* 환자 ID */
 	cost_get INTEGER NOT NULL, /* 수납비용 */
 	step VARCHAR2(20), /* 진료단계 */
-	kind VARCHAR2(20) NOT NULL /* 진료종류 */
+	kind VARCHAR2(20) NOT NULL, /* 진료종류 */
+	medi_trtmt VARCHAR2(30) NOT NULL /* 진료과 */
 );
 
 COMMENT ON TABLE treatment IS '진료, 수납, 등록';
@@ -1550,6 +1498,8 @@ COMMENT ON COLUMN treatment.cost_get IS '수납비용';
 COMMENT ON COLUMN treatment.step IS '환자가 방문 -> 수납 -> 진료 ->';
 
 COMMENT ON COLUMN treatment.kind IS '초진, 재진, 예약';
+
+COMMENT ON COLUMN treatment.medi_trtmt IS '진료과';
 
 CREATE UNIQUE INDEX PK_treatment
 	ON treatment (
@@ -1823,16 +1773,6 @@ ALTER TABLE general_employee
 
 ALTER TABLE employee
 	ADD
-		CONSTRAINT FK_position_TO_employee
-		FOREIGN KEY (
-			pos_id
-		)
-		REFERENCES position (
-			pos_id
-		);
-
-ALTER TABLE employee
-	ADD
 		CONSTRAINT FK_department_TO_employee
 		FOREIGN KEY (
 			dept_id
@@ -1958,16 +1898,6 @@ ALTER TABLE article
 			attach_id
 		)
 		REFERENCES attach_target (
-			id
-		);
-
-ALTER TABLE position
-	ADD
-		CONSTRAINT FK_department_TO_position
-		FOREIGN KEY (
-			dept_id
-		)
-		REFERENCES department (
 			id
 		);
 

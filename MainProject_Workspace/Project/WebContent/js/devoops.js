@@ -9,7 +9,7 @@
 // Dynamically load Fullcalendar Plugin Script
 // homepage: http://arshaw.com/fullcalendar
 // require moment.js
-// 달력
+// �력
 function LoadCalendarScript(callback){
 	function LoadFullCalendarScript(){
 		if(!$.fn.fullCalendar){
@@ -47,7 +47,7 @@ function LoadCalendarScript(callback){
 //
 // Dynamically load  Leaflet Plugin
 // homepage: http://leafletjs.com
-// 지도
+// 지
 //function LoadLeafletScript(callback){
 //	if (!$.fn.L){
 //		$.getScript('../plugins/leaflet/leaflet.js', callback);
@@ -62,7 +62,7 @@ function LoadCalendarScript(callback){
 //
 //  Dynamically load  jQuery Timepicker plugin
 //  homepage: http://trentrichardson.com/examples/timepicker/
-// 시간
+// �간
 function LoadTimePickerScript(callback){
 	if (!$.fn.timepicker){
 		$.getScript('../plugins/jquery-ui-timepicker-addon/jquery-ui-timepicker-addon.min.js', callback);
@@ -92,7 +92,7 @@ function LoadBootstrapValidatorScript(callback){
 //
 //  Dynamically load jQuery Select2 plugin
 //  homepage: https://github.com/ivaynberg/select2  v3.4.5  license - GPL2
-// select2 게시글 볼 사람 지정할 때 쓸꺼임
+// select2 게시글 볬람 지�할 �꺼
 function LoadSelect2Script(callback){
 	if (!$.fn.select2){
 		$.getScript('../plugins/select2/select2.min.js', callback);
@@ -106,7 +106,7 @@ function LoadSelect2Script(callback){
 //
 //  Dynamically load DataTables plugin
 //  homepage: http://datatables.net v1.9.4 license - GPL or BSD
-// 데이터테이블 양식
+// �이�테�블 �식
 function LoadDataTablesScripts(callback){
 	function LoadDatatables(){
 		$.getScript('../plugins/datatables/jquery.dataTables.js', function(){
@@ -130,7 +130,7 @@ function LoadDataTablesScripts(callback){
 //
 //  Dynamically load Widen FineUploader
 //  homepage: https://github.com/Widen/fine-uploader  v5.0.5 license - GPL3
-// 파일업로더
+// �일�로
 function LoadFineUploader(callback){
 	if (!$.fn.fineuploader){
 		$.getScript('../plugins/fineuploader/jquery.fineuploader-5.0.5.min.js', callback);
@@ -170,7 +170,7 @@ function LoadXChartScript(callback){
 //
 //  Dynamically load Flot plugin
 //  homepage: http://www.flotcharts.org  v0.8.2 license- MIT
-// 차트종류 플롯차트
+// 차트종류 �롯차트
 function LoadFlotScripts(callback){
 	function LoadFlotScript(){
 		$.getScript('../plugins/flot/jquery.flot.js', LoadFlotResizeScript);
@@ -194,7 +194,7 @@ function LoadFlotScripts(callback){
 //  Dynamically load Morris Charts plugin
 //  homepage: http://www.oesmith.co.uk/morris.js/ v0.4.3 License - MIT
 //  require Raphael http://raphael.js
-// 차트종류 모리스 차트
+// 차트종류 모리차트
 function LoadMorrisScripts(callback){
 	function LoadMorrisScript(){
 		if(!$.fn.Morris){
@@ -1034,7 +1034,7 @@ function LoadAjaxContent(url){
 				  if (response.address != null) {
 					LoadAjaxContent(response.address);
 				  } else {
-					  alert("Error : 리다이렉트 Response가 주소(address)를 가지고 있지 않습니다!");
+					  alert("Error : 리다�렉Response가 주소(address)�가지곈� �습�다!");
 				  }
 				}
 			} catch (e) {
@@ -1052,7 +1052,7 @@ function LoadAjaxContent(url){
 }
 
 //
-// 위드 파라미터.
+// �드 �라미터.
 //
 function LoadAjaxContentByForm(form, method){
 $('.preloader').show();
@@ -1078,7 +1078,7 @@ $.ajax({
 			  if (response.address != null) {
 				LoadAjaxContent(response.address);
 			  } else {
-				  alert("Error : 리다이렉트 Response가 주소(address)를 가지고 있지 않습니다!");
+				  alert("Error : 리다�렉Response가 주소(address)�가지곈� �습�다!");
 			  }
 			}
 		} catch (e) {
@@ -1782,7 +1782,7 @@ function DrawCoinDeskFlot(){
 				position: "right",
 				alignTicksWithAxis: 1,
 				tickFormatter: function (value, axis) {
-					return value.toFixed(axis.tickDecimals) + "€";
+					return value.toFixed(axis.tickDecimals) + ";
 				}
 			}
 		],
