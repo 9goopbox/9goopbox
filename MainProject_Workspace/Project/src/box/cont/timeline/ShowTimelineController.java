@@ -24,6 +24,7 @@ public class ShowTimelineController {
 	public ModelAndView showTimeline(TimelineVO tvo) {
 		ModelAndView mav = new ModelAndView("timeline/timeline_article_post");
 		System.out.println(tvo.getCont());
+		tvo.setWriter_id();
 		tdao.addTimeline(tvo);
 		System.out.println("../timeline_article_post?id=" + tvo.getArt_id());
 		mav.addObject("../timeline_article_post?id=" + tvo.getArt_id());
