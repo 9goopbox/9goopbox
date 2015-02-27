@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="time">
+	<select id="getid" resultType="empvo" parameterType="String">
+		select
+		*
+		from (select id,password from employee) emp, (select
+		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
+		where emp.id = art.writer_id and emp.id=#{id}
+	</select>
+
+
+	<select id="getdate" resultType="empvo" parameterType="String">
+		select
+		*
+		from (select id,password from employee) emp, (select
+		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
+		where emp.id = art.writer_id and art.updated=#{id}
+	</select>
+</mapper>

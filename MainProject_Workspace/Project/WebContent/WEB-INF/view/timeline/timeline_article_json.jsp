@@ -3,20 +3,22 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 {
-	"articles" :
-	[
- 		"user": {
- 			"id":"employee.id",
- 			"name" : "emplyoee.name",
- 			"date" : "article.date",
- 		},
- 		"article": {
-			"cont":"cont"
- 			"resp":
- 		}
- 		"media": {
- 
- 		}
-  ],
-  		"count" : 글갯수 
- }
+ 	"articles" :
+  	[ {
+  		"user": {
+  			"id":"article.writer_id",
+  			"name" : "emplyoee.name (조인으로 찾은 직원 이름값)",
+  		},
+  		"article": {
+  			"cont" : "article.cont",
+ 			"date" : "article.updated",
+  			"kind" : "article.kind",
+  			"ref_id" : "article.ref_id",
+ 			"head_id" : "article.head_id",
+  			"attach_id" : "article.attach_id"
+  		},
+  		"tag" : ["tag1", "tag2", "tag3"]
+  	  }, (이렇게 생긴 객체가 여러개)
+   ],
+   "count" : 보내준 글 갯수 
+  }

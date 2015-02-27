@@ -28,7 +28,7 @@ function tlInsert(parent_obj) {
  * 		},
  * 		"article": {
  * 			"cont" : "article.cont",
- * 			"date" : "article.date",
+ * 			"date" : "article.updated",
  * 			"kind" : "article.kind",
  * 			"ref_id" : "article.ref_id",
  * 			"head_id" : "article.head_id",
@@ -40,7 +40,7 @@ function tlInsert(parent_obj) {
  *  "count" : 보내준 글 갯수 
  * }
  */
-
+(select cont,date,kind,ref_id,head_id,attach_id from department)
 /**
  * 
  * @param artDat

@@ -1212,7 +1212,8 @@ CREATE TABLE article (
 	kind VARCHAR2(30), /* 종류 */
 	ref_id INTEGER, /* 답글대상 */
 	head_id INTEGER, /* 글타래 머릿글 번호 */
-	attach_id INTEGER /* 첨부 ID */
+	attach_id INTEGER, /* 첨부 ID */
+	updated DATE NOT NULL /* 게시시간 */
 );
 
 COMMENT ON TABLE article IS '게시글';
@@ -1230,6 +1231,8 @@ COMMENT ON COLUMN article.ref_id IS '답글대상';
 COMMENT ON COLUMN article.head_id IS '연관글은 항상 첫 글을 가리켜야 함';
 
 COMMENT ON COLUMN article.attach_id IS '첨부 ID';
+
+COMMENT ON COLUMN article.updated IS '게시시간';
 
 CREATE UNIQUE INDEX PK_article
 	ON article (
