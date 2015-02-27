@@ -1,4 +1,6 @@
-﻿package box.cont.join;
+﻿﻿package box.cont.join;
+
+package box.cont.notaop.join;
 
 import java.io.IOException;
 import java.io.PrintWriter;

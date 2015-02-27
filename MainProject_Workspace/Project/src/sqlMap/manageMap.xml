@@ -41,8 +41,107 @@
 		from (
 		select a.*, rownum as r_num from
 		(
-		select emp.name name,
+		select emp.name name, emp.id id,
 		emp.position position, emp.tel tel, dept.name
+		dept_name
+		from employee
+		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
+
+		<if test="searchType != null">
+
+			
+				<choose>
+					<when test="searchType == 1">
+						and emp.name LIKE '%'||#{searchValue}||'%'
+					</when>
+					<when test="searchType == 2">
+						and emp.position LIKE '%'||#{searchValue}||'%'
+					</when>
+					<when test="searchType == 3">
+						and dept.name LIKE '%'||#{searchValue}||'%'
+					</when>
+					
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+
+		) a
+		)
+		where r_num between #{begin} and #{end}
+
+
+
+	</select>
+<!-- 	<select id="getlist2search" resultType="empvo" parameterType="searchVO"> -->
+		
+<!-- 		select -->
+<!-- 		* -->
+<!-- 		from ( -->
+<!-- 		select a.*, rownum as r_num from -->
+<!-- 		( -->
+<!-- 		select emp.name name, -->
+<!-- 		emp.position position, emp.tel tel, dept.name -->
+<!-- 		dept_name -->
+<!-- 		from employee -->
+<!-- 		emp, (select name, id from department) dept -->
+<!-- 		where emp.dept_id = dept.id -->
+
+<!-- 		<if test="searchType != null"> -->
+<!-- 				<choose> -->
+<!-- 					<when test="searchType == 1"> -->
+<!-- 						and emp.id LIKE '%'||#{searchValue}||'%' -->
+<!-- 					</when> -->
+<!-- 					<otherwise> -->
+
+<!-- 					</otherwise> -->
+<!-- 				</choose> -->
+<!-- 		</if> -->
+
+<!-- 		) a -->
+<!-- 		) -->
+<!-- 		where r_num between #{begin} and #{end} -->
+<!-- 	</select> -->
+<select id="getlist2search" resultType="empvo" parameterType="searchVO">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,emp.id id,
+		emp.position position, emp.tel tel, emp.address address,emp.email email,
+		 dept.name dept_name
+		from employee
+		emp, (select name, id from department) dept
+		where emp.dept_id = dept.id
+
+		<if test="searchType != null">
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+
+		) a
+		)
+		where r_num between #{begin} and #{end}
+	</select>
+	<select id="getretirelistsearch" resultType="empvo" parameterType="searchVO">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.name name,emp.id id,
+		emp.position position, emp.tel tel, emp.bye bye, dept.name
 		dept_name
 		from employee
 		emp, (select name, id from department) dept
@@ -74,15 +173,16 @@
 
 
 	</select>
-	<select id="getretirelistsearch" resultType="empvo" parameterType="searchVO">
+	<select id="getretirelist2search" resultType="empvo" parameterType="searchVO">
 		
 		select
 		*
 		from (
 		select a.*, rownum as r_num from
 		(
-		select emp.name name,
-		emp.position position, emp.tel tel, emp.bye bye, dept.name
+		select emp.name name,emp.id id,
+	    emp.address address,emp.email email,
+		emp.position position, emp.tel tel,emp.bye come, emp.bye bye, dept.name
 		dept_name
 		from employee
 		emp, (select name, id from department) dept
@@ -93,13 +193,7 @@
 			
 				<choose>
 					<when test="searchType == 1">
-						and emp.name LIKE '%'||#{searchValue}||'%'
-					</when>
-					<when test="searchType == 2">
-						and emp.position LIKE '%'||#{searchValue}||'%'
-					</when>
-					<when test="searchType == 3">
-						and dept.name LIKE '%'||#{searchValue}||'%'
+						and emp.id LIKE '%'||#{searchValue}||'%'
 					</when>
 					<otherwise>
 
@@ -111,6 +205,50 @@
 		)
 		where r_num between #{begin} and #{end}
 
+
+
+	</select>
+	
+	<select id="getid" resultType="empvo" parameterType="String">
+	
+			
+   			 select
+				*
+			from employee emp, (select name dept_name, id from department) dept
+   			 where emp.dept_id = dept.id and emp.id= #{id}
+
+
+	</select>
+	
+	<select id="getpaylistsearch" resultType="empvo" parameterType="searchvo">
+		
+		select
+		*
+		from (
+		select a.*, rownum as r_num from
+		(
+		select emp.id id,emp.name name,
+		emp.position position, emp.tel tel, emp.bye bye,emp.come come, dept.name
+		dept_name ,  pay.payday payday, pay.sort sort , pay.fix fix
+		from employee
+		emp, (select name, id from department) dept, payment pay
+		where emp.dept_id = dept.id and emp.id = pay.id
+
+		<if test="searchType != null">
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+
+		) 
+		a
+		)
+		where r_num between #{begin} and #{end}
 
 
 	</select>
@@ -163,6 +301,22 @@
 	<select id="cnt" resultType="int">
 		select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
 	</select>
+	
+	<select id="cnt2" resultType="int">
+		select count(*) cnt from employee em, department de where em.DEPT_ID = de.ID
+		<if test="searchType != null">
+				<choose>
+					<when test="searchType == 1">
+						and emp.id LIKE '%'||#{searchValue}||'%'
+					</when>
+					<otherwise>
+
+					</otherwise>
+				</choose>
+		</if>
+		
+	</select>
+
 
 	<!-- <select id="iew" parameterType="int" resultType="empvo"> -->
 	<!-- select * from employee em, department de where em.DEPT_ID = de.ID and 

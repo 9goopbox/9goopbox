@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="time">
+	<select id="getid" resultType="timelinevo" parameterType="timelinevo">
+		select
+		*
+		from (select id,name,PROFILE_IMG from employee) emp, (select id art_id,
+		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art
+		where emp.id = art.writer_id and emp.id=#{id} and art.updated >= #{updated}
+	</select>
+
+
+<!-- 	<select id="getdate" resultType="timelinevo" parameterType="String"> -->
+<!-- 		select -->
+<!-- 		* -->
+<!-- 		from (select id,name from employee) emp, (select id art_id, -->
+<!-- 		writer_id,cont,updated,kind,ref_id,head_id,attach_id from article) art -->
+<!-- 		where emp.id = art.writer_id and art.updated=#{date} -->
+<!-- 	</select> -->
+	<insert id="timelineadd" parameterType="timelinevo">
+		insert into article
+	values(article_sequence.nextVal,
+	#{writer_id},#{cont},null,
+	null,null,null, sysdate
+	)
+		<!-- 파라미터로 환자 번호를 받아서 처리 -->
+	</insert>
+</mapper>

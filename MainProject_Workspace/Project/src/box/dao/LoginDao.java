@@ -16,6 +16,9 @@ public class LoginDao {
 		return ss.selectOne("login.loginok", vo);
 	}
 	
+	public String login2(EmployeeVO vo) {
+		return ss.selectOne("login.login", vo);
+	}
 	public int seldoctor(EmployeeVO vo) {
 		return ss.selectOne("login.seldoctor", vo);
 	}

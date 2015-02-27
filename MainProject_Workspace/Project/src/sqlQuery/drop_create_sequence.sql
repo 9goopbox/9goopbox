@@ -1,4 +1,4 @@
--- 의사시퀀스
+﻿-- 의사시퀀스
 drop sequence doctor_sequence;
 -- 병동환자시퀀스
 drop sequence ward_patient_sequence;
@@ -56,7 +56,15 @@ drop sequence upfile_sequence;
 drop sequence attach_target_sequence;
 -- 간호사시퀀스
 drop sequence nurse_sequence;
+<<<<<<< HEAD
 -- 의사시퀀스
+
+-- ���޽�����
+drop sequence payment_sequence;
+-- ���Ѻ��������
+drop sequence look_sequence;
+-- �ǻ������
+
 create sequence doctor_sequence
 start with 1
 increment by 1;
@@ -198,6 +206,16 @@ increment by 1;
 
 -- 간호사시퀀스
 create sequence nurse_sequence
+start with 1
+increment by 1;
+
+-- ���޽�����
+create sequence payment_sequence
+start with 1
+increment by 1;
+
+-- ���Ѻ��������
+create sequence look_sequence
 start with 1
 increment by 1;
 

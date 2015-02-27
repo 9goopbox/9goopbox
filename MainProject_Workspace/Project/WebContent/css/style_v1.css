@@ -2012,6 +2012,8 @@ ul.DTTT_dropdown.dropdown-menu > li:hover > a {
 .likebox .fa-thumbs-down {
   color:#D15E5E;
 }
+.likebox .navbar-nav a {padding:0;}
+.likebox .navbar-nav a i {margin-right:0.5em;}
 #modalbox {
   display:none;
   position: fixed;

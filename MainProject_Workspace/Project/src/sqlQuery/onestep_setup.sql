@@ -1,4 +1,65 @@
+﻿
 -- 의사시퀀스
+
+ALTER TABLE payment
+	DROP
+		CONSTRAINT FK_employee_TO_payment
+		CASCADE;
+
+ALTER TABLE payment
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
+DROP INDEX PK_payment;
+
+/* 지급 */
+DROP TABLE payment 
+	CASCADE CONSTRAINTS;
+
+/* 지급 */
+CREATE TABLE payment (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	payday DATE, /* 지급일 */
+	sort VARCHAR2(20) NOT NULL, /* 구분 */
+	fix VARCHAR2(20) NOT NULL /* 확정여부 */
+);
+
+COMMENT ON TABLE payment IS '지급';
+
+COMMENT ON COLUMN payment.id IS '직원 ID';
+
+COMMENT ON COLUMN payment.payday IS '지급일';
+
+COMMENT ON COLUMN payment.sort IS '구분';
+
+COMMENT ON COLUMN payment.fix IS '확정여부';
+
+CREATE UNIQUE INDEX PK_payment
+	ON payment (
+		id ASC
+	);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT PK_payment
+		PRIMARY KEY (
+			id
+		);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT FK_employee_TO_payment
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+-- �ǻ������
+
 drop sequence doctor_sequence;
 -- 병동환자시퀀스
 drop sequence ward_patient_sequence;
@@ -56,7 +117,15 @@ drop sequence upfile_sequence;
 drop sequence attach_target_sequence;
 -- 간호사시퀀스
 drop sequence nurse_sequence;
+
 -- 의사시퀀스
+
+-- ���޽�����
+drop sequence payment_sequence;
+-- ���Ѻ��������
+drop sequence look_sequence;
+-- �ǻ������
+
 create sequence doctor_sequence
 start with 1
 increment by 1;
@@ -201,6 +270,16 @@ create sequence nurse_sequence
 start with 1
 increment by 1;
 
+
+-- ���޽�����
+create sequence payment_sequence
+start with 1
+increment by 1;
+
+-- ���Ѻ��������
+create sequence look_sequence
+start with 1
+increment by 1;
 
 
 ALTER TABLE doctor
@@ -418,6 +497,21 @@ ALTER TABLE nurse
 		CONSTRAINT FK_employee_TO_nurse
 		CASCADE;
 
+ALTER TABLE payment
+	DROP
+		CONSTRAINT FK_employee_TO_payment
+		CASCADE;
+
+ALTER TABLE look
+	DROP
+		CONSTRAINT FK_employee_TO_look
+		CASCADE;
+
+ALTER TABLE look
+	DROP
+		CONSTRAINT FK_employee_TO_look2
+		CASCADE;
+
 ALTER TABLE chart
 	DROP
 		CONSTRAINT CK_chart
@@ -615,6 +709,18 @@ ALTER TABLE nurse
 		CASCADE
 		KEEP INDEX;
 
+ALTER TABLE payment
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
+ALTER TABLE look
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
 DROP INDEX UIX_employee_email;
 
 DROP INDEX PK_doctor;
@@ -674,6 +780,10 @@ DROP INDEX PK_upfile;
 DROP INDEX PK_attach_target;
 
 DROP INDEX PK_nurse;
+
+DROP INDEX PK_payment;
+
+DROP INDEX PK_look;
 
 /* 의사 */
 DROP TABLE doctor 
@@ -790,8 +900,14 @@ DROP TABLE attach_target
 /* 간호사 */
 DROP TABLE nurse 
 	CASCADE CONSTRAINTS;
-	
-	
+
+/* 지급 */
+DROP TABLE payment 
+	CASCADE CONSTRAINTS;
+
+/* 지켜보기 */
+DROP TABLE look 
+	CASCADE CONSTRAINTS;
 	
 /* 의사 */
 CREATE TABLE doctor (
@@ -981,7 +1097,14 @@ CREATE TABLE employee (
 	dept_id INTEGER, /* 부서ID */
 	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
+
 	email VARCHAR2(40) NOT NULL /* 이메일 */
+
+	email VARCHAR2(40) NOT NULL, /* 이메일 */
+	come DATE, /* 입사일 */
+	bye DATE, /* 퇴사일 */
+	PROFILE_IMG VARCHAR2(256) /* 프로필사진 */
+
 );
 
 COMMENT ON TABLE employee IS '직원';
@@ -1005,6 +1128,15 @@ COMMENT ON COLUMN employee.pos_id IS '직급ID';
 COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
+
+
+
+COMMENT ON COLUMN employee.come IS '입사일';
+
+COMMENT ON COLUMN employee.bye IS '퇴사일';
+
+COMMENT ON COLUMN employee.PROFILE_IMG IS '프로필사진';
+
 
 CREATE UNIQUE INDEX PK_employee
 	ON employee (
@@ -1128,7 +1260,8 @@ CREATE TABLE approval (
 	kind VARCHAR2(20) NOT NULL, /* 결재종류 */
 	state VARCHAR2(15), /* 결재상태 */
 	cont CLOB, /* 요청내용 */
-	attach_id INTEGER /* 첨부 ID */
+	attach_id INTEGER, /* 첨부 ID */
+	title VARCHAR2(100) NOT NULL /* 결제제목 */
 );
 
 COMMENT ON TABLE approval IS '전자결재';
@@ -1144,6 +1277,8 @@ COMMENT ON COLUMN approval.state IS '결재상태';
 COMMENT ON COLUMN approval.cont IS '요청내용';
 
 COMMENT ON COLUMN approval.attach_id IS '첨부 ID';
+
+COMMENT ON COLUMN approval.title IS '결제제목';
 
 CREATE UNIQUE INDEX PK_approval
 	ON approval (
@@ -1215,7 +1350,8 @@ CREATE TABLE article (
 	kind VARCHAR2(30), /* 종류 */
 	ref_id INTEGER, /* 답글대상 */
 	head_id INTEGER, /* 글타래 머릿글 번호 */
-	attach_id INTEGER /* 첨부 ID */
+	attach_id INTEGER, /* 첨부 ID */
+	updated DATE NOT NULL /* 게시시간 */
 );
 
 COMMENT ON TABLE article IS '게시글';
@@ -1233,6 +1369,8 @@ COMMENT ON COLUMN article.ref_id IS '답글대상';
 COMMENT ON COLUMN article.head_id IS '연관글은 항상 첫 글을 가리켜야 함';
 
 COMMENT ON COLUMN article.attach_id IS '첨부 ID';
+
+COMMENT ON COLUMN article.updated IS '게시시간';
 
 CREATE UNIQUE INDEX PK_article
 	ON article (
@@ -1275,65 +1413,65 @@ ALTER TABLE position
 
 /* 글 태그 */
 CREATE TABLE article_tag (
-	id INTEGER NOT NULL, /* 글번호 */
-	tag_id INTEGER NOT NULL, /* 태그ID */
-	id2 VARCHAR2(20) NOT NULL, /* 직원 ID */
+	article_id INTEGER NOT NULL, /* 글번호 */
+	id INTEGER NOT NULL, /* 태그ID */
+	emp_id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	user_id VARCHAR2(20) NOT NULL /* 사용자 ID */
 );
 
 COMMENT ON TABLE article_tag IS '글 태그';
 
-COMMENT ON COLUMN article_tag.id IS '글번호';
+COMMENT ON COLUMN article_tag.article_id IS '글번호';
 
-COMMENT ON COLUMN article_tag.tag_id IS '태그ID';
+COMMENT ON COLUMN article_tag.id IS '태그ID';
 
-COMMENT ON COLUMN article_tag.id2 IS '직원 ID';
+COMMENT ON COLUMN article_tag.emp_id IS '직원 ID';
 
 COMMENT ON COLUMN article_tag.user_id IS '사용자 ID';
 
 CREATE UNIQUE INDEX PK_article_tag
 	ON article_tag (
+		article_id ASC,
 		id ASC,
-		tag_id ASC,
-		id2 ASC
+		emp_id ASC
 	);
 
 ALTER TABLE article_tag
 	ADD
 		CONSTRAINT PK_article_tag
 		PRIMARY KEY (
+			article_id,
 			id,
-			tag_id,
-			id2
+			emp_id
 		);
 
 /* 태그 */
 CREATE TABLE tag (
-	tag_id INTEGER NOT NULL, /* 태그ID */
-	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	id INTEGER NOT NULL, /* 태그ID */
+	emp_id VARCHAR2(20) NOT NULL, /* 직원 ID */
 	tag_name VARCHAR2(30) /* 태그이름 */
 );
 
 COMMENT ON TABLE tag IS '태그';
 
-COMMENT ON COLUMN tag.tag_id IS '태그ID';
+COMMENT ON COLUMN tag.id IS '태그ID';
 
-COMMENT ON COLUMN tag.id IS '직원 ID';
+COMMENT ON COLUMN tag.emp_id IS '직원 ID';
 
 COMMENT ON COLUMN tag.tag_name IS '태그이름';
 
 CREATE UNIQUE INDEX PK_tag
 	ON tag (
-		tag_id ASC,
-		id ASC
+		id ASC,
+		emp_id ASC
 	);
 
 ALTER TABLE tag
 	ADD
 		CONSTRAINT PK_tag
 		PRIMARY KEY (
-			tag_id,
-			id
+			id,
+			emp_id
 		);
 
 /* 질! 병! */
@@ -1735,6 +1873,62 @@ ALTER TABLE nurse
 			id
 		);
 
+/* 지급 */
+CREATE TABLE payment (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	payday DATE, /* 지급일 */
+	sort VARCHAR2(20) NOT NULL, /* 구분 */
+	fix VARCHAR2(20) NOT NULL /* 확정여부 */
+);
+
+COMMENT ON TABLE payment IS '지급';
+
+COMMENT ON COLUMN payment.id IS '직원 ID';
+
+COMMENT ON COLUMN payment.payday IS '지급일';
+
+COMMENT ON COLUMN payment.sort IS '구분';
+
+COMMENT ON COLUMN payment.fix IS '확정여부';
+
+CREATE UNIQUE INDEX PK_payment
+	ON payment (
+		id ASC
+	);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT PK_payment
+		PRIMARY KEY (
+			id
+		);
+
+/* 지켜보기 */
+CREATE TABLE look (
+	id VARCHAR2(20) NOT NULL, /* 직원 ID */
+	look_id VARCHAR2(20) NOT NULL /* 지켜보는 직원 ID */
+);
+
+COMMENT ON TABLE look IS '지켜보기';
+
+COMMENT ON COLUMN look.id IS '직원 ID';
+
+COMMENT ON COLUMN look.look_id IS '지켜보는 직원 ID';
+
+CREATE UNIQUE INDEX PK_look
+	ON look (
+		id ASC,
+		look_id ASC
+	);
+
+ALTER TABLE look
+	ADD
+		CONSTRAINT PK_look
+		PRIMARY KEY (
+			id,
+			look_id
+		);
+
 ALTER TABLE doctor
 	ADD
 		CONSTRAINT FK_employee_TO_doctor
@@ -1979,7 +2173,7 @@ ALTER TABLE article_tag
 	ADD
 		CONSTRAINT FK_article_TO_article_tag
 		FOREIGN KEY (
-			id
+			article_id
 		)
 		REFERENCES article (
 			id
@@ -1999,19 +2193,19 @@ ALTER TABLE article_tag
 	ADD
 		CONSTRAINT FK_tag_TO_article_tag
 		FOREIGN KEY (
-			tag_id,
-			id2
+			id,
+			emp_id
 		)
 		REFERENCES tag (
-			tag_id,
-			id
+			id,
+			emp_id
 		);
 
 ALTER TABLE tag
 	ADD
 		CONSTRAINT FK_employee_TO_tag
 		FOREIGN KEY (
-			id
+			emp_id
 		)
 		REFERENCES employee (
 			id
@@ -2162,6 +2356,36 @@ ALTER TABLE nurse
 		CONSTRAINT FK_employee_TO_nurse
 		FOREIGN KEY (
 			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+ALTER TABLE payment
+	ADD
+		CONSTRAINT FK_employee_TO_payment
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+ALTER TABLE look
+	ADD
+		CONSTRAINT FK_employee_TO_look
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES employee (
+			id
+		);
+
+ALTER TABLE look
+	ADD
+		CONSTRAINT FK_employee_TO_look2
+		FOREIGN KEY (
+			look_id
 		)
 		REFERENCES employee (
 			id
