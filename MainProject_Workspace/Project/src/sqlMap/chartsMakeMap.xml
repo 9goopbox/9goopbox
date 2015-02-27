@@ -79,4 +79,15 @@
 		  #{attach_id, jdbcType=INTEGER}
 		)
 	</insert>
+		<insert id="updateChart" parameterType="chartvo">
+		update chart
+		set
+		  sub = #{sub},
+		  disease = #{disease},
+		  cont = #{cont, jdbcType=CLOB},
+		  cost = #{cost},
+		  attach_id = #{attach_id, jdbcType=INTEGER}
+		where
+			id = #{id}
+	</insert>
 </mapper>

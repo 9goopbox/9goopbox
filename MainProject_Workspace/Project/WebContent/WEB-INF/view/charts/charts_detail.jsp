@@ -5,9 +5,9 @@
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
-			<li><a href="user_page.html">TorchBox</a></li>
+			<li><a href="user_page.html">9급박스</a></li>
 			<li><a href="#">전자차트</a></li>
-			<li><a href="#">차트작성</a></li>
+			<li><a class="ajax-link" href="../charts_detail.box?id=${cvo.id}">차트상세보기</a></li>
 		</ol>
 	</div>
 </div>
@@ -109,7 +109,7 @@
 					</div>
 					<div class="col-xs-12 col-md-6">
 						<form method="post" action="../charts_remove.box"  onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
-							<input type="hidden" name="id" value="${cvo.id }" /> <input
+							<input type="hidden" name="id" value="${cvo.id }" /> <input type="submit"
 								class="btn btn-block btn-default" value="삭제" />
 						</form>
 					</div>

@@ -83,4 +83,9 @@
 		from chart
 		where chart.id = #{id}
 	</select>
+	<delete id="removebyid" parameterType="int">
+		delete
+		from chart
+		where chart.id = #{id}
+	</delete>
 </mapper>

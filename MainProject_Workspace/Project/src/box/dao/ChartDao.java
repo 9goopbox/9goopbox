@@ -29,4 +29,10 @@ public class ChartDao {
 	public ChartVO getChartById(Integer id) {
 		return ss.selectOne("charts.byid", id);
 	}
+
+	public int removeById(int id) {
+		return ss.delete("charts.removebyid", id);		
+	}
+	
+	
 }
