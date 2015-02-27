@@ -6,8 +6,9 @@
 		<a href="#" class="show-sidebar"> <i class="fa fa-bars"></i>
 		</a>
 		<ol class="breadcrumb pull-left">
-			<li><a href="#">인사 관리</a></li>
-			<li><a href="#">급여 관리</a></li>
+			<li><a href="#">Dashboard</a></li>
+			<li><a href="#">인사관리</a></li>
+			<li><a href="#">급여관리</a></li>
 		</ol>
 	</div>
 </div>
@@ -51,7 +52,7 @@
 			<!-- 			</div> -->
 			<!-- 			//////////////////////////////////////////////////////////////////////////////// -->
 			<div class="box-content no-padding">
-				<h3>급여</h3>
+				<h3 class="lead">급여</h3>
 
 				<table
 					class="table table-bordered table-striped table-hover table-heading table-datatable"
