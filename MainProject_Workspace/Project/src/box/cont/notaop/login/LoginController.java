@@ -21,12 +21,6 @@ public class LoginController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		// 임시
-		if (true) {
-			mav.setViewName("redirect:/user_page.box");
-			return mav;
-		}
-		
 		int res = dao.login(vo);
 		System.out.println("login:"+res);
 		if(res>0) {

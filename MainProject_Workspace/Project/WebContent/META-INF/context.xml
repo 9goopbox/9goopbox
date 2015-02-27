@@ -5,7 +5,7 @@
 	auth="Container"
 	driverClassName="oracle.jdbc.OracleDriver"
 	factory="org.apache.commons.dbcp.BasicDataSourceFactory"
-	url="jdbc:oracle:thin:@localhost:1521:system"
+	url="jdbc:oracle:thin:@localhost:1521:xe"
 	username="myora"
 	password="test09"
 	maxActive="20"
