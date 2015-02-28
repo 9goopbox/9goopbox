@@ -20,19 +20,4 @@
 		values(treatment_sequence.nextVal ,#{patient_id}, 0, null, '초진',
 		#{med_trtmt})
 	</insert>
-
-<!-- 재진************************************************************************** -->
-	<insert id="recok2" parameterType="recvo">
-		insert into treatment values(treatment_sequence.nextVal, #{patient_id}, 0, null, '재진', #{med_trtmt})
-	</insert>
-
-	<insert id="patiok2" parameterType="recvo">
-		<!-- useGeneratedKeys="true" keyProperty="patient_id"> -->
-		<selectKey keyProperty="patient_id" resultType="recvo">
-			select Patient_sequence.nextVal as patient_id from dual
-		</selectKey>
-		insert into patient values(Patient_sequence.nextVAL, #{name}, #{age}, #{sex}, null, null, null, null, null)
-	</insert>
-
-	
 </mapper>

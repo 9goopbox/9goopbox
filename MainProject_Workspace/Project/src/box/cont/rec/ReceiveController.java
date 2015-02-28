@@ -34,29 +34,5 @@ public class ReceiveController {
 		
 		ModelAndView mav = new ModelAndView("/receive_register.box");
 		return mav;
-	}
-	
-	@RequestMapping(value="/recRegi.box", method=RequestMethod.POST)
-	public ModelAndView recRegi2(RecVO vo) {
-		System.out.println("cost_get21 : "+vo.getCost_get());
-		System.out.println("patinet name22 : " + vo.getName());
-		System.out.println("patient id23 :" + vo.getPatient_id());
-		
-		dao.addPatient(vo);
-		System.out.println("patient id25 : "+ vo.getPatient_id());
-		System.out.println("patient insert ok26");
-		
-		int pid=vo.getPatient_id();
-		vo.setPatient_id(pid-1);
-		System.out.println("pid-1 27: " + vo.getPatient_id());
-		
-		dao.addReceive(vo);
-		System.out.println("receive insert ok211");
-		
-		ModelAndView mav = new ModelAndView("/receive_register.box");
-		return mav;
-	}
-	
-	
-	
+	}		
 }

@@ -8,4 +8,77 @@
 		from patient
 		where id = #{id}
 	</select>
+	<select id="list" parameterType="searchvo" resultType="patientdisplayvo">
+	select * from 
+	(
+	  select a.*, rownum as r_num from
+	  (
+	    select 
+	      patient.id id,
+	      patient.name name,
+	      patient.age age,
+	      patient.sex sex,
+	      patient.phone phone,
+	      patient.height height,
+	      patient.insured insured,
+	      patient.familydis familydis,
+	      patient.doctor_id doctorid,
+	    from patient left outer join doctor_id
+	    on patient.doctor_ID = doctor.id and
+	    
+	    <if test="searchType != null">
+	    <if test="searchType != ''">
+	    	<choose>
+	    		<when test="searchType == 1">
+	    			and patient.name like '%'|| #{searchValue} || '%'
+	    		</when>
+	    		<when test="searchType == 2">
+					and doctor.name like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 3">
+					and doctor.id = #{searchValue}
+				</when>
+				<when test="searchType == 4">
+					and chart.disease like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 5">
+					and chart.treatment_id = #{searchValue}
+				</when>
+	    	</choose>
+    	</if>
+	    </if>
+	    order by chart.id desc
+	  ) a
+	)
+	where r_num between #{begin} and #{end}
+	</select>
+	<select id="size" resultType="int">
+		select count(*)
+		from chart
+	</select>
+	<select id="sizeSearch" resultType="int" parameterType="searchvo">
+		select count(*)
+		from chart, patient, (select doctor.id as id, employee.name as name from doctor, employee where employee.id = doctor.id) doctor
+		<where>
+			chart.patient_id = patient.id and
+			chart.doctor_id = doctor.id
+			<choose>
+				<when test="searchType == 1">
+					and patient.name like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 2">
+					and doctor.name like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 3">
+					and doctor.id = #{searchValue}
+				</when>
+				<when test="searchType == 4">
+					and chart.disease like '%'|| #{searchValue} || '%'
+				</when>
+				<when test="searchType == 5">
+					and chart.treatment_id = #{searchValue}
+				</when>
+			</choose>
+		</where>
+	</select>
 </mapper>
