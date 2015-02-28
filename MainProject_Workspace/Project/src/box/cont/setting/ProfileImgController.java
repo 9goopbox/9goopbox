@@ -42,7 +42,7 @@ public class ProfileImgController {
 		System.out.println("FileName : "+vo.getUp_profile_img());
 		
 		dao.imgUp(vo);
-		ModelAndView mav = new ModelAndView("common/settings");
+		ModelAndView mav = new ModelAndView("redirect:frame/user_page.html#../settings.box");
 		mav.addObject("imgName", vo.getUprofile_img().getOriginalFilename());
 		mav.addObject("vo", vo);
 		return mav;

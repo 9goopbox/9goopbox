@@ -21,7 +21,7 @@
 			</div>
 			<div class="box-content">
 				<form class="form-horizontal" role="form" method="post"
-					action="../imgup.box" enctype="multipart/form-data" id="imgF" onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
+					action="../imgup.box" enctype="multipart/form-data" id="imgF">
 					<div class="form-group">
 					<div class="col-sm-4">
 						<img class="img-rounded" src="../img/noimage.png" id="target"
