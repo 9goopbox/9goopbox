@@ -1,4 +1,4 @@
-﻿-- 의사시퀀스
+-- 의사시퀀스
 drop sequence doctor_sequence;
 -- 병동환자시퀀스
 drop sequence ward_patient_sequence;
@@ -22,8 +22,6 @@ drop sequence approval_sequence;
 drop sequence Patient_sequence;
 -- 게시글시퀀스
 drop sequence article_sequence;
--- 직급시퀀스
-drop sequence position_sequence;
 -- 글 태그시퀀스
 drop sequence article_tag_sequence;
 -- 태그시퀀스
@@ -56,15 +54,11 @@ drop sequence upfile_sequence;
 drop sequence attach_target_sequence;
 -- 간호사시퀀스
 drop sequence nurse_sequence;
-<<<<<<< HEAD
--- 의사시퀀스
-
--- ���޽�����
+-- 지급시퀀스
 drop sequence payment_sequence;
--- ���Ѻ��������
+-- 지켜보기시퀀스
 drop sequence look_sequence;
--- �ǻ������
-
+-- 의사시퀀스
 create sequence doctor_sequence
 start with 1
 increment by 1;
@@ -121,11 +115,6 @@ increment by 1;
 
 -- 게시글시퀀스
 create sequence article_sequence
-start with 1
-increment by 1;
-
--- 직급시퀀스
-create sequence position_sequence
 start with 1
 increment by 1;
 
@@ -209,12 +198,12 @@ create sequence nurse_sequence
 start with 1
 increment by 1;
 
--- ���޽�����
+-- 지급시퀀스
 create sequence payment_sequence
 start with 1
 increment by 1;
 
--- ���Ѻ��������
+-- 지켜보기시퀀스
 create sequence look_sequence
 start with 1
 increment by 1;

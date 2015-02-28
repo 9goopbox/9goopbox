@@ -327,11 +327,6 @@ ALTER TABLE chart
 			id
 		);
 
-ALTER TABLE chart
-	ADD
-		CONSTRAINT CK_chart
-		CHECK (<지정 되지 않음>);
-
 /* 전자결재 */
 CREATE TABLE approval (
 	requester_id VARCHAR2(20) NOT NULL, /* 결재요청자ID */

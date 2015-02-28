@@ -1,65 +1,4 @@
-﻿
 -- 의사시퀀스
-
-ALTER TABLE payment
-	DROP
-		CONSTRAINT FK_employee_TO_payment
-		CASCADE;
-
-ALTER TABLE payment
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-DROP INDEX PK_payment;
-
-/* 지급 */
-DROP TABLE payment 
-	CASCADE CONSTRAINTS;
-
-/* 지급 */
-CREATE TABLE payment (
-	id VARCHAR2(20) NOT NULL, /* 직원 ID */
-	payday DATE, /* 지급일 */
-	sort VARCHAR2(20) NOT NULL, /* 구분 */
-	fix VARCHAR2(20) NOT NULL /* 확정여부 */
-);
-
-COMMENT ON TABLE payment IS '지급';
-
-COMMENT ON COLUMN payment.id IS '직원 ID';
-
-COMMENT ON COLUMN payment.payday IS '지급일';
-
-COMMENT ON COLUMN payment.sort IS '구분';
-
-COMMENT ON COLUMN payment.fix IS '확정여부';
-
-CREATE UNIQUE INDEX PK_payment
-	ON payment (
-		id ASC
-	);
-
-ALTER TABLE payment
-	ADD
-		CONSTRAINT PK_payment
-		PRIMARY KEY (
-			id
-		);
-
-ALTER TABLE payment
-	ADD
-		CONSTRAINT FK_employee_TO_payment
-		FOREIGN KEY (
-			id
-		)
-		REFERENCES employee (
-			id
-		);
-
--- �ǻ������
-
 drop sequence doctor_sequence;
 -- 병동환자시퀀스
 drop sequence ward_patient_sequence;
@@ -83,8 +22,6 @@ drop sequence approval_sequence;
 drop sequence Patient_sequence;
 -- 게시글시퀀스
 drop sequence article_sequence;
--- 직급시퀀스
-drop sequence position_sequence;
 -- 글 태그시퀀스
 drop sequence article_tag_sequence;
 -- 태그시퀀스
@@ -117,15 +54,11 @@ drop sequence upfile_sequence;
 drop sequence attach_target_sequence;
 -- 간호사시퀀스
 drop sequence nurse_sequence;
-
--- 의사시퀀스
-
--- ���޽�����
+-- 지급시퀀스
 drop sequence payment_sequence;
--- ���Ѻ��������
+-- 지켜보기시퀀스
 drop sequence look_sequence;
--- �ǻ������
-
+-- 의사시퀀스
 create sequence doctor_sequence
 start with 1
 increment by 1;
@@ -182,11 +115,6 @@ increment by 1;
 
 -- 게시글시퀀스
 create sequence article_sequence
-start with 1
-increment by 1;
-
--- 직급시퀀스
-create sequence position_sequence
 start with 1
 increment by 1;
 
@@ -270,17 +198,15 @@ create sequence nurse_sequence
 start with 1
 increment by 1;
 
-
--- ���޽�����
+-- 지급시퀀스
 create sequence payment_sequence
 start with 1
 increment by 1;
 
--- ���Ѻ��������
+-- 지켜보기시퀀스
 create sequence look_sequence
 start with 1
 increment by 1;
-
 
 ALTER TABLE doctor
 	DROP
@@ -325,11 +251,6 @@ ALTER TABLE items
 ALTER TABLE general_employee
 	DROP
 		CONSTRAINT FK_employee_TO_general_empl
-		CASCADE;
-
-ALTER TABLE employee
-	DROP
-		CONSTRAINT FK_position_TO_employee
 		CASCADE;
 
 ALTER TABLE employee
@@ -395,11 +316,6 @@ ALTER TABLE article
 ALTER TABLE article
 	DROP
 		CONSTRAINT FK_attach_target_TO_article
-		CASCADE;
-
-ALTER TABLE position
-	DROP
-		CONSTRAINT FK_department_TO_position
 		CASCADE;
 
 ALTER TABLE article_tag
@@ -607,12 +523,6 @@ ALTER TABLE article
 		CASCADE
 		KEEP INDEX;
 
-ALTER TABLE position
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
 ALTER TABLE article_tag
 	DROP
 		PRIMARY KEY
@@ -747,8 +657,6 @@ DROP INDEX PK_Patient;
 
 DROP INDEX PK_article;
 
-DROP INDEX PK_position;
-
 DROP INDEX PK_article_tag;
 
 DROP INDEX PK_tag;
@@ -833,10 +741,6 @@ DROP TABLE Patient
 DROP TABLE article 
 	CASCADE CONSTRAINTS;
 
-/* 직급 */
-DROP TABLE position 
-	CASCADE CONSTRAINTS;
-
 /* 글 태그 */
 DROP TABLE article_tag 
 	CASCADE CONSTRAINTS;
@@ -908,6 +812,7 @@ DROP TABLE payment
 /* 지켜보기 */
 DROP TABLE look 
 	CASCADE CONSTRAINTS;
+	
 	
 /* 의사 */
 CREATE TABLE doctor (
@@ -1095,14 +1000,11 @@ CREATE TABLE employee (
 	position VARCHAR2(20), /* 직급 */
 	pay INTEGER NOT NULL, /* 급여 */
 	dept_id INTEGER, /* 부서ID */
-	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
-
 	email VARCHAR2(40) NOT NULL, /* 이메일 */
 	come DATE, /* 입사일 */
 	bye DATE, /* 퇴사일 */
 	PROFILE_IMG VARCHAR2(256) /* 프로필사진 */
-
 );
 
 COMMENT ON TABLE employee IS '직원';
@@ -1121,20 +1023,15 @@ COMMENT ON COLUMN employee.pay IS '급여';
 
 COMMENT ON COLUMN employee.dept_id IS '부서ID';
 
-COMMENT ON COLUMN employee.pos_id IS '직급ID';
-
 COMMENT ON COLUMN employee.tel IS '전화번호';
 
 COMMENT ON COLUMN employee.email IS '이메일';
-
-
 
 COMMENT ON COLUMN employee.come IS '입사일';
 
 COMMENT ON COLUMN employee.bye IS '퇴사일';
 
 COMMENT ON COLUMN employee.PROFILE_IMG IS '프로필사진';
-
 
 CREATE UNIQUE INDEX PK_employee
 	ON employee (
@@ -1245,11 +1142,6 @@ ALTER TABLE chart
 		PRIMARY KEY (
 			id
 		);
-
-ALTER TABLE chart
-	ADD
-		CONSTRAINT CK_chart
-		CHECK (<지정 되지 않음>);
 
 /* 전자결재 */
 CREATE TABLE approval (
@@ -1380,33 +1272,6 @@ ALTER TABLE article
 		CONSTRAINT PK_article
 		PRIMARY KEY (
 			id
-		);
-
-/* 직급 */
-CREATE TABLE position (
-	dept_id INTEGER NOT NULL, /* 부서ID */
-	pos_id INTEGER NOT NULL, /* 직급ID */
-	pos_name VARCHAR2(20) NOT NULL /* 직급이름 */
-);
-
-COMMENT ON TABLE position IS '직급';
-
-COMMENT ON COLUMN position.dept_id IS '부서ID';
-
-COMMENT ON COLUMN position.pos_id IS '직급ID';
-
-COMMENT ON COLUMN position.pos_name IS '직급이름';
-
-CREATE UNIQUE INDEX PK_position
-	ON position (
-		pos_id ASC
-	);
-
-ALTER TABLE position
-	ADD
-		CONSTRAINT PK_position
-		PRIMARY KEY (
-			pos_id
 		);
 
 /* 글 태그 */
@@ -1639,8 +1504,7 @@ CREATE TABLE approver (
 	appr_id INTEGER NOT NULL, /* 결재ID */
 	apprs_id VARCHAR2(20) NOT NULL, /* 결재자 ID */
 	appr_step INTEGER NOT NULL, /* 결재단계 */
-	appr_state VARCHAR2(20), /* 결재상태 */
-  appr_title VARCHAR2(100) NOT NULL /* 결재제목*/
+	appr_state VARCHAR2(20) /* 결재상태 */
 );
 
 COMMENT ON TABLE approver IS '결재자';
@@ -2019,16 +1883,6 @@ ALTER TABLE general_employee
 
 ALTER TABLE employee
 	ADD
-		CONSTRAINT FK_position_TO_employee
-		FOREIGN KEY (
-			pos_id
-		)
-		REFERENCES position (
-			pos_id
-		);
-
-ALTER TABLE employee
-	ADD
 		CONSTRAINT FK_department_TO_employee
 		FOREIGN KEY (
 			dept_id
@@ -2154,16 +2008,6 @@ ALTER TABLE article
 			attach_id
 		)
 		REFERENCES attach_target (
-			id
-		);
-
-ALTER TABLE position
-	ADD
-		CONSTRAINT FK_department_TO_position
-		FOREIGN KEY (
-			dept_id
-		)
-		REFERENCES department (
 			id
 		);
 
