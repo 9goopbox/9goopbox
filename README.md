@@ -1,5 +1,5 @@
 # 9goopbox
-[구급박스](https://github.com/9goopbox/9goopbox)는 병원용 ERP / 그룹웨어입니다. KOSOTA , SBA의 2개월간의 교육과정인 *아키텍처 기반의 자바 개발자 과정*의 교육과정중 제작되었습니다.
+[9급박스](https://github.com/9goopbox/9goopbox)는 병원용 ERP / 그룹웨어입니다. KOSOTA , SBA의 2개월간의 교육과정인 *아키텍처 기반의 자바 개발자 과정*의 교육과정중 제작되었습니다. 아직은 엔드유저가 사용할 수준이 아님에 유의하여 주십시오.
 
 ## Source
 
@@ -23,3 +23,9 @@
 1. git clone
 2. STS에서 Import → Existing Maven project
 3. 적당한 톰캣 서버를 만듭니다.
+
+eXERD 프로젝트도 유사한 방법으로 환경을 구성할 수 있습니다.
+
+## 라이센스
+
+코드의 라이센스는 따로 정해지지 않았지만, DevOOPS 테마 및 그 아래에 속해있던 각종 jQuery 플러그인 등의 라이센스는 각자의 라이센스들을 따릅니다.
