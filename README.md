@@ -11,10 +11,10 @@
 
 - 2014 3기 kosta 교육과정
 - 6조 (슬기조) 멤버들
-  - 권병희 @kqudgml 
-  - 유길상 [조장] @bongsync
-  - 이슬기 @goodsvpg
-  - 최찬휘 @softblow
+  - 권병희 [@kqudgml](https://github.com/kqudgml)
+  - 유길상 [조장] [@bongsync](https://github.com/bongsync)
+  - 이슬기 [@goodsvpg](https://github.com/goodsvpg)
+  - 최찬휘 [@softblow](https://github.com/softblow)
 
 # 개발환경의 구성
 
