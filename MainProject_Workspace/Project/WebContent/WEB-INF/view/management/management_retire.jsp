@@ -8,7 +8,7 @@
 		<ol class="breadcrumb pull-left">
 			<li><a href="#">Dashboard</a></li>
 			<li><a href="#">인사관리</a></li>
-			<li><a href="#">퇴사관리</a></li>
+			<li><a href="#">퇴직관리</a></li>
 		</ol>
 	</div>
 </div>
@@ -29,111 +29,86 @@
 			</div>
 
 			<!-- 			<input type="text" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip for name"> -->
-			<div class="img-responsive">
+			
+				<div class="row">
 
-				<!-- 				<table class="table"> -->
-				<!-- 									<img src="img/EXID-HANI.jpg" width="300" weight="530" class="table-addr-img"/> -->
-				<!-- 					<thead> -->
-				<!-- 						<tr> -->
-				<!-- 							<th>직원 이름</th> -->
-				<!-- 							<th>나이</th> -->
-				<!-- 							<th>부서</th> -->
-				<!-- 							<th>직급</th> -->
-				<!-- 							<th>상세보기</th> -->
-				<!-- 							<th>퇴사일</th> -->
-				<!-- 							<th>다운로드</th> -->
-				<!-- 						</tr> -->
-				<!-- 					</thead> -->
-				<!-- 					<tbody> -->
-				<!-- 						<tr> -->
-				<!-- 							<td>이훈</td> -->
-				<!-- 							<td>24</td> -->
-				<!-- 							<td>원무부</td> -->
-				<!-- 							<td>사원</td> -->
-				<!-- 							<td><a href="">상세보기</a></td> -->
-				<!-- 							<td>15-02-28</td> -->
-				<!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
-				<!-- 						</tr> -->
-
-				<!-- 					</tbody> -->
-				<!-- 				</table> -->
-
-				<div class="form-group">
-					<form method="post" action="../management_retire.box"
-						onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
-						<select style="float: left;" id="kind_select2" name="searchType">
-							<option></option>
-							<option value="1" ${searchType==1?'selected="selected"':''}>=이
-								름=</option>
-							<option value="2" ${searchType==2?'selected="selected"':''}>=직
-								급=</option>
-							<option value="3" ${searchType==3?'selected="selected"':''}>=부
-								서=</option>
-						</select>
-						<div style="float: left;">
-							<input class="form-control col-lg-1" type="text"
-								name="searchValue" value="${searchValue}">
-						</div>
-						<div style="float: left;">
-							<button type="submit" class="btn btn-primary btn-xs">조회</button>
-						</div>
-					</form>
+					<div class="form-group">
+						<form method="post" action="../management_retire.box"
+							onsubmit="LoadAjaxContentByForm(this,'GET') ; return false;">
+							<select style="float: left;" id="kind_select2" name="searchType">
+								<option></option>
+								<option value="1" ${searchType==1?'selected="selected"':''}>=이
+									름=</option>
+								<option value="2" ${searchType==2?'selected="selected"':''}>=직
+									급=</option>
+								<option value="3" ${searchType==3?'selected="selected"':''}>=부
+									서=</option>
+							</select>
+							<div style="float: left;">
+								<input class="form-control col-lg-1" type="text"
+									name="searchValue" value="${searchValue}">
+							</div>
+							<div style="float: left;">
+								<button type="submit" class="btn btn-primary btn-xs">조회</button>
+							</div>
+						</form>
+					</div>
 				</div>
+	
+
+
+			<div class="box-content no-padding">
+				<table
+					class="table table-bordered table-striped table-hover table-heading table-datatable"
+					id="datatable-1">
+					<thead>
+						<tr>
+							<th>직원 이름</th>
+							<th>번호</th>
+							<th>부서</th>
+							<th>직급</th>
+							<th>상세보기</th>
+							<th>퇴사일</th>
+							<!-- 						<th>다운로드</th> -->
+
+						</tr>
+					</thead>
+					<!-- 				<tbody> -->
+					<!-- 					Start: list_row -->
+					<!-- 					<tr> -->
+					<!-- 						<td>이훈</td> -->
+					<!-- 						<td>24</td> -->
+					<!-- 						<td>원무부</td> -->
+					<!-- 						<td>사원</td> -->
+					<!-- 						<td><a href="">상세보기</a></td> -->
+					<!-- 						<td>15-02-28</td> -->
+					<!-- 						<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
+					<!-- 					</tr> -->
+
+
+					<!-- 					End: list_row -->
+					<!-- 				</tbody> -->
+					<tbody>
+						<!-- Start: list_row -->
+						<c:forEach items="${manageRetireDisplayList}" var="mrdl">
+							<tr>
+								<td>${mrdl.name}</td>
+								<td>${mrdl.tel }</td>
+								<td>${mrdl.dept_name }</td>
+								<td>${mrdl.position }</td>
+								<td><a class="ajax-link"
+									href="../management_retire_detail.box?id=${mrdl.id}">상세보기</a></td>
+								<td>${mrdl.bye}</td>
+								<!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
+							</tr>
+						</c:forEach>
+						<!-- End: list_row -->
+					</tbody>
+				</table>
+				<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
 			</div>
 		</div>
-
-		<div class="box-content no-padding">
-			<table
-				class="table table-bordered table-striped table-hover table-heading table-datatable"
-				id="datatable-1">
-				<thead>
-					<tr>
-						<th>직원 이름</th>
-						<th>번호</th>
-						<th>부서</th>
-						<th>직급</th>
-						<th>상세보기</th>
-						<th>퇴사일</th>
-<!-- 						<th>다운로드</th> -->
-
-					</tr>
-				</thead>
-				<!-- 				<tbody> -->
-				<!-- 					Start: list_row -->
-				<!-- 					<tr> -->
-				<!-- 						<td>이훈</td> -->
-				<!-- 						<td>24</td> -->
-				<!-- 						<td>원무부</td> -->
-				<!-- 						<td>사원</td> -->
-				<!-- 						<td><a href="">상세보기</a></td> -->
-				<!-- 						<td>15-02-28</td> -->
-				<!-- 						<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
-				<!-- 					</tr> -->
-
-
-				<!-- 					End: list_row -->
-				<!-- 				</tbody> -->
-				<tbody>
-					<!-- Start: list_row -->
-					<c:forEach items="${manageRetireDisplayList}" var="mrdl">
-						<tr>
-							<td>${mrdl.name}</td>
-							<td>${mrdl.tel }</td>
-							<td>${mrdl.dept_name }</td>
-							<td>${mrdl.position }</td>
-							<td><a class="ajax-link"
-								href="../management_retire_detail.box?id=${mrdl.id}">상세보기</a></td>
-							<td>${mrdl.bye}</td>
-<!-- 							<td><input type="button" class="col-lg-5" value="문서내려받기"></td> -->
-						</tr>
-					</c:forEach>
-					<!-- End: list_row -->
-				</tbody>
-			</table>
-			<jsp:include page="/WEB-INF/view/util/paging.jsp"></jsp:include>
-		</div>
 	</div>
-</div>
 </div>
 <script type="text/javascript">
 	function MakeSelect2() {

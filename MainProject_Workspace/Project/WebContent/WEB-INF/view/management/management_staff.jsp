@@ -114,6 +114,7 @@
 		$("a.ajax-link").bind("click", function(e) {
 			e.preventDefault();
 			LoadAjaxContent($(e.target).attr("href"));
+			
 		});
 		$("div.paging a").bind("click", function(e) {
 			e.preventDefault();
