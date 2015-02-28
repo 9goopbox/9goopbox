@@ -1029,7 +1029,6 @@ function LoadAjaxContent(url){
 						alert(response.alertValue);
 					}
 					if ((response.changeURL != null) && (response.changeURL != "")) {
-						
 						window.location = response.address;
 					} else
 				  if (response.address != null) {
@@ -1060,7 +1059,7 @@ $('.preloader').show();
 $.ajax({
 	mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
 	url: $(form).attr("action"),
-	type: new FormData(form),
+	type: method,
 	data: $(form).serialize(),
 	success: function(data) {
 		

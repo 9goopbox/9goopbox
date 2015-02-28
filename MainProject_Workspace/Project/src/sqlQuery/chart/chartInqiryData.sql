@@ -1,8 +1,9 @@
-﻿Delete From Chart;
+Delete From chart;
 Delete From Treatment;
+Delete From Patient;
 Delete From Doctor;
 Delete From Employee;
-Delete From Patient;
+
 Delete From Department;
 
 delete from department;
@@ -18,12 +19,12 @@ insert into patient values(1009, '오진아', 17, '여자', null, null, null, '�
 insert into patient values(2008, '김강희', 18, '그외', null, null, null, null, null);
 insert into patient values(3007, '강감진', 19, '남자', null, null, null, null, null);
 insert into patient values(4006, '유청휼', 20, '그외', null, null, null, null, null);
-insert into patient values(2,'병희', 23, '남자', '2123421', 175, null, null, null);    
-insert into patient values(3,'병희', 23, '남자', '2123421', 175, null, null, null);
-insert into patient values(4,'진형', 23, '남자', '2123421', 175, null, null, null);
-insert into patient values(5,'소연', 23, '남자', '2123421', 175, null, null, null);
-insert into patient values(6,'갈살', 23, '남자', '2123421', 175, null, null, null);
-insert into patient values(1,'병희', 23, '남자', '2123421', 175, null, null, null);
+insert into patient values(patient_sequence.nextVal,'병희', 23, '남자', '2123421', 175, null, null, null);    
+insert into patient values(patient_sequence.nextVal,'병희', 23, '남자', '2123421', 175, null, null, null);
+insert into patient values(patient_sequence.nextVal,'진형', 23, '남자', '2123421', 175, null, null, null);
+insert into patient values(patient_sequence.nextVal,'소연', 23, '남자', '2123421', 175, null, null, null);
+insert into patient values(patient_sequence.nextVal,'갈살', 23, '남자', '2123421', 175, null, null, null);
+insert into patient values(patient_sequence.nextVal,'병희', 23, '남자', '2123421', 175, null, null, null);
 select * from patient;
 
 delete from employee;
@@ -55,8 +56,8 @@ insert into chart values(33333, null, 2008, 'gooddoc', 22, '약간 긴 진료제
 select * from chart;
 
 delete from article;
-insert into article values(article_sequence.nextVal, 'bestdoc', '이번에 들어온 애들 실력이 최고인듯', '잡담', 1, null, null,'15-02-26');
-insert into article values(article_sequence.nextVal, 'gooddoc', '나는 모르겠다', '잡담', 1, 1,null,'15-02-28');
+insert into article values(12222, 'bestdoc', '이번에 들어온 애들 실력이 최고인듯', '잡담', 1, null, null,'15-02-26');
+insert into article values(article_sequence.nextVal, 'gooddoc', '나는 모르겠다', '잡담', 1,12222,null,'15-02-28');
 
 
 select * from article;

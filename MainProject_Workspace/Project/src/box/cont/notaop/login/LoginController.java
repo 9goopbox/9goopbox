@@ -39,21 +39,22 @@ public class LoginController {
 				session.setAttribute("userid", vo.getId());
 				mav.setViewName("redirect:/nurse_page.box");
 				//mav.setViewName("redirect:/user_page.box");
-			}else if(stf>0){//스태프일 경우
+			}else /*if(stf>0)*/{//스태프일 경우
 				System.out.println("나는 스태프이다");
 				session.setAttribute("userid", vo.getId());
 				mav.setViewName("redirect:/staff_page.box");
 				//mav.setViewName("redirect:/user_page.box");
-			}else{
+				
+			}/*else{
 				//error페이지
-				mav.setViewName("login_false");
+				mav.setViewName("page/page_404");
 				//error페이지에 메시지 전달
 				mav.addObject("err_msg", "로그인 실패");
 				mav.addObject("status", "LoginError");
-			}
+			}*/
 		}else{
 			//error페이지
-			mav.setViewName("login_false");
+			mav.setViewName("page/page_404");
 			//error페이지에 메시지 전달
 			mav.addObject("err_msg", "로그인 실패");
 			mav.addObject("status", "LoginError");

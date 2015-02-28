@@ -32,7 +32,7 @@ public class ReceiveController {
 		dao.addReceive(vo);
 		System.out.println("receive insert ok11");
 		
-		ModelAndView mav = new ModelAndView("/receive_register.box");
+		ModelAndView mav = new ModelAndView("receive/receive_register");
 		return mav;
 	}		
 }

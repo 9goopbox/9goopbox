@@ -51,7 +51,7 @@
 										<form class="form-horizontal" role="form" method="post"
 											action="../electsave.box" enctype="multipart/form-data"
 											id="electF"
-											onsubmit="LoadAjaxContentByForm(this,'GET'); return false;">
+											onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
 											<div class="row">
 												<div class="col-md-6">
 													<input type="text" class="form-control" name="title"

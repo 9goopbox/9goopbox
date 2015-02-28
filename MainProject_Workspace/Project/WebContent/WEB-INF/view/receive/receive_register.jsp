@@ -44,7 +44,9 @@
 										</div>
 
 										<form class="form-horizontal" method="post"
-											action="../recRegi.box" id="recF">
+											action="../recRegi.box" id="recF"
+											 onsubmit="LoadAjaxContentByForm(this,'POST'); return false;">
+											
 											<div class="row">
 												<div class="col-md-12">
 													<input type="text" class="form-control" id="name"
