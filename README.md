@@ -1,5 +1,5 @@
 # 9goopbox
-[9급박스](https://github.com/9goopbox/9goopbox)는 병원용 ERP / 그룹웨어입니다. KOSOTA , SBA의 2개월간의 교육과정인 *아키텍처 기반의 자바 개발자 과정*의 교육과정중 제작되었습니다. 아직은 엔드유저가 사용할 수준이 아님에 유의하여 주십시오.
+[9급박스](https://github.com/9goopbox/9goopbox)는 병원용 ERP / 그룹웨어입니다. KOSTA , SBA의 2개월간의 교육과정인 [**아키텍처 / 모델 기반의 자바 개발자 과정**](cs.skuniv.ac.kr/5778)의 교육과정중 제작되었습니다. 아직은 엔드유저가 사용할 수준이 아님에 유의하여 주십시오.
 
 ## Source
 
