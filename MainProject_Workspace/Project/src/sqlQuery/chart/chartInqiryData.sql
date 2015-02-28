@@ -76,6 +76,12 @@ insert into payment values('xx', '2015-01-20', '야근수당', '미지급');
 insert into payment values('goodnur', '2015-02-23', '보너스', '미지급');
 insert into payment values('이름씨', '2015-02-28', '월급', '미지급');
 
-select * from chart;
+select * from payment;
+
+
+delete from items;
+insert into items values(111, 'bestdoc', 'gooddoc', '소독고무장갑', '소모품', 150, '2008-02-15', 8000000, null);
+insert into items values(225, 'bestdoc', 'gooddoc', '메디키트', '소모품', 350, '2010-03-15', 1500000, null);
+select * from items;
 
 commit;
