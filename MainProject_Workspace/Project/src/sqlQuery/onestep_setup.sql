@@ -1098,8 +1098,6 @@ CREATE TABLE employee (
 	pos_id INTEGER, /* 직급ID */
 	tel CHAR(13), /* 전화번호 */
 
-	email VARCHAR2(40) NOT NULL /* 이메일 */
-
 	email VARCHAR2(40) NOT NULL, /* 이메일 */
 	come DATE, /* 입사일 */
 	bye DATE, /* 퇴사일 */

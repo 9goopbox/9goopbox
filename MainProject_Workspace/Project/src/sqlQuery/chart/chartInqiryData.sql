@@ -28,6 +28,10 @@ insert into patient values(patient_sequence.nextVal,'병희', 23, '남자', '212
 select * from patient;
 
 delete from employee;
+delete from employee; --1:원장, 2:간호사, 3:스탭, null:user
+insert into employee values('sora', 'sora', '이소라', '방송국에서 삼', '원장', 2560000,1,'010-1112-5252','sora@naver.com','10-05-30',null, '1.jpg');
+insert into employee values('minchul', 'minchul', '김민철', '미용실 옆방', '간호사', 2560000,2,'010-6574-3243','minchul@naver.com','10-09-03',null, '1.jpg');
+insert into employee values('jungwoo', 'jungwoo', '윤정우', '바닷바람이 많이부는 지역', '스탭', 2560000,3,'010-4535-0252','jungwoo@naver.com','13-01-15',null, '1.jpg');
 insert into employee values('bestdoc', 'SHA256HASHLONG!', '조은의', '돌 굴러가는 지역', '원장', 2560000,1,'010-1111-1111','bestdoc@bestdoc.com','12-02-22',null, '1.jpg');
 insert into employee values('gooddoc', 'SHA256HASHLONG!', '오소리', '돌 굴러가는 지역4', '레지던트', 2560000,1,'010-2222-2222','gooddoc2@bestdoc.com','12-05-30','14-05-30', '2.jpg');
 insert into employee values('goodnur', 'SHA256HASHLONG!', '장조은', '돌 굴러가는 지역 2', '간호사', 5120000,2,'010-3333-3333','gooddoc@bestdoc.com','14-12-24',null, '3.jpg');
