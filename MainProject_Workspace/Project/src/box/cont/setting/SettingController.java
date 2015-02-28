@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +27,8 @@ public class SettingController {
 	
 	@RequestMapping(value="/pwdUpdate.box", method=RequestMethod.POST)
 	public ModelAndView pwdup(SettingEmpVO vo,
-			HttpServletRequest request, HttpServletResponse response) {
-		
+			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		vo.setId((String) session.getAttribute("userid"));
 		System.out.println("pwd : "+vo.getPassword());
 		System.out.println("pwdch : "+vo.getPasswordch());
 		System.out.println(vo.getPassword().equals(vo.getPasswordch()));
@@ -59,7 +62,8 @@ public class SettingController {
 	
 	// 프로필 변경	
 	@RequestMapping(value="/profileUpdate.box", method=RequestMethod.POST)
-	public ModelAndView profile(SettingEmpVO vo) {
+	public ModelAndView profile(SettingEmpVO vo, HttpSession session) {
+		vo.setId((String) session.getAttribute("userid"));
 		System.out.println("이름 : "+ vo.getName());
 		dao.profileUpdate(vo);
 		ModelAndView mav = new ModelAndView("redirect:/settings.box");

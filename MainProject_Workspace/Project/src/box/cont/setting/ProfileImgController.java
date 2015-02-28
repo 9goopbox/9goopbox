@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,8 @@ public class ProfileImgController {
 	private SettingDao dao;
 	
 	@RequestMapping(value="/imgup.box", method=RequestMethod.POST)
-	public ModelAndView saveImg(SettingEmpVO vo, HttpServletRequest req) {
-		
+	public ModelAndView saveImg(SettingEmpVO vo, HttpServletRequest req, HttpSession session) {
+		vo.setId((String) session.getAttribute("userid"));
 		System.out.println("vo.getUprofile_img: "+vo.getUprofile_img());
 		String path = req.getRealPath("/upload");
 		System.out.println("path : " +path);

@@ -1015,6 +1015,8 @@ function LoadSparkLineScript(callback){
 //
 function LoadAjaxContent(url){
 	$('.preloader').show();
+	for (var i = 1; i < 99999; i++)
+        window.clearInterval(i);
 	$.ajax({
 		mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
 		url: url,
