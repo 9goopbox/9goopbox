@@ -1,5 +1,8 @@
 # 9goopbox
-[9급박스](https://github.com/9goopbox/9goopbox)는 병원용 ERP / 그룹웨어입니다. KOSTA , SBA의 2개월간의 교육과정인 [**아키텍처 / 모델 기반의 자바 개발자 과정**](http://cs.skuniv.ac.kr/5778)의 교육과정중 제작되었습니다. 아직은 엔드유저가 사용할 수준이 아님에 유의하여 주십시오.
+
+**NOT FOR PRODUCTION**
+
+[9급박스](https://github.com/9goopbox/9goopbox)는 병원용 ERP / 그룹웨어입니다. KOSTA, SBA의 2개월간의 교육과정인 [**아키텍처 / 모델 기반의 자바 개발자 과정**](https://cs.skuniv.ac.kr/5769)의 교육과정중 제작되었습니다. 엔드유저가 사용할 수준이 아님에 유의하여 주십시오.
 
 ## Source
 
@@ -14,15 +17,17 @@
   - 권병희 [@kqudgml](https://github.com/kqudgml)
   - 유길상 [조장] [@bongsync](https://github.com/bongsync)
   - 이슬기 [@goodsvpg](https://github.com/goodsvpg)
-  - 최찬휘 [@softblow](https://github.com/softblow)
+  - 최찬휘 [@sftblw](https://github.com/sftblw)
 
 # 개발환경의 구성
 
 프로젝트 파일을 ignore 하지 않으므로 프로젝트를 그대로 불러올 수 있습니다.
 
 1. git clone
-2. STS에서 Import → Existing Maven project
+2. [STS](https://spring.io/tools)에서 Import → Existing Maven project
 3. 적당한 톰캣 서버를 만듭니다.
+4. 프로젝트에 서버 라이브러리를 추가합니다. [#](http://blueray21.tistory.com/58)
+5. Run On Server
 
 eXERD 프로젝트도 유사한 방법으로 환경을 구성할 수 있습니다.
 
